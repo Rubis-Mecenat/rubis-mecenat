@@ -22,3 +22,4 @@ jobs:
         forceUpload: false
         localDir: ./
         remoteDir: /vhosts/rubis-mecenat.stagingserver.fr/htdocs/
+        exclude: '.git*,.DS_Store'
