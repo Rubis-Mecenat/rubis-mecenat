@@ -21,4 +21,4 @@ jobs:
         compress: true 
         forceUpload: false
         localDir: ./
-        remoteDir: /vhosts/fpstatic.stagingserver.fr/htdocs/
+        remoteDir: /vhosts/rubis-mecenat.stagingserver.fr/htdocs/
