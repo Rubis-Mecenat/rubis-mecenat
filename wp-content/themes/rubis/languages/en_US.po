@@ -1,0 +1,2776 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Simplex 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-27 07:09+0200\n"
+"PO-Revision-Date: 2012-06-27 07:09+0200\n"
+"Last-Translator: Tee\n"
+"Language-Team: ThemeArt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: Z:\\xampp\\htdocs\\wordpress\\wp-content\\themes\\Simplex\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: blog-aside-entry.php:1
+#: blog-audio-entry.php:1
+#: blog-entry.php:1
+#: blog-gallery-entry.php:1
+#: blog-image-entry.php:1
+#: blog-link-entry.php:1
+#: blog-quote-entry.php:1
+#: blog-video-entry.php:1
+msgid "Permalink"
+msgstr ""
+
+#: blog-audio-entry.php:1
+#: blog-entry.php:1
+#: blog-gallery-entry.php:1
+#: blog-image-entry.php:1
+#: blog-video-entry.php:1
+#, php-format
+msgid "By: %s"
+msgstr ""
+
+#: blog-audio-entry.php:1
+#: blog-entry.php:1
+#: blog-gallery-entry.php:1
+#: blog-image-entry.php:1
+#: blog-video-entry.php:1
+msgid "Tagged"
+msgstr ""
+
+#: blog-audio-entry.php:1
+#: blog-entry.php:1
+#: blog-gallery-entry.php:1
+#: blog-image-entry.php:1
+#: blog-video-entry.php:1
+msgid "0 Comments"
+msgstr ""
+
+#: blog-audio-entry.php:1
+#: blog-entry.php:1
+#: blog-gallery-entry.php:1
+#: blog-image-entry.php:1
+#: blog-video-entry.php:1
+msgid "1 Comment"
+msgstr ""
+
+#: blog-audio-entry.php:1
+#: blog-entry.php:1
+#: blog-gallery-entry.php:1
+#: blog-image-entry.php:1
+#: blog-video-entry.php:1
+#, php-format
+msgid "%d Comments"
+msgstr ""
+
+#: blog-audio-entry.php:1
+#: blog-entry.php:1
+#: blog-gallery-entry.php:1
+#: blog-image-entry.php:1
+#: blog-video-entry.php:1
+msgid "Comments are off"
+msgstr ""
+
+#: blog-audio-entry.php:1
+#: blog-entry.php:1
+#: blog-gallery-entry.php:1
+#: blog-image-entry.php:1
+#: blog-link-entry.php:1
+#: blog-video-entry.php:1
+msgid "Read more..."
+msgstr ""
+
+#: blog-link-entry.php:1
+msgid "No link attached"
+msgstr ""
+
+#: comments.php:2
+msgid "Please do not load this page directly."
+msgstr ""
+
+#: comments.php:8
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:13
+#: comments.php:16
+#: comments.php:42
+msgid "Leave a Comment"
+msgstr ""
+
+#: comments.php:29
+msgid "No comments so far."
+msgstr ""
+
+#: comments.php:42
+msgid "Leave a Reply to"
+msgstr ""
+
+#: comments.php:46
+#, php-format
+msgid "You must be %1$s logged in %2$s to post a comment."
+msgstr ""
+
+#: comments.php:52
+msgid "Logged in as"
+msgstr ""
+
+#: comments.php:52
+msgid "Log out of this account"
+msgstr ""
+
+#: comments.php:52
+msgid "Log out"
+msgstr ""
+
+#: comments.php:56
+msgid "Name"
+msgstr ""
+
+#: comments.php:60
+msgid "E-mail"
+msgstr ""
+
+#: comments.php:60
+msgid "will not be published"
+msgstr ""
+
+#: comments.php:64
+msgid "Website"
+msgstr ""
+
+#: comments.php:72
+msgid "Submit Comment"
+msgstr ""
+
+#: comments.php:73
+msgid "Cancel"
+msgstr ""
+
+#: comments.php:110
+msgid "Permalink to this comment"
+msgstr ""
+
+#: comments.php:112
+msgid "at"
+msgstr ""
+
+#: comments.php:120
+#: header.php:1
+msgid "Edit"
+msgstr ""
+
+#: comments.php:124
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: functions.php:29
+msgid "Primary Menu"
+msgstr ""
+
+#: header.php:1
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: header.php:1
+msgid "Close"
+msgstr ""
+
+#: index.php:5
+msgid "Search Results"
+msgstr ""
+
+#: index.php:8
+msgid "Author Archive"
+msgstr ""
+
+#: index.php:11
+msgid "Date Archive"
+msgstr ""
+
+#: index.php:14
+msgid "Category Archive"
+msgstr ""
+
+#: index.php:17
+msgid "Tag Archive"
+msgstr ""
+
+#: index.php:31
+msgid "Next Entry"
+msgstr ""
+
+#: index.php:32
+msgid "Previous Entry"
+msgstr ""
+
+#: index.php:59
+#, php-format
+msgid "Newer Entries %s"
+msgstr ""
+
+#: index.php:62
+#, php-format
+msgid "%s Older Entries"
+msgstr ""
+
+#: portfolio-classic-1c.php:23
+#: single-portfolio.php:12
+msgid "Previous Project"
+msgstr ""
+
+#: portfolio-classic-1c.php:24
+#: single-portfolio.php:6
+msgid "Next Project"
+msgstr ""
+
+#: sidebar.php:1
+msgid "Your primary sidebar is empty."
+msgstr ""
+
+#: sidebar.php:1
+#, php-format
+msgid "Click %1$s here %2$s to start adding widgets."
+msgstr ""
+
+#: single.php:19
+msgid "Share this on Twitter"
+msgstr ""
+
+#: single.php:19
+#: core/api.php:86
+#: core/admin/theme_admin.php:358
+msgid "Twitter"
+msgstr ""
+
+#: single.php:20
+msgid "Share this on Facebook"
+msgstr ""
+
+#: single.php:20
+#: core/api.php:90
+#: core/admin/theme_admin.php:385
+msgid "Facebook"
+msgstr ""
+
+#: single.php:21
+msgid "Share this on Google Plus"
+msgstr ""
+
+#: single.php:21
+#: core/api.php:98
+#: core/admin/theme_admin.php:439
+msgid "Google Plus"
+msgstr ""
+
+#: core/api.php:28
+msgid "optional"
+msgstr ""
+
+#: core/api.php:39
+msgid "Media Library"
+msgstr ""
+
+#: core/api.php:53
+msgid "This is an announcement, you can change it or turn it off from the theme options page."
+msgstr ""
+
+#: core/api.php:79
+#, php-format
+msgid "&copy; 2012 Simplex Theme by %1$s ThemeArt %2$s"
+msgstr ""
+
+#: core/api.php:83
+msgid "Stay Connected"
+msgstr ""
+
+#: core/api.php:94
+#: core/admin/theme_admin.php:412
+msgid "YouTube"
+msgstr ""
+
+#: core/api.php:102
+#: core/admin/theme_admin.php:466
+msgid "LinkedIn"
+msgstr ""
+
+#: core/api.php:106
+#: core/admin/theme_admin.php:493
+msgid "Vimeo"
+msgstr ""
+
+#: core/api.php:110
+#: core/admin/theme_admin.php:520
+msgid "Flickr"
+msgstr ""
+
+#: core/api.php:114
+#: core/admin/theme_admin.php:547
+msgid "Dribbble"
+msgstr ""
+
+#: core/api.php:118
+#: core/admin/theme_admin.php:574
+msgid "DeviantArt"
+msgstr ""
+
+#: core/api.php:126
+msgid "Related Work"
+msgstr ""
+
+#: core/api.php:127
+msgid "These are some projects that might be related to this work."
+msgstr ""
+
+#: core/api.php:128
+#: core/metaboxes/portfolio_options.php:35
+msgid "Overview"
+msgstr ""
+
+#: core/api.php:129
+msgid "Project Details"
+msgstr ""
+
+#: core/api.php:132
+msgid "Page not Found"
+msgstr ""
+
+#: core/api.php:133
+msgid "Ooops ... it looks like the page you were looking for doesn't exist anymore or is temporarily unavailable."
+msgstr ""
+
+#: core/api.php:135
+msgid "Search"
+msgstr ""
+
+#: core/api.php:136
+msgid "Type here then click ..."
+msgstr ""
+
+#: core/api.php:157
+msgid "What's on your mind? Fill out the form below to let us know."
+msgstr ""
+
+#: core/api.php:216
+msgid "No Comments"
+msgstr ""
+
+#: core/api.php:223
+#, php-format
+msgid "Comment on %s"
+msgstr ""
+
+#: core/api.php:225
+msgid "Comments Off"
+msgstr ""
+
+#: core/api.php:244
+msgid "Prev"
+msgstr ""
+
+#: core/api.php:264
+msgid "Next"
+msgstr ""
+
+#: core/api.php:414
+msgid "1 minute ago"
+msgstr ""
+
+#: core/api.php:419
+#, php-format
+msgid "%d minutes ago"
+msgstr ""
+
+#: core/api.php:426
+msgid "1 hour ago"
+msgstr ""
+
+#: core/api.php:431
+#, php-format
+msgid "%d hours ago"
+msgstr ""
+
+#: core/api.php:438
+msgid "1 day ago"
+msgstr ""
+
+#: core/api.php:442
+#: core/api.php:444
+#, php-format
+msgid "%d days ago"
+msgstr ""
+
+#: core/api.php:443
+msgid "1 week ago"
+msgstr ""
+
+#: core/api.php:445
+msgid "1 month ago"
+msgstr ""
+
+#: core/api.php:446
+#, php-format
+msgid "About %d months ago"
+msgstr ""
+
+#: core/api.php:446
+msgid "About 1 month ago"
+msgstr ""
+
+#: core/api.php:447
+msgid "About 1 year ago"
+msgstr ""
+
+#: core/api.php:447
+#, php-format
+msgid "About %d years ago"
+msgstr ""
+
+#: core/admin/init.php:1
+#: core/admin/theme_admin.php:9
+msgid "Theme Options"
+msgstr ""
+
+#: core/admin/media_uploader.php:35
+#: core/admin/media_uploader.php:38
+msgid "Select this item"
+msgstr ""
+
+#: core/admin/media_uploader.php:36
+msgid "Return to Shortcoder"
+msgstr ""
+
+#: core/admin/theme_admin.php:14
+msgid "General"
+msgstr ""
+
+#: core/admin/theme_admin.php:15
+#: core/admin/theme_admin.php:106
+msgid "Logo"
+msgstr ""
+
+#: core/admin/theme_admin.php:16
+msgid "Nav. menu"
+msgstr ""
+
+#: core/admin/theme_admin.php:17
+msgid "Sidebars"
+msgstr ""
+
+#: core/admin/theme_admin.php:18
+msgid "Footer"
+msgstr ""
+
+#: core/admin/theme_admin.php:19
+msgid "Fonts"
+msgstr ""
+
+#: core/admin/theme_admin.php:20
+#: core/admin/theme_admin.php:734
+msgid "Skin color"
+msgstr ""
+
+#: core/admin/theme_admin.php:21
+msgid "Styles"
+msgstr ""
+
+#: core/admin/theme_admin.php:22
+msgid "Portfolio"
+msgstr ""
+
+#: core/admin/theme_admin.php:23
+#: core/admin/theme_admin.php:856
+msgid "Error 404"
+msgstr ""
+
+#: core/admin/theme_admin.php:24
+msgid "Comments"
+msgstr ""
+
+#: core/admin/theme_admin.php:25
+msgid "Announcement"
+msgstr ""
+
+#: core/admin/theme_admin.php:34
+msgid "General Options"
+msgstr ""
+
+#: core/admin/theme_admin.php:41
+msgid "Header height"
+msgstr ""
+
+#: core/admin/theme_admin.php:46
+msgid "Set height of the site header, in pixels."
+msgstr ""
+
+#: core/admin/theme_admin.php:55
+msgid "Fav icon"
+msgstr ""
+
+#: core/admin/theme_admin.php:58
+msgid "A favicon, short for 'favorite icon', is a tiny image used as your website's logo that appears at the start URL in the web browser's menu bar, at the top of tabs and on the Favorites/Bookmarks list."
+msgstr ""
+
+#: core/admin/theme_admin.php:67
+msgid "Google analytics code"
+msgstr ""
+
+#: core/admin/theme_admin.php:70
+#, php-format
+msgid "Enter your %1$s Google Analytics %2$s code here. This code will be added to every page on your site."
+msgstr ""
+
+#: core/admin/theme_admin.php:79
+msgid "Enable WordPress Texturize filter"
+msgstr ""
+
+#: core/admin/theme_admin.php:82
+#, php-format
+msgid "WordPress %1$s Texturize filter %2$s transforms quotes to smart quotes, apostrophes, dashes, ellipses, the trademark symbol, and the multiplication symbol."
+msgstr ""
+
+#: core/admin/theme_admin.php:95
+msgid "Logo Options"
+msgstr ""
+
+#: core/admin/theme_admin.php:99
+msgid "Site Logo"
+msgstr ""
+
+#: core/admin/theme_admin.php:109
+msgid "Enter the full url of the image you would like to use including <code>http://</code>."
+msgstr ""
+
+#: core/admin/theme_admin.php:118
+msgid "Logo offset x"
+msgstr ""
+
+#: core/admin/theme_admin.php:123
+msgid "Adjust the position of the logo horizontally, in pixels."
+msgstr ""
+
+#: core/admin/theme_admin.php:132
+msgid "Logo offset y"
+msgstr ""
+
+#: core/admin/theme_admin.php:137
+msgid "Adjust the position of the logo vertically, in pixels."
+msgstr ""
+
+#: core/admin/theme_admin.php:143
+msgid "Site Description"
+msgstr ""
+
+#: core/admin/theme_admin.php:150
+msgid "Show site description"
+msgstr ""
+
+#: core/admin/theme_admin.php:153
+#, php-format
+msgid "Check this option if you want to display your %1$s site description. %2$s"
+msgstr ""
+
+#: core/admin/theme_admin.php:162
+msgid "Site description offset x"
+msgstr ""
+
+#: core/admin/theme_admin.php:167
+msgid "Adjust the position of the site description horizontally, in pixels."
+msgstr ""
+
+#: core/admin/theme_admin.php:176
+msgid "Site description offset y"
+msgstr ""
+
+#: core/admin/theme_admin.php:181
+msgid "Adjust the position of the site description vertically, in pixels."
+msgstr ""
+
+#: core/admin/theme_admin.php:194
+msgid "Navigation Menu Options"
+msgstr ""
+
+#: core/admin/theme_admin.php:201
+msgid "Submenu width"
+msgstr ""
+
+#: core/admin/theme_admin.php:206
+msgid "Set width of the sub-menus, in pixels."
+msgstr ""
+
+#: core/admin/theme_admin.php:219
+msgid "Custom Sidebars"
+msgstr ""
+
+#: core/admin/theme_admin.php:224
+msgid "Sidebar name"
+msgstr ""
+
+#: core/admin/theme_admin.php:227
+msgid "Register Sidebar"
+msgstr ""
+
+#: core/admin/theme_admin.php:228
+msgid "The sidebar name can only contain: Alphabets (A-Z a-z), Numbers (0-9), Spaces, Underscores (_) and Dashes (-)."
+msgstr ""
+
+#: core/admin/theme_admin.php:233
+msgid "Registered Sidebars"
+msgstr ""
+
+#: core/admin/theme_admin.php:238
+msgid "No custom sidebars."
+msgstr ""
+
+#: core/admin/theme_admin.php:239
+msgid "You can use a registered sidebar as a custom sidebar on any post or page."
+msgstr ""
+
+#: core/admin/theme_admin.php:251
+msgid "Footer Widgets"
+msgstr ""
+
+#: core/admin/theme_admin.php:258
+msgid "Enable footer widgets"
+msgstr ""
+
+#: core/admin/theme_admin.php:266
+msgid "Footer widgets layout"
+msgstr ""
+
+#: core/admin/theme_admin.php:268
+msgid "Select a layout for the footer widgets."
+msgstr ""
+
+#: core/admin/theme_admin.php:282
+msgid "Footer Options"
+msgstr ""
+
+#: core/admin/theme_admin.php:286
+msgid "Left Side"
+msgstr ""
+
+#: core/admin/theme_admin.php:293
+msgid "Copyright text"
+msgstr ""
+
+#: core/admin/theme_admin.php:304
+msgid "Show footer navigation"
+msgstr ""
+
+#: core/admin/theme_admin.php:307
+msgid "Check this option if you want to display a navigation menu next to the copyright text."
+msgstr ""
+
+#: core/admin/theme_admin.php:313
+msgid "Footer navigation"
+msgstr ""
+
+#: core/admin/theme_admin.php:314
+msgid "Select pages to display on the footer navigation menu."
+msgstr ""
+
+#: core/admin/theme_admin.php:319
+msgid "Select a page ..."
+msgstr ""
+
+#: core/admin/theme_admin.php:330
+msgid "Right Side"
+msgstr ""
+
+#: core/admin/theme_admin.php:337
+msgid "Social links introduction text"
+msgstr ""
+
+#: core/admin/theme_admin.php:367
+#: core/admin/theme_admin.php:394
+#: core/admin/theme_admin.php:421
+#: core/admin/theme_admin.php:448
+#: core/admin/theme_admin.php:475
+#: core/admin/theme_admin.php:502
+#: core/admin/theme_admin.php:529
+#: core/admin/theme_admin.php:556
+#: core/admin/theme_admin.php:583
+#: core/shortcoder/shortcoder.php:413
+#: core/shortcoder/shortcoder.php:1159
+msgid "Title"
+msgstr ""
+
+#: core/admin/theme_admin.php:377
+#: core/admin/theme_admin.php:404
+#: core/admin/theme_admin.php:431
+#: core/admin/theme_admin.php:458
+#: core/admin/theme_admin.php:485
+#: core/admin/theme_admin.php:512
+#: core/admin/theme_admin.php:539
+#: core/admin/theme_admin.php:566
+#: core/admin/theme_admin.php:593
+#: core/shortcoder/shortcoder.php:729
+#: core/shortcoder/shortcoder.php:1144
+msgid "Link"
+msgstr ""
+
+#: core/admin/theme_admin.php:608
+msgid "Web Fonts"
+msgstr ""
+
+#: core/admin/theme_admin.php:615
+msgid "Imported web fonts"
+msgstr ""
+
+#: core/admin/theme_admin.php:619
+#, php-format
+msgid "Select the fonts you want to use from %1$s Google Web Fonts Library %2$s, then paste the code here."
+msgstr ""
+
+#: core/admin/theme_admin.php:625
+msgid "Font Size"
+msgstr ""
+
+#: core/admin/theme_admin.php:632
+msgid "General font size"
+msgstr ""
+
+#: core/admin/theme_admin.php:645
+msgid "H1 font size"
+msgstr ""
+
+#: core/admin/theme_admin.php:658
+msgid "H2 font size"
+msgstr ""
+
+#: core/admin/theme_admin.php:671
+msgid "H3 font size"
+msgstr ""
+
+#: core/admin/theme_admin.php:684
+msgid "H4 font size"
+msgstr ""
+
+#: core/admin/theme_admin.php:697
+msgid "H5 font size"
+msgstr ""
+
+#: core/admin/theme_admin.php:710
+msgid "H6 font size"
+msgstr ""
+
+#: core/admin/theme_admin.php:727
+msgid "Color Options"
+msgstr ""
+
+#: core/admin/theme_admin.php:749
+msgid "Custom Styles"
+msgstr ""
+
+#: core/admin/theme_admin.php:756
+msgid "Custom CSS"
+msgstr ""
+
+#: core/admin/theme_admin.php:760
+msgid "Enter the CSS rules as you would in an external stylesheet."
+msgstr ""
+
+#: core/admin/theme_admin.php:773
+msgid "Single Project Options"
+msgstr ""
+
+#: core/admin/theme_admin.php:780
+msgid "Show overview"
+msgstr ""
+
+#: core/admin/theme_admin.php:783
+msgid "Check this option if you want to show the project overview on the single project page."
+msgstr ""
+
+#: core/admin/theme_admin.php:793
+msgid "Overview title"
+msgstr ""
+
+#: core/admin/theme_admin.php:805
+msgid "Project details title"
+msgstr ""
+
+#: core/admin/theme_admin.php:816
+msgid "Show related work"
+msgstr ""
+
+#: core/admin/theme_admin.php:819
+msgid "Check this option if you want to show related projects on the single project page."
+msgstr ""
+
+#: core/admin/theme_admin.php:829
+msgid "Related work title"
+msgstr ""
+
+#: core/admin/theme_admin.php:841
+msgid "Related work description"
+msgstr ""
+
+#: core/admin/theme_admin.php:863
+msgid "Error 404 title"
+msgstr ""
+
+#: core/admin/theme_admin.php:874
+msgid "Error 404 message"
+msgstr ""
+
+#: core/admin/theme_admin.php:882
+msgid "Error 404 Search Box"
+msgstr ""
+
+#: core/admin/theme_admin.php:889
+msgid "Show search box"
+msgstr ""
+
+#: core/admin/theme_admin.php:900
+msgid "Search box button label"
+msgstr ""
+
+#: core/admin/theme_admin.php:911
+msgid "Search box prompt"
+msgstr ""
+
+#: core/admin/theme_admin.php:926
+msgid "Comments Options"
+msgstr ""
+
+#: core/admin/theme_admin.php:933
+msgid "Enable comments on pages"
+msgstr ""
+
+#: core/admin/theme_admin.php:944
+msgid "Comment time format"
+msgstr ""
+
+#: core/admin/theme_admin.php:948
+msgid "Date and time"
+msgstr ""
+
+#: core/admin/theme_admin.php:949
+msgid "Time ago"
+msgstr ""
+
+#: core/admin/theme_admin.php:959
+msgid "Comment form subtitle"
+msgstr ""
+
+#: core/admin/theme_admin.php:974
+msgid "Announcement Options"
+msgstr ""
+
+#: core/admin/theme_admin.php:981
+msgid "Show announcement"
+msgstr ""
+
+#: core/admin/theme_admin.php:992
+msgid "Announcement content"
+msgstr ""
+
+#: core/admin/theme_admin.php:1008
+msgid "Save Changes"
+msgstr ""
+
+#: core/admin/theme_admin.php:1010
+msgid "Changes saved."
+msgstr ""
+
+#: core/admin/theme_admin.php:1011
+msgid "An error occured, changes couldn't be saved."
+msgstr ""
+
+#: core/metaboxes/client_options.php:6
+msgid "Simplex - Client Options"
+msgstr ""
+
+#: core/metaboxes/client_options.php:16
+msgid "Client Link"
+msgstr ""
+
+#: core/metaboxes/page_options.php:6
+msgid "Simplex - Page Options"
+msgstr ""
+
+#: core/metaboxes/page_options.php:16
+msgid "Custom Title"
+msgstr ""
+
+#: core/metaboxes/page_options.php:20
+msgid "If provided, this custom title will be displayed instead of the original page title."
+msgstr ""
+
+#: core/metaboxes/page_options.php:26
+#: core/metaboxes/portfolio_options.php:25
+msgid "Subtitle"
+msgstr ""
+
+#: core/metaboxes/page_options.php:30
+msgid "This subtitle will appear next to the page title."
+msgstr ""
+
+#: core/metaboxes/page_options.php:36
+msgid "Center Page Title"
+msgstr ""
+
+#: core/metaboxes/page_options.php:40
+msgid "If this option is checked, the page title will be displayed on the center of the page."
+msgstr ""
+
+#: core/metaboxes/page_options.php:46
+msgid "Hide Page Title"
+msgstr ""
+
+#: core/metaboxes/page_options.php:50
+msgid "If this option is checked, the page title will be hidden on this page."
+msgstr ""
+
+#: core/metaboxes/page_options.php:65
+msgid "Portfolio Items Count"
+msgstr ""
+
+#: core/metaboxes/page_options.php:71
+msgid "Set the number of portfolio items per page."
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:6
+msgid "Simplex - Portfolio Item Options"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:29
+msgid "This subtitle will appear next to the title of the portfolio item."
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:39
+msgid "Enter a brief description of this portfolio item."
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:45
+msgid "Featured Content"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:52
+msgid "Use featured image"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:53
+msgid "YouTube video"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:54
+msgid "Vimeo video"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:55
+msgid "DailyMotion video"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:56
+msgid "Image slider"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:64
+msgid "Open featured content in a ColorBox window"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:74
+msgid "YouTube Video ID"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:80
+msgid "http://www.youtube.com/watch?v=<code>jKATcFKW98A</code><br/>The video ID is: <b>jKATcFKW98A</b>"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:86
+msgid "Vimeo Video ID"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:92
+msgid "http://www.vimeo.com/<code>5014038</code><br/>The video ID is: <b>5014038</b>"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:98
+msgid "DailyMotion Video ID"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:104
+msgid "http://www.dailymotion.com/video/<code>xta12</code>_cutest-cat-ever<br/>The video ID is: <b>xta12</b>"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:120
+msgid "Select an image slider"
+msgstr ""
+
+#: core/metaboxes/portfolio_options.php:127
+#, php-format
+msgid "Click %1$s here %2$s to create a new image slider, or click %3$s here %4$s to add slides to an existing image slider."
+msgstr ""
+
+#: core/metaboxes/sidebar_options.php:6
+msgid "Simplex - Sidebar Options"
+msgstr ""
+
+#: core/metaboxes/sidebar_options.php:16
+msgid "Right side"
+msgstr ""
+
+#: core/metaboxes/sidebar_options.php:17
+msgid "Left side"
+msgstr ""
+
+#: core/metaboxes/sidebar_options.php:18
+msgid "No Sidebar"
+msgstr ""
+
+#: core/metaboxes/sidebar_options.php:22
+msgid "Sidebar location"
+msgstr ""
+
+#: core/metaboxes/sidebar_options.php:32
+msgid "Primary Sidebar"
+msgstr ""
+
+#: core/metaboxes/sidebar_options.php:46
+msgid "Select a sidebar"
+msgstr ""
+
+#: core/metaboxes/sidebar_options.php:51
+#, php-format
+msgid "Select a sidebar to display on this page. <br> You can add more sidebars on the %1$s Theme Options %2$s page."
+msgstr ""
+
+#: core/metaboxes/slide_options.php:6
+msgid "Simplex - Slide Options"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:22
+msgid "Where should this slide link to?"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:29
+msgid "Nothing"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:30
+msgid "Blog post"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:31
+msgid "Portfolio item"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:32
+msgid "Page"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:33
+msgid "Custom link"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:48
+msgid "Select a blog post"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:68
+msgid "Select a portfolio item"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:79
+msgid "Select a page"
+msgstr ""
+
+#: core/metaboxes/slide_options.php:98
+msgid "Custom Link"
+msgstr ""
+
+#: core/shortcoder/init.php:8
+msgid "Insert a Shortcode"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:29
+msgid "Select a Shortcode"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:36
+msgid "Select a Shortcode ..."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:37
+#: core/shortcoder/shortcoder.php:114
+msgid "Columns"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:38
+msgid "YouTube Video"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:39
+msgid "Vimeo Video"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:40
+msgid "DailyMotion Video"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:41
+msgid "Image"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:42
+msgid "Image Slider"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:43
+msgid "Accordion"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:44
+#: core/shortcoder/shortcoder.php:599
+msgid "Tabs"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:45
+msgid "Toggle"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:46
+msgid "Horizontal Divider"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:47
+msgid "Margin"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:48
+msgid "Clear"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:49
+msgid "Highlight"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:50
+msgid "Button"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:51
+msgid "Styled List"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:52
+msgid "Styled Box"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:53
+msgid "Success Box"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:54
+msgid "Error Box"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:55
+msgid "Info Box"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:56
+msgid "Alert Box"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:57
+msgid "Note Box"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:58
+msgid "Tip Box"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:59
+#: core/shortcoder/shortcoder.php:883
+msgid "Code"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:60
+#: core/shortcoder/shortcoder.php:895
+msgid "Pre"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:61
+msgid "Blockquote"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:62
+msgid "Random Posts"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:63
+msgid "Related Posts"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:64
+msgid "Recent Posts"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:65
+msgid "Popular Posts"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:66
+msgid "ColorBox Element"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:67
+msgid "User Bio."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:68
+msgid "Google Map"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:69
+msgid "Static Google Map"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:70
+msgid "Search Box"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:71
+msgid "Flickr Badges"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:72
+msgid "Twitter Feed"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:73
+msgid "Contact Form"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:74
+msgid "Recent Work Module"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:75
+msgid "Clients Module"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:83
+msgid "Shortcode Options"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:88
+msgid "Select a shortcode from the list above."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:98
+msgid "Row bottom divider"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:102
+msgid "No divider"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:103
+msgid "Has a normal divider - 40px margin"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:104
+msgid "Has a normal divider - 20px margin"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:105
+msgid "Has a dashed divider - 40px margin"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:106
+msgid "Has a dashed divider - 20px margin"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:108
+msgid "Select the type of the bottom divider that should be assigned to this row of columns. If there is no content below the row, the divider will not appear."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:119
+msgid "Column"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:124
+msgid "Column content"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:127
+#: core/shortcoder/shortcoder.php:585
+#: core/shortcoder/shortcoder.php:620
+#: core/shortcoder/shortcoder.php:653
+msgid "You can use HTML and shortcodes."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:132
+msgid "Add another column"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:133
+#: core/shortcoder/shortcoder.php:591
+#: core/shortcoder/shortcoder.php:626
+#: core/shortcoder/shortcoder.php:1449
+#: core/shortcoder/shortcoder.php:1598
+msgid "Remove"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:138
+msgid "There can only be 12 columns or less."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:148
+#: core/shortcoder/shortcoder.php:199
+#: core/shortcoder/shortcoder.php:250
+msgid "Video ID"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:150
+msgid "Example: http://www.youtube.com/watch?v=<code>jKATcFKW98A</code>, the video ID is: <b>jKATcFKW98A</b>"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:155
+#: core/shortcoder/shortcoder.php:206
+#: core/shortcoder/shortcoder.php:257
+msgid "Video width"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:159
+#: core/shortcoder/shortcoder.php:210
+#: core/shortcoder/shortcoder.php:261
+msgid "Set width of the video, in pixels"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:164
+#: core/shortcoder/shortcoder.php:215
+#: core/shortcoder/shortcoder.php:266
+msgid "Video height"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:168
+#: core/shortcoder/shortcoder.php:219
+#: core/shortcoder/shortcoder.php:270
+msgid "Set height of the video, in pixels"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:173
+#: core/shortcoder/shortcoder.php:224
+#: core/shortcoder/shortcoder.php:275
+msgid "Auto-start video"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:175
+#: core/shortcoder/shortcoder.php:226
+#: core/shortcoder/shortcoder.php:277
+msgid "If this option is checked, the video will start automatically."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:180
+#: core/shortcoder/shortcoder.php:231
+#: core/shortcoder/shortcoder.php:282
+#: core/shortcoder/shortcoder.php:429
+#: core/shortcoder/shortcoder.php:548
+#: core/shortcoder/shortcoder.php:922
+#: core/shortcoder/shortcoder.php:1382
+#: core/shortcoder/shortcoder.php:1528
+msgid "Align"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:184
+#: core/shortcoder/shortcoder.php:235
+#: core/shortcoder/shortcoder.php:286
+#: core/shortcoder/shortcoder.php:434
+#: core/shortcoder/shortcoder.php:552
+#: core/shortcoder/shortcoder.php:926
+#: core/shortcoder/shortcoder.php:1386
+#: core/shortcoder/shortcoder.php:1532
+msgid "Select ..."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:185
+#: core/shortcoder/shortcoder.php:236
+#: core/shortcoder/shortcoder.php:287
+#: core/shortcoder/shortcoder.php:365
+#: core/shortcoder/shortcoder.php:435
+#: core/shortcoder/shortcoder.php:553
+#: core/shortcoder/shortcoder.php:927
+#: core/shortcoder/shortcoder.php:1387
+#: core/shortcoder/shortcoder.php:1533
+msgid "Right"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:186
+#: core/shortcoder/shortcoder.php:237
+#: core/shortcoder/shortcoder.php:288
+#: core/shortcoder/shortcoder.php:366
+#: core/shortcoder/shortcoder.php:436
+#: core/shortcoder/shortcoder.php:554
+#: core/shortcoder/shortcoder.php:928
+#: core/shortcoder/shortcoder.php:1388
+#: core/shortcoder/shortcoder.php:1534
+msgid "Center"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:187
+#: core/shortcoder/shortcoder.php:238
+#: core/shortcoder/shortcoder.php:289
+#: core/shortcoder/shortcoder.php:367
+#: core/shortcoder/shortcoder.php:437
+#: core/shortcoder/shortcoder.php:555
+#: core/shortcoder/shortcoder.php:929
+#: core/shortcoder/shortcoder.php:1389
+#: core/shortcoder/shortcoder.php:1535
+msgid "Left"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:201
+msgid "Example: http://www.vimeo.com/<code>5014038</code>, the video ID is: <b>5014038</b>"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:252
+msgid "Example: http://www.dailymotion.com/video/<code>xta12</code>_cutest-cat-ever, the video ID is: <b>xta12</b>"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:301
+msgid "Source"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:303
+msgid "Enter the full image URL."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:308
+#: core/shortcoder/shortcoder.php:747
+#: core/shortcoder/shortcoder.php:1293
+#: core/shortcoder/shortcoder.php:1479
+msgid "Size"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:313
+#: core/shortcoder/shortcoder.php:1298
+#: core/shortcoder/shortcoder.php:1484
+msgid "Custom size ..."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:314
+#: core/shortcoder/shortcoder.php:1299
+#: core/shortcoder/shortcoder.php:1485
+#, php-format
+msgid "%s Large"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:315
+#: core/shortcoder/shortcoder.php:1300
+#: core/shortcoder/shortcoder.php:1486
+#, php-format
+msgid "%s Medium"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:316
+#: core/shortcoder/shortcoder.php:1301
+#: core/shortcoder/shortcoder.php:1487
+#, php-format
+msgid "%s Small"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:317
+#, php-format
+msgid "%s Tiny"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:318
+#: core/shortcoder/shortcoder.php:319
+#: core/shortcoder/shortcoder.php:320
+#: core/shortcoder/shortcoder.php:321
+#: core/shortcoder/shortcoder.php:322
+#, php-format
+msgid "%s Thumb"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:331
+#: core/shortcoder/shortcoder.php:483
+msgid "Image width"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:335
+msgid "Set width of the image, in pixels"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:340
+#: core/shortcoder/shortcoder.php:493
+msgid "Image height"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:344
+msgid "Set height of the image, in pixels"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:352
+msgid "Crop image to fit size"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:355
+msgid "If this option is checked, the image will be cropped to fit the specified size and the aspect ratio will be maintained."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:360
+msgid "Crop align"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:364
+msgid "Top"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:368
+msgid "Bottom"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:374
+msgid "Open in ColorBox"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:376
+msgid "If this option is checked, the source image will be opened in a ColorBox window when the resized image is clicked."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:381
+msgid "Color Overlay"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:385
+msgid "Do not add a color overlay"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:386
+msgid "White"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:387
+msgid "Black"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:388
+#: core/shortcoder/shortcoder.php:1438
+msgid "Orange"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:389
+#: core/shortcoder/shortcoder.php:1435
+msgid "Blue"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:390
+#: core/shortcoder/shortcoder.php:1436
+msgid "Green"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:391
+#: core/shortcoder/shortcoder.php:1442
+msgid "Yellow"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:392
+#: core/shortcoder/shortcoder.php:1439
+msgid "Pink"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:393
+#: core/shortcoder/shortcoder.php:1441
+msgid "Red"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:394
+#: core/shortcoder/shortcoder.php:1440
+msgid "Purple"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:395
+msgid "Brown"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:401
+msgid "Icon Overlay"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:405
+msgid "Do not add an icon overlay"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:406
+#: core/shortcoder/shortcoder.php:1332
+#: core/shortcoder/shortcoder.php:1518
+msgid "Zoom"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:407
+msgid "Play"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:416
+msgid "This title will appear on mouse hover and, if 'Open in ColorBox' option is checked, below the image in the ColorBox window."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:421
+msgid "Alternative text"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:424
+msgid "Use this field to provide text for visitors who, for whatever reason, will not be able to see the image."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:458
+msgid "Source for slides"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:463
+#: core/shortcoder/shortcoder.php:473
+msgid "Slider"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:464
+msgid "Popular posts"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:465
+msgid "Recent posts"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:466
+msgid "Random posts"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:468
+msgid "Select a source to pull slides from."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:478
+#, php-format
+msgid "Select a %1$s slider. %2$s"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:488
+msgid "Set the desired slider width, in pixels."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:498
+msgid "Set the desired slider height, in pixels."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:503
+#: core/shortcoder/shortcoder.php:941
+#: core/shortcoder/shortcoder.php:991
+#: core/shortcoder/shortcoder.php:1042
+#: core/shortcoder/shortcoder.php:1093
+msgid "Count"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:508
+msgid "Set how many slides should be displayed."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:513
+msgid "Show captions"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:515
+msgid "If this option is checked, the title of the slide or post will be displayed as a caption for the slide."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:520
+msgid "Pause on hover"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:523
+msgid "Uncheck this option if you want the slider to autoplay even if the mouse is over the slider."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:528
+msgid "Pause time"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:533
+msgid "For how long should each slide be displayed, in micro-seconds?"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:538
+msgid "Animation duration"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:543
+msgid "Set the animation duration, in micro-seconds."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:564
+msgid "Panels"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:569
+msgid "Panel"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:574
+msgid "Panel title"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:582
+msgid "Panel content"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:590
+msgid "Add another panel"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:604
+msgid "Tab"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:609
+msgid "Tab title"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:617
+msgid "Tab content"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:625
+msgid "Add another tab"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:637
+msgid "Toggle title"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:643
+msgid "Active"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:646
+msgid "If this option is checked, the toggle will be opened by default."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:651
+msgid "Toggle content"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:662
+msgid "This shortcode doesn't accept any options."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:672
+msgid "Margin value"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:685
+msgid "Use this shortcode after any floated element to prevent it from overlapping with the following elements."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:695
+msgid "Text color"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:702
+msgid "Background color"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:709
+#: core/shortcoder/shortcoder.php:799
+#: core/shortcoder/shortcoder.php:811
+#: core/shortcoder/shortcoder.php:823
+#: core/shortcoder/shortcoder.php:835
+#: core/shortcoder/shortcoder.php:847
+#: core/shortcoder/shortcoder.php:859
+#: core/shortcoder/shortcoder.php:871
+msgid "Content"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:711
+msgid "Enter the text that should be highlighted."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:722
+msgid "Button label"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:724
+msgid "Click here"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:731
+msgid "#"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:732
+msgid "Enter the URL that the button should link to."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:737
+msgid "Open link in:"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:740
+msgid "The same window or tab"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:741
+msgid "A new window or tab"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:751
+#: core/shortcoder/shortcoder.php:1572
+msgid "Normal"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:752
+#: core/shortcoder/shortcoder.php:1573
+msgid "Small"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:753
+msgid "Medium"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:754
+msgid "Large"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:760
+msgid "Secondary button"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:762
+msgid "Check this option if this is a secondary button."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:773
+msgid "Type"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:776
+msgid "Check"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:777
+msgid "Error"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:778
+msgid "Minus"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:779
+msgid "Plus"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:780
+msgid "Arrow"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:786
+msgid "List items"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:907
+msgid "Quote"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:909
+msgid "Enter the quoted text."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:914
+msgid "Cite"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:917
+msgid "Enter the source of the quotation."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:946
+#: core/shortcoder/shortcoder.php:996
+#: core/shortcoder/shortcoder.php:1047
+#: core/shortcoder/shortcoder.php:1098
+msgid "Set the number of posts to display."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:951
+#: core/shortcoder/shortcoder.php:1001
+#: core/shortcoder/shortcoder.php:1052
+#: core/shortcoder/shortcoder.php:1103
+msgid "Show post image"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:958
+#: core/shortcoder/shortcoder.php:1008
+#: core/shortcoder/shortcoder.php:1059
+#: core/shortcoder/shortcoder.php:1110
+msgid "Show post title"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:965
+#: core/shortcoder/shortcoder.php:1015
+#: core/shortcoder/shortcoder.php:1066
+#: core/shortcoder/shortcoder.php:1117
+msgid "Show post author"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:972
+#: core/shortcoder/shortcoder.php:1022
+#: core/shortcoder/shortcoder.php:1073
+#: core/shortcoder/shortcoder.php:1124
+msgid "Show post date"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:978
+#: core/shortcoder/shortcoder.php:1029
+#: core/shortcoder/shortcoder.php:1080
+#: core/shortcoder/shortcoder.php:1131
+msgid "Show comments count"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1146
+msgid "Enter the link to the ColorBox content."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1151
+msgid "Link text"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1154
+msgid "Enter text that should be used as a label for the link. (Example: 'Click here to open a ColorBox window')"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1162
+msgid "This title will appear on mouse hover and below the content in the ColorBox window."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1167
+msgid "Content width"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1170
+msgid "Enter a fixed inner width. This excludes borders and buttons. Example: 50%, 500px, or 500"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1175
+msgid "Content height"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1178
+msgid "Enter a fixed inner height. This excludes borders and buttons. Example: 50%, 500px, or 500"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1183
+msgid "Group"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1186
+msgid "ColorBox links with the same group name will be combined together in a gallery. The group name can be set to 'nofollow' to disable grouping."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1191
+msgid "Slideshow mode"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1194
+msgid "If this link is part of a gallery, you can check this option to enable slideshow mode."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1199
+msgid "Autostart slideshow mode"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1202
+msgid "If slideshow mode is enabled, you can check this option to autostart the slideshow when the ColorBox window is opened."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1207
+msgid "Slideshow speed"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1212
+msgid "If slideshow mode is enabled, you can use this option to set the speed of the slideshow, in milliseconds."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1217
+msgid "IFrame mode"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1220
+msgid "If this option is checked, the ColorBox content will be displayed in an iFrame."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1225
+msgid "Inline mode"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1228
+msgid "If this option is checked, you can use a jQuery selector to display content from the current page.<br />For example: #myForm"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1233
+msgid "Force photo mode"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1236
+msgid "If this option is checked, ColorBox will be forced to display the content as a photo. Use this option when automatic photo detection fails (such as using a url like 'photo.php' instead of 'photo.jpg')."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1246
+msgid "Auto Detect"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1253
+#: core/shortcoder/shortcoder.php:1622
+#: core/shortcoder/shortcoder.php:1651
+msgid "User"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1256
+msgid "If 'Auto Detect' is selected, the user of the current page or post will be used."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1261
+msgid "Show user avatar"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1274
+#: core/shortcoder/shortcoder.php:1460
+msgid "Address"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1276
+#: core/shortcoder/shortcoder.php:1417
+#: core/shortcoder/shortcoder.php:1462
+#: core/shortcoder/shortcoder.php:1563
+msgid "Enter a string address (e.g. 'city hall, new york, ny') identifying a unique location on the face of the earth.<br />http://maps.google.com/"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1281
+#: core/shortcoder/shortcoder.php:1467
+msgid "Map type"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1284
+#: core/shortcoder/shortcoder.php:1470
+msgid "Road Map"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1285
+#: core/shortcoder/shortcoder.php:1471
+msgid "Satellite"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1286
+#: core/shortcoder/shortcoder.php:1472
+msgid "Hybrid"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1287
+#: core/shortcoder/shortcoder.php:1473
+msgid "Terrain"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1310
+#: core/shortcoder/shortcoder.php:1496
+msgid "Map width"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1314
+#: core/shortcoder/shortcoder.php:1500
+msgid "Set width of the map, in pixels."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1319
+#: core/shortcoder/shortcoder.php:1505
+msgid "Map height"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1323
+#: core/shortcoder/shortcoder.php:1509
+msgid "Set height of the map, in pixels."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1337
+#: core/shortcoder/shortcoder.php:1523
+msgid "Set the zoom level."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1342
+msgid "Navigation controls"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1345
+msgid "If this option is checked, zoom and pan controls will be displayed on the map."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1350
+msgid "Map type controls"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1353
+msgid "If this option is checked, map type control will be displayed on the map."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1358
+msgid "Street view"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1361
+msgid "If this option is checked, street view mode will be enabled for this map."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1366
+msgid "Enable dragging"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1369
+msgid "If this option is checked, users can navigate the map by dragging its canvas."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1374
+msgid "Enable scroll wheel"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1377
+msgid "If this option is checked, users can zoom in/out using the mouse scroll wheel."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1398
+#: core/shortcoder/shortcoder.php:1544
+msgid "Map markers"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1402
+#: core/shortcoder/shortcoder.php:1548
+msgid "Check this option if you want to use markers on this map."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1410
+#: core/shortcoder/shortcoder.php:1556
+msgid "Marker"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1415
+#: core/shortcoder/shortcoder.php:1561
+msgid "Marker address"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1423
+msgid "Marker title"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1426
+msgid "The marker title will appear on mouse hover."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1432
+#: core/shortcoder/shortcoder.php:1591
+msgid "Marker color"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1437
+msgid "Light Blue"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1448
+#: core/shortcoder/shortcoder.php:1597
+msgid "Add another marker"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1569
+msgid "Marker size"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1574
+msgid "Tiny"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1577
+msgid "Select a marker size. Tiny or small markers cannot have labels."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1582
+msgid "Marker label"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1585
+msgid "Enter a single uppercase alphanumeric character from the set {A-Z, 0-9}."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1609
+msgid "Prompt text"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1611
+msgid "Search ..."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1624
+#, php-format
+msgid "Flickr ID (%1$s Get your flickr ID %2$s)"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1629
+msgid "Images count"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1638
+#: core/shortcoder/shortcoder.php:1667
+msgid "Loading text"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1640
+msgid "Loading images ..."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1653
+msgid "Username on Twitter"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1658
+msgid "Tweets count"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1669
+msgid "Loading tweets ..."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1680
+msgid "Send data to"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1682
+msgid "Enter the e-mail address that should receive the submitted form data."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1687
+msgid "Label for name field"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1695
+msgid "Label for email field"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1703
+msgid "Label for message field"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1706
+msgid "Message"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1711
+msgid "Label for submit button"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1714
+msgid "Send Message"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1719
+msgid "Success message"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1722
+msgid "This message will be displayed to the users when the form is successfully submitted. You can use HTML and shortcodes."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1727
+msgid "Failure message"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1730
+msgid "This message will be displayed to the users if the form cannot be submitted. You can use HTML and shortcodes."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1735
+msgid "Required text"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1738
+msgid "All fields are required"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1749
+#: core/shortcoder/shortcoder.php:1770
+msgid "Module title"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1752
+#: core/shortcoder/shortcoder.php:1773
+msgid "Enter the module title."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1757
+#: core/shortcoder/shortcoder.php:1778
+msgid "Module description"
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1759
+msgid "This message will be displayed to the left of the recent work."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1780
+msgid "This message will be displayed to the left of the clients list."
+msgstr ""
+
+#: core/shortcoder/shortcoder.php:1788
+msgid "Insert Shortcode"
+msgstr ""
+
+#: core/shortcodes/flickr.php:10
+msgid "View this on Flickr"
+msgstr ""
+
+#: core/shortcodes/twitter.php:10
+msgid "View this on Twitter"
+msgstr ""
+
+#: core/shortcodes/user_bio.php:27
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: core/shortcodes/modules/clients_module.php:5
+msgid "Our Clients"
+msgstr ""
+
+#: core/shortcodes/modules/recent_work_module.php:5
+msgid "Recent Work"
+msgstr ""
+
+#: core/sidebars/sidebars.php:5
+msgid "First Footer Widgets Area"
+msgstr ""
+
+#: core/sidebars/sidebars.php:6
+msgid "Second Footer Widgets Area"
+msgstr ""
+
+#: core/sidebars/sidebars.php:7
+msgid "Third Footer Widgets Area"
+msgstr ""
+
+#: core/sidebars/sidebars.php:8
+msgid "Fourth Footer Widgets Area"
+msgstr ""
+
+#: core/sidebars/sidebars.php:9
+msgid "Fifth Footer Widgets Area"
+msgstr ""
+
+#: core/sidebars/sidebars.php:10
+msgid "Sixth Footer Widgets Area"
+msgstr ""
+
+#: core/types/clients.php:10
+msgid "Add New Client"
+msgstr ""
+
+#: core/types/clients.php:11
+#: core/types/clients.php:61
+msgid "Edit Client"
+msgstr ""
+
+#: core/types/clients.php:12
+msgid "New Client"
+msgstr ""
+
+#: core/types/clients.php:13
+msgid "View Client"
+msgstr ""
+
+#: core/types/clients.php:14
+msgid "Search Client"
+msgstr ""
+
+#: core/types/clients.php:15
+#: core/types/portfolio.php:1
+#: core/types/slides.php:15
+msgid "Nothing found"
+msgstr ""
+
+#: core/types/clients.php:16
+#: core/types/portfolio.php:1
+#: core/types/slides.php:16
+msgid "Nothing found in Trash"
+msgstr ""
+
+#: core/types/clients.php:41
+msgid "Client Name"
+msgstr ""
+
+#: core/types/clients.php:43
+msgid "Client Logo"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Add New Portfolio Item"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Edit Portfolio Item"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "New Portfolio Item"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "View Portfolio Item"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Search Portfolio"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Search Categories"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "All Categories"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Parent Category"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Parent Category:"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Edit Category"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Update Category"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Add New Category"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "New Category Name"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Categories"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Featured Image"
+msgstr ""
+
+#: core/types/portfolio.php:1
+msgid "Featured image"
+msgstr ""
+
+#: core/types/portfolio.php:1
+#, php-format
+msgid "%1$s YouTube Video %2$s"
+msgstr ""
+
+#: core/types/portfolio.php:1
+#, php-format
+msgid "%1$s Vimeo Video %2$s"
+msgstr ""
+
+#: core/types/portfolio.php:1
+#, php-format
+msgid "%1$s DailyMotion Video %2$s"
+msgstr ""
+
+#: core/types/portfolio.php:1
+#: core/types/slides.php:101
+msgid "None"
+msgstr ""
+
+#: core/types/slides.php:10
+msgid "Add New Slide"
+msgstr ""
+
+#: core/types/slides.php:11
+#: core/types/slides.php:88
+msgid "Edit Slide"
+msgstr ""
+
+#: core/types/slides.php:12
+msgid "New Slide"
+msgstr ""
+
+#: core/types/slides.php:13
+msgid "View Slide"
+msgstr ""
+
+#: core/types/slides.php:14
+msgid "Search Slide"
+msgstr ""
+
+#: core/types/slides.php:38
+msgid "Search Sliders"
+msgstr ""
+
+#: core/types/slides.php:39
+msgid "All Sliders"
+msgstr ""
+
+#: core/types/slides.php:40
+msgid "Parent Slider"
+msgstr ""
+
+#: core/types/slides.php:41
+msgid "Parent Slider:"
+msgstr ""
+
+#: core/types/slides.php:42
+msgid "Edit Slider"
+msgstr ""
+
+#: core/types/slides.php:43
+msgid "Update Slider"
+msgstr ""
+
+#: core/types/slides.php:44
+msgid "Add New Slider"
+msgstr ""
+
+#: core/types/slides.php:45
+msgid "New Slider Name"
+msgstr ""
+
+#: core/types/slides.php:46
+#: core/types/slides.php:67
+msgid "Sliders"
+msgstr ""
+
+#: core/types/slides.php:66
+msgid "Slide Title"
+msgstr ""
+
+#: core/types/slides.php:68
+msgid "Links To"
+msgstr ""
+
+#: core/types/slides.php:70
+msgid "Preview"
+msgstr ""
+
+#: core/widgets/advanced_text.php:8
+msgid "Arbitrary text, HTML or shortcodes."
+msgstr ""
+
+#: core/widgets/advanced_text.php:10
+msgid "Simplex - Advanced Text"
+msgstr ""
+
+#: core/widgets/advanced_text.php:27
+msgid "Advanced Text"
+msgstr ""
+
+#: core/widgets/advanced_text.php:41
+#: core/widgets/contact_form.php:55
+#: core/widgets/dailymotion_video.php:43
+#: core/widgets/flickr.php:45
+msgid "Title:"
+msgstr ""
+
+#: core/widgets/advanced_text.php:50
+#: core/widgets/contact_form.php:64
+#: core/widgets/dailymotion_video.php:52
+#: core/widgets/flickr.php:54
+msgid "Widget Introduction:"
+msgstr ""
+
+#: core/widgets/advanced_text.php:59
+#: core/widgets/contact_form.php:73
+#: core/widgets/dailymotion_video.php:61
+#: core/widgets/flickr.php:63
+msgid "Widget Outroduction:"
+msgstr ""
+
+#: core/widgets/advanced_text.php:68
+msgid "Content:"
+msgstr ""
+
+#: core/widgets/advanced_text.php:73
+msgid "You can use shortcodes and HTML"
+msgstr ""
+
+#: core/widgets/contact_form.php:8
+msgid "A quick contact form."
+msgstr ""
+
+#: core/widgets/contact_form.php:10
+msgid "Simplex - Contact Form"
+msgstr ""
+
+#: core/widgets/contact_form.php:34
+msgid "Contact"
+msgstr ""
+
+#: core/widgets/contact_form.php:43
+msgid "<h5>Thank You</h5><p>We received your message and will be in touch with you as soon as possible.</p>"
+msgstr ""
+
+#: core/widgets/contact_form.php:44
+msgid "Message couldn't be sent, please try again."
+msgstr ""
+
+#: core/widgets/contact_form.php:82
+msgid "Send data to:"
+msgstr ""
+
+#: core/widgets/contact_form.php:91
+msgid "Name Label:"
+msgstr ""
+
+#: core/widgets/contact_form.php:100
+msgid "E-mail Label:"
+msgstr ""
+
+#: core/widgets/contact_form.php:109
+msgid "Message Label:"
+msgstr ""
+
+#: core/widgets/contact_form.php:118
+msgid "Button Label:"
+msgstr ""
+
+#: core/widgets/contact_form.php:127
+msgid "Required Text:"
+msgstr ""
+
+#: core/widgets/contact_form.php:136
+msgid "Success Message:"
+msgstr ""
+
+#: core/widgets/contact_form.php:145
+msgid "Failure Message:"
+msgstr ""
+
+#: core/widgets/dailymotion_video.php:8
+msgid "Displays a DailyMotion video."
+msgstr ""
+
+#: core/widgets/dailymotion_video.php:10
+msgid "Simplex - DailyMotion Video"
+msgstr ""
+
+#: core/widgets/dailymotion_video.php:70
+msgid "Video ID:"
+msgstr ""
+
+#: core/widgets/dailymotion_video.php:80
+msgid "Autoplay"
+msgstr ""
+
+#: core/widgets/flickr.php:8
+msgid "Displays image badges from flickr."
+msgstr ""
+
+#: core/widgets/flickr.php:10
+msgid "Simplex - Flickr"
+msgstr ""
+
+#: core/widgets/flickr.php:72
+msgid "Flickr ID:"
+msgstr ""
+
+#: core/widgets/flickr.php:82
+msgid "Count:"
+msgstr ""
+
+#: core/widgets/flickr.php:103
+msgid "Loading Text:"
+msgstr ""
+
+#: core/widgets/popular_posts.php:7
+msgid "Displays a list of popular posts on your site."
+msgstr ""
+
+#: core/widgets/popular_posts.php:9
+msgid "Simplex - Popular Posts"
+msgstr ""
+
+#: core/widgets/popular_posts.php:81
+#: core/widgets/random_posts.php:81
+#: core/widgets/recent_posts.php:81
+msgid "How many posts to show?"
+msgstr ""
+
+#: core/widgets/popular_posts.php:91
+#: core/widgets/random_posts.php:91
+#: core/widgets/recent_posts.php:91
+msgid "Show featured image"
+msgstr ""
+
+#: core/widgets/random_posts.php:7
+msgid "Displays a list of random posts on your site."
+msgstr ""
+
+#: core/widgets/random_posts.php:9
+msgid "Simplex - Random Posts"
+msgstr ""
+
+#: core/widgets/recent_posts.php:7
+msgid "Displays a list of recent posts on your site."
+msgstr ""
+
+#: core/widgets/recent_posts.php:9
+msgid "Simplex - Recent Posts"
+msgstr ""
+
+#: core/widgets/search.php:8
+msgid "Displays a search box."
+msgstr ""
+
+#: core/widgets/search.php:10
+msgid "Simplex - Search"
+msgstr ""
+
+#: core/widgets/search.php:68
+msgid "Prompt:"
+msgstr ""
+
+#: core/widgets/twitter.php:8
+msgid "Displays recent tweets from Twitter."
+msgstr ""
+
+#: core/widgets/twitter.php:10
+msgid "Simplex - Twitter"
+msgstr ""
+
+#: core/widgets/twitter.php:72
+msgid "Twitter ID:"
+msgstr ""
+
+#: core/widgets/twitter.php:77
+msgid "Twitter ID"
+msgstr ""
+
+#: core/widgets/vimeo_video.php:8
+msgid "Displays a Vimeo video."
+msgstr ""
+
+#: core/widgets/vimeo_video.php:10
+msgid "Simplex - Vimeo Video"
+msgstr ""
+
+#: core/widgets/youtube_video.php:8
+msgid "Displays a YouTube video."
+msgstr ""
+
+#: core/widgets/youtube_video.php:10
+msgid "Simplex - YouTube Video"
+msgstr ""
+

@@ -1,0 +1,137 @@
+/*
+Theme Name: Rubis
+Theme URI: Rubis
+Author: ThemeArt
+Author URI: http://themeart.net/
+Description: Simplex is a clean, simple and responsive HTML5 WordPress theme suitable for digital agencies and studios.
+Version: 3.1.5
+License: GNU General Public License
+License URI: license.txt
+Tags: blue, white, two-columns, fixed-width, threaded-comments, translation-ready, editor-style, custom-menu
+*/
+@import url("styles/reset.css");
+@import url("styles/master.css");
+@import url("styles/template.css");
+
+@font-face {
+    font-family: 'OpenSansLight';
+    src: url('font/OpenSans-Light-webfont.eot');
+    src: url('font/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/OpenSans-Light-webfont.woff') format('woff'),
+         url('font/OpenSans-Light-webfont.ttf') format('truetype'),
+         url('font/OpenSans-Light-webfont.svg#OpenSansLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansRegular';
+    src: url('font/OpenSans-Regular-webfont.eot');
+    src: url('font/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/OpenSans-Regular-webfont.woff') format('woff'),
+         url('font/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('font/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*-------- header--------*/
+.plus_gros {font-size:100%;}
+.home #page-header {display:none;}
+#cap {height:2px; background:#000000 !important;}
+/*#language {position:absolute; right:-50px; top:65px;z-index:1000;}*/
+#language {position:absolute; right:-80px; top:65px;z-index:1000;}
+#language li {list-style-type:none;}
+#main-nav-menu a {color:#000000 !important;}
+#main-nav-menu > ul > li.current_menu_item > li:hover > a, #main-nav-menu > ul > li.current_page_item > a, #main-nav-menu > ul > li:hover > a, #main-nav-menu > ul > li.current_page_item > a:hover, #main-nav-menu > ul > li.current_page_ancestor > a:hover, #main-nav-menu > ul > li.current_page_parent > a:hover, #main-nav-menu > ul > li.current-menu-ancestor > a, {background: #000000;color:#ffffff !important;border-bottom: 1px solid #000000;}
+#main-nav-menu > ul > li.current-menu-item > a, #main-nav-menu > ul > li.current_page_item > a, #main-nav-menu > ul > li:hover > a, #main-nav-menu > ul > li.current-menu-item > a:hover, #main-nav-menu > ul > li.current_page_item > a:hover, #main-nav-menu > ul > li.current-menu-ancestor > a, #main-nav-menu > ul > li.current-menu-ancestor > a:hover {background: #000000;color:#ffffff !important;border-bottom: 1px solid #000000 !important;}
+#page #page-header h1 span, .page #page-content h3 {font-family: 'OpenSansRegular',Arial, Helvetica, sans-serif;font-size:24px;text-shadow:none;font-style:normal;color:#000000;}
+h2 {font-family: 'OpenSansRegular',Arial, Helvetica, sans-serif;font-style:normal;}
+#page #page-header h1 small {font-family: 'OpenSansRegular',Arial, Helvetica, sans-serif;font-size:16px;color:#999999;font-style:normal;line-height:1.3em;font-weight:normal;}
+#logo {bottom: 78%;}
+
+/*.qtrans_language_chooser li { margin-bottom: 8px; }*/
+.qtrans_language_chooser span {text-transform: uppercase;font-size:11px;color:#8c8b8e;font-family: 'OpenSansRegular',Arial, Helvetica, sans-serif;}
+
+/*----- accueil -----*/
+.home #page-content #content .flexslider {border-bottom: 1px solid #ececec;padding-bottom:7%;}
+#page-content::before {background:url('images/bkgd-border-container.jpg') repeat top left;}
+.home #page-content #content .portfolio-4 {margin-top:6%;}
+.home #page-content #content .portfolio-4 .fancy-title {margin-bottom:15px;}
+.home #page-content #content .portfolio-4 .entry-body {display:none;}
+.home #page-content #content .portfolio-4 .entry-feature img{max-width:330%;}
+.clients-grid .entry:hover, .portfolio-4 .entry:hover{border-bottom-color: #000000 !important;}
+.fancy-title::before {background:#bd0926 !important;content: "";position: absolute;top: 50%;left: -20px;margin-top: -5px;width: 10px;height: 1px;}
+/*------ archive ------*/
+.single-portfolio .pagination {display:none;}
+.single-portfolio .span-8 h5 {display:none;}
+.single-portfolio .span-4 p {font-size:1.5em;}
+.portfolio-3 .span-4 .entry-content a  {text-transform:uppercase;color:#000000;}
+.portfolio-3 .entry:hover {border-bottom-color: #000000 !important;}
+
+/* ------- page exposition ------*/
+.page #page-content h3.fancy-title {font-family: 'OpenSansRegular',Arial, Helvetica, sans-serif;text-shadow:none;font-style:normal;}
+.toggle-court .toggle-body {max-height:400px;overflow:scroll; }
+.cata-presse {margin: 20px 0 0 0;}
+.cata-presse .fancy-title {border:none;margin-left:3%;margin-bottom:0;font-size:13px;}
+
+/*------ page ------*/
+h1::before {/*background:#bd0926 !important;*/content: "";background:none !important;}
+.toggle.active .toggle-title, .toggle-title:hover, .accordion-panel.active .accordion-panel-title, .accordion-panel-title:hover {color:#bd0926 !important;}
+.cboxSlideshow_off #cboxSlideshow:hover, .cboxSlideshow_on #cboxSlideshow:hover, #cboxPrevious:hover, #cboxNext:hover, #cboxClose:hover, .flexslider .controls a.next:hover, .flexslider .controls a.prev:hover, .ts-edit-link a:hover, #page-header > * span::before, #page-header > * span::after, .fancy-title::before, .vcard .overlay-color, .portfolio.compact .entry .entry-body header a.more:hover, #comment-form .leave-a-comment, #comments .leave-a-comment, #page-content .blog .entry .post-format a, .back-to-top:hover a, .sticky-nav a:hover, ul.list.tags li a:hover, .toggle.active .indicator, .toggle:hover .indicator, .accordion-panel.active .indicator, .accordion-panel-title:hover .indicator, .tab-group li.active, .widget-title::before, button:hover, .button:hover, #page-header::before {background-color:#bd0926 !important; }
+a:hover {color:red !important;}
+#page-content {height:100%;}
+.clear {clear:both;}
+.page-id-3273 #en_cours li {float:left; list-style-type:none;text-align:center;}
+.page-id-3273 #en_cours li:nth-child(3n+2) {padding:0 20px;}
+.page-id-3273 #en_cours {display:table;margin:0 auto;}
+
+.page-id-92 #en_cours li {float:left; list-style-type:none;text-align:center;}
+.page-id-92 #en_cours li:nth-child(3n+2) {padding:0 20px;}
+.page-id-92 #en_cours {display:table;margin:0 auto;}
+
+.page-id-3408 #en_cours li {float:left; list-style-type:none;text-align:center; width: 50%;padding: 0;}
+.page-id-3408 #en_cours {display:table;margin:0 auto;} 
+
+/*--- galerie----*/
+.liste-flottante {margin:0 0 0 0;}
+.liste-flottante-galerie {margin:0 0 0 20px;}
+.liste-flottante li{list-style-type:none;float:left;margin:0;padding:0;}
+.liste-flottante-galerie li{list-style-type:none;float:left;margin:0 0 15px 15px;padding:0;display:block;}
+
+/* --- form contact -----*/
+input[type=text], input[type=email] {font-size: 11px;color: #999;width:320px;height:20px;}
+input[type=email] {border:1px solid #e0e0e0;padding:5px;}
+textarea {font-size: 11px;color: #999;width:320px;}
+input[type=submit] {margin: 2px;padding: 7px 15px 9px;font: normal 600 11px/1em 'Open Sans', Arial, Tahoma, sans-serif;cursor: pointer;color: #fff;border: none;background: #666;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;-moz-transition: color 0.15s ease-out , background-color 0.15s ease-out , border 0.15s ease-out;-webkit-transition: color 0.15s ease-out , background-color 0.15s ease-out , border 0.15s ease-out;-o-transition: color 0.15s ease-out , background-color 0.15s ease-out , border 0.15s ease-out;-ms-transition: color 0.15s ease-out , background-color 0.15s ease-out , border 0.15s ease-out;transition: color 0.15s ease-out , background-color 0.15s ease-out , border 0.15s ease-out;}
+input[type=submit]:hover {background:#bd0926;}
+
+/*------ footer -------*/
+#footer {background: url('images/bkgd_footer.jpg') repeat-x #000000;width:100%;bottom:0;padding:20px 0;}
+#footer  ul {margin-left:0 ;}
+#footer #footer-gauche img {padding-bottom: 45px;}
+#footer #footer-gauche li, #footer #footer-gauche li a  {color:#ffffff;font-family: 'OpenSansRegular',Arial, Helvetica, sans-serif;font-size:11px;}
+#footer #footer-gauche li {list-style-type:none;}
+#footer #footer-right p {font-family:'OpenSansRegular',Arial, Helvetica, sans-serif;font-size:11px;color:#545454;border-right:none;padding-top:3.5%;}
+#footer #social-links p {padding:0;}
+#footer #footer-right {margin-left:30px;}
+#footer .youtube-link, #footer .vimeo-link, #footer .flickr-link, #footer .dribbble-link {display:none;}
+#footer #social-links ul {padding-top:13.5%;float:right;}
+#footer #social-links p {padding-top:2%;}
+#footer #social-links ul li a {background:url('images/social-icons.png') no-repeat 0 0 ;}
+/* #footer #social-links ul:before{content: "Suivez-nousz"; color:#ffffff;float:left;font-family:'OpenSansRegular',Arial, Helvetica, sans-serif;font-size:11px;} */
+#footer #social-links ul li a:hover {background-color: transparent;}
+#footer input[type=button] {width:75px ;height:25px;background-color:#000000;border:none;text-transform:uppercase;color:#ffffff;font-family: 'OpenSansRegular',Arial, Helvetica, sans-serif;font-size:11px;border-radius:4px;margin-left:10px;cursor:pointer;} 
+
+
+
+/* EXPOS */
+.prevExpo img {
+	width: 100%;
+}
+
+.prevExpo .span-4 {
+	text-align: center;
+}
