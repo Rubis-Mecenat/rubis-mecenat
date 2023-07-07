@@ -198,14 +198,16 @@ function icl_get_settings() {
 /**
  * Add settings link to plugin page.
  *
+ * @param SitePress     $sitepress
  * @param array<string> $links
  * @param string        $file
  *
  * @return array
  */
-function icl_plugin_action_links( $links, $file ) {
+function icl_plugin_action_links( SitePress $sitepress, $links, $file ) {
 	if ( $file == WPML_PLUGIN_BASENAME ) {
-		$links[] = '<a href="admin.php?page=' . WPML_PLUGIN_FOLDER . '/menu/languages.php">' . __( 'Configure', 'sitepress' ) . '</a>';
+		$endpoint = $sitepress->is_setup_complete() ? 'languages.php' : 'setup.php';
+		$links[]  = '<a href="admin.php?page=' . WPML_PLUGIN_FOLDER . '/menu/' . $endpoint . '">' . __( 'Configure', 'sitepress' ) . '</a>';
 	}
 
 	return $links;
@@ -373,7 +375,6 @@ function icl_makes_duplicates_public( $master_post_id ) {
  * @uses       SitePress
  * @since      3.2
  * @uses       \SitePress::api_hooks
- * @deprecated This function will be removed in future releases.
  */
 function wpml_make_post_duplicates_action( $master_post_id ) {
 
@@ -502,7 +503,7 @@ function wpml_strip_subdir_from_url( $url ) {
 	global $wpml_url_converter;
 
 	$subdir       = wpml_parse_url( $wpml_url_converter->get_abs_home(), PHP_URL_PATH );
-	$subdir_slugs = array_values( array_filter( explode( '/', $subdir ) ) );
+	$subdir_slugs = ! empty( $subdir ) ? array_values( array_filter( explode( '/', $subdir ) ) ) : [''];
 
 	$url_path_expl = explode( '/', preg_replace( '#^(http|https)://#', '', $url ) );
 	array_shift( $url_path_expl );
@@ -880,5 +881,30 @@ if ( ! function_exists( 'wpml_is_ajax' ) ) {
 		}
 
 		return ( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && wpml_mb_strtolower( $_SERVER['HTTP_X_REQUESTED_WITH'] ) == 'xmlhttprequest' ) ? true : false;
+	}
+}
+
+if ( ! function_exists( 'wpml_get_flag_file_name' ) ) {
+	/**
+	 * wpml_get_flag_file_name - Returns the SVG or PNG flag file name based on language code if it exists in '/res/flags/' dir.
+	 *
+	 * @param $lang_code
+	 *
+	 * @return string
+	 * @since 4.6.0
+	 *
+	 */
+	function wpml_get_flag_file_name( $lang_code ) {
+		if ( file_exists( WPML_PLUGIN_PATH . '/res/flags/' . $lang_code . '.svg' ) ) {
+			$file = $lang_code . '.svg';
+		} elseif ( file_exists( WPML_PLUGIN_PATH . '/res/flags/' . $lang_code . '.png' ) ) {
+			$file = $lang_code . '.png';
+		} elseif ( file_exists( WPML_PLUGIN_PATH . '/res/flags/nil.svg' ) ) {
+			$file = 'nil.svg';
+		} else {
+			$file = 'nil.png';
+		}
+
+		return $file;
 	}
 }

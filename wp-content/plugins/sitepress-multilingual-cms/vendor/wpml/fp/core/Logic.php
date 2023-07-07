@@ -12,15 +12,17 @@ use WPML\Collect\Support\Traits\Macroable;
  * @method static callable unless( ...$predicate, ...$fn ) - Curried :: ( a->bool )->callable->callable
  * @method static callable cond( ...$conditions, ...$fn ) - Curried :: [( a->bool ), callable]->callable
  * @method static callable both( ...$a, ...$b, ...$data ) - Curried :: ( a → bool ) → ( a → bool ) → a → bool
- * @method static callable allPass( array $predicates ) - Curried :: [( *… → bool )] → ( *… → bool )
- * @method static callable anyPass( array $predicates ) - Curried :: [( *… → bool )] → ( *… → bool )
+ * @method static callable|bool allPass( ...$predicates, ...$data ) - Curried :: [( *… → bool )] → ( *… → bool )
+ * @method static callable|bool anyPass( ...$predicates, ...$data ) - Curried :: [( *… → bool )] → ( *… → bool )
  * @method static callable complement( ...$fn ) - Curried :: ( *… → * ) → ( *… → bool )
  * @method static callable|mixed defaultTo( ...$a, ...$b ) - Curried :: a → b → a | b
  * @method static callable|bool either( ...$a, ...$b ) - Curried :: ( *… → bool ) → ( *… → bool ) → ( *… → bool )
  * @method static callable|mixed until ( ...$predicate, ...$transform, ...$data ) - Curried :: ( a → bool ) → ( a → a ) → a → a
  * @method static callable|bool propSatisfies( ...$predicate, ...$prop, ...$data ) - Curried :: ( a → bool ) → String → [String => a] → bool
  * @method static callable|bool isArray ( ...$a ) - Curried :: a → bool
+ * @method static callable|bool isMappable ( ...$a ) - Curried :: a → bool
  * @method static callable|bool isEmpty( ...$a ) - Curried:: a → bool
+ * @method static callable|bool isNotEmpty( ...$a ) - Curried:: a → bool
  * @method static callable|mixed firstSatisfying( ...$predicate, ...$functions, ...$data ) - Curried:: callable->callable[]->mixed->mixed
  * @method static callable|bool isTruthy( ...$data ) - Curried:: mixed->bool
  */
@@ -98,8 +100,10 @@ class Logic {
 			return $predicate( Obj::prop( $prop, $data ) );
 		} ) );
 
-		self::macro( 'isArray', curryN( 1, function( $a ) {
-			return is_array( $a );
+		self::macro( 'isArray', Type::isArray() );
+
+		self::macro( 'isMappable', curryN( 1, function( $a ) {
+			return self::isArray( $a ) || ( is_object( $a ) && method_exists( $a, 'map' ) );
 		}));
 
 		self::macro( 'isEmpty', curryN( 1, function ( $arg ) {
@@ -109,6 +113,8 @@ class Logic {
 
 			return empty( $arg );
 		} ) );
+
+		self::macro( 'isNotEmpty', curryN( 1, self::complement( self::isEmpty() ) ) );
 
 		self::macro( 'firstSatisfying', curryN( 3, function ( $predicate, array $conditions, $data ) {
 			foreach ( $conditions as $condition ) {
