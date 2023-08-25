@@ -1,29 +1,27 @@
 name: Deployment
 
-on:
-  push:
-    branches: [master]
+# on:
+#   push:
+#     branches: [master]
 
-jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
+# jobs:
+#   web-deploy:
+#     name: 🎉 Deploy
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: 🚚 Get latest code
+#       uses: actions/checkout@v3
+    
+#     - name: 📂 Sync files
+#       uses: wangyucode/sftp-upload-action@v2.0.2
+#       with:
+#         host: ${{ secrets.SERVER }}
+#         username: ${{ secrets.USERNAME }}
+#         password: ${{ secrets.PASSWORD }}
+#         compress: true 
+#         forceUpload: false
+#         localDir: ./
+#         remoteDir: /vhosts/rubis-mecenat.stagingserver.fr/htdocs/
+#         exclude: '.git*,.DS_Store'
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.SERVER }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        protocol: ftps-legacy
-        port: 22
-        server-dir: /vhosts/rubis-mecenat.stagingserver.fr/htdocs/
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          fileToExclude.txt
-          .DS_Store
+        
