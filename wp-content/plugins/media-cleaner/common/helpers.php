@@ -32,6 +32,64 @@ if ( !class_exists( 'MeowCommon_Helpers' ) ) {
 			return !empty( $_GET['wc-ajax'] );
 		}
 
+		// This function makes sure that only the allowed HTML element names,
+		// attribute names, attribute values, and HTML entities will occur in the given text string.
+		static function wp_kses( $html ) {
+			return wp_kses( $html, array(
+				'style' => array(),
+				'script' => array(),
+				'div' => array(
+					'class' => array(),
+					'data-rating-date' => array(),
+					'style' => array(),
+				),
+				'img' => array(
+					'src' => array(),
+					'decoding' => array(),
+					'class' => array(),
+					'style' => array(),
+				),
+				'p' => array(
+					'style' => array(),
+				),
+				'h2' => array(
+					'class' => array(),
+				),
+				'br' => array(),
+				'label' => array(),
+				'b' => array(),
+				'small' => array(),
+				'a' => array(
+					'href' => array(),
+					'target' => array(),
+					'class' => array(),
+					'style' => array(),
+				),
+				'form' => array(
+					'method' => array(),
+					'action' => array(),
+					'class' => array(),
+					'style' => array(),
+				),
+				'input' => array(
+					'type' => array(),
+					'checked' => array(),
+					'name' => array(),
+					'value' => array(),
+					'id' => array(),
+					'class' => array(),
+				),
+			) );
+		}
+
+		// Diff between two strings
+		static function diff( $first, $second ) {
+			$first = explode( ' ', $first );
+			$second = explode( ' ', $second );
+			$diff = array_diff( $first, $second );
+			return implode( ' ', $diff );
+		}
+ 
 		// Originally created by matzeeable, modified by jordymeow
 		static function is_rest() {
 

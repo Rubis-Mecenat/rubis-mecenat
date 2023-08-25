@@ -99,6 +99,7 @@ class Meow_WPMC_Core {
 
 	private $start_time;
 	private $time_elapsed = 0;
+	private $time_remaining = 0;
 	private $item_scan_avg_time = 0;
 	private $wordpress_init_time = 0.5;
 	private $max_execution_time;
@@ -550,7 +551,7 @@ class Meow_WPMC_Core {
 	 */
 
 	function is_multilingual() {
-		return function_exists( 'icl_object_id' );
+		return function_exists( 'icl_get_languages' );
 	}
 
 	function get_languages() {
@@ -607,6 +608,11 @@ class Meow_WPMC_Core {
 		global $wpdb;
 		$table_name = $wpdb->prefix . "mclean_scan";
 		$issue = $this->get_issue( $id );
+
+		if ( empty( $issue ) ) {
+			$this->log( "🚫 Issue #{$id} does not exist. Cannot recover this." );
+			return false;
+		}
 
 		// Files
 		if ( $issue->type === 0 ) {
@@ -682,6 +688,12 @@ class Meow_WPMC_Core {
 		global $wpdb;
 		$table_name = $wpdb->prefix . "mclean_scan";
 		$issue = $this->get_issue( $id );
+
+		if ( empty( $issue ) ) {
+			$this->log( "🚫 Issue #{$id} does not exist. Cannot ignore this." );
+			return false;
+		}
+
 		if ( !$ignore ) {
 			$wpdb->query( $wpdb->prepare( "UPDATE $table_name SET ignored = 0 WHERE id = %d", $id ) );
 		}
@@ -720,6 +732,9 @@ class Meow_WPMC_Core {
 		global $wpdb;
 		$table_name = $wpdb->prefix . "mclean_scan";
 		$issue = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table_name WHERE id = %d", $id ), OBJECT );
+		if ( empty( $issue ) ) {
+			return false;
+		}
 		$issue->id = (int)$issue->id;
 		$issue->postId = (int)$issue->postId;
 		$issue->type = (int)$issue->type;
@@ -734,8 +749,8 @@ class Meow_WPMC_Core {
 		$table_name = $wpdb->prefix . "mclean_scan";
 		$issue = $this->get_issue( $id );
 
-		if ( !isset( $issue ) ) {
-			$this->log( "🚫 Issue {$id} could not be found." );
+		if ( empty( $issue ) ) {
+			$this->log( "🚫 Issue #{$id} does not exist. Cannot delete this." );
 			return false;
 		}
 
@@ -1116,7 +1131,7 @@ class Meow_WPMC_Core {
 		$countfiles = 0;
 		$check_broken_media = !$this->check_content;
 		$fullpath = get_attached_file( $attachmentId );
-		$is_broken = !file_exists( $fullpath );
+		$is_broken = apply_filters( 'wpmc_is_file_broken', !file_exists( $fullpath ), $attachmentId );
 
 		// It's a broken-only scan
 		if ( $check_broken_media && !$is_broken ) {
@@ -1256,6 +1271,10 @@ class Meow_WPMC_Core {
 			'posts_per_page' => 10,
 			'clean_uninstall' => false,
 		);
+	}
+
+	function reset_options() {
+		delete_option( $this->option_name );
 	}
 
 	function get_option( $option ) {
