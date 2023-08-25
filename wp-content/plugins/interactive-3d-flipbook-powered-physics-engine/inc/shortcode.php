@@ -76,8 +76,9 @@
     global $fb3d;
     $jsData = null;
 
-    if($a['mode']!=='thumbnail' && !isset($fb3d['jsData']['bookCtrlProps'])) {
-      $fb3d['jsData']['bookCtrlProps'] = client_book_control_props();
+    if($a['mode']!=='thumbnail') {
+      client_book_control_props();
+      get_book_templates();
     }
 
     if($a['id']!=='0') {
@@ -109,9 +110,9 @@
       }
 
       if($a['lightbox']==='default') {
-        $a['lightbox'] = aa(aa($fb3d['jsData']['bookCtrlProps'], 'lightbox'), 'default', 'dark');
+        $a['lightbox'] = aa(aa($fb3d['jsData']['bookCtrlProps'], 'lightbox'), 'default', 'auto');
         if($a['lightbox']==='auto') {
-          $a['lightbox'] = 'dark';
+          $a['lightbox'] = 'dark-shadow';
         }
       }
       $template = $fb3d['templates'][$template];
@@ -135,6 +136,10 @@
     }
   }
 
+  function to_single_quotes($s) {
+    return str_replace('"', '\'', $s);
+  }
+
   add_action('wp_footer', '\iberezansky\fb3d\enqueue_client_scripts');
 
   function shortcode_handler($atts, $content='') {
@@ -154,7 +159,8 @@
       'thumbnail'=> '',
       'cols'=> '3',
       'style'=> '',
-      'query'=> ''
+      'query'=> '',
+      'book-template'=> 'default'
     ], $atts);
 
     if($atts['tax']==='null') {
@@ -172,14 +178,14 @@
       $atts = $r['atts'];
       $jsData = $r['jsData'];
 
-      $r = sprintf('<%s class="%s %s"', $is_link? 'a href="#"': 'div', '_'.POST_ID, $classes);
+      $r = sprintf('<%s class="%s %s"', $is_link? 'a ': 'div', '_'.POST_ID, to_single_quotes($classes));
       foreach($atts as $k=> $v) {
-        if($k!=='classes' && $k!=='style') {
-          $r .= sprintf(' data-%s="%s"', $k, $v);
+        if($k!=='classes' && $k!=='style' && $k!=='query') {
+          $r .= sprintf(' data-%s="%s"', $k, to_single_quotes($v));
         }
       }
       if($atts['style']!=='') {
-        $r .= sprintf(' style="%s"', $atts['style']);
+        $r .= sprintf(' style="%s"', to_single_quotes($atts['style']));
       }
 
       $res = ($is_link? $r.'>'.$content.'</a>' :$r.'></div>'.$content).($jsData? implode([
@@ -190,22 +196,23 @@
       '</script>']): '');
     }
     else {
-      $params = array('post_type'=> '3d-flip-book', 'posts_per_page'=>-1);
+      $params = ['posts_per_page'=>-1];
   		if($atts['tax']!=='') {
         if(substr($atts['tax'], 0, 1)==='{') {
-          $params['tax_query'] = json_decode(str_replace("'", '"', $atts['tax']), true);
+          $params['tax_query'] = convert_query_to_array($atts['tax']);
         }
   			else {
           $params['tax_query'] = convert_tax_to_tax_query($atts['tax']);
         }
   		}
-      $q_params = array_merge($params, convert_query_to_array($atts['query']));
+      $q_params = array_merge($params, convert_query_to_array($atts['query']), ['post_type'=> POST_ID]);
   		$q = new WP_Query($q_params);
   		$params = $atts;
   		$cols = intval($atts['cols']);
   		unset($params['tax']);
+      unset($params['style']);
       ob_start();
-  		echo('<table data-query="'.str_replace('"', '\'', json_encode($q_params)).'"><tr>');
+  		echo('<table class="fb3d-categories" data-query="'.to_single_quotes(json_encode($q_params)).'" data-raw-query="'.to_single_quotes($atts['query']).'" style="'.to_single_quotes($atts['style']).'"><tr>');
   		for($i=0; $i<$q->post_count; ++$i) {
   			if($i%$cols===0 && $i) {
   				echo('</tr><tr>');

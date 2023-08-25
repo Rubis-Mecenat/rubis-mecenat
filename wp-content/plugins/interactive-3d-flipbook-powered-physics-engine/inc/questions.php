@@ -13,7 +13,7 @@
       <b>Thank You for using 3D FlipBook!</b>
     </p>
     <p>
-      <img src="<?php echo(ASSETS_IMAGES.'please.png'); ?>" alt="Please" style="width: 100px; float: left; padding-right: 10px;">
+      <img src="<?php echo(esc_url(ASSETS_IMAGES.'please.png')); ?>" alt="Please" style="width: 100px; float: left; padding-right: 10px;">
       Everyday we work hard on improving our project quality. We answer your questions, fix bugs, develop new features. We want to do even more, but we need your help.
       If You want You can buy <a href="http://3dflipbook.net/download-wp" target="_blank">pro version</a>, if You don't - no problem, we respect any your decision.
       We just ask You to write <a href="https://wordpress.org/support/plugin/interactive-3d-flipbook-powered-physics-engine/reviews/" target="_blank">a review</a>.

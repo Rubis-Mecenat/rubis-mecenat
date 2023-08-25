@@ -30,6 +30,9 @@
     ],
     'dark-shadow' => [
       'caption'=> 'Dark Glass Shadow'
+    ],
+    'light-shadow' => [
+      'caption'=> 'Light Glass Shadow'
     ]
   ];
 

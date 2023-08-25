@@ -1,14 +1,14 @@
-# Copyright (C) 2022 3D FlipBook
+# Copyright (C) 2023 3D FlipBook
 # This file is distributed under the same license as the 3D FlipBook package.
 msgid ""
 msgstr ""
-"Project-Id-Version: 3D FlipBook 1.12.0\n"
+"Project-Id-Version: 3D FlipBook 1.15.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/3d-flip-book\n"
-"POT-Creation-Date: 2022-02-11 17:32:18+00:00\n"
+"POT-Creation-Date: 2023-02-20 13:21:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2023-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -120,7 +120,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: inc/dictionary.php:53
+#: inc/dictionary.php:53 inc/scripts.php:70
 msgid "None"
 msgstr ""
 
@@ -697,311 +697,471 @@ msgid "Settings"
 msgstr ""
 
 #: inc/dictionary.php:197
-msgid "Smart pan"
+msgid "More"
 msgstr ""
 
 #: inc/dictionary.php:198
-msgid "Single page"
+msgid "Smart pan"
 msgstr ""
 
 #: inc/dictionary.php:199
-msgid "Sounds"
+msgid "Single page"
 msgstr ""
 
 #: inc/dictionary.php:200
-msgid "Stats"
+msgid "Sounds"
 msgstr ""
 
 #: inc/dictionary.php:201
-msgid "Increase lighting"
+msgid "Stats"
 msgstr ""
 
 #: inc/dictionary.php:202
-msgid "Reduce lighting"
+msgid "Increase lighting"
 msgstr ""
 
 #: inc/dictionary.php:203
-msgid "Loading..."
+msgid "Reduce lighting"
 msgstr ""
 
 #: inc/dictionary.php:204
-msgid "See the debugging console for details (Ctrl+Shift+I in Chrome)."
+msgid "Loading..."
 msgstr ""
 
 #: inc/dictionary.php:205
-msgid "yes"
+msgid "See the debugging console for details (Ctrl+Shift+I in Chrome)."
 msgstr ""
 
 #: inc/dictionary.php:206
-msgid "no"
+msgid "yes"
 msgstr ""
 
 #: inc/dictionary.php:207
-msgid "Skin"
+msgid "no"
 msgstr ""
 
 #: inc/dictionary.php:208
-msgid "default control skin"
+msgid "Skin"
 msgstr ""
 
 #: inc/dictionary.php:209
-msgid "CSS text for skin customization"
+msgid "default control skin"
 msgstr ""
 
 #: inc/dictionary.php:210
-msgid "Lightbox"
+msgid "CSS text for skin customization"
 msgstr ""
 
 #: inc/dictionary.php:211
-msgid "default lightbox"
+msgid "Lightbox"
 msgstr ""
 
 #: inc/dictionary.php:212
-msgid "Loading Animation"
+msgid "default lightbox"
 msgstr ""
 
 #: inc/dictionary.php:213
-msgid "show the skin loading animation"
+msgid "Loading Animation"
 msgstr ""
 
 #: inc/dictionary.php:214
-msgid "show the book loading animation"
+msgid "show the skin loading animation"
 msgstr ""
 
 #: inc/dictionary.php:215
-msgid "Auto Resolution"
+msgid "show the book loading animation"
 msgstr ""
 
 #: inc/dictionary.php:216
-msgid "the page texture resolution will be computed automatically"
+msgid "Auto Resolution"
 msgstr ""
 
 #: inc/dictionary.php:217
-msgid "the computed automatically resolution is multiplied by the coefficient"
+msgid "the page texture resolution will be computed automatically"
 msgstr ""
 
 #: inc/dictionary.php:218
-msgid "Narrow View"
+msgid "the computed automatically resolution is multiplied by the coefficient"
 msgstr ""
 
 #: inc/dictionary.php:219
-msgid "width in pixels when the view switches into the narrow mode"
+msgid "Narrow View"
 msgstr ""
 
 #: inc/dictionary.php:220
-msgid "Ready Function"
+msgid "width in pixels when the view switches into the narrow mode"
 msgstr ""
 
 #: inc/dictionary.php:221
-msgid "function ready(scene) {/* code */} ready"
+msgid "Ready Function"
 msgstr ""
 
 #: inc/dictionary.php:222
-msgid "global book ready function: function ready(scene) {/* code */} ready"
+msgid "function ready(scene) {/* code */} ready"
 msgstr ""
 
 #: inc/dictionary.php:223
-msgid "Control properties"
+msgid "global book ready function: function ready(scene) {/* code */} ready"
 msgstr ""
 
 #: inc/dictionary.php:224
-msgid "Book style"
+msgid "Control properties"
 msgstr ""
 
 #: inc/dictionary.php:225
-msgid "Pages customization"
+msgid "Book style"
 msgstr ""
 
 #: inc/dictionary.php:226
-msgid "show advanced options"
+msgid "Pages customization"
 msgstr ""
 
 #: inc/dictionary.php:227
-msgid "render loaded hidden pages in the background on mobile devices"
+msgid "show advanced options"
 msgstr ""
 
 #: inc/dictionary.php:228
-msgid "curvature of open sheet, 0.05 is for flat sheet"
+msgid "render loaded hidden pages in the background on mobile devices"
 msgstr ""
 
 #: inc/dictionary.php:229
-msgid "side texture"
+msgid "curvature of open sheet, 0.05 is for flat sheet"
 msgstr ""
 
 #: inc/dictionary.php:230
-msgid "3D FlipBook source"
+msgid "side texture"
 msgstr ""
 
 #: inc/dictionary.php:231
-msgid "Prebuilt"
+msgid "3D FlipBook source"
 msgstr ""
 
 #: inc/dictionary.php:232
+msgid "Prebuilt"
+msgstr ""
+
+#: inc/dictionary.php:233
 msgid "PDF URL"
 msgstr ""
 
-#: inc/dictionary.php:233 inc/taxonomy.php:7
+#: inc/dictionary.php:234 inc/taxonomy.php:7
 msgid "Categories"
 msgstr ""
 
-#: inc/dictionary.php:234
+#: inc/dictionary.php:235
 msgid "Style"
 msgstr ""
 
-#: inc/dictionary.php:235
+#: inc/dictionary.php:236
 msgid "Height"
 msgstr ""
 
-#: inc/dictionary.php:236
+#: inc/dictionary.php:237
 msgid "500px, 50% - % of parent container height, empty - auto"
 msgstr ""
 
-#: inc/dictionary.php:237
+#: inc/dictionary.php:238
 msgid "Background"
 msgstr ""
 
-#: inc/dictionary.php:238
+#: inc/dictionary.php:239
 msgid "color: #333"
 msgstr ""
 
-#: inc/dictionary.php:239
+#: inc/dictionary.php:240
 msgid "image: http://example.com/image.jpg"
 msgstr ""
 
-#: inc/dictionary.php:240
+#: inc/dictionary.php:241
 msgid "http://example.com/image.jpg"
 msgstr ""
 
-#: inc/dictionary.php:241
+#: inc/dictionary.php:242
 msgid "http://example.com?fb3d-page=1"
 msgstr ""
 
-#: inc/dictionary.php:242
+#: inc/dictionary.php:243
 msgid "Thumbnail URL"
 msgstr ""
 
-#: inc/dictionary.php:243
+#: inc/dictionary.php:244
 msgid "Volumetric"
 msgstr ""
 
-#: inc/dictionary.php:244
-msgid "Volumetric with paddings"
-msgstr ""
-
 #: inc/dictionary.php:245
-msgid "Flat"
+msgid "Volumetric & unrolling flip"
 msgstr ""
 
 #: inc/dictionary.php:246
-msgid "License"
+msgid "Volumetric with paddings"
 msgstr ""
 
-#: inc/dictionary.php:247 inc/update-checker.php:32
-msgid "License Key"
+#: inc/dictionary.php:247
+msgid "Volumetric with paddings & unrolling flip"
 msgstr ""
 
 #: inc/dictionary.php:248
-msgid "only Gumroad is supported at this moment"
+msgid "Flat"
 msgstr ""
 
 #: inc/dictionary.php:249
-msgid "enter your license key or purchase code"
+msgid "License"
 msgstr ""
 
-#: inc/dictionary.php:250
-msgid "Activate"
+#: inc/dictionary.php:250 inc/update-checker.php:32
+msgid "License Key"
 msgstr ""
 
 #: inc/dictionary.php:251
-msgid "Deactivate"
+msgid "only Gumroad is supported at this moment"
 msgstr ""
 
 #: inc/dictionary.php:252
-msgid "Plugin"
+msgid "enter your license key or purchase code"
 msgstr ""
 
 #: inc/dictionary.php:253
-msgid "main stream"
+msgid "Activate"
 msgstr ""
 
 #: inc/dictionary.php:254
-msgid "document ready"
+msgid "Deactivate"
 msgstr ""
 
 #: inc/dictionary.php:255
-msgid "where to initialize the plugin"
+msgid "Plugin"
 msgstr ""
 
 #: inc/dictionary.php:256
-msgid "More skins"
+msgid "main stream"
 msgstr ""
 
 #: inc/dictionary.php:257
-msgid "Order importing pages by"
+msgid "document ready"
 msgstr ""
 
 #: inc/dictionary.php:258
-msgid "ID ASC"
+msgid "where to initialize the plugin"
 msgstr ""
 
 #: inc/dictionary.php:259
-msgid "ID DESC"
+msgid "More skins"
 msgstr ""
 
 #: inc/dictionary.php:260
-msgid "Filename"
+msgid "Order importing pages by"
 msgstr ""
 
 #: inc/dictionary.php:261
-msgid "Date ASC"
+msgid "ID ASC"
 msgstr ""
 
 #: inc/dictionary.php:262
-msgid "Date DESC"
+msgid "ID DESC"
 msgstr ""
 
 #: inc/dictionary.php:263
-msgid "Select PDF"
+msgid "Filename"
 msgstr ""
 
 #: inc/dictionary.php:264
-msgid "Share"
+msgid "Date ASC"
 msgstr ""
 
 #: inc/dictionary.php:265
-msgid "Facebook"
+msgid "Date DESC"
 msgstr ""
 
 #: inc/dictionary.php:266
-msgid "Twitter"
+msgid "Select PDF"
 msgstr ""
 
 #: inc/dictionary.php:267
-msgid "Email"
+msgid "Share"
 msgstr ""
 
 #: inc/dictionary.php:268
-msgid "We wanted you to see this book"
+msgid "Facebook"
 msgstr ""
 
 #: inc/dictionary.php:269
-msgid "Check out this site"
+msgid "Twitter"
 msgstr ""
 
 #: inc/dictionary.php:270
-msgid "show share link"
+msgid "Email"
 msgstr ""
 
 #: inc/dictionary.php:271
-msgid "page turn animation style"
+msgid "We wanted you to see this book"
 msgstr ""
 
 #: inc/dictionary.php:272
-msgid "symmetrical inflection"
+msgid "Check out this site"
 msgstr ""
 
 #: inc/dictionary.php:273
+msgid "show share link"
+msgstr ""
+
+#: inc/dictionary.php:274
+msgid "page turn animation style"
+msgstr ""
+
+#: inc/dictionary.php:275
+msgid "symmetrical inflection"
+msgstr ""
+
+#: inc/dictionary.php:276
 msgid "asymmetrical unrolling"
+msgstr ""
+
+#: inc/dictionary.php:277
+msgid "auto thumbnail height, auto - WordPress thumbnail height"
+msgstr ""
+
+#: inc/dictionary.php:278
+msgid "track user actions using Google Analytics (GA should be plugged to your WordPress)"
+msgstr ""
+
+#: inc/dictionary.php:279
+msgid "Book template"
+msgstr ""
+
+#: inc/dictionary.php:280
+msgid "default book template"
+msgstr ""
+
+#: inc/dictionary.php:281
+msgid "default page slug, enter \"none\" to disable default page"
+msgstr ""
+
+#: inc/dictionary.php:282
+msgid "auto turning pages"
+msgstr ""
+
+#: inc/dictionary.php:283
+msgid "show table of contents"
+msgstr ""
+
+#: inc/dictionary.php:284
+msgid "show/hide the toolbar"
+msgstr ""
+
+#: inc/dictionary.php:285
+msgid "table of contents default tab"
+msgstr ""
+
+#: inc/dictionary.php:286
+msgid "defaultTab"
+msgstr ""
+
+#: inc/dictionary.php:287
+msgid "Saved"
+msgstr ""
+
+#: inc/dictionary.php:288
+msgid "Template book cannot have a template"
+msgstr ""
+
+#: inc/dictionary.php:289
+msgid "Cannot save the template"
+msgstr ""
+
+#: inc/dictionary.php:290
+msgid "Name cannot be empty, \"default\", \"none\", \"auto\" or contain \""
+msgstr ""
+
+#: inc/dictionary.php:291
+msgid "Auto"
+msgstr ""
+
+#: inc/dictionary.php:292
+msgid "Default"
+msgstr ""
+
+#: inc/dictionary.php:293
+msgid "Save this book as Template"
+msgstr ""
+
+#: inc/dictionary.php:294
+msgid "time in ms between two auto page turns when autoplay is active"
+msgstr ""
+
+#: inc/dictionary.php:295
+msgid "Add"
+msgstr ""
+
+#: inc/dictionary.php:296
+msgid "URL / Page number"
+msgstr ""
+
+#: inc/dictionary.php:297
+msgid "background color"
+msgstr ""
+
+#: inc/dictionary.php:298
+msgid "background image"
+msgstr ""
+
+#: inc/dictionary.php:299
+msgid "background css style"
+msgstr ""
+
+#: inc/dictionary.php:300
+msgid "goto last book page"
+msgstr ""
+
+#: inc/dictionary.php:301
+msgid "goto first book page"
+msgstr ""
+
+#: inc/dictionary.php:302
+msgid "AdSense"
+msgstr ""
+
+#: inc/dictionary.php:303
+msgid "ad client id"
+msgstr ""
+
+#: inc/dictionary.php:304
+msgid "ad slot id"
+msgstr ""
+
+#: inc/dictionary.php:305
+msgid "ad format"
+msgstr ""
+
+#: inc/dictionary.php:306
+msgid "full width responsive"
+msgstr ""
+
+#: inc/dictionary.php:307
+msgid "highlight pdf links"
+msgstr ""
+
+#: inc/dictionary.php:308
+msgid "max book thickness, limit cover and pages depth"
+msgstr ""
+
+#: inc/dictionary.php:309
+msgid "ambient"
+msgstr ""
+
+#: inc/dictionary.php:310
+msgid "mixed"
+msgstr ""
+
+#: inc/dictionary.php:311
+msgid "color"
+msgstr ""
+
+#: inc/dictionary.php:312
+msgid "transparent"
+msgstr ""
+
+#: inc/dictionary.php:313
+msgid "3d lighting"
 msgstr ""
 
 #: inc/edit.php:12
@@ -1036,11 +1196,11 @@ msgstr ""
 msgid "More options"
 msgstr ""
 
-#: inc/post.php:7
+#: inc/post.php:10
 msgid "3D FlipBook"
 msgstr ""
 
-#: inc/post.php:9
+#: inc/post.php:12
 msgid "All Books"
 msgstr ""
 

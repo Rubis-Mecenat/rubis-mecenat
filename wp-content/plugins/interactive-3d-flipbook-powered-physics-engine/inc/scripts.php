@@ -60,17 +60,27 @@
       'dictionary'=> $fb3d['dictionary']
     ));
 
+    $thumbnail_size_h = aa(aa(client_book_control_props(), 'plugin'), 'autoThumbnailHeight', 'auto');
     $thumbnailSize = [
       'width'=> get_option('thumbnail_size_w'),
-      'height'=> get_option('thumbnail_size_h')
+      'height'=> $thumbnail_size_h==='auto'? get_option('thumbnail_size_h'): $thumbnail_size_h
     ];
+
+    $bookTemplates = [
+      'none'=> ['caption'=> __('None', POST_ID)]
+    ];
+    foreach(get_book_templates() as $name=> $data) {
+      $bookTemplates[$name] = [];
+    }
 
     wp_localize_script(POST_ID.'-edit', 'FB3D_ADMIN_LOCALE', array(
       'editMountNode'=> POST_ID.'-edit',
       'images'=> ASSETS_IMAGES,
       'thumbnailSize'=> $thumbnailSize,
       'dictionary'=> $fb3d['dictionary'],
-      'styles'=> get_style_srcs(POST_ID.'-edit')
+      'styles'=> get_style_srcs(POST_ID.'-edit'),
+      'bookTemplates'=> array_keys(get_book_templates()),
+      'nonce'=> wp_create_nonce(NONCE)
     ));
 
     wp_localize_script(POST_ID.'-insert', 'FB3D_ADMIN_LOCALE', array(
@@ -86,6 +96,7 @@
       'images'=> ASSETS_IMAGES,
       'templates'=> $fb3d['templates'],
       'lightboxes'=> $fb3d['lightboxes'],
+      'bookTemplates'=> $bookTemplates,
       'dictionary'=> $fb3d['dictionary'],
       'license'=> $fb3d['options']['license'],
       'nonce'=> wp_create_nonce(NONCE)

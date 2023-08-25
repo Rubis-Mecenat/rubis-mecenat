@@ -68,9 +68,16 @@
         '3dfb-post-thumbnail-data-post_ID'=> array('default'=> 0, 'qualifier'=> '%d'),
         '3dfb-post-ready_function'=> array('default'=> '', 'qualifier'=> '%s'),
         '3dfb-post-book_style'=> array('default'=> 'volume', 'qualifier'=> '%s'),
+        '3dfb-post-book_template'=> array('default'=> 'none', 'qualifier'=> '%s'),
+        '3dfb-post-outline'=> array('default'=> '[]', 'qualifier'=> '%s'),
 
         '3dfb-post-props-height'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-width'=> array('default'=> 'auto', 'qualifier'=> '%f'),
+        '3dfb-post-props-backgroundColor'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-props-backgroundImage'=> array('default'=> 'auto', 'qualifier'=> '%s'),
+        '3dfb-post-props-backgroundStyle'=> array('default'=> 'auto', 'qualifier'=> '%s'),
+        '3dfb-post-props-highlightLinks'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-props-lighting'=> array('default'=> 'auto', 'qualifier'=> '%s'),
         '3dfb-post-props-gravity'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-cachedPages'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-renderInactivePages'=> array('default'=> 'auto', 'qualifier'=> '%d'),
@@ -80,6 +87,8 @@
         '3dfb-post-props-preloadPages'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-props-rtl'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-props-interactiveCorners'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-props-maxDepth'=> array('default'=> 'auto', 'qualifier'=> '%f'),
+        '3dfb-post-props-autoPlayDuration'=> array('default'=> 'auto', 'qualifier'=> '%d'),
 
         '3dfb-post-props-sheet-startVelocity'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-sheet-cornerDeviation'=> array('default'=> 'auto', 'qualifier'=> '%f'),
@@ -89,7 +98,7 @@
         '3dfb-post-props-sheet-wave'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-sheet-widthTexels'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-sheet-heightTexels'=> array('default'=> 'auto', 'qualifier'=> '%f'),
-        '3dfb-post-props-sheet-color'=> array('default'=> 'auto', 'qualifier'=> '%f'),
+        '3dfb-post-props-sheet-color'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-props-sheet-side'=> array('default'=> 'auto', 'qualifier'=> '%s'),
         '3dfb-post-props-sheet-shape'=> array('default'=> 'auto', 'qualifier'=> '%d'),
 
@@ -100,7 +109,7 @@
         '3dfb-post-props-cover-wave'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-cover-widthTexels'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-cover-heightTexels'=> array('default'=> 'auto', 'qualifier'=> '%f'),
-        '3dfb-post-props-cover-color'=> array('default'=> 'auto', 'qualifier'=> '%f'),
+        '3dfb-post-props-cover-color'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-props-cover-depth'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-cover-padding'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-cover-binderTexture'=> array('default'=> 'auto', 'qualifier'=> '%s'),
@@ -115,12 +124,19 @@
         '3dfb-post-props-page-wave'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-page-widthTexels'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-page-heightTexels'=> array('default'=> 'auto', 'qualifier'=> '%f'),
-        '3dfb-post-props-page-color'=> array('default'=> 'auto', 'qualifier'=> '%f'),
+        '3dfb-post-props-page-color'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-props-page-depth'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-page-mass'=> array('default'=> 'auto', 'qualifier'=> '%f'),
         '3dfb-post-props-page-side'=> array('default'=> 'auto', 'qualifier'=> '%s'),
         '3dfb-post-props-page-shape'=> array('default'=> 'auto', 'qualifier'=> '%d'),
 
+        '3dfb-post-controlProps-actions-cmdToc-enabled'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-controlProps-actions-cmdToc-enabledInNarrow'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-controlProps-actions-cmdToc-active'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-controlProps-actions-cmdToc-defaultTab'=> array('default'=> 'auto', 'qualifier'=> '%s'),
+        '3dfb-post-controlProps-actions-cmdAutoPlay-enabled'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-controlProps-actions-cmdAutoPlay-enabledInNarrow'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-controlProps-actions-cmdAutoPlay-active'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-controlProps-actions-cmdSave-enabled'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-controlProps-actions-cmdSave-enabledInNarrow'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-controlProps-actions-cmdPrint-enabled'=> array('default'=> 'auto', 'qualifier'=> '%d'),
@@ -129,6 +145,8 @@
         '3dfb-post-controlProps-actions-cmdSinglePage-enabledInNarrow'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-controlProps-actions-cmdSinglePage-active'=> array('default'=> 'auto', 'qualifier'=> '%d'),
         '3dfb-post-controlProps-actions-cmdSinglePage-activeForMobile'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-controlProps-actions-widToolbar-enabled'=> array('default'=> 'auto', 'qualifier'=> '%d'),
+        '3dfb-post-controlProps-actions-widToolbar-enabledInNarrow'=> array('default'=> 'auto', 'qualifier'=> '%d'),
 
         '3dfb-autoThumbnail'=> array('default'=> '', 'qualifier'=> '%s'),
       ),
@@ -231,7 +249,17 @@
       $src = json_decode(isset($_POST['3dfb-data'])? str_replace('&x5c', '\\', str_replace('&x27', '\'', str_replace('&x22', '"', $_POST['3dfb-data']))): '{}', true);
       $data = get_post_data($id, $src? $src: []);
       foreach ($data['3dfb']['post'] as $key => $value) {
-        update_post_meta($id, META_PREFIX.$key, $value);
+        if($key==='outline') {
+          update_post_meta($id, META_PREFIX.$key, json_decode($value, true));
+        }
+        else {
+          update_post_meta($id, META_PREFIX.$key, $value);
+        }
+      }
+
+      $version = get_option(TABLE_NAME.'_version');
+      if($version!==DBVERSION) {
+        install();
       }
 
       set_post_pages($id, $data['3dfb']['pages']);

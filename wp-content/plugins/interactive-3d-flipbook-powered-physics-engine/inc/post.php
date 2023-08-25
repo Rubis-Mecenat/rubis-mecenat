@@ -2,6 +2,9 @@
   namespace iberezansky\fb3d;
 
   function register_post_type() {
+    $props = client_book_control_props();
+    $slug = sanitize_title(aa(aa($props, 'plugin'), 'slug', POST_ID));
+    $slug = $slug==='auto'? POST_ID: $slug;
     \register_post_type(POST_ID, array(
       'public'=> true,
       'label'=> __('3D FlipBook', POST_ID),
@@ -10,10 +13,19 @@
       ),
       'menu_icon'=> 'dashicons-book-alt',
       'exclude_from_search'=> true,
+      'publicly_queryable'=> $slug!=='none',
       'supports'=> array(
         'title'
-      )
+      ),
+      'rewrite'=> [
+        'slug'=> $slug,
+      ]
     ));
+    if(!aa($props, 'flushed', true)) {
+      $props['flushed'] = true;
+      update_option(META_PREFIX.'book_control_props', serialize($props));
+      flush_rewrite_rules(false);
+    }
   }
 
   add_action('init', '\iberezansky\fb3d\register_post_type');

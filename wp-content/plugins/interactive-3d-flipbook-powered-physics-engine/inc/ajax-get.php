@@ -19,12 +19,14 @@
     }
     $def = get_post_data($post->ID, array());
     $def = $def['3dfb']['post'];
-    return array(
+    return apply_filters('fb3d_post', [
       'ID'=> $post->ID,
       'title'=> $post->post_title,
       'type'=> isset($meta[META_PREFIX.'type'][0])? $meta[META_PREFIX.'type'][0]: 'pdf',
       'ready_function'=> isset($meta[META_PREFIX.'ready_function'][0])? $meta[META_PREFIX.'ready_function'][0]: '',
       'book_style'=> isset($meta[META_PREFIX.'book_style'][0])? $meta[META_PREFIX.'book_style'][0]: 'volume',
+      'book_template'=> isset($meta[META_PREFIX.'book_template'][0])? $meta[META_PREFIX.'book_template'][0]: 'none',
+      'outline'=> isset($meta[META_PREFIX.'outline'][0])? unserialize($meta[META_PREFIX.'outline'][0]): [],
       'data'=> unserialize(isset($meta[META_PREFIX.'data'][0])? $meta[META_PREFIX.'data'][0]: serialize($def['data'])),
       'thumbnail'=> unserialize(isset($meta[META_PREFIX.'thumbnail'][0])? $meta[META_PREFIX.'thumbnail'][0]: serialize($def['thumbnail'])),
       'props'=> unserialize(isset($meta[META_PREFIX.'props'][0])? $meta[META_PREFIX.'props'][0]: serialize($def['props'])),
@@ -32,7 +34,7 @@
       'autoThumbnail'=> get_auto_thumbnail_url($post->ID),
       'post_name'=> $post->post_name,
       'post_type'=> $post->post_type
-    );
+    ]);
   }
 
   function send_taxonomy_terms_json() {
@@ -72,7 +74,8 @@
         'image/jpeg',
         'image/pjpeg',
         'image/png',
-        'image/svg+xml'
+        'image/svg+xml',
+        'image/webp',
       )
     ));
     if($q->post_count) {
@@ -216,11 +219,23 @@
   add_action('wp_ajax_fb3d_send_media_image', '\iberezansky\fb3d\send_media_image_json');
   add_action('wp_ajax_nopriv_fb3d_send_media_image', '\iberezansky\fb3d\send_media_image_json');
 
+  function get_book_templates() {
+    global $fb3d;
+    if(!isset($fb3d['jsData']['bookTemplates'])) {
+      $templates = unserialize(get_option(META_PREFIX.'book_templates'));
+      $fb3d['jsData']['bookTemplates'] = $templates? $templates: [];
+    }
+    return $fb3d['jsData']['bookTemplates'];
+  }
+
   function client_book_control_props() {
-    $props = get_option(META_PREFIX.'book_control_props');
-    $props = unserialize($props);
-    $props = $props? $props: [];
-    return $props;
+    global $fb3d;
+    if(!isset($fb3d['jsData']['bookCtrlProps'])) {
+      $props = get_option(META_PREFIX.'book_control_props');
+      $props = unserialize($props);
+      $fb3d['jsData']['bookCtrlProps'] = $props? $props: [];
+    }
+    return $fb3d['jsData']['bookCtrlProps'];
   }
 
   function send_book_control_props_json() {
