@@ -1,59 +1,57 @@
-# Translation of Plugins - Redirection - Stable (latest release) in Swedish
+# Translation of Plugins - Redirection - Stable (latest release) in Malay
 # This file is distributed under the same license as the Plugins - Redirection - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-22 11:26:33+0000\n"
+"PO-Revision-Date: 2022-11-06 11:36:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/4.0.0-alpha.4\n"
-"Language: sv_SE\n"
+"Language: ms\n"
 "Project-Id-Version: Plugins - Redirection - Stable (latest release)\n"
 
 #: redirection.js:2
 msgid "Export Logs"
-msgstr "Exportera loggar"
+msgstr ""
 
 #: redirection.js:2
 msgid "total = %d"
-msgstr "totalt = %d"
+msgstr ""
 
 #: redirection.js:2
 msgid "of %s"
-msgstr "av %s"
+msgstr ""
 
 #: redirection.js:2
 msgid "An unknown error"
-msgstr "Ett okänt fel"
+msgstr ""
 
 #: redirection.js:2
 msgid "Your site already has the latest SQL."
-msgstr "Din webbplats har redan senaste SQL."
+msgstr ""
 
 #: redirection.js:2
 msgid "Progress: %(complete)d%%"
-msgstr "Status: %(complete)d%%"
+msgstr ""
 
 #: redirection.js:2
 msgid "Testing - %s%%"
-msgstr "Testar – %s%%"
+msgstr ""
 
 #: redirection.js:2
 msgid "Transition"
 msgid_plural "TransitionEnd"
 msgstr[0] ""
-msgstr[1] ""
 
 #: redirection.js:2
 msgid "Animation"
 msgid_plural "AnimationEnd"
 msgstr[0] ""
-msgstr[1] ""
 
 #: redirection-strings.php:750 redirection.js:2
 msgid "REST API 404"
-msgstr "REST API 404"
+msgstr ""
 
 #: redirection-strings.php:746 redirection.js:2
 msgid "Your REST API appears to be cached and this will cause problems. Please exclude your REST API from your caching system."
@@ -61,31 +59,31 @@ msgstr ""
 
 #: redirection-strings.php:738 redirection.js:2
 msgid "Your REST API is showing a deprecated PHP error. Please fix this error."
-msgstr "Ditt REST API visar ett föråldrat PHP-fel. Åtgärda detta fel."
+msgstr ""
 
 #: redirection-strings.php:732 redirection.js:2
 msgid "Your server configuration is blocking access to the REST API."
-msgstr "Din serverkonfiguration blockerar åtkomst till REST API:et."
+msgstr ""
 
 #: redirection-strings.php:730 redirection.js:2
 msgid "Can you access your {{api}}REST API{{/api}} without it redirecting?."
-msgstr "Kan du få åtkomst till ditt {{api}}REST API{{/api}} utan att det omdirigerar?"
+msgstr ""
 
 #: redirection-strings.php:729 redirection.js:2
 msgid "You will will need to fix this on your site. Redirection is not causing the error."
-msgstr "Du måste åtgärda detta på din webbplats. Redirection orsakar inte felet."
+msgstr ""
 
 #: redirection-strings.php:719 redirection.js:2
 msgid "Add Permalink"
-msgstr "Lägg till permalänk"
+msgstr ""
 
 #: redirection-strings.php:718 redirection.js:2
 msgid "No migrated permalinks"
-msgstr "Inga flyttade permalänkar"
+msgstr ""
 
 #: redirection-strings.php:717 redirection.js:2
 msgid "Permalinks"
-msgstr "Permalänkar"
+msgstr ""
 
 #: redirection-strings.php:716 redirection.js:2
 msgid "Note: this is in beta and will only migrate posts. Certain permalinks will not work. If yours does not work then you will need to wait until it is out of beta."
@@ -93,11 +91,11 @@ msgstr ""
 
 #: redirection-strings.php:715 redirection.js:2
 msgid "Enter old permalinks structures to automatically migrate them to your current one."
-msgstr "Ange gamla permalänksstrukturer för att automatiskt migrera dem till din nuvarande."
+msgstr ""
 
 #: redirection-strings.php:714 redirection.js:2
 msgid "Permalink Migration"
-msgstr "Permalänkflytt"
+msgstr ""
 
 #: redirection-strings.php:681 redirection.js:2
 msgid "(beta) Enable caching of redirects via WordPress object cache. Can improve performance. Requires an object cache."
@@ -105,39 +103,39 @@ msgstr ""
 
 #: redirection-strings.php:678 redirection.js:2
 msgid "HTTP Cache Header"
-msgstr "HTTP-cacheheader"
+msgstr ""
 
 #: redirection-strings.php:651 redirection.js:2
 msgid "Decide how Redirection updates itself, if needed."
-msgstr "Bestäm hur Redirection uppdaterar sig självt, om det behövs."
+msgstr ""
 
 #: redirection-strings.php:650 redirection.js:2
 msgid "Data Upgrade"
-msgstr "Datauppgradering"
+msgstr ""
 
 #: redirection-strings.php:642 redirection.js:2
 msgid "Advanced"
-msgstr "Avancerat"
+msgstr ""
 
 #: redirection-strings.php:641 redirection.js:2
 msgid "Automatically upgrade on admin pages"
-msgstr "Uppgradera automatiskt på adminsidor"
+msgstr ""
 
 #: redirection-strings.php:640 redirection.js:2
 msgid "Upgrade manually when prompted"
-msgstr "Uppgradera manuellt vid uppmaning"
+msgstr ""
 
 #: redirection-strings.php:606 redirection.js:2
 msgid "Nothing to display."
-msgstr "Inget att visa."
+msgstr ""
 
 #: redirection-strings.php:599 redirection.js:2
 msgid "%1d of %1d selected. {{all}}Clear All.{{/all}}"
-msgstr "%1d av %1d markerade. {{all}}Rensa alla{{/all}}."
+msgstr ""
 
 #: redirection-strings.php:598 redirection.js:2
 msgid "%1d of %1d selected. {{all}}Select All.{{/all}}"
-msgstr "%1d av %1d markerade. {{all}}Markera alla{{/all}}."
+msgstr ""
 
 #: redirection-strings.php:526 redirection.js:2
 msgid "Sometimes your browser can cache a URL, making it hard to know if it's working as expected. Use this service from {{link}}redirect.li{{/link}} to get accurate results."
@@ -145,27 +143,27 @@ msgstr ""
 
 #: redirection-strings.php:362 redirection-strings.php:423 redirection.js:2
 msgid "Search exact URL"
-msgstr "Sök exakt URL"
+msgstr ""
 
 #: redirection-strings.php:286 redirection.js:2
 msgid "Version %s installed! Please read the {{url}}release notes{{/url}} for details."
-msgstr "Version %s installerad!. Läs {{url}}utgåvans anteckningar{{/url}} detaljer."
+msgstr ""
 
 #: redirection-strings.php:223 redirection.js:2
 msgid "Manual Setup"
-msgstr "Manuell installation"
+msgstr ""
 
 #: redirection-strings.php:188 redirection.js:2
 msgid "Importing failed."
-msgstr "Importen misslyckades."
+msgstr ""
 
 #: redirection-strings.php:187 redirection.js:2
 msgid "Import finished."
-msgstr "Import slutförd."
+msgstr ""
 
 #: redirection-strings.php:178 redirection.js:2
 msgid "Ready to begin! 🎉"
-msgstr "Redo att börja! 🎉"
+msgstr ""
 
 #: redirection-strings.php:177 redirection.js:2
 msgid "Please take a moment to consult the {{support}}support site{{/support}} for information about how to use Redirection."
@@ -173,75 +171,75 @@ msgstr ""
 
 #: redirection-strings.php:176 redirection.js:2
 msgid "Redirection is now installed!"
-msgstr "Redirection är nu installerat!"
+msgstr ""
 
 #: redirection-strings.php:175 redirection.js:2
 msgid "Installation Complete"
-msgstr "Installation slutförd"
+msgstr ""
 
 #: redirection-strings.php:160 redirection.js:2
 msgid "The Redirection database does not appear to exist. Have you run the above SQL?"
-msgstr "Redirect-databasen verkar inte finnas. Har du kört ovanstående SQL?"
+msgstr ""
 
 #: redirection-strings.php:120 redirection.js:2
 msgid "Wildcards are not supported. You need to use a {{link}}regular expression{{/link}}."
-msgstr "Jockertecken stöds inte. Du måste använda ett {{link}}reguljärt uttryck{{/link}}."
+msgstr ""
 
 #: redirection-strings.php:119 redirection.js:2
 msgid "To match {{code}}?{{/code}} you need to escape it with {{code}}\\?{{/code}}"
-msgstr "Att matcha {{code}}?{{/code}} måste du säkerhetsfiltrera det med {{code}}\\?{{/code}}"
+msgstr ""
 
 #: redirection-strings.php:118 redirection.js:2
 msgid "The caret {{code}}^{{/code}} should be at the start. For example: {{code}}%(example)s{{/code}}"
-msgstr "Insättningstecknet {{code}}^{{/code}} bör vara i början. Till exempel: {{code}}%(exempel){{/code}}"
+msgstr ""
 
 #: redirection-strings.php:116 redirection.js:2
 msgid "Please add migrated permalinks to the Site page under the \"Permalink Migration\" section."
-msgstr "Lägg till migrerade permalänkar på sidan Webbplats-sidan i sektionen ”Permalänkmigrering”."
+msgstr ""
 
 #: redirection-strings.php:92 redirection-strings.php:658 redirection.js:2
 msgid "Exact match in any order"
-msgstr "Exakt matchning i valfri ordning"
+msgstr ""
 
 #: redirection-strings.php:46 redirection.js:2
 msgid "Something went wrong obtaining this information. It may work in the future."
-msgstr "Något gick fel vid hämtning av denna information. Det kan fungera i framtiden."
+msgstr ""
 
 #: redirection-strings.php:44 redirection.js:2
 msgid "View full redirect.li results."
-msgstr "Visa fullständiga redirect.li-resultat."
+msgstr ""
 
 #: redirection-strings.php:43 redirection.js:2
 msgid "If your browser is behaving differently then you should clear your browser cache."
-msgstr "Om din webbläsare beter sig annorlunda bör du rensa webbläsarens cache."
+msgstr ""
 
 #: redirection-strings.php:42 redirection.js:2
 msgid "If this is not expected then this {{support}}support page{{/support}} may help."
-msgstr "Om detta inte är förväntat kan denna {{support}}supportsida{{/support}} hjälpa till."
+msgstr ""
 
 #: redirection-strings.php:41 redirection.js:2
 msgid "Unable to check that URL. It may not be valid or accessible."
-msgstr "Det går inte att kontrollera den URL:en. Det kanske inte är giltigt eller tillgängligt."
+msgstr ""
 
 #: redirection-strings.php:40 redirection.js:2
 msgid "Page was loaded."
-msgstr "Sidan laddades."
+msgstr ""
 
 #: redirection-strings.php:39 redirection.js:2
 msgid "Redirected by an unknown agent. {{support}}What does this mean?{{/support}}."
-msgstr "Omdirigerad av en okänd agent. {{support}} Vad betyder detta?{{/support}}"
+msgstr ""
 
 #: redirection-strings.php:38 redirection.js:2
 msgid "Redirected by %1s. {{support}}What does this mean?{{/support}}."
-msgstr "Omdirigerad av %1s. {{support}}Vad betyder detta?{{/support}}"
+msgstr ""
 
 #: redirection-strings.php:36 redirection.js:2
 msgid "Matches your redirect"
-msgstr "Matchar din omdirigering"
+msgstr ""
 
 #: redirection-strings.php:35 redirection-strings.php:37 redirection.js:2
 msgid "Redirected by Redirection."
-msgstr "Omdirigerad av Redirection."
+msgstr ""
 
 #: redirection-strings.php:34 redirection.js:2
 msgid "An error page was returned. This is unlikely to be a problem with Redirection. {{support}}What does this mean?{{/support}}."
@@ -249,87 +247,87 @@ msgstr ""
 
 #: redirection-strings.php:33 redirection.js:2
 msgid "Something is wrong with the server. This is not a problem with Redirection and you will need to resolve the error yourself."
-msgstr "Något är fel med servern. Detta är inte ett problem med Redirection och du måste lösa felet själv."
+msgstr ""
 
 #: redirection-strings.php:32
 msgid "An unknown errorm"
-msgstr "En okänt fel"
+msgstr ""
 
 #: redirection-strings.php:5 redirection.js:2
 msgid "Are you sure want to delete all %d matching items?"
-msgstr "Är du säker på att du vill ta bort alla %d matchande objekt?"
+msgstr ""
 
 #: models/fixer.php:91
 msgid "Too many regular expressions may impact site performance"
-msgstr "Alltför många reguljära uttryck kan påverka webbplatsens produktivitet"
+msgstr ""
 
 #: models/fixer.php:89
 msgid "Regular Expressions"
-msgstr "Reguljära uttryck (Regex)"
+msgstr ""
 
 #: redirection-strings.php:758 redirection.js:2
 msgid "Your admin pages are being cached. Clear this cache and try again. There may be multiple caches involved."
-msgstr "Dina administrationssidor cachelagras. Rensa denna cache och försök igen. Det kan finnas flera cachar inblandade."
+msgstr ""
 
 #: redirection-strings.php:755 redirection.js:2
 msgid "This is usually fixed by doing one of the following:"
-msgstr "Detta åtgärdas vanligtvis genom att göra något av detta:"
+msgstr ""
 
 #: redirection-strings.php:754 redirection.js:2
 msgid "You are using an old or cached session"
-msgstr "Du använder en gammal eller cachelagrad session"
+msgstr "Anda sedang menggunakan sesi lama atau dicache"
 
 #: redirection-strings.php:749 redirection.js:2
 msgid "Please review your data and try again."
-msgstr "Granska dina data och försök igen."
+msgstr "Sila semak data anda dan cuba lagi."
 
 #: redirection-strings.php:748 redirection.js:2
 msgid "There was a problem making a request to your site. This could indicate you provided data that did not match requirements, or that the plugin sent a bad request."
-msgstr "Det gick inte att göra en begäran till din webbplats. Detta kan indikera att du tillhandahöll data som inte matchade kraven eller att tillägget skickade en dålig begäran."
+msgstr ""
 
 #: redirection-strings.php:747 redirection.js:2
 msgid "Bad data"
-msgstr "Dålig data"
+msgstr ""
 
 #: redirection-strings.php:742 redirection.js:2
 msgid "WordPress returned an unexpected message. This could be a PHP error from another plugin, or data inserted by your theme."
-msgstr "WordPress returnerade ett oväntat meddelande. Detta kan vara ett PHP-fel från ett annat tillägg eller data som infogats av ditt tema."
+msgstr ""
 
 #: redirection-strings.php:741 redirection.js:2
 msgid "Your WordPress REST API has been disabled. You will need to enable it to continue."
-msgstr "Ditt WordPress REST API har inaktiverats. Du måste aktivera det för att fortsätta."
+msgstr "API REST WordPress anda telah dilumpuhkan. Anda perlu mendayakannya untuk meneruskan."
 
 #: redirection-strings.php:737 redirection.js:2
 msgid "An unknown error occurred."
-msgstr "Ett okänt fel uppstod."
+msgstr "Ralat yang tidak diketahui berlaku."
 
 #: redirection-strings.php:735 redirection.js:2
 msgid "Your REST API is being redirected. Please remove the redirection for the API."
-msgstr "Ditt REST API omdirigeras. Ta bort omdirigeringen för API:et."
+msgstr "REST API anda sedang dialih hala. Sila alih keluar alihan untuk API."
 
 #: redirection-strings.php:733 redirection.js:2
 msgid "A security plugin or firewall is blocking access. You will need to whitelist the REST API."
-msgstr "Ett säkerhetstillägg eller brandvägg blockerar åtkomst. Du måste vitlista REST API:t."
+msgstr "Pemalam keselamatan atau firewall menyekat akses. Anda perlu menyenarai putih REST API."
 
 #: redirection-strings.php:731 redirection.js:2
 msgid "Check your {{link}}Site Health{{/link}} and fix any issues."
-msgstr "Kontrollera din {{link}}Hälsostatus för webbplats{{/ link}} och åtgärda eventuella problem."
+msgstr "Semak {{link}}Kesihatan Tapak{{/link}} anda dan selesaikan sebarang isu."
 
 #: redirection-strings.php:728 redirection.js:2
 msgid "Your WordPress REST API is returning a 404 page. This is almost certainly an external plugin or server configuration issue."
-msgstr "Ditt REST API returnerar en 404-sida. Detta är nästan helt säkert ett externt tilläggs- eller serverkonfigurationsproblem."
+msgstr ""
 
 #: redirection-strings.php:724 redirection.js:2
 msgid "Debug Information"
-msgstr "Felsökningsinformation"
+msgstr "Maklumat Nyahpijat"
 
 #: redirection-strings.php:723 redirection.js:2
 msgid "Show debug"
-msgstr "Visa felsökning"
+msgstr "Papar nyahpijat"
 
 #: redirection-strings.php:548 redirection.js:2
 msgid "View Data"
-msgstr "Visa data"
+msgstr "Papar Data"
 
 #: redirection-strings.php:636 redirection.js:2
 msgid "Redirection stores no user identifiable information other than what is configured above. It is your responsibility to ensure your site meets any applicable {{link}}privacy requirements{{/link}}."
@@ -341,27 +339,27 @@ msgstr ""
 
 #: redirection-strings.php:634 redirection.js:2
 msgid "Track redirect hits and date of last access. Contains no user information."
-msgstr "Spåra omdirigeringsträffar och datum för senaste åtkomst. Innehåller ingen användarinformation."
+msgstr ""
 
 #: redirection-strings.php:633 redirection.js:2
 msgid "Log \"external\" redirects - those not from Redirection. This can increase your log size and contains no user information."
-msgstr "Logga ”externa” omdirigeringar, som inte kommer från Redirection. Detta kan öka din loggs storlek och innehåller ingen användarinformation."
+msgstr ""
 
 #: redirection-strings.php:632 redirection.js:2
 msgid "Logging"
-msgstr "Loggning"
+msgstr "melog masuk"
 
 #: redirection-strings.php:631 redirection.js:2
 msgid "(IP logging level)"
-msgstr "(IP-loggningsnivå)"
+msgstr ""
 
 #: redirection-strings.php:429 redirection.js:2
 msgid "Are you sure you want to delete the selected items?"
-msgstr "Är du säker på att du vill ta bort de valda objekten?"
+msgstr "Anda pasti anda mahu memadamkan item yang dipilih?"
 
 #: redirection-strings.php:378 redirection.js:2
 msgid "View Redirect"
-msgstr "Visa omdirigering"
+msgstr "Papar Alihan"
 
 #: redirection-strings.php:376 redirection.js:2
 msgid "RSS"
@@ -369,119 +367,119 @@ msgstr "RSS"
 
 #: redirection-strings.php:370 redirection-strings.php:400 redirection.js:2
 msgid "Group by user agent"
-msgstr "Gruppera efter användaragent"
+msgstr "Kumpulan mengikut ejen pengguna"
 
 #: redirection-strings.php:367 redirection-strings.php:427 redirection.js:2
 msgid "Search domain"
-msgstr "Sök domän"
+msgstr "Cari domain"
 
 #: redirection-strings.php:335 redirection-strings.php:355
 #: redirection-strings.php:373 redirection.js:2
 msgid "Redirect By"
-msgstr "Omdirigera efter"
+msgstr "Alihan Oleh"
 
 #: redirection-strings.php:332 redirection-strings.php:353
 #: redirection-strings.php:387 redirection-strings.php:414 redirection.js:2
 msgid "Domain"
-msgstr "Domän"
+msgstr "Domain"
 
 #: redirection-strings.php:331 redirection-strings.php:352
 #: redirection-strings.php:372 redirection-strings.php:386
 #: redirection-strings.php:413 redirection-strings.php:420 redirection.js:2
 msgid "Method"
-msgstr "Metod"
+msgstr "Kaedah"
 
 #: redirection-strings.php:260 redirection.js:2
 msgid "If that did not help then {{strong}}create an issue{{/strong}} or send it in an {{strong}}email{{/strong}}."
-msgstr "Om inte det hjälpte {{strong}}upprätta ett supportärende{{/strong}} eller skicka det via {{strong}}e-post{{/strong}}."
+msgstr ""
 
 #: redirection-strings.php:259 redirection.js:2
 msgid "Please check the {{link}}support site{{/link}} before proceeding further."
-msgstr "Kontrollera {{link}}supportwebbplatsen{{/link}} innan du går vidare."
+msgstr ""
 
 #: redirection.js:2
 msgid "Something went wrong when upgrading Redirection."
-msgstr "Något gick fel när Redirection skulle uppgraderas."
+msgstr "Kesilapan telah berlaku semasa menaik taraf Pengalihan."
 
 #: redirection-strings.php:153 redirection.js:2
 msgid "Something went wrong when installing Redirection."
-msgstr "Något gick fel när Redirection skulle installeras."
+msgstr "Kesilapan telah berlaku semasa memasang Pengalihan."
 
 #: redirection-strings.php:128 redirection.js:2
 msgid "Redirect Source"
-msgstr "Omdirigeringskälla"
+msgstr "Sumber Alihan"
 
 #: redirection-strings.php:127 redirection.js:2
 msgid "Request Headers"
-msgstr "Headers i förfrågan"
+msgstr "Permohonan Pengepala"
 
 #: redirection-strings.php:95 redirection.js:2
 msgid "Exclude from logs"
-msgstr "Exkludera från loggar"
+msgstr "Kecualikan daripada log"
 
 #: redirection-strings.php:722 redirection.js:2
 msgid "Relocate to domain"
-msgstr "Flytta till domänen"
+msgstr ""
 
 #: redirection-strings.php:721 redirection.js:2
 msgid "Want to redirect the entire site? Enter a domain to redirect everything, except WordPress login and admin. Enabling this option will disable any site aliases or canonical settings."
-msgstr "Vill du omdirigera hela webbplatsen? Skriv in ett domännamn för att omdirigera allt utom inloggningssidan och adminpanelen för WordPress. Om detta alternativ aktiveras kommer alla eventuella alias och kanoniska inställningar för webbplatsen att inaktiveras."
+msgstr ""
 
 #: redirection-strings.php:720 redirection.js:2
 msgid "Relocate Site"
-msgstr "Flytta webbplatsen"
+msgstr ""
 
 #: redirection-strings.php:707 redirection.js:2
 msgid "Add CORS Presets"
-msgstr "Lägg till standardvärden för CORS"
+msgstr ""
 
 #: redirection-strings.php:706 redirection.js:2
 msgid "Add Security Presets"
-msgstr "Lägg till standardvärden för säkerhet"
+msgstr "Tambah Pratetapan Keselamatan"
 
 #: redirection-strings.php:705 redirection.js:2
 msgid "Add Header"
-msgstr "Lägg till header"
+msgstr ""
 
 #: redirection-strings.php:700 redirection.js:2
 msgid "You should update your site URL to match your canonical settings: {{code}}%(current)s{{/code}} ⇒ {{code}}%(site)s{{/code}}"
-msgstr "Du behöver uppdatera din webbplats URL så att den stämmer överens med dina kanoniska inställningar: {{code}}%(current)s{{/code}} ⇒ {{code}}%(site)s{{/code}}"
+msgstr ""
 
 #: redirection-strings.php:699 redirection.js:2
 msgid "Preferred domain"
-msgstr "Föredragen domän"
+msgstr ""
 
 #: redirection-strings.php:698 redirection.js:2
 msgid "{{strong}}Warning{{/strong}}: ensure your HTTPS is working before forcing a redirect."
-msgstr "{{strong}}Varning{{/strong}}: kontrollera att HTTPS fungerar innan du tvingar omdirigering dit."
+msgstr ""
 
 #: redirection-strings.php:697 redirection.js:2
 msgid "Force a redirect from HTTP to HTTPS - {{code}}%(site)s{{/code}} ⇒ {{code}}%(siteHTTPS)s{{/code}}"
-msgstr "Tvinga en omdirigering från HTTP till HTTPS – {{code}}%(site)s{{/code}} ⇒ {{code}}%(siteHTTPS)s{{/code}}"
+msgstr ""
 
 #: redirection-strings.php:696 redirection.js:2
 msgid "Canonical Settings"
-msgstr "Kanoniska inställningar"
+msgstr ""
 
 #: redirection-strings.php:695 redirection.js:2
 msgid "Add www to domain - {{code}}%(site)s{{/code}} ⇒ {{code}}%(siteWWW)s{{/code}}"
-msgstr "Lägg till www till domän – {{code}}%(site)s{{/code}} ⇒ {{code}}%(siteWWW)s{{/code}}"
+msgstr ""
 
 #: redirection-strings.php:694 redirection.js:2
 msgid "Remove www from domain - {{code}}%(siteWWW)s{{/code}} ⇒ {{code}}%(site)s{{/code}}"
-msgstr "Ta bort www från domän – {{code}}%(siteWWW)s{{/code}} ⇒ {{code}}%(site)s{{/code}}"
+msgstr ""
 
 #: redirection-strings.php:693 redirection.js:2
 msgid "Don't set a preferred domain - {{code}}%(site)s{{/code}}"
-msgstr "Ange inte en föredragen domän – {{code}}%(site)s{{/code}}"
+msgstr ""
 
 #: redirection-strings.php:692 redirection.js:2
 msgid "Add Alias"
-msgstr "Lägg till alias"
+msgstr ""
 
 #: redirection-strings.php:691 redirection.js:2
 msgid "No aliases"
-msgstr "Inga alias"
+msgstr ""
 
 #: redirection-strings.php:690 redirection.js:2
 msgid "Alias"
@@ -489,173 +487,173 @@ msgstr "Alias"
 
 #: redirection-strings.php:689 redirection.js:2
 msgid "Aliased Domain"
-msgstr "Domännamn tillagt som alias"
+msgstr ""
 
 #: redirection-strings.php:688 redirection.js:2
 msgid "You will need to configure your system (DNS and server) to pass requests for these domains to this WordPress install."
-msgstr "Du behöver konfigurera ditt system (DNS och webbservern) så att de skickar förfrågningar för dessa domännamn till denna WordPress-installation."
+msgstr ""
 
 #: redirection-strings.php:687 redirection.js:2
 msgid "A site alias is another domain that you want to be redirected to this site. For example, an old domain, or a subdomain. This will redirect all URLs, including WordPress login and admin."
-msgstr "Ett webbplats-alias är ett annat domännamn som du vill ska omdirigeras till denna webbplats. Exempelvis ett gammalt domännamn eller en subdomän. Detta kommer att omdirigera alla URL:er, inklusive inloggningssidan och adminpanelen för WordPress."
+msgstr ""
 
 #: redirection-strings.php:686 redirection.js:2
 msgid "Site Aliases"
-msgstr "Alias-namn för webbplatsen"
+msgstr ""
 
 #: redirection-strings.php:524 redirection.js:2
 msgid "The companion plugin Search Regex allows you to search and replace data on your site. It also supports Redirection, and is handy if you want to bulk update a lot of redirects."
-msgstr "Systertillägget ”Search Regex” låter dig söka och ersätta data på din webbplats. Det stöder också omdirigering och är praktiskt om du vill massuppdatera många omdirigeringar."
+msgstr ""
 
 #: redirection-strings.php:523 redirection.js:2
 msgid "Need to search and replace?"
-msgstr "Behöver du söka och ersätta?"
+msgstr ""
 
 #: redirection-strings.php:512 redirection.js:2
 msgid "Options on this page can cause problems if used incorrectly. You can {{link}}temporarily disable them{{/link}} to make changes."
-msgstr "Inställningarna på denna sida kan orsaka problem om de används på fel sätt. Du kan {{link}}inaktivera dem tillfälligt{{/link}} för att göra ändringar."
+msgstr ""
 
 #: redirection-strings.php:186 redirection.js:2
 msgid "Please wait, importing."
-msgstr "Vänta, importerar."
+msgstr ""
 
 #: redirection-strings.php:174 redirection-strings.php:183
 #: redirection-strings.php:190 redirection-strings.php:202 redirection.js:2
 msgid "Continue"
-msgstr "Fortsätt"
+msgstr "Teruskan"
 
 #: redirection-strings.php:182 redirection.js:2
 msgid "The following plugins have been detected."
-msgstr "Följande tillägg har upptäckts."
+msgstr ""
 
 #: redirection-strings.php:181 redirection.js:2
 msgid "WordPress automatically creates redirects when you change a post URL. Importing these into Redirection will allow you to manage and monitor them."
-msgstr "WordPress skapar automatiskt omdirigeringar när du ändrar ett inläggs URL. Genom att importera dessa till Redirection kan du hantera och övervaka dem."
+msgstr ""
 
 #: redirection-strings.php:180 redirection.js:2
 msgid "Importing existing redirects from WordPress or other plugins is a good way to get started with Redirection. Check each set of redirects you wish to import."
-msgstr "Ett bra sätt att komma igång med Redirection är att importera befintliga omdirigeringar från WordPress eller andra tillägg. Kontrollera varje uppsättning omdirigeringar du vill importera."
+msgstr ""
 
 #: redirection-strings.php:179 redirection-strings.php:185 redirection.js:2
 msgid "Import Existing Redirects"
-msgstr "Importera befintliga omdirigeringar"
+msgstr ""
 
 #: redirection-strings.php:213 redirection.js:2
 msgid "That's all there is to it - you are now redirecting! Note that the above is just an example."
-msgstr "Det är allt du behöver – du omdirigerar nu! Observera att det endast är ett exempel här ovan."
+msgstr ""
 
 #: redirection-strings.php:121 redirection.js:2
 msgid "If you want to redirect everything please use a site relocation or alias from the Site page."
-msgstr "Om du vill omdirigera allt ska du använda omdirigering av webbplats eller av alias på sidan för webbplatsen."
+msgstr ""
 
 #: redirection-strings.php:761 redirection.js:2
 msgid "Value"
-msgstr "Värde"
+msgstr "Nilai"
 
 #: redirection-strings.php:760 redirection.js:2
 msgid "Values"
-msgstr "Värden"
+msgstr "Nilai"
 
 #: redirection-strings.php:759 redirection.js:2
 msgid "All"
-msgstr "Alla"
+msgstr "Semua"
 
 #: redirection-strings.php:713 redirection.js:2
 msgid "Note that some HTTP headers are set by your server and cannot be changed."
-msgstr "Observera att vissa HTTP-fält definieras av din server och inte går att ändra."
+msgstr ""
 
 #: redirection-strings.php:712 redirection.js:2
 msgid "No headers"
-msgstr "Inga headers"
+msgstr "Tiada pengepala"
 
 #: redirection-strings.php:711 redirection.js:2
 msgid "Header"
-msgstr "Header"
+msgstr "Pengepala"
 
 #: redirection-strings.php:710 redirection.js:2
 msgid "Location"
-msgstr "Plats"
+msgstr "Lokasi"
 
 #: redirection-strings.php:709 redirection.js:2
 msgid "Site headers are added across your site, including redirects. Redirect headers are only added to redirects."
-msgstr "HTTP-headers läggs för hela webbplatsen, inklusive omdirigering. Headers för omdirigering läggs till endast vid omdirigering."
+msgstr ""
 
 #: redirection-strings.php:708 redirection.js:2
 msgid "HTTP Headers"
-msgstr "HTTP-headers"
+msgstr "Pengepala HTTP"
 
 #: redirection-strings.php:704 redirection.js:2
 msgid "Custom Header"
-msgstr "Anpassad header"
+msgstr "Pengepala Tersuai"
 
 #: redirection-strings.php:703 redirection.js:2
 msgid "General"
-msgstr "Allmänt"
+msgstr "Umum"
 
 #: redirection-strings.php:702 redirection.js:2
 msgid "Redirect"
-msgstr "Omdirigera"
+msgstr "Alihan"
 
 #: redirection-strings.php:126 redirection.js:2
 msgid "Some servers may be configured to serve file resources directly, preventing a redirect occurring."
-msgstr "Vissa servrar kan konfigureras för att leverera filresurser direkt, för att förhindra omdirigering."
+msgstr ""
 
 #: redirection-strings.php:270 redirection-strings.php:279
 #: redirection-strings.php:701 redirection.js:2
 msgid "Site"
-msgstr "Webbplats"
+msgstr "Laman"
 
 #: redirection-strings.php:744 redirection.js:2
 msgid "Unable to make request due to browser security. This is typically because your WordPress and Site URL settings are inconsistent, or the request was blocked by your site CORS policy."
-msgstr "Det gick inte att utföra begäran på grund av webbläsarens säkerhetsfunktioner. Detta beror vanligtvis på att inställningarna URL till WordPress och webbplatsen inte stämmer överens eller är blockerade på grund av webbplatsens CORS-policy."
+msgstr ""
 
 #: redirection-strings.php:685 redirection.js:2
 msgid "Ignore & Pass Query"
-msgstr "Ignorera och skicka frågan"
+msgstr ""
 
 #: redirection-strings.php:684 redirection.js:2
 msgid "Ignore Query"
-msgstr "Ignorera fråga"
+msgstr "Abai Pertanyaan"
 
 #: redirection-strings.php:683 redirection.js:2
 msgid "Exact Query"
-msgstr "Exakt fråga"
+msgstr "Pertanyaan Tepat"
 
 #: redirection-strings.php:503 redirection.js:2
 msgid "Search title"
-msgstr "Sök rubrik"
+msgstr "Cari tajuk"
 
 #: redirection-strings.php:500 redirection.js:2
 msgid "Not accessed in last year"
-msgstr "Inte besökt senaste året"
+msgstr "Tajuk carian"
 
 #: redirection-strings.php:499 redirection.js:2
 msgid "Not accessed in last month"
-msgstr "Inte besökt senaste månaden"
+msgstr "Tidak diakses pada bulan lalu"
 
 #: redirection-strings.php:498 redirection.js:2
 msgid "Never accessed"
-msgstr "Aldrig besökt"
+msgstr "Tidak pernah diakses"
 
 #: redirection-strings.php:497 redirection.js:2
 msgid "Last Accessed"
-msgstr "Senast besökt"
+msgstr "Akses terakhir"
 
 #: redirection-strings.php:421 redirection-strings.php:496 redirection.js:2
 msgid "HTTP Status Code"
-msgstr "HTTP-statuskod"
+msgstr "Status Kod HTTP"
 
 #: redirection-strings.php:493 redirection.js:2
 msgid "Plain"
-msgstr "Enkel"
+msgstr "Biasa"
 
 #: redirection-strings.php:491 redirection.js:2
 msgid "URL match"
-msgstr "URL-matchning"
+msgstr "Padanan URL"
 
 #: redirection-strings.php:472 redirection.js:2
 msgid "Source"
-msgstr "Källa"
+msgstr "Sumber"
 
 #: redirection-strings.php:463 redirection.js:2
 msgid "Code"
@@ -664,55 +662,55 @@ msgstr "Kod"
 #: redirection-strings.php:462 redirection-strings.php:483
 #: redirection-strings.php:495 redirection.js:2
 msgid "Action Type"
-msgstr "Åtgärdstyp"
+msgstr "Jenis Tindakan"
 
 #: redirection-strings.php:461 redirection-strings.php:478
 #: redirection-strings.php:494 redirection.js:2
 msgid "Match Type"
-msgstr "Matchningstyp"
+msgstr "Jenis Padanan"
 
 #: redirection-strings.php:366 redirection-strings.php:502 redirection.js:2
 msgid "Search target URL"
-msgstr "Sök mål-URL"
+msgstr "Cari sasaran URL"
 
 #: redirection-strings.php:365 redirection-strings.php:426 redirection.js:2
 msgid "Search IP"
-msgstr "Sök IP"
+msgstr "Cari IP"
 
 #: redirection-strings.php:364 redirection-strings.php:425 redirection.js:2
 msgid "Search user agent"
-msgstr "Användaragent för sökning"
+msgstr "Cari agen pengguna"
 
 #: redirection-strings.php:363 redirection-strings.php:424 redirection.js:2
 msgid "Search referrer"
-msgstr "Sök hänvisningsadress"
+msgstr "Cari perujuk"
 
 #: redirection-strings.php:361 redirection-strings.php:422
 #: redirection-strings.php:501 redirection.js:2
 msgid "Search URL"
-msgstr "Sök-URL"
+msgstr "Cari URL"
 
 #: redirection-strings.php:613 redirection.js:2
 msgid "Filter on: %(type)s"
-msgstr "Filtrera på: %(type)s"
+msgstr "Tapis pada: %(type)s"
 
 #: redirection-strings.php:233 redirection-strings.php:490 redirection.js:2
 msgid "Disabled"
-msgstr "Inaktiverad"
+msgstr "Dilumpuhkan"
 
 #: redirection-strings.php:232 redirection-strings.php:489 redirection.js:2
 msgid "Enabled"
-msgstr "Aktiverad"
+msgstr "Didayakan"
 
 #: redirection-strings.php:229 redirection-strings.php:343
 #: redirection-strings.php:404 redirection-strings.php:486 redirection.js:2
 msgid "Compact Display"
-msgstr "Kompakt vy"
+msgstr "Paparan Ringkas"
 
 #: redirection-strings.php:228 redirection-strings.php:342
 #: redirection-strings.php:403 redirection-strings.php:485 redirection.js:2
 msgid "Standard Display"
-msgstr "Standardvy"
+msgstr "Paparan Standard"
 
 #: redirection-strings.php:226 redirection-strings.php:231
 #: redirection-strings.php:235 redirection-strings.php:459
@@ -722,728 +720,728 @@ msgstr "Status"
 
 #: redirection-strings.php:19 redirection.js:2
 msgid "Pre-defined"
-msgstr "Fördefinierad"
+msgstr ""
 
 #: redirection-strings.php:18 redirection.js:2
 msgid "Custom Display"
-msgstr "Anpassad vy"
+msgstr "Paparan Tersuai"
 
 #: redirection-strings.php:230 redirection-strings.php:344
 #: redirection-strings.php:405 redirection-strings.php:487 redirection.js:2
 msgid "Display All"
-msgstr "Visa alla"
+msgstr "Paparkan Semua"
 
 #: redirection-strings.php:125 redirection.js:2
 msgid "Your URL appears to contain a domain inside the path: {{code}}%(relative)s{{/code}}. Did you mean to use {{code}}%(absolute)s{{/code}} instead?"
-msgstr "Det verkar som om din URL innehåller ett domännamn i adressen: {{code}}%(relative)s{{/code}}. Avsåg du att använda {{code}}%(absolute)s{{/code}} i stället?"
+msgstr ""
 
 #: redirection-strings.php:585 redirection.js:2
 msgid "Comma separated list of languages to match against (i.e. da, en-GB)"
-msgstr "Kommaseparerad lista över språk att matcha mot (dvs. da, en-GB)"
+msgstr ""
 
 #: redirection-strings.php:584 redirection.js:2
 msgid "Language"
-msgstr "Språk"
+msgstr "Bahasa"
 
 #: redirection-strings.php:87 redirection.js:2
 msgid "504 - Gateway Timeout"
-msgstr "504 – Timeout för gateway"
+msgstr ""
 
 #: redirection-strings.php:86 redirection.js:2
 msgid "503 - Service Unavailable"
-msgstr "503 – Tjänsten är otillgänglig"
+msgstr ""
 
 #: redirection-strings.php:85 redirection.js:2
 msgid "502 - Bad Gateway"
-msgstr "502 – Felaktig gateway"
+msgstr "502 - Gerbang Rosak"
 
 #: redirection-strings.php:84 redirection.js:2
 msgid "501 - Not implemented"
-msgstr "501 – Ej implementerad"
+msgstr ""
 
 #: redirection-strings.php:83 redirection.js:2
 msgid "500 - Internal Server Error"
-msgstr "500 – Internt serverfel"
+msgstr ""
 
 #: redirection-strings.php:82 redirection.js:2
 msgid "451 - Unavailable For Legal Reasons"
-msgstr "451 – Otillgänglig av juridiska skäl"
+msgstr ""
 
 #: matches/language.php:17 redirection-strings.php:64 redirection.js:2
 msgid "URL and language"
-msgstr "URL och språk"
+msgstr "URL dan bahasa"
 
 #: redirection-strings.php:757 redirection.js:2
 msgid "Log out, clear your browser cache, and log in again - your browser has cached an old session."
-msgstr "Logga ut, rensa webbläsarens cacheminne och logga in igen – din webbläsare har lagrat en gammal session i sitt cache-minne."
+msgstr ""
 
 #: redirection-strings.php:756 redirection.js:2
 msgid "Reload the page - your current session is old."
-msgstr "Ladda om sidan – din nuvarande session är gammal."
+msgstr ""
 
 #: redirection-strings.php:647 redirection.js:2
 msgid "Unable to save .htaccess file"
-msgstr "Kan inte spara .htaccess-filen"
+msgstr ""
 
 #: redirection-strings.php:646 redirection.js:2
 msgid "Redirects added to an Apache group can be saved to an {{code}}.htaccess{{/code}} file by adding the full path here. For reference, your WordPress is installed to {{code}}%(installed)s{{/code}}."
-msgstr "Omdirigeringar som läggs till i en Apache-grupp kan sparas i filen {{code}}.htaccess{{/code}} om man lägger in hela URL:en här. För referens är WordPress installerat i {{code}}%(installed)s{{/code}}."
+msgstr ""
 
 #: redirection.js:2
 msgid "Click \"Complete Upgrade\" when finished."
-msgstr "Klicka på ”Slutför uppgradering” när du är klar."
+msgstr ""
 
 #: redirection-strings.php:124 redirection.js:2
 msgid "Your target URL contains the invalid character {{code}}%(invalid)s{{/code}}"
-msgstr "Din mål-URL innehåller det ogiltiga tecknet {{code}}%(invalid)s{{/code}}"
+msgstr ""
 
 #: redirection-strings.php:268 redirection.js:2
 msgid "If you are using WordPress 5.2 or newer then look at your {{link}}Site Health{{/link}} and resolve any issues."
-msgstr "Om du använder WordPress 5.2 eller nyare, titta på din {{link}}Hälsokontroll för webbplatser{{/ link}} och lös eventuella problem."
+msgstr ""
 
 #: redirection-strings.php:163 redirection.js:2
 msgid "If you do not complete the manual install you will be returned here."
-msgstr "Om du inte slutför den manuella installationen kommer du att komma tillbaka hit."
+msgstr ""
 
 #: redirection-strings.php:158 redirection.js:2
 msgid "Click \"Finished! 🎉\" when finished."
-msgstr "Klicka på ”Klart! 🎉” när du är klar."
+msgstr ""
 
 #: redirection-strings.php:157 redirection.js:2
 msgid "If your site needs special database permissions, or you would rather do it yourself, you can manually run the following SQL."
-msgstr "Om din webbplats behöver speciella databasbehörigheter, eller om du hellre vill göra det själv, kan du köra följande SQL manuellt."
+msgstr ""
 
 #: redirection-strings.php:156 redirection.js:2
 msgid "Manual Install"
-msgstr "Manuell installation"
+msgstr "Pasang Manual"
 
 #: database/database-status.php:160
 msgid "Insufficient database permissions detected. Please give your database user appropriate permissions."
-msgstr "Otillräckliga databasbehörigheter upptäcktes. Ge din databasanvändare lämpliga behörigheter."
+msgstr ""
 
 #: redirection-strings.php:538 redirection.js:2
 msgid "This information is provided for debugging purposes. Be careful making any changes."
-msgstr "Denna information tillhandahålls för felsökningsändamål. Var försiktig med att göra några ändringar."
+msgstr ""
 
 #: redirection-strings.php:537 redirection.js:2
 msgid "Plugin Debug"
-msgstr "Felsökning av tillägg"
+msgstr "Nyahpijat Pemalam"
 
 #: redirection-strings.php:535 redirection.js:2
 msgid "Redirection communicates with WordPress through the WordPress REST API. This is a standard part of WordPress, and you will experience problems if you cannot use it."
-msgstr "Redirection kommunicerar med WordPress via WordPress REST API. Detta är en standarddel av WordPress, och du kommer att få problem om du inte kan använda det."
+msgstr ""
 
 #: redirection-strings.php:517 redirection.js:2
 msgid "IP Headers"
-msgstr "IP-headers"
+msgstr ""
 
 #: redirection-strings.php:515 redirection.js:2
 msgid "Do not change unless advised to do so!"
-msgstr "Ändra inte om du inte uppmanas att göra det!"
+msgstr ""
 
 #: redirection-strings.php:514 redirection.js:2
 msgid "Database version"
-msgstr "Databasversion"
+msgstr "Versi pengkalan data"
 
 #: redirection-strings.php:316 redirection.js:2
 msgid "Complete data (JSON)"
-msgstr "Fullständiga data (JSON)"
+msgstr ""
 
 #: redirection-strings.php:311 redirection.js:2
 msgid "Export to CSV, Apache .htaccess, Nginx, or Redirection JSON. The JSON format contains full information, and other formats contain partial information appropriate to the format."
-msgstr "Exportera till CSV, Apache .htaccess, Nginx eller Redirection-JSON. JSON-formatet innehåller fullständig information medan de andra formaten endast täcker viss information, beroende på valt format."
+msgstr ""
 
 #: redirection-strings.php:309 redirection.js:2
 msgid "CSV does not include all information, and everything is imported/exported as \"URL only\" matches. Use the JSON format for a full set of data."
-msgstr "CSV-filen innehåller inte all information. Allt importeras och exporteras enbart som matchning av ”URL”. För att använda den kompletta datauppsättningen ska du använda JSON-formatet."
+msgstr ""
 
 #: redirection-strings.php:307 redirection.js:2
 msgid "All imports will be appended to the current database - nothing is merged."
-msgstr "Allt som importera kommer att läggas till den aktuella databasen – ingenting kombineras med det befintliga."
+msgstr ""
 
 #: redirection.js:2
 msgid "Automatic Upgrade"
-msgstr "Automatisk uppgradering"
+msgstr "Naik Taraf Automatik"
 
 #: redirection.js:2
 msgid "Manual Upgrade"
-msgstr "Manuell uppgradering"
+msgstr "Naik taraf Manual"
 
 #: redirection.js:2
 msgid "Please make a backup of your Redirection data: {{download}}downloading a backup{{/download}}. If you experience any issues you can import this back into Redirection."
-msgstr "Säkerhetskopiera dina omdirigeringsdata: {{download}}Ladda ned säkerhetskopia{{/download}}. Om några problem uppstår kan du senare importera säkerhetskopian till tillägget Redirection."
+msgstr ""
 
 #: redirection.js:2
 msgid "Click the \"Upgrade Database\" button to automatically upgrade the database."
-msgstr "Klicka på knappen ”Uppgradera databas” för att automatiskt uppgradera databasen."
+msgstr ""
 
 #: redirection.js:2
 msgid "Complete Upgrade"
-msgstr "Slutför uppgradering"
+msgstr "Selesaikan Naik taraf"
 
 #: redirection.js:2
 msgid "Redirection stores data in your database and sometimes this needs upgrading. Your database is at version {{strong}}%(current)s{{/strong}} and the latest is {{strong}}%(latest)s{{/strong}}."
-msgstr "Redirection lagrar data i din databas och ibland måste detta uppgraderas. Din databas är i version {{strong}}%(current)s{{/strong}} och den senaste är {{strong}}%(latest)s{{/strong}}."
+msgstr ""
 
 #: redirection-strings.php:246 redirection-strings.php:612 redirection.js:2
 msgid "Note that you will need to set the Apache module path in your Redirection options."
-msgstr "Observera att du måste ställa in Apache-modulens sökväg i dina alternativ för Redirection."
+msgstr ""
 
 #: redirection-strings.php:155 redirection.js:2
 msgid "I need support!"
-msgstr "Jag behöver hjälp!"
+msgstr "Saya perlukan sokongan!"
 
 #: redirection-strings.php:172 redirection.js:2
 msgid "You will need at least one working REST API to continue."
-msgstr "Du behöver åtminstone ett fungerande REST-API för att kunna fortsätta."
+msgstr ""
 
 #: redirection-strings.php:140 redirection.js:2
 msgid "Check Again"
-msgstr "Kontrollera igen"
+msgstr "Semak Lagi"
 
 #: redirection-strings.php:139
 msgid "Testing - %s$"
-msgstr "Testar – %s$"
+msgstr "Menguji - %s$"
 
 #: redirection-strings.php:138 redirection.js:2
 msgid "Show Problems"
-msgstr "Visa problem"
+msgstr "Papar Masalah"
 
 #: redirection-strings.php:137 redirection.js:2
 msgid "Summary"
-msgstr "Sammanfattning"
+msgstr "Ringkasan"
 
 #: redirection-strings.php:136 redirection.js:2
 msgid "Your REST API is not working and the plugin will not be able to continue until this is fixed."
-msgstr "Ditt REST-API fungerar inte och tillägget kan inte fortsätta förrän detta är åtgärdat."
+msgstr ""
 
 #: redirection-strings.php:135 redirection.js:2
 msgid "There are some problems connecting to your REST API. It is not necessary to fix these problems and the plugin is able to work."
-msgstr "Det finns några problem med att ansluta till ditt REST-API. Det är inte nödvändigt att åtgärda dessa problem och tillägget kan fungera."
+msgstr ""
 
 #: redirection-strings.php:134 redirection.js:2
 msgid "Unavailable"
-msgstr "Inte tillgänglig"
+msgstr "Tidak tersedia"
 
 #: redirection-strings.php:133 redirection.js:2
 msgid "Working but some issues"
-msgstr "Fungerar men vissa problem"
+msgstr ""
 
 #: redirection.js:2
 msgid "Current API"
-msgstr "Nuvarande API"
+msgstr "API Semasa"
 
 #: redirection.js:2
 msgid "Switch to this API"
-msgstr "Byt till detta API"
+msgstr ""
 
 #: redirection-strings.php:131 redirection.js:2
 msgid "Hide"
-msgstr "Dölj"
+msgstr "Sembunyi"
 
 #: redirection-strings.php:130 redirection.js:2
 msgid "Show Full"
-msgstr "Visa fullständig"
+msgstr "Papar Penuh"
 
 #: redirection-strings.php:129 redirection.js:2
 msgid "Working!"
-msgstr "Fungerar!"
+msgstr "Berfungsi!"
 
 #: redirection-strings.php:123 redirection.js:2
 msgid "Your target URL should be an absolute URL like {{code}}https://domain.com/%(url)s{{/code}} or start with a slash {{code}}/%(url)s{{/code}}."
-msgstr "Måladressen ska vara en absolut URL, såsom {{code}}https://mindomaen.com/%(url)s{{/code}} eller inledas med ett snedstreck {{code}}/%(url)s{{/code}}."
+msgstr ""
 
 #: redirection-strings.php:122 redirection.js:2
 msgid "Your source is the same as a target and this will create a loop. Leave a target blank if you do not want to take action."
-msgstr "Din källa är densamma som ett mål och det skapar en loop. Lämna ett mål tomt om du inte vill vidta åtgärder."
+msgstr ""
 
 #: redirection-strings.php:109 redirection.js:2
 msgid "The target URL you want to redirect, or auto-complete on post name or permalink."
-msgstr "Måladressen dit du vill omdirigera eller automatisk komplettering mot inläggsrubrik eller permalänk."
+msgstr ""
 
 #: redirection-strings.php:263 redirection.js:2
 msgid "Include these details in your report along with a description of what you were doing and a screenshot."
-msgstr "Inkludera dessa detaljer i din rapport tillsammans med en beskrivning av vad du gjorde och en skärmdump."
+msgstr ""
 
 #: redirection-strings.php:261 redirection.js:2
 msgid "Create An Issue"
-msgstr "Skapa ett problem"
+msgstr ""
 
 #: redirection-strings.php:264 redirection.js:2
 msgid "What do I do next?"
-msgstr "Vad gör jag härnäst?"
+msgstr ""
 
 #: redirection-strings.php:743 redirection.js:2
 msgid "Possible cause"
-msgstr "Möjlig orsak"
+msgstr "Kemungkinan punca"
 
 #: redirection-strings.php:739 redirection.js:2
 msgid "This could be a security plugin, or your server is out of memory or has an external error. Please check your server error log"
-msgstr "Detta kan vara ett säkerhetstillägg, eller servern har slut på minne eller har ett externt fel. Kontrollera din serverfellogg"
+msgstr ""
 
 #: redirection-strings.php:726 redirection.js:2
 msgid "Your REST API is probably being blocked by a security plugin. Please disable this, or configure it to allow REST API requests."
-msgstr "Ditt REST-API blockeras antagligen av ett säkerhetstillägg. Inaktivera detta eller konfigurera det för att tillåta REST API-förfrågningar."
+msgstr ""
 
 #: redirection-strings.php:727 redirection-strings.php:734
 #: redirection-strings.php:740 redirection-strings.php:745 redirection.js:2
 msgid "Read this REST API guide for more information."
-msgstr "Läs denna REST API-guide för mer information."
+msgstr ""
 
 #: redirection-strings.php:108 redirection.js:2
 msgid "URL options / Regex"
-msgstr "URL-alternativ/Regex"
+msgstr "Pilihan URL / Regex"
 
 #: redirection-strings.php:323 redirection.js:2
 msgid "Export 404"
-msgstr "Exportera 404"
+msgstr "Eksport 404"
 
 #: redirection-strings.php:322 redirection.js:2
 msgid "Export redirect"
-msgstr "Exportera omdirigering"
+msgstr "Eksport alihan"
 
 #: redirection-strings.php:675 redirection.js:2
 msgid "Pass - as ignore, but also copies the query parameters to the target"
-msgstr "Skicka vidare – samma som Ignorera, men kopierar dessutom över parametrarna i förfrågan till måladressen"
+msgstr ""
 
 #: redirection-strings.php:674 redirection.js:2
 msgid "Ignore - as exact, but ignores any query parameters not in your source"
-msgstr "Ignorera – samma som exakt matchning, men ignorerar eventuella parametrar i förfrågan som saknas i din källadress"
+msgstr ""
 
 #: redirection-strings.php:673 redirection.js:2
 msgid "Exact - matches the query parameters exactly defined in your source, in any order"
-msgstr "Exakt – matchar parametrarna i förfrågan exakt som de angivits i källadressen, i valfri ordning"
+msgstr ""
 
 #: redirection-strings.php:671 redirection.js:2
 msgid "Default query matching"
-msgstr "Standardmatchning av förfrågan"
+msgstr ""
 
 #: redirection-strings.php:670 redirection.js:2
 msgid "Ignore trailing slashes (i.e. {{code}}/exciting-post/{{/code}} will match {{code}}/exciting-post{{/code}})"
-msgstr "Ignorera snedstreck på slutet (t.ex. kommer {{code}}/exciting-post/{{/code}} att matcha {{code}}/exciting-post{{/code}})"
+msgstr ""
 
 #: redirection-strings.php:669 redirection.js:2
 msgid "Case insensitive matches (i.e. {{code}}/Exciting-Post{{/code}} will match {{code}}/exciting-post{{/code}})"
-msgstr "Matchning utan kontroll av skiftläge (t.ex. kommer {{code}}/Exciting-Post{{/code}} att matcha {{code}}/exciting-post{{/code}})"
+msgstr ""
 
 #: redirection-strings.php:668 redirection-strings.php:672 redirection.js:2
 msgid "Applies to all redirections unless you configure them otherwise."
-msgstr "Tillämpas till alla omdirigeringar om du inte konfigurerar dem på annat sätt."
+msgstr ""
 
 #: redirection-strings.php:667 redirection.js:2
 msgid "Default URL settings"
-msgstr "Standard URL-inställningar"
+msgstr "Tetapan URL lalai"
 
 #: redirection-strings.php:660 redirection.js:2
 msgid "Ignore and pass all query parameters"
-msgstr "Ignorera och skicka alla parametrar i förfrågan vidare"
+msgstr ""
 
 #: redirection-strings.php:659 redirection.js:2
 msgid "Ignore all query parameters"
-msgstr "Ignorera alla parametrar i förfrågan"
+msgstr ""
 
 #: redirection-strings.php:91 redirection.js:2
 msgid "Exact match"
-msgstr "Exakt matchning"
+msgstr "Padanan tepat"
 
 #: redirection-strings.php:168 redirection.js:2
 msgid "Caching software (e.g Cloudflare)"
-msgstr "Programvara för cachehantering (t.ex. Cloudflare)"
+msgstr ""
 
 #: redirection-strings.php:166 redirection.js:2
 msgid "A security plugin (e.g Wordfence)"
-msgstr "Ett säkerhetstillägg (t.ex. Wordfence)"
+msgstr ""
 
 #: redirection-strings.php:473 redirection.js:2
 msgid "URL options"
-msgstr "URL-alternativ"
+msgstr "Pilihan URL"
 
 #: redirection-strings.php:104 redirection-strings.php:474 redirection.js:2
 msgid "Query Parameters"
-msgstr "Parametrar i förfrågan"
+msgstr "Pertanyaan Parameter"
 
 #: redirection-strings.php:94 redirection.js:2
 msgid "Ignore & pass parameters to the target"
-msgstr "Ignorera och skicka parametrarna vidare till måladressen"
+msgstr ""
 
 #: redirection-strings.php:93 redirection.js:2
 msgid "Ignore all parameters"
-msgstr "Ignorera alla parametrar"
+msgstr ""
 
 #: redirection-strings.php:90 redirection.js:2
 msgid "Ignore Case"
-msgstr "Ignorera skillnad mellan stor och liten bokstav"
+msgstr ""
 
 #: redirection-strings.php:89 redirection.js:2
 msgid "Ignore Slash"
-msgstr "Ignorera snedstreck"
+msgstr ""
 
 #: redirection-strings.php:639 redirection.js:2
 msgid "Relative REST API"
-msgstr "Relativ REST API"
+msgstr ""
 
 #: redirection-strings.php:638 redirection.js:2
 msgid "Raw REST API"
-msgstr "Obearbetat REST-API"
+msgstr ""
 
 #: redirection-strings.php:637 redirection.js:2
 msgid "Default REST API"
-msgstr "Standard REST API"
+msgstr "REST API lalai"
 
 #: redirection-strings.php:212 redirection.js:2
 msgid "(Example) The target URL is the new URL"
-msgstr "(Exempel) Mål-URL:en är den nya URL:en"
+msgstr ""
 
 #: redirection-strings.php:210 redirection.js:2
 msgid "(Example) The source URL is your old or original URL"
-msgstr "(Exempel) Käll-URL:en är din gamla eller ursprungliga URL"
+msgstr ""
 
 #. translators: 1: server PHP version. 2: required PHP version.
 #: redirection.php:37
 msgid "Disabled! Detected PHP %1$s, need PHP %2$s+"
-msgstr "Inaktiverad! Upptäckte PHP %1$s, behöver PHP %2$s+"
+msgstr ""
 
 #: redirection.js:2
 msgid "A database upgrade is in progress. Please continue to finish."
-msgstr "En databasuppgradering pågår. Fortsätt för att slutföra."
+msgstr ""
 
 #. translators: 1: URL to plugin page, 2: current version, 3: target version
 #: redirection-admin.php:118
 msgid "Redirection's database needs to be updated - <a href=\"%1$1s\">click to update</a>."
-msgstr "Redirections databas måste uppdateras – <a href=\"%1$1s\">klicka för att uppdatera</a>."
+msgstr ""
 
 #: redirection.js:2
 msgid "Redirection database needs upgrading"
-msgstr "Redirections databas behöver uppgraderas"
+msgstr ""
 
 #: redirection.js:2
 msgid "Upgrade Required"
-msgstr "Uppgradering krävs"
+msgstr "Naik taraf Diperlukan"
 
 #: redirection-strings.php:173 redirection.js:2
 msgid "Finish Setup"
-msgstr "Slutför konfigurationen"
+msgstr "Selesaikan Pemasangan"
 
 #: redirection-strings.php:189 redirection.js:2
 msgid "Retry"
-msgstr "Försök igen"
+msgstr ""
 
 #: redirection-strings.php:171 redirection.js:2
 msgid "You have different URLs configured on your WordPress Settings > General page, which is usually an indication of a misconfiguration, and it can cause problems with the REST API. Please review your settings."
-msgstr "Du har olika webbadresser konfigurerade på sidan WordPress-inställningar > Allmänt, något som vanligtvis pekar på en felkonfiguration, och även kan orsaka problem med REST-API:et. Kontrollera dina inställningar."
+msgstr ""
 
 #: redirection-strings.php:170 redirection.js:2
 msgid "If you do experience a problem then please consult your plugin documentation, or try contacting your host support. This is generally {{link}}not a problem caused by Redirection{{/link}}."
-msgstr "Om problem inträffar bör du läsa dokumentation för dina tillägg eller kontakta supporten för ditt webbhotell. Detta är vanligtvis {{link}}inte något problem som orsakas av tillägget Redirection{{/link}}."
+msgstr ""
 
 #: redirection-strings.php:169 redirection.js:2
 msgid "Some other plugin that blocks the REST API"
-msgstr "Några andra tillägg som blockerar REST API"
+msgstr ""
 
 #: redirection-strings.php:167 redirection.js:2
 msgid "A server firewall or other server configuration (e.g OVH)"
-msgstr "En serverbrandvägg eller annan serverkonfiguration (t.ex. OVH)"
+msgstr ""
 
 #: redirection-strings.php:165 redirection.js:2
 msgid "Redirection uses the {{link}}WordPress REST API{{/link}} to communicate with WordPress. This is enabled and working by default. Sometimes the REST API is blocked by:"
-msgstr "Redirection använder {{link}}WordPress REST-API{{/link}} för kommunikationen med WordPress. Som standard är det aktivt och igång. Ibland blockeras REST-API av:"
+msgstr ""
 
 #: redirection-strings.php:162 redirection-strings.php:184
 #: redirection-strings.php:203 redirection.js:2
 msgid "Go back"
-msgstr "Gå tillbaka"
+msgstr "Kembali semula"
 
 #: redirection-strings.php:200 redirection.js:2
 msgid "Storing the IP address allows you to perform additional log actions. Note that you will need to adhere to local laws regarding the collection of data (for example GDPR)."
-msgstr "Genom att lagra IP-adresser kan du använda loggen till fler åtgärder. Observera att du måste följa lokala lagar om insamling av data (till exempel GDPR)."
+msgstr ""
 
 #: redirection-strings.php:199 redirection.js:2
 msgid "Store IP information for redirects and 404 errors."
-msgstr "Spara IP-information för omdirigeringar och 404-fel."
+msgstr ""
 
 #: redirection-strings.php:197 redirection.js:2
 msgid "Storing logs for redirects and 404s will allow you to see what is happening on your site. This will increase your database storage requirements."
-msgstr "Genom att lagra loggar över omdirigeringar och fel av typen 404 kan du se vad som händer på webbplatsen. Detta kräver större lagringsutrymme i databasen."
+msgstr ""
 
 #: redirection-strings.php:196 redirection.js:2
 msgid "Keep a log of all redirects and 404 errors."
-msgstr "Behåll en logg över alla omdirigeringar och 404-fel."
+msgstr ""
 
 #: redirection-strings.php:195 redirection-strings.php:198
 #: redirection-strings.php:201 redirection.js:2
 msgid "{{link}}Read more about this.{{/link}}"
-msgstr "{{link}}Läs mer om detta.{{/link}}"
+msgstr ""
 
 #: redirection-strings.php:194 redirection.js:2
 msgid "If you change the permalink in a post or page then Redirection can automatically create a redirect for you."
-msgstr "Om du ändrar permalänken i ett inlägg eller sida kan Redirection automatiskt skapa en omdirigering åt dig."
+msgstr ""
 
 #: redirection-strings.php:193 redirection.js:2
 msgid "Monitor permalink changes in WordPress posts and pages"
-msgstr "Övervaka ändringar i permalänkar i WordPress-inlägg och sidor"
+msgstr ""
 
 #: redirection-strings.php:192 redirection.js:2
 msgid "These are some options you may want to enable now. They can be changed at any time."
-msgstr "Det här är några alternativ du kanske vill aktivera nu. De kan ändras när som helst."
+msgstr ""
 
 #: redirection-strings.php:191 redirection.js:2
 msgid "Basic Setup"
-msgstr "Grundläggande konfiguration"
+msgstr "Tetapan Asas"
 
 #: redirection-strings.php:222 redirection.js:2
 msgid "Start Setup"
-msgstr "Starta konfiguration"
+msgstr "Mulakan Pemasangan"
 
 #: redirection-strings.php:221 redirection.js:2
 msgid "First you will be asked a few questions, and then Redirection will set up your database."
-msgstr "Först får du några frågor och sedan kommer Redirection att ställa in din databas."
+msgstr ""
 
 #: redirection-strings.php:220 redirection.js:2
 msgid "What's next?"
-msgstr "Vad kommer härnäst?"
+msgstr "Apa seterusnya?"
 
 #: redirection-strings.php:219 redirection.js:2
 msgid "Check a URL is being redirected"
-msgstr "Kontrollera att en URL omdirigeras"
+msgstr ""
 
 #: redirection-strings.php:218 redirection.js:2
 msgid "More powerful URL matching, including {{regular}}regular expressions{{/regular}}, and {{other}}other conditions{{/other}}"
-msgstr "Mer kraftfull URL-matchning, inklusive {{regular}}reguljära uttryck{{/regular}}, och {{other}}andra villkor{{/other}}"
+msgstr ""
 
 #: redirection-strings.php:217 redirection.js:2
 msgid "{{link}}Import{{/link}} from .htaccess, CSV, and a variety of other plugins"
-msgstr "{{link}}Importera{{/link}} från .htaccess, CSV, och en mängd andra tillägg"
+msgstr ""
 
 #: redirection-strings.php:216 redirection.js:2
 msgid "{{link}}Monitor 404 errors{{/link}}, get detailed information about the visitor, and fix any problems"
-msgstr "{{link}}Övervaka 404-fel{{/link}}, få detaljerad information om besökaren och åtgärda eventuella problem"
+msgstr ""
 
 #: redirection-strings.php:215 redirection.js:2
 msgid "Some features you may find useful are"
-msgstr "Vissa funktioner som kan vara användbara är"
+msgstr ""
 
 #: redirection-strings.php:214 redirection.js:2
 msgid "Full documentation can be found on the {{link}}Redirection website.{{/link}}"
-msgstr "Fullständig dokumentation finns på {{link}}webbplatsen för Redirection{{/link}}."
+msgstr ""
 
 #: redirection-strings.php:208 redirection.js:2
 msgid "A simple redirect involves setting a {{strong}}source URL{{/strong}} (the old URL) and a {{strong}}target URL{{/strong}} (the new URL). Here's an example:"
-msgstr "En enkel omdirigering innebär att du anger en {{strong}}käll-URL{{/strong}} (den gamla webbadressen) och en {{strong}}mål-URL{{/strong}} (den nya webbadressen). Här är ett exempel:"
+msgstr ""
 
 #: redirection-strings.php:207 redirection.js:2
 msgid "How do I use this plugin?"
-msgstr "Hur använder jag detta tillägg?"
+msgstr ""
 
 #: redirection-strings.php:206 redirection.js:2
 msgid "Redirection is designed to be used on sites with a few redirects to sites with thousands of redirects."
-msgstr "Redirection är utformat för att användas på webbplatser med allt från några få omdirigeringar till webbplatser med tusentals omdirigeringar."
+msgstr ""
 
 #: redirection-strings.php:205 redirection.js:2
 msgid "Thank you for installing and using Redirection v%(version)s. This plugin will allow you to manage 301 redirections, keep track of 404 errors, and improve your site, with no knowledge of Apache or Nginx needed."
-msgstr "Tack för att du installerar och använder Redirection v%(version)s. Detta tillägg låter dig hantera omdirigering av typen 301, hålla reda på 404-fel och förbättra din webbplats, utan att ha någon kunskap om Apache eller Nginx."
+msgstr ""
 
 #: redirection-strings.php:204 redirection.js:2
 msgid "Welcome to Redirection 🚀🎉"
-msgstr "Välkommen till Redirection 🚀🎉"
+msgstr ""
 
 #: redirection-strings.php:117 redirection.js:2
 msgid "To prevent a greedy regular expression you can use {{code}}^{{/code}} to anchor it to the start of the URL. For example: {{code}}%(example)s{{/code}}"
-msgstr "För att förhindra ett alltför aggressivt reguljärt uttryck kan du använda {{code}}^{{/code}} för att låsa det till början av URL:en. Till exempel: {{code}}%(example)s{{/code}}"
+msgstr ""
 
 #: redirection-strings.php:115 redirection.js:2
 msgid "Remember to enable the \"regex\" option if this is a regular expression."
-msgstr "Kom ihåg att aktivera alternativet ”Reguljärt uttryck” om detta är ett reguljärt uttryck."
+msgstr ""
 
 #: redirection-strings.php:114 redirection.js:2
 msgid "The source URL should probably start with a {{code}}/{{/code}}"
-msgstr "Käll-URL:en bör antagligen börja med en {{code}}/{{/code}}"
+msgstr ""
 
 #: redirection-strings.php:113 redirection.js:2
 msgid "This will be converted to a server redirect for the domain {{code}}%(server)s{{/code}}."
-msgstr "Detta konverteras till en serveromdirigering för domänen {{code}}%(server)s{{/code}}."
+msgstr ""
 
 #: redirection-strings.php:112 redirection.js:2
 msgid "Anchor values are not sent to the server and cannot be redirected."
-msgstr "Ankarvärden skickas inte till servern och kan inte omdirigeras."
+msgstr ""
 
 #: redirection-strings.php:161 redirection.js:2
 msgid "Finished! 🎉"
-msgstr "Klart! 🎉"
+msgstr "Selesai! 🎉"
 
 #: redirection-strings.php:17
 msgid "Progress: %(complete)d$"
-msgstr "Status: %(complete)d$"
+msgstr ""
 
 #: redirection-strings.php:15 redirection.js:2
 msgid "Leaving before the process has completed may cause problems."
-msgstr "Att lämna innan processen är klar kan orsaka problem."
+msgstr ""
 
 #: redirection-strings.php:14 redirection.js:2
 msgid "Setting up Redirection"
-msgstr "Ställer in Redirection"
+msgstr ""
 
 #: redirection-strings.php:13 redirection.js:2
 msgid "Upgrading Redirection"
-msgstr "Uppgraderar Redirection"
+msgstr ""
 
 #: redirection-strings.php:16 redirection.js:2
 msgid "Please remain on this page until complete."
-msgstr "Stanna kvar på denna sida tills det är slutfört."
+msgstr ""
 
 #: redirection-strings.php:12 redirection.js:2
 msgid "If you want to {{support}}ask for support{{/support}} please include these details:"
-msgstr "Om du vill {{support}}be om support{{/support}} inkludera dessa detaljer:"
+msgstr ""
 
 #: redirection-strings.php:11 redirection.js:2
 msgid "Stop upgrade"
-msgstr "Stoppa uppgradering"
+msgstr "Henti naik taraf"
 
 #: redirection-strings.php:10 redirection.js:2
 msgid "Skip this stage"
-msgstr "Hoppa över detta steg"
+msgstr "Langkau langkah ini"
 
 #: redirection-strings.php:7 redirection-strings.php:9 redirection.js:2
 msgid "Try again"
-msgstr "Försök igen"
+msgstr "Cuba lagi"
 
 #: redirection-strings.php:6 redirection-strings.php:8
 #: redirection-strings.php:159 redirection.js:2
 msgid "Database problem"
-msgstr "Databasproblem"
+msgstr "Masalah pengkalan data"
 
 #: redirection-admin.php:567
 msgid "Please enable JavaScript"
-msgstr "Aktivera JavaScript"
+msgstr ""
 
 #: redirection-admin.php:219
 msgid "Please upgrade your database"
-msgstr "Uppgradera din databas"
+msgstr ""
 
 #: redirection-admin.php:210 redirection.js:2
 msgid "Upgrade Database"
-msgstr "Uppgradera databas"
+msgstr "Naik taraf pangkalan data"
 
 #. translators: 1: URL to plugin page
 #: redirection-admin.php:115
 msgid "Please complete your <a href=\"%s\">Redirection setup</a> to activate the plugin."
-msgstr "Slutför din <a href=\"%s\">Redirection-inställning</a> för att aktivera tillägget."
+msgstr ""
 
 #. translators: version number
 #: api/api-plugin.php:119
 msgid "Your database does not need updating to %s."
-msgstr "Din databas behöver inte uppdateras till %s."
+msgstr ""
 
 #. translators: 1: table name
 #: database/schema/latest.php:103
 msgid "Table \"%s\" is missing"
-msgstr "Tabell ”%s” saknas"
+msgstr ""
 
 #. translators: displayed when installing the plugin
 #: database/schema/latest.php:12
 msgid "Create basic data"
-msgstr "Skapa grundläggande data"
+msgstr "Cipta data asas"
 
 #. translators: displayed when installing the plugin
 #: database/schema/latest.php:10
 msgid "Install Redirection tables"
-msgstr "Installera Redirection-tabeller"
+msgstr ""
 
 #. translators: 1: Site URL, 2: Home URL
 #: models/fixer.php:115
 msgid "Site and home URL are inconsistent. Please correct from your Settings > General page: %1$1s is not %2$2s"
-msgstr "Webbplats och hem-URL är inkonsekventa. Korrigera från dina Inställningar > Allmän sida: %1$1s är inte %2$2s"
+msgstr ""
 
 #: redirection-strings.php:588 redirection.js:2
 msgid "Please do not try and redirect all your 404s - this is not a good thing to do."
-msgstr "Försök inte att omdirigera alla status 404 som inträffar – det är ingen lyckad idé."
+msgstr ""
 
 #: redirection-strings.php:587 redirection.js:2
 msgid "Only the 404 page type is currently supported."
-msgstr "För närvarande stöds endast sidtypen 404."
+msgstr ""
 
 #: redirection-strings.php:586 redirection.js:2
 msgid "Page Type"
-msgstr "Sidtyp"
+msgstr ""
 
 #: redirection-strings.php:583 redirection.js:2
 msgid "Enter IP addresses (one per line)"
-msgstr "Ange IP-adresser (en per rad)"
+msgstr ""
 
 #: redirection-strings.php:111 redirection.js:2
 msgid "Describe the purpose of this redirect (optional)"
-msgstr "Beskriv syftet med denna omdirigering (valfritt)"
+msgstr ""
 
 #: redirection-strings.php:81 redirection.js:2
 msgid "418 - I'm a teapot"
-msgstr "418 – Jag är en tekanna"
+msgstr ""
 
 #: redirection-strings.php:78 redirection.js:2
 msgid "403 - Forbidden"
-msgstr "403 – Förbjuden"
+msgstr "403 - Dilarang"
 
 #: redirection-strings.php:76 redirection.js:2
 msgid "400 - Bad Request"
-msgstr "400 – Felaktig begäran"
+msgstr ""
 
 #: redirection-strings.php:73 redirection.js:2
 msgid "304 - Not Modified"
-msgstr "304 – Inte modifierad"
+msgstr "304 - Tidak Diubah Suai"
 
 #: redirection-strings.php:72 redirection.js:2
 msgid "303 - See Other"
-msgstr "303 – Se annat"
+msgstr ""
 
 #: actions/nothing.php:17 redirection-strings.php:69 redirection.js:2
 msgid "Do nothing (ignore)"
-msgstr "Gör ingenting (ignorera)"
+msgstr "Tidak berbuat apa-apa (abaikan)"
 
 #: redirection-strings.php:556 redirection-strings.php:560 redirection.js:2
 msgid "Target URL when not matched (empty to ignore)"
-msgstr "Mål-URL när den inte matchas (tom för att ignorera)"
+msgstr ""
 
 #: redirection-strings.php:554 redirection-strings.php:558 redirection.js:2
 msgid "Target URL when matched (empty to ignore)"
-msgstr "Mål-URL vid matchning (tom för att ignorera)"
+msgstr ""
 
 #: redirection-strings.php:436 redirection.js:2
 msgid "Show All"
-msgstr "Visa alla"
+msgstr "Papar Semua"
 
 #: redirection-strings.php:433 redirection.js:2
 msgid "Delete logs for these entries"
-msgstr "Ta bort loggar för dessa inlägg"
+msgstr ""
 
 #: redirection-strings.php:432 redirection.js:2
 msgid "Delete logs for this entry"
-msgstr "Ta bort loggar för detta inlägg"
+msgstr ""
 
 #: redirection-strings.php:431 redirection.js:2
 msgid "Delete Log Entries"
-msgstr "Ta bort loggposter"
+msgstr ""
 
 #: redirection-strings.php:371 redirection-strings.php:401 redirection.js:2
 msgid "Group by IP"
-msgstr "Gruppera efter IP"
+msgstr "Kumpulan mengikut IP"
 
 #: redirection-strings.php:369 redirection-strings.php:399 redirection.js:2
 msgid "Group by URL"
-msgstr "Gruppera efter URL"
+msgstr ""
 
 #: redirection-strings.php:368 redirection-strings.php:398 redirection.js:2
 msgid "No grouping"
-msgstr "Ingen gruppering"
+msgstr "Tiada kumpulan"
 
 #: redirection-strings.php:397 redirection-strings.php:438 redirection.js:2
 msgid "Ignore URL"
-msgstr "Ignorera URL"
+msgstr "Abai URL"
 
 #: redirection-strings.php:395 redirection-strings.php:437 redirection.js:2
 msgid "Block IP"
-msgstr "Blockera IP"
+msgstr "Halang IP"
 
 #: redirection-strings.php:394 redirection-strings.php:396 redirection.js:2
 msgid "Redirect All"
-msgstr "Omdirigera alla"
+msgstr "Mengalih Semua"
 
 #: redirection-strings.php:325 redirection-strings.php:327
 #: redirection-strings.php:329 redirection-strings.php:346
@@ -1452,163 +1450,163 @@ msgstr "Omdirigera alla"
 #: redirection-strings.php:384 redirection-strings.php:407
 #: redirection-strings.php:409 redirection-strings.php:411 redirection.js:2
 msgid "Count"
-msgstr "Antal"
+msgstr "Kira"
 
 #: matches/page.php:17 redirection-strings.php:63 redirection.js:2
 msgid "URL and WordPress page type"
-msgstr "URL och WordPress sidtyp"
+msgstr ""
 
 #: matches/ip.php:17 redirection-strings.php:59 redirection.js:2
 msgid "URL and IP"
-msgstr "URL och IP"
+msgstr "URL dan IP"
 
 #: redirection-strings.php:533 redirection.js:2
 msgid "Problem"
-msgstr "Problem"
+msgstr "Masalah"
 
 #: redirection-strings.php:132 redirection-strings.php:532 redirection.js:2
 msgid "Good"
-msgstr "Bra"
+msgstr "Baik"
 
 #: redirection-strings.php:529 redirection.js:2
 msgid "Check"
-msgstr "Kontrollera"
+msgstr "Periksa"
 
 #: redirection-strings.php:511 redirection.js:2
 msgid "Check Redirect"
-msgstr "Kontrollera omdirigering"
+msgstr "Periksa Alihan"
 
 #: redirection-strings.php:47 redirection.js:2
 msgid "Check redirect for: {{code}}%s{{/code}}"
-msgstr "Kontrollera omdirigering för: {{code}}%s{{/code}}"
+msgstr "Periksa alihan untuk: {{code}}%s{{/code}}"
 
 #: redirection-strings.php:45 redirection.js:2
 msgid "Error"
-msgstr "Fel"
+msgstr "Ralat"
 
 #: redirection-strings.php:528 redirection.js:2
 msgid "Enter full URL, including http:// or https://"
-msgstr "Ange fullständig URL, inklusive http:// eller https://"
+msgstr "Masukkan pautan penuh, termasuk http:// atau https://"
 
 #: redirection-strings.php:525 redirection.js:2
 msgid "Redirect Tester"
-msgstr "Omdirigeringstestare"
+msgstr "Penguji Alihan"
 
 #: redirection-strings.php:359 redirection-strings.php:476 redirection.js:2
 msgid "Target"
-msgstr "Mål"
+msgstr "Sasaran"
 
 #: redirection-strings.php:595 redirection.js:2
 msgid "Enter server URL to match against"
-msgstr "Ange server-URL för att matcha mot"
+msgstr ""
 
 #: redirection-strings.php:594 redirection.js:2
 msgid "Server"
-msgstr "Server"
+msgstr "Pelayan"
 
 #: redirection-strings.php:593 redirection.js:2
 msgid "Enter role or capability value"
-msgstr "Ange roll eller behörighetsvärde"
+msgstr "Masukkan nilai peranan atau kemampuan"
 
 #: redirection-strings.php:592 redirection.js:2
 msgid "Role"
-msgstr "Roll"
+msgstr "Peranan"
 
 #: redirection-strings.php:590 redirection.js:2
 msgid "Match against this browser referrer text"
-msgstr "Matcha mot denna hänvisnings-sträng från webbläsaren"
+msgstr ""
 
 #: redirection-strings.php:563 redirection.js:2
 msgid "Match against this browser user agent"
-msgstr "Matcha mot denna användaragent-sträng från webbläsaren"
+msgstr ""
 
 #: redirection-strings.php:107 redirection.js:2
 msgid "The relative URL you want to redirect from"
-msgstr "Den relativa URL du vill omdirigera från"
+msgstr ""
 
 #: redirection-strings.php:285 redirection.js:2
 msgid "Add New"
-msgstr "Lägg till ny"
+msgstr "Tambah Baru"
 
 #: matches/user-role.php:17 redirection-strings.php:55 redirection.js:2
 msgid "URL and role/capability"
-msgstr "URL och roll/behörighet"
+msgstr "Pautan dan peranan/kemampuan"
 
 #: matches/server.php:17 redirection-strings.php:60 redirection.js:2
 msgid "URL and server"
-msgstr "URL och server"
+msgstr "Pautan dan pelayan"
 
 #: models/fixer.php:119
 msgid "Site and home protocol"
-msgstr "Webbplats och hemprotokoll"
+msgstr ""
 
 #: models/fixer.php:112
 msgid "Site and home are consistent"
-msgstr "Webbplats och hem är konsekventa"
+msgstr ""
 
 #: redirection-strings.php:581 redirection.js:2
 msgid "Note it is your responsibility to pass HTTP headers to PHP. Please contact your hosting provider for support about this."
-msgstr "Observera att du ansvarar för att skicka HTTP-headers vidare till PHP. Kontakta ditt webbhotell om du behöver hjälp med detta."
+msgstr ""
 
 #: redirection-strings.php:579 redirection.js:2
 msgid "Accept Language"
-msgstr "Acceptera språk"
+msgstr "Terima Bahasa"
 
 #: redirection-strings.php:577 redirection.js:2
 msgid "Header value"
-msgstr "Värde för header"
+msgstr "Nilai pengepala"
 
 #: redirection-strings.php:576 redirection.js:2
 msgid "Header name"
-msgstr "Namn på header"
+msgstr "Nama pengepala"
 
 #: redirection-strings.php:575 redirection.js:2
 msgid "HTTP Header"
-msgstr "HTTP-header"
+msgstr "Pengepala HTTP"
 
 #: redirection-strings.php:574 redirection.js:2
 msgid "WordPress filter name"
-msgstr "WordPress-filternamn"
+msgstr ""
 
 #: redirection-strings.php:573 redirection.js:2
 msgid "Filter Name"
-msgstr "Filternamn"
+msgstr "Nama Penapis"
 
 #: redirection-strings.php:571 redirection.js:2
 msgid "Cookie value"
-msgstr "Cookie-värde"
+msgstr "Nilai kuki"
 
 #: redirection-strings.php:570 redirection.js:2
 msgid "Cookie name"
-msgstr "Cookie-namn"
+msgstr "Nama kuki"
 
 #: redirection-strings.php:569 redirection.js:2
 msgid "Cookie"
-msgstr "Cookie"
+msgstr "Kuki"
 
 #: redirection-strings.php:255 redirection.js:2
 msgid "clearing your cache."
-msgstr "rensar cacheminnet."
+msgstr ""
 
 #: redirection-strings.php:254 redirection.js:2
 msgid "If you are using a caching system such as Cloudflare then please read this: "
-msgstr "Om du använder ett caching-system som Cloudflare, läs det här: "
+msgstr ""
 
 #: matches/http-header.php:31 redirection-strings.php:61 redirection.js:2
 msgid "URL and HTTP header"
-msgstr "URL- och HTTP-header"
+msgstr "URL dan pengepala HTTP"
 
 #: matches/custom-filter.php:17 redirection-strings.php:62 redirection.js:2
 msgid "URL and custom filter"
-msgstr "URL och anpassat filter"
+msgstr ""
 
 #: matches/cookie.php:10 redirection-strings.php:58 redirection.js:2
 msgid "URL and cookie"
-msgstr "URL och cookie"
+msgstr "URL dan kuki"
 
 #: redirection-strings.php:543 redirection.js:2
 msgid "404 deleted"
-msgstr "404 borttagen"
+msgstr "404 dipadamkan"
 
 #: redirection-strings.php:164 redirection-strings.php:648 redirection.js:2
 msgid "REST API"
@@ -1616,379 +1614,379 @@ msgstr "REST API"
 
 #: redirection-strings.php:649 redirection.js:2
 msgid "How Redirection uses the REST API - don't change unless necessary"
-msgstr "Hur Redirection använder REST API &mdash; ändra inte om det inte är nödvändigt"
+msgstr ""
 
 #: redirection-strings.php:265 redirection.js:2
 msgid "Take a look at the {{link}}plugin status{{/link}}. It may be able to identify and \"magic fix\" the problem."
-msgstr "Ta en titt på {{link}}tilläggsstatusen{{/link}}. Det kan vara möjligt att identifiera och ”magiskt åtgärda” problemet."
+msgstr ""
 
 #: redirection-strings.php:266 redirection.js:2
 msgid "{{link}}Caching software{{/link}}, in particular Cloudflare, can cache the wrong thing. Try clearing all your caches."
-msgstr "{{link}}Cachelagrings-program{{/link}}, i synnerhet Cloudflare, kan cachelagra fel sak. Försök att rensa all cache."
+msgstr ""
 
 #: redirection-strings.php:267 redirection.js:2
 msgid "{{link}}Please temporarily disable other plugins!{{/link}} This fixes so many problems."
-msgstr "{{link}}Inaktivera andra tillägg tillfälligt!{{/link}} Detta fixar så många problem."
+msgstr ""
 
 #: redirection-admin.php:546
 msgid "Please see the <a href=\"https://redirection.me/support/problems/\">list of common problems</a>."
-msgstr "Läs <a href=\"https://redirection.me/support/problems/\">listan med kända problem</a>."
+msgstr ""
 
 #: redirection-admin.php:540
 msgid "Unable to load Redirection ☹️"
-msgstr "Kan inte ladda Redirection ☹️"
+msgstr ""
 
 #: redirection-strings.php:534 redirection.js:2
 msgid "WordPress REST API"
-msgstr "WordPress REST API"
+msgstr "REST API WordPress"
 
 #: redirection-strings.php:144 redirection.js:2
 msgid "Useragent Error"
-msgstr "Användaragentfel"
+msgstr ""
 
 #: redirection-strings.php:146 redirection.js:2
 msgid "Unknown Useragent"
-msgstr "Okänd användaragent"
+msgstr ""
 
 #: redirection-strings.php:147 redirection.js:2
 msgid "Device"
-msgstr "Enhet"
+msgstr "Peranti"
 
 #: redirection-strings.php:148 redirection.js:2
 msgid "Operating System"
-msgstr "Operativsystem"
+msgstr "Sistem Operasi"
 
 #: redirection-strings.php:149 redirection.js:2
 msgid "Browser"
-msgstr "Webbläsare"
+msgstr "Penyemak imbas"
 
 #: redirection-strings.php:150 redirection.js:2
 msgid "Engine"
-msgstr "Motor"
+msgstr "Enjin"
 
 #: redirection-strings.php:151 redirection.js:2
 msgid "Useragent"
-msgstr "Användaragent"
+msgstr ""
 
 #: redirection-strings.php:152 redirection.js:2
 msgid "Agent"
-msgstr "Agent"
+msgstr "Ejen"
 
 #: redirection-strings.php:622 redirection.js:2
 msgid "No IP logging"
-msgstr "Ingen IP-loggning"
+msgstr ""
 
 #: redirection-strings.php:623 redirection.js:2
 msgid "Full IP logging"
-msgstr "Fullständig IP-loggning"
+msgstr ""
 
 #: redirection-strings.php:624 redirection.js:2
 msgid "Anonymize IP (mask last part)"
-msgstr "Anonymisera IP (maska sista delen)"
+msgstr ""
 
 #: redirection-strings.php:652 redirection.js:2
 msgid "Monitor changes to %(type)s"
-msgstr "Övervaka ändringar till %(type)s"
+msgstr ""
 
 #: redirection-strings.php:630 redirection.js:2
 msgid "IP Logging"
-msgstr "IP-loggning"
+msgstr ""
 
 #: redirection-strings.php:549 redirection.js:2
 msgid "Geo Info"
-msgstr "Geo-info"
+msgstr "Maklumat Geo"
 
 #: redirection-strings.php:550 redirection.js:2
 msgid "Agent Info"
-msgstr "Agentinfo"
+msgstr "Maklumat Ejen"
 
 #: redirection-strings.php:551 redirection.js:2
 msgid "Filter by IP"
-msgstr "Filtrera efter IP"
+msgstr "Tapis dengan IP"
 
 #: redirection-strings.php:21 redirection.js:2
 msgid "Geo IP Error"
-msgstr "Geo-IP-fel"
+msgstr "Ralat IP Geo"
 
 #: redirection-strings.php:22 redirection-strings.php:145 redirection.js:2
 msgid "Something went wrong obtaining this information"
-msgstr "Något gick fel när denna information skulle hämtas"
+msgstr ""
 
 #: redirection-strings.php:24 redirection.js:2
 msgid "This is an IP from a private network. This means it is located inside a home or business network and no more information can be displayed."
-msgstr "Detta är en IP från ett privat nätverk. Det betyder att det ligger i ett hem- eller företagsnätverk och ingen mer information kan visas."
+msgstr ""
 
 #: redirection-strings.php:26 redirection.js:2
 msgid "No details are known for this address."
-msgstr "Det finns inga kända detaljer för denna adress."
+msgstr ""
 
 #: redirection-strings.php:23 redirection-strings.php:25
 #: redirection-strings.php:27 redirection.js:2
 msgid "Geo IP"
-msgstr "Geo IP"
+msgstr "IP Geo"
 
 #: redirection-strings.php:28 redirection.js:2
 msgid "City"
-msgstr "Ort"
+msgstr "Bandar"
 
 #: redirection-strings.php:29 redirection.js:2
 msgid "Area"
-msgstr "Region"
+msgstr "Ruang"
 
 #: redirection-strings.php:30 redirection.js:2
 msgid "Timezone"
-msgstr "Tidszon"
+msgstr "Zon waktu"
 
 #: redirection-strings.php:31 redirection.js:2
 msgid "Geo Location"
-msgstr "Geo-plats"
+msgstr "Lokasi Geo"
 
 #: redirection-strings.php:49 redirection.js:2
 msgid "Powered by {{link}}redirect.li{{/link}}"
-msgstr "Drivs med {{link}}redirect.li{{/link}}"
+msgstr ""
 
 #: redirection-settings.php:21
 msgid "Trash"
-msgstr "Släng"
+msgstr "Sampah"
 
 #: redirection-admin.php:545
 msgid "Please note that Redirection requires the WordPress REST API to be enabled. If you have disabled this then you won't be able to use Redirection"
-msgstr "Observera att Redirection kräver att WordPress REST API ska vara aktiverat. Om du har inaktiverat det kommer du inte kunna använda Redirection"
+msgstr ""
 
 #. translators: URL
 #: redirection-admin.php:425
 msgid "You can find full documentation about using Redirection on the <a href=\"%s\" target=\"_blank\">redirection.me</a> support site."
-msgstr "Fullständig dokumentation för Redirection finns på support-sidan <a href=\"%s\" target=\"_blank\">redirection.me</a>."
+msgstr ""
 
 #. Plugin URI of the plugin
 msgid "https://redirection.me/"
-msgstr "https://redirection.me/"
+msgstr ""
 
 #: redirection-strings.php:519 redirection.js:2
 msgid "Full documentation for Redirection can be found at {{site}}https://redirection.me{{/site}}. If you have a problem please check the {{faq}}FAQ{{/faq}} first."
-msgstr "Fullständig dokumentation för Redirection kan hittas på {{site}}https://redirection.me{{/site}}. Om du har problem, kolla {{faq}}vanliga frågor{{/faq}} först."
+msgstr ""
 
 #: redirection-strings.php:520 redirection.js:2
 msgid "If you want to report a bug please read the {{report}}Reporting Bugs{{/report}} guide."
-msgstr "Om du vill rapportera ett fel, läs guiden {{report}}rapportera fel{{/report}}."
+msgstr ""
 
 #: redirection-strings.php:522 redirection.js:2
 msgid "If you want to submit information that you don't want in a public repository then send it directly via {{email}}email{{/email}} - include as much information as you can!"
-msgstr "Om du vill skicka information som du inte vill ska synas publikt, så kan du skicka det direkt via {{email}}e-post{{/email}} &mdash; inkludera så mycket information som du kan!"
+msgstr ""
 
 #: redirection-strings.php:661 redirection.js:2
 msgid "Never cache"
-msgstr "Använd aldrig cache"
+msgstr "Tidak akan cache"
 
 #: redirection-strings.php:662 redirection.js:2
 msgid "An hour"
-msgstr "En timma"
+msgstr "Satu jam"
 
 #: redirection-strings.php:680 redirection.js:2
 msgid "Redirect Caching"
-msgstr "Omdirigera cache"
+msgstr "Alihan Cache"
 
 #: redirection-strings.php:679 redirection.js:2
 msgid "How long to cache redirected 301 URLs (via \"Expires\" HTTP header)"
-msgstr "Hur länge omdirigerade 301-URL:er ska cachas (via HTTP-header ”Expires”)"
+msgstr ""
 
 #: redirection-strings.php:303 redirection.js:2
 msgid "Are you sure you want to import from %s?"
-msgstr "Är du säker på att du vill importera från %s?"
+msgstr ""
 
 #: redirection-strings.php:304 redirection.js:2
 msgid "Plugin Importers"
-msgstr "Tilläggsimporterare"
+msgstr ""
 
 #: redirection-strings.php:305 redirection.js:2
 msgid "The following redirect plugins were detected on your site and can be imported from."
-msgstr "Följande omdirigeringstillägg hittades på din webbplats och kan importeras från."
+msgstr ""
 
 #: redirection-strings.php:288
 msgid "total = "
-msgstr "totalt = "
+msgstr "jumlah = "
 
 #: redirection-strings.php:289 redirection.js:2
 msgid "Import from %s"
-msgstr "Importera från %s"
+msgstr "Import dari %s"
 
 #. translators: 1: Expected WordPress version, 2: Actual WordPress version
 #: redirection-admin.php:528
 msgid "Redirection requires WordPress v%1$1s, you are using v%2$2s - please update your WordPress"
-msgstr "Redirection kräver WordPress v%1$1s, du använder v%2$2s – uppdatera WordPress"
+msgstr ""
 
 #: models/importer.php:332
 msgid "Default WordPress \"old slugs\""
-msgstr "WordPress standard ”gamla permalänkar”"
+msgstr ""
 
 #: redirection-strings.php:657 redirection.js:2
 msgid "Create associated redirect (added to end of URL)"
-msgstr "Skapa associerad omdirigering (läggs till i slutet på URL:en)"
+msgstr ""
 
 #: redirection-admin.php:548
 msgid "<code>Redirectioni10n</code> is not defined. This usually means another plugin is blocking Redirection from loading. Please disable all plugins and try again."
-msgstr "<code>Redirectioni10n</code> är inte definierat. Detta betyder vanligtvis att ett annat tillägg blockerar Redirection från att laddas. Inaktivera alla tillägg och försök igen."
+msgstr ""
 
 #: redirection-strings.php:530 redirection.js:2
 msgid "If the magic button doesn't work then you should read the error and see if you can fix it manually, otherwise follow the 'Need help' section below."
-msgstr "Om knappen inte fungerar bör du läsa felmeddelande och se om du kan fixa felet manuellt, annars kan du kolla i avsnittet ”Behöver du hjälp?” längre ner."
+msgstr ""
 
 #: redirection-strings.php:531 redirection.js:2
 msgid "⚡️ Magic fix ⚡️"
-msgstr "⚡️ Magisk fix ⚡️"
+msgstr ""
 
 #: redirection-strings.php:536 redirection.js:2
 msgid "Plugin Status"
-msgstr "Tilläggsstatus"
+msgstr "Status Pemalam"
 
 #: redirection-strings.php:20 redirection-strings.php:564
 #: redirection-strings.php:578 redirection.js:2
 msgid "Custom"
-msgstr "Anpassad"
+msgstr "Tersuai"
 
 #: redirection-strings.php:565 redirection.js:2
 msgid "Mobile"
-msgstr "Mobil"
+msgstr "Mudah Alih"
 
 #: redirection-strings.php:566 redirection.js:2
 msgid "Feed Readers"
-msgstr "Feedläsare"
+msgstr "Pembaca Suapan"
 
 #: redirection-strings.php:567 redirection.js:2
 msgid "Libraries"
-msgstr "Bibliotek"
+msgstr "Pustaka"
 
 #: redirection-strings.php:654 redirection.js:2
 msgid "URL Monitor Changes"
-msgstr "Övervaka URL-ändringar"
+msgstr "Perubahan Pantauan URL"
 
 #: redirection-strings.php:655 redirection.js:2
 msgid "Save changes to this group"
-msgstr "Spara ändringar till den här gruppen"
+msgstr ""
 
 #: redirection-strings.php:656 redirection.js:2
 msgid "For example \"/amp\""
-msgstr "Till exempel ”/amp”"
+msgstr ""
 
 #: redirection-strings.php:653 redirection.js:2
 msgid "URL Monitor"
-msgstr "URL-övervakning"
+msgstr "Pantau URL"
 
 #: redirection-strings.php:736 redirection.js:2
 msgid "Your server has rejected the request for being too big. You will need to reconfigure it to continue."
-msgstr "Din server har avisat begäran för att den var för stor. Du måste konfigurera den igen för att fortsätta."
+msgstr ""
 
 #: redirection-admin.php:543
 msgid "Also check if your browser is able to load <code>redirection.js</code>:"
-msgstr "Kontrollera också att din webbläsare kan ladda <code>redirection.js</code>:"
+msgstr ""
 
 #: redirection-admin.php:542 redirection-strings.php:257 redirection.js:2
 msgid "If you are using a page caching plugin or service (CloudFlare, OVH, etc) then you can also try clearing that cache."
-msgstr "Om du använder ett tillägg eller en tjänst för att cachelagra sidor (CloudFlare, OVH m.m.) så kan du också prova att rensa den cachen."
+msgstr ""
 
 #: redirection-admin.php:531
 msgid "Unable to load Redirection"
-msgstr "Kan inte att ladda Redirection"
+msgstr ""
 
 #: models/fixer.php:80
 msgid "Post monitor group is valid"
-msgstr "Övervakningsgrupp för inlägg är giltig"
+msgstr ""
 
 #: models/fixer.php:80
 msgid "Post monitor group is invalid"
-msgstr "Övervakningsgrupp för inlägg är ogiltig"
+msgstr ""
 
 #: models/fixer.php:78
 msgid "Post monitor group"
-msgstr "Övervakningsgrupp för inlägg"
+msgstr ""
 
 #: models/fixer.php:74
 msgid "All redirects have a valid group"
-msgstr "Alla omdirigeringar har en giltig grupp"
+msgstr ""
 
 #: models/fixer.php:74
 msgid "Redirects with invalid groups detected"
-msgstr "Omdirigeringar med ogiltiga grupper upptäcktes"
+msgstr ""
 
 #: models/fixer.php:72
 msgid "Valid redirect group"
-msgstr "Giltig omdirigeringsgrupp"
+msgstr "Kumpulan alihan sah"
 
 #: models/fixer.php:68
 msgid "Valid groups detected"
-msgstr "Giltiga grupper upptäcktes"
+msgstr ""
 
 #: models/fixer.php:68
 msgid "No valid groups, so you will not be able to create any redirects"
-msgstr "Inga giltiga grupper, du kan inte skapa nya omdirigeringar"
+msgstr ""
 
 #: models/fixer.php:66
 msgid "Valid groups"
-msgstr "Giltiga grupper"
+msgstr "Kumpulan sah"
 
 #: models/fixer.php:63
 msgid "Database tables"
-msgstr "Databastabeller"
+msgstr "Jadual pengkalan data"
 
 #: models/fixer.php:104
 msgid "The following tables are missing:"
-msgstr "Följande tabeller saknas:"
+msgstr ""
 
 #: models/fixer.php:104
 msgid "All tables present"
-msgstr "Alla tabeller närvarande"
+msgstr ""
 
 #: redirection-strings.php:252 redirection.js:2
 msgid "Cached Redirection detected"
-msgstr "En cachad version av Redirection upptäcktes"
+msgstr ""
 
 #: redirection-strings.php:253 redirection.js:2
 msgid "Please clear your browser cache and reload this page."
-msgstr "Rensa din webbläsares cache och ladda om denna sida."
+msgstr ""
 
 #: redirection-strings.php:725 redirection.js:2
 msgid "WordPress did not return a response. This could mean an error occurred or that the request was blocked. Please check your server error_log."
-msgstr "WordPress returnerade inte ett svar. Det kan innebära att ett fel inträffade eller att begäran blockerades. Kontrollera din servers error_log."
+msgstr ""
 
 #: redirection-admin.php:547
 msgid "If you think Redirection is at fault then create an issue."
-msgstr "Om du tror att Redirection orsakar felet, skapa en felrapport."
+msgstr ""
 
 #: redirection-admin.php:541
 msgid "This may be caused by another plugin - look at your browser's error console for more details."
-msgstr "Detta kan ha orsakats av ett annat tillägg – kolla i din webbläsares fel-konsol för mer information."
+msgstr ""
 
 #: redirection-admin.php:563
 msgid "Loading, please wait..."
-msgstr "Laddar, vänta &hellip;"
+msgstr ""
 
 #: redirection-strings.php:308 redirection.js:2
 msgid "{{strong}}CSV file format{{/strong}}: {{code}}source URL, target URL{{/code}} - and can be optionally followed with {{code}}regex, http code{{/code}} ({{code}}regex{{/code}} - 0 for no, 1 for yes)."
-msgstr "{{strong}}CSV filformat{{/strong}}: {{code}}Käll-URL, Mål-URL{{/code}} – som valfritt kan följas av {{code}}regex, http code{{/code}} ({{code}}regex{{/code}} – 0 för nej, 1 för ja)."
+msgstr ""
 
 #: redirection-strings.php:256 redirection.js:2
 msgid "Redirection is not working. Try clearing your browser cache and reloading this page."
-msgstr "Redirection fungerar inte. Prova att rensa din webbläsares cache och ladda om den här sidan."
+msgstr ""
 
 #: redirection-strings.php:258 redirection.js:2
 msgid "If that doesn't help, open your browser's error console and create a {{link}}new issue{{/link}} with the details."
-msgstr "Om det inte hjälper, öppna din webbläsares fel-konsol och skapa en {{link}}ny felrapport{{/link}} med informationen."
+msgstr ""
 
 #: redirection-admin.php:551
 msgid "Create Issue"
-msgstr "Skapa felrapport"
+msgstr ""
 
 #: redirection-strings.php:262 redirection.js:2
 msgid "Email"
-msgstr "E-post"
+msgstr "Emel"
 
 #: redirection-strings.php:518 redirection.js:2
 msgid "Need help?"
-msgstr "Behöver du hjälp?"
+msgstr "Perlukan bantuan?"
 
 #: redirection-strings.php:521 redirection.js:2
 msgid "Please note that any support is provide on as-time-is-available basis and is not guaranteed. I do not provide paid support."
-msgstr "Observera att eventuell support tillhandahålls vart efter tid finns och hjälp kan inte garanteras. Jag ger inte betald support."
+msgstr ""
 
 #: redirection-strings.php:465 redirection.js:2
 msgid "Pos"
@@ -1996,59 +1994,59 @@ msgstr "Pos"
 
 #: redirection-strings.php:80 redirection.js:2
 msgid "410 - Gone"
-msgstr "410 – Borttagen"
+msgstr ""
 
 #: redirection-strings.php:103 redirection-strings.php:479 redirection.js:2
 msgid "Position"
-msgstr "Position"
+msgstr "Posisi"
 
 #: redirection-strings.php:677 redirection.js:2
 msgid "Used to auto-generate a URL if no URL is given. Use the special tags {{code}}$dec${{/code}} or {{code}}$hex${{/code}} to insert a unique ID instead"
-msgstr "Används för att automatiskt generera en URL om ingen URL anges. Använd specialkoderna {{code}}$dec${{/code}} eller {{code}}$hex${{/code}} för att infoga ett unikt ID istället"
+msgstr ""
 
 #: redirection-strings.php:448 redirection.js:2
 msgid "I'd like to support some more."
-msgstr "Jag skulle vilja stödja lite till."
+msgstr "Saya ingin menyokong lebih banyak lagi."
 
 #: redirection-strings.php:451 redirection.js:2
 msgid "Support 💰"
-msgstr "Stötta 💰"
+msgstr "Sokongan 💰"
 
 #: redirection-strings.php:290 redirection.js:2
 msgid "Import to group"
-msgstr "Importera till grupp"
+msgstr "Import ke kumpulan"
 
 #: redirection-strings.php:291 redirection.js:2
 msgid "Import a CSV, .htaccess, or JSON file."
-msgstr "Importera en CSV-fil, .htaccess-fil eller JSON-fil."
+msgstr ""
 
 #: redirection-strings.php:292 redirection.js:2
 msgid "Click 'Add File' or drag and drop here."
-msgstr "Klicka på ”Lägg till fil” eller dra och släpp en fil här."
+msgstr ""
 
 #: redirection-strings.php:293 redirection-strings.php:545 redirection.js:2
 msgid "Add File"
-msgstr "Lägg till fil"
+msgstr "Tambah Fail"
 
 #: redirection-strings.php:294 redirection.js:2
 msgid "File selected"
-msgstr "Fil vald"
+msgstr "Fail dipilih"
 
 #: redirection-strings.php:297 redirection.js:2
 msgid "Importing"
-msgstr "Importerar"
+msgstr "Mengimport"
 
 #: redirection-strings.php:298 redirection.js:2
 msgid "Finished importing"
-msgstr "Importering klar"
+msgstr ""
 
 #: redirection-strings.php:299 redirection.js:2
 msgid "Total redirects imported:"
-msgstr "Antal omdirigeringar importerade:"
+msgstr ""
 
 #: redirection-strings.php:300 redirection.js:2
 msgid "Double-check the file is the correct format!"
-msgstr "Dubbelkolla att filen är i rätt format!"
+msgstr ""
 
 #: redirection-strings.php:287 redirection-strings.php:301 redirection.js:2
 msgid "OK"
@@ -2056,27 +2054,27 @@ msgstr "OK"
 
 #: redirection-strings.php:100 redirection-strings.php:302 redirection.js:2
 msgid "Close"
-msgstr "Stäng"
+msgstr "Tutup"
 
 #: redirection-strings.php:310 redirection.js:2
 msgid "Export"
-msgstr "Exportera"
+msgstr "Eksport"
 
 #: redirection-strings.php:312 redirection.js:2
 msgid "Everything"
-msgstr "Allt"
+msgstr ""
 
 #: redirection-strings.php:313 redirection.js:2
 msgid "WordPress redirects"
-msgstr "WordPress omdirigeringar"
+msgstr "Alihan WordPress"
 
 #: redirection-strings.php:314 redirection.js:2
 msgid "Apache redirects"
-msgstr "Apache omdirigeringar"
+msgstr ""
 
 #: redirection-strings.php:315 redirection.js:2
 msgid "Nginx redirects"
-msgstr "Nginx omdirigeringar"
+msgstr "Alihan Nginx"
 
 #: redirection-strings.php:317 redirection.js:2
 msgid "CSV"
@@ -2084,221 +2082,221 @@ msgstr "CSV"
 
 #: redirection-strings.php:318 redirection-strings.php:645 redirection.js:2
 msgid "Apache .htaccess"
-msgstr "Apache .htaccess"
+msgstr ""
 
 #: redirection-strings.php:319 redirection.js:2
 msgid "Nginx rewrite rules"
-msgstr "Nginx omskrivningsregler"
+msgstr "Aturan rewrite Nginx"
 
 #: redirection-strings.php:320 redirection.js:2
 msgid "View"
-msgstr "Visa"
+msgstr "Lihat"
 
 #: redirection-strings.php:272 redirection-strings.php:282 redirection.js:2
 msgid "Import/Export"
-msgstr "Importera/Exportera"
+msgstr "Import/Export"
 
 #: redirection-strings.php:273 redirection-strings.php:625 redirection.js:2
 msgid "Logs"
-msgstr "Loggar"
+msgstr "Log"
 
 #: redirection-strings.php:274 redirection.js:2
 msgid "404 errors"
-msgstr "404-fel"
+msgstr "Ralat 404"
 
 #: redirection-strings.php:539 redirection.js:2
 msgid "Redirection saved"
-msgstr "Omdirigering sparad"
+msgstr "Alihan disimpan"
 
 #: redirection-strings.php:540 redirection.js:2
 msgid "Log deleted"
-msgstr "Logg borttagen"
+msgstr "Log dipadamkan"
 
 #: redirection-strings.php:541 redirection.js:2
 msgid "Settings saved"
-msgstr "Inställning sparad"
+msgstr "Tetapan disimpan"
 
 #: redirection-strings.php:542 redirection.js:2
 msgid "Group saved"
-msgstr "Grupp sparad"
+msgstr "Kumpulan disimpan"
 
 #: redirection-strings.php:4 redirection-strings.php:430 redirection.js:2
 msgid "Are you sure you want to delete this item?"
 msgid_plural "Are you sure you want to delete the %d selected items?"
-msgstr[0] "Är du säker på att du vill ta bort detta objekt?"
-msgstr[1] "Är du säker på att du vill ta bort dessa objekt?"
+msgstr[0] "Adakah anda pasti mahu memadam item ini?"
 
 #: redirection-strings.php:682 redirection.js:2
 msgid "pass"
-msgstr "lösen"
+msgstr ""
 
 #: redirection-strings.php:506 redirection.js:2
 msgid "All groups"
-msgstr "Alla grupper"
+msgstr "Semua kumpulan"
 
 #: redirection-strings.php:70 redirection.js:2
 msgid "301 - Moved Permanently"
-msgstr "301 – Flyttad permanent"
+msgstr ""
 
 #: redirection-strings.php:71 redirection.js:2
 msgid "302 - Found"
-msgstr "302 – Hittad"
+msgstr "302 - Dijumpai"
 
 #: redirection-strings.php:74 redirection.js:2
 msgid "307 - Temporary Redirect"
-msgstr "307 – Tillfällig omdirigering"
+msgstr ""
 
 #: redirection-strings.php:75 redirection.js:2
 msgid "308 - Permanent Redirect"
-msgstr "308 – Permanent omdirigering"
+msgstr ""
 
 #: redirection-strings.php:77 redirection.js:2
 msgid "401 - Unauthorized"
-msgstr "401 – Obehörig"
+msgstr "401 - Tanpa Kebenaran"
 
 #: redirection-strings.php:79 redirection.js:2
 msgid "404 - Not Found"
-msgstr "404 – Hittades inte"
+msgstr "404 - Tidak Dijumpai"
 
 #: redirection-strings.php:110 redirection-strings.php:475 redirection.js:2
 msgid "Title"
-msgstr "Rubrik"
+msgstr "Tajuk"
 
 #: redirection-strings.php:96 redirection.js:2
 msgid "When matched"
-msgstr "När matchning sker"
+msgstr ""
 
 #: redirection-strings.php:52 redirection.js:2
 msgid "with HTTP code"
-msgstr "med HTTP-kod"
+msgstr "dengan kod HTTP"
 
 #: redirection-strings.php:101 redirection.js:2
 msgid "Show advanced options"
-msgstr "Visa avancerande alternativ"
+msgstr ""
 
 #: redirection-strings.php:557 redirection.js:2
 msgid "Matched Target"
-msgstr "Matchande mål"
+msgstr "Sasaran Berpadanan"
 
 #: redirection-strings.php:559 redirection.js:2
 msgid "Unmatched Target"
-msgstr "Ej matchande mål"
+msgstr "Sasarab Tidak Berpadanan"
 
 #: redirection-strings.php:50 redirection-strings.php:51
 msgid "Saving..."
-msgstr "Sparar..."
+msgstr ""
 
 #: redirection-strings.php:544 redirection.js:2
 msgid "View notice"
-msgstr "Visa meddelande"
+msgstr "Lihat notis"
 
 #: redirection-strings.php:751 redirection-strings.php:752
 #: redirection-strings.php:753 redirection.js:2
 msgid "Something went wrong 🙁"
-msgstr "Något gick snett 🙁"
+msgstr ""
 
 #. translators: maximum number of log entries
 #: redirection-admin.php:285
 msgid "Log entries (%d max)"
-msgstr "Antal logginlägg per sida (max %d)"
+msgstr ""
 
 #: redirection-strings.php:141 redirection.js:2
 msgid "Bulk Actions"
-msgstr "Massåtgärder"
+msgstr ""
 
 #: redirection-strings.php:142 redirection-strings.php:143 redirection.js:2
 msgid "Apply"
-msgstr "Tillämpa"
+msgstr ""
 
 #: redirection-strings.php:600 redirection.js:2
 msgid "First page"
-msgstr "Första sidan"
+msgstr "Halaman pertama"
 
 #: redirection-strings.php:601 redirection.js:2
 msgid "Prev page"
-msgstr "Föregående sida"
+msgstr "Halaman terdahulu"
 
 #: redirection-strings.php:602 redirection.js:2
 msgid "Current Page"
-msgstr "Nuvarande sida"
+msgstr ""
 
 #: redirection-strings.php:603
 msgid "of %(page)s"
-msgstr "av %(sidor)"
+msgstr "of %(halaman)"
 
 #: redirection-strings.php:604 redirection.js:2
 msgid "Next page"
-msgstr "Nästa sida"
+msgstr "Halaman Seterusnya"
 
 #: redirection-strings.php:605 redirection.js:2
 msgid "Last page"
-msgstr "Sista sidan"
+msgstr "Halaman terakhir"
 
 #: redirection-strings.php:597 redirection.js:2
 msgid "%s item"
 msgid_plural "%s items"
-msgstr[0] "%s objekt"
-msgstr[1] "%s objekt"
+msgstr[0] "%s butir"
 
 #: redirection-strings.php:596 redirection.js:2
 msgid "Select All"
-msgstr "Välj allt"
+msgstr "Pilih Semua"
 
 #: redirection-strings.php:607 redirection.js:2
 msgid "Sorry, something went wrong loading the data - please try again"
-msgstr "Något gick fel när data laddades – försök igen"
+msgstr "Maaf, kesilapan berlaku ketika memunggah data - sila cuba lagi"
 
 #: redirection-strings.php:454 redirection.js:2
 msgid "Thanks for subscribing! {{a}}Click here{{/a}} if you need to return to your subscription."
-msgstr "Tack för att du prenumererar! {{a}}Klicka här{{/a}} om du behöver gå tillbaka till din prenumeration."
+msgstr ""
 
 #: redirection-strings.php:453 redirection-strings.php:455 redirection.js:2
 msgid "Newsletter"
-msgstr "Nyhetsbrev"
+msgstr "Surat berita"
 
 #: redirection-strings.php:456 redirection.js:2
 msgid "Want to keep up to date with changes to Redirection?"
-msgstr "Vill du bli uppdaterad om ändringar i Redirection?"
+msgstr ""
 
 #: redirection-strings.php:457 redirection.js:2
 msgid "Sign up for the tiny Redirection newsletter - a low volume newsletter about new features and changes to the plugin. Ideal if you want to test beta changes before release."
-msgstr "Prenumerera på vårt lilla nyhetsbrev om Redirection – ett lågfrekvent nyhetsbrev om nya funktioner och förändringar i tillägget. Utmärkt om du vill testa beta-versioner innan release."
+msgstr ""
 
 #: redirection-strings.php:458 redirection.js:2
 msgid "Your email address:"
-msgstr "Din e-postadress:"
+msgstr "Alamat emel anda:"
 
 #: redirection-strings.php:447 redirection.js:2
 msgid "You've supported this plugin - thank you!"
-msgstr "Du har stöttat detta tillägg – tack!"
+msgstr "Anda telah menyokong pemalam ini - terima kasih!"
 
 #: redirection-strings.php:450 redirection.js:2
 msgid "You get useful software and I get to carry on making it better."
-msgstr "Du får en användbar mjukvara och jag kan fortsätta göra den bättre."
+msgstr ""
 
 #: redirection-strings.php:621 redirection-strings.php:665 redirection.js:2
 msgid "Forever"
-msgstr "För evigt"
+msgstr "Selamanya"
 
 #: redirection-strings.php:439 redirection.js:2
 msgid "Delete the plugin - are you sure?"
-msgstr "Är du säker på att du vill ta bort tillägget?"
+msgstr "Padam pemalam - adakah anda pasti?"
 
 #: redirection-strings.php:440 redirection.js:2
 msgid "Deleting the plugin will remove all your redirections, logs, and settings. Do this if you want to remove the plugin for good, or if you want to reset the plugin."
-msgstr "Tar du bort tillägget tar du även bort alla omdirigeringar, loggar och inställningar. Gör detta om du vill ta bort tillägget helt och hållet, eller om du vill återställa tillägget."
+msgstr ""
+"Memadamkan pemalam akan menghapuskan semua alihan, log, dan tetapan. \n"
+"Lakukan ini jika anda mahu mengeluarkan plugin untuk selamanya, atau jika anda mahu menetapkan semula pemalam."
 
 #: redirection-strings.php:441 redirection.js:2
 msgid "Once deleted your redirections will stop working. If they appear to continue working then please clear your browser cache."
-msgstr "När du har tagit bort tillägget kommer dina omdirigeringar att sluta fungera. Om de verkar fortsätta att fungera, rensa din webbläsares cache."
+msgstr "Setelah dipadamkan peralihan anda akan berhenti bekerja. Jika mereka kelihatan terus bekerja maka sila padamkan cache pelayar web anda."
 
 #: redirection-strings.php:442 redirection.js:2
 msgid "Yes! Delete the plugin"
-msgstr "Ja! Ta bort tillägget"
+msgstr "Ya! Padam pemalam"
 
 #: redirection-strings.php:443 redirection.js:2
 msgid "No! Don't delete the plugin"
-msgstr "Nej! Ta inte bort detta tillägg"
+msgstr "Tidak! Jangan padam pemalam"
 
 #. Author of the plugin
 msgid "John Godley"
@@ -2306,161 +2304,161 @@ msgstr "John Godley"
 
 #. Description of the plugin
 msgid "Manage all your 301 redirects and monitor 404 errors"
-msgstr "Hantera alla dina 301-omdirigeringar och övervaka 404-fel"
+msgstr "Uruskan semua alihan 301 dan pantau ralat 404 anda"
 
 #: redirection-strings.php:449 redirection.js:2
 msgid "Redirection is free to use - life is wonderful and lovely! It has required a great deal of time and effort to develop and you can help support this development by {{strong}}making a small donation{{/strong}}."
-msgstr "Redirection är gratis att använda – livet är underbart och ljuvligt! Det har krävts mycket tid och ansträngningar för att utveckla tillägget och du kan hjälpa till med att stödja denna utveckling genom att {{strong}}göra en liten donation{{/ strong}}."
+msgstr ""
 
 #: redirection-admin.php:426
 msgid "Redirection Support"
-msgstr "Support för Redirection"
+msgstr "Sokongan Alihan"
 
 #: redirection-strings.php:276 redirection-strings.php:284 redirection.js:2
 msgid "Support"
-msgstr "Support"
+msgstr "Sokongan"
 
 #: redirection-strings.php:281 redirection.js:2
 msgid "404s"
-msgstr "404:or"
+msgstr "404"
 
 #: redirection-strings.php:280 redirection.js:2
 msgid "Log"
-msgstr "Logg"
+msgstr "Log"
 
 #: redirection-strings.php:445 redirection.js:2
 msgid "Selecting this option will delete all redirections, all logs, and any options associated with the Redirection plugin.  Make sure this is what you want to do."
-msgstr "Väljer du detta alternativ tas alla omdirigeringar, loggar och inställningar som associeras till tillägget Redirection bort. Försäkra dig om att det är det du vill göra."
+msgstr ""
 
 #: redirection-strings.php:444 redirection.js:2
 msgid "Delete Redirection"
-msgstr "Ta bort Redirection"
+msgstr "Padam Alihan"
 
 #: redirection-strings.php:295 redirection-strings.php:546 redirection.js:2
 msgid "Upload"
-msgstr "Ladda upp"
+msgstr "Muat Naik"
 
 #: redirection-strings.php:306 redirection.js:2
 msgid "Import"
-msgstr "Importera"
+msgstr "Import"
 
 #: redirection-strings.php:513 redirection-strings.php:615 redirection.js:2
 msgid "Update"
-msgstr "Uppdatera"
+msgstr "Kemas kini"
 
 #: redirection-strings.php:676 redirection.js:2
 msgid "Auto-generate URL"
-msgstr "Generera URL automatiskt"
+msgstr "auto-jana URL"
 
 #: redirection-strings.php:644 redirection.js:2
 msgid "A unique token allowing feed readers access to Redirection log RSS (leave blank to auto-generate)"
-msgstr "En unik nyckel som ger feed-läsare åtkomst till Redirection logg via RSS (lämna tomt för att autogenerera)"
+msgstr ""
 
 #: redirection-strings.php:643 redirection.js:2
 msgid "RSS Token"
-msgstr "RSS-token"
+msgstr "Token RSS"
 
 #: redirection-strings.php:628 redirection.js:2
 msgid "404 Logs"
-msgstr "404-loggar"
+msgstr "Log 404"
 
 #: redirection-strings.php:627 redirection-strings.php:629 redirection.js:2
 msgid "(time to keep logs for)"
-msgstr "(hur länge loggar ska sparas)"
+msgstr "(masa untuk log disimpan)"
 
 #: redirection-strings.php:626 redirection.js:2
 msgid "Redirect Logs"
-msgstr "Redirection-loggar"
+msgstr "Alihan Log"
 
 #: redirection-strings.php:614 redirection.js:2
 msgid "I'm a nice person and I have helped support the author of this plugin"
-msgstr "Jag är en trevlig person och jag har hjälpt till att stödja skaparen av detta tillägg"
+msgstr ""
 
 #: redirection-strings.php:452 redirection.js:2
 msgid "Plugin Support"
-msgstr "Stöd tillägget"
+msgstr "Sokongan Pemalam"
 
 #: redirection-strings.php:275 redirection-strings.php:283 redirection.js:2
 msgid "Options"
-msgstr "Alternativ"
+msgstr "Pilihan"
 
 #: redirection-strings.php:620 redirection.js:2
 msgid "Two months"
-msgstr "Två månader"
+msgstr "Dua bulan"
 
 #: redirection-strings.php:619 redirection.js:2
 msgid "A month"
-msgstr "En månad"
+msgstr "Sebulan"
 
 #: redirection-strings.php:618 redirection-strings.php:664 redirection.js:2
 msgid "A week"
-msgstr "En vecka"
+msgstr "Seminggu"
 
 #: redirection-strings.php:617 redirection-strings.php:663 redirection.js:2
 msgid "A day"
-msgstr "En dag"
+msgstr "Sehari"
 
 #: redirection-strings.php:616 redirection.js:2
 msgid "No logs"
-msgstr "Inga loggar"
+msgstr "Tiada log"
 
 #: redirection-strings.php:244 redirection.js:2
 msgid "Use groups to organise your redirects. Groups are assigned to a module, which affects how the redirects in that group work. If you are unsure then stick to the WordPress module."
-msgstr "Använd grupper för att organisera dina omdirigeringar. Grupper tillämpas på en modul, vilken påverkar hur omdirigeringar i den gruppen funkar. Behåll bara WordPress-modulen om du känner dig osäker."
+msgstr ""
 
 #: redirection-strings.php:243 redirection.js:2
 msgid "Add Group"
-msgstr "Lägg till grupp"
+msgstr "Tambah Kumpulan"
 
 #: redirection-strings.php:242 redirection.js:2
 msgid "Search"
-msgstr "Sök"
+msgstr "Carian"
 
 #: redirection-strings.php:271 redirection-strings.php:278 redirection.js:2
 msgid "Groups"
-msgstr "Grupper"
+msgstr "Kumpulan"
 
 #: redirection-strings.php:98 redirection-strings.php:516
 #: redirection-strings.php:610 redirection.js:2
 msgid "Save"
-msgstr "Spara"
+msgstr "Simpan"
 
 #: redirection-strings.php:97 redirection-strings.php:341
 #: redirection-strings.php:402 redirection-strings.php:464
 #: redirection-strings.php:484 redirection.js:2
 msgid "Group"
-msgstr "Grupp"
+msgstr "Kumpulan"
 
 #: redirection-strings.php:492 redirection.js:2
 msgid "Regular Expression"
-msgstr "Reguljärt uttryck (Regex)"
+msgstr ""
 
 #: redirection-strings.php:102 redirection.js:2
 msgid "Match"
-msgstr "Matcha"
+msgstr "Padan"
 
 #: redirection-strings.php:504 redirection.js:2
 msgid "Add new redirection"
-msgstr "Lägg till ny omdirigering"
+msgstr "Tambah alihan baru"
 
 #: redirection-strings.php:99 redirection-strings.php:296
 #: redirection-strings.php:547 redirection-strings.php:611 redirection.js:2
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Batal"
 
 #: redirection-strings.php:321 redirection.js:2
 msgid "Download"
-msgstr "Ladda ner"
+msgstr "Muat Turun"
 
 #. Plugin Name of the plugin
 #: redirection-strings.php:154 redirection-strings.php:375
 #: redirection-strings.php:552 redirection.js:2
 msgid "Redirection"
-msgstr "Redirection"
+msgstr "Alihan"
 
 #: redirection-admin.php:213
 msgid "Settings"
-msgstr "Inställningar"
+msgstr "Tetapan"
 
 #: redirection-strings.php:374 redirection.js:2
 msgid "WordPress"
@@ -2468,19 +2466,19 @@ msgstr "WordPress"
 
 #: actions/error.php:59 redirection-strings.php:68 redirection.js:2
 msgid "Error (404)"
-msgstr "Fel (404)"
+msgstr "Ralat (404)"
 
 #: actions/pass.php:75 redirection-strings.php:67 redirection.js:2
 msgid "Pass-through"
-msgstr "Passera"
+msgstr ""
 
 #: actions/random.php:48 redirection-strings.php:66 redirection.js:2
 msgid "Redirect to random post"
-msgstr "Omdirigering till slumpmässigt inlägg"
+msgstr "Alihkan ke kiriman rawak"
 
 #: actions/url.php:53 redirection-strings.php:65 redirection.js:2
 msgid "Redirect to URL"
-msgstr "Omdirigera till URL"
+msgstr "Alihan ke URL"
 
 #: redirection-strings.php:326 redirection-strings.php:339
 #: redirection-strings.php:349 redirection-strings.php:360
@@ -2495,21 +2493,21 @@ msgstr "IP"
 #: redirection-strings.php:333 redirection-strings.php:379
 #: redirection-strings.php:388 redirection.js:2
 msgid "Source URL"
-msgstr "Käll-URL"
+msgstr ""
 
 #: redirection-strings.php:330 redirection-strings.php:351
 #: redirection-strings.php:385 redirection-strings.php:412 redirection.js:2
 msgid "Date"
-msgstr "Datum"
+msgstr "Tarikh"
 
 #: redirection-strings.php:428 redirection-strings.php:435
 #: redirection-strings.php:505 redirection.js:2
 msgid "Add Redirect"
-msgstr "Lägg till omdirigering"
+msgstr ""
 
 #: redirection-strings.php:249 redirection.js:2
 msgid "View Redirects"
-msgstr "Visa omdirigeringar"
+msgstr "Papar Alihan"
 
 #: redirection-strings.php:225 redirection-strings.php:234
 #: redirection-strings.php:238 redirection-strings.php:609 redirection.js:2
@@ -2519,30 +2517,30 @@ msgstr "Modul"
 #: redirection-strings.php:227 redirection-strings.php:237
 #: redirection-strings.php:277 redirection.js:2
 msgid "Redirects"
-msgstr "Omdirigering"
+msgstr "Alihan"
 
 #: redirection-strings.php:224 redirection-strings.php:236
 #: redirection-strings.php:245 redirection-strings.php:608 redirection.js:2
 msgid "Name"
-msgstr "Namn"
+msgstr "Nama"
 
 #: redirection-strings.php:48 redirection.js:2
 msgid "Filters"
-msgstr "Filter"
+msgstr "Tapis"
 
 #: redirection-strings.php:471 redirection.js:2
 msgid "Reset hits"
-msgstr "Återställ träffar"
+msgstr "Set semula hit"
 
 #: redirection-strings.php:240 redirection-strings.php:251
 #: redirection-strings.php:469 redirection-strings.php:510 redirection.js:2
 msgid "Enable"
-msgstr "Aktivera"
+msgstr "Dayakan"
 
 #: redirection-strings.php:241 redirection-strings.php:250
 #: redirection-strings.php:470 redirection-strings.php:509 redirection.js:2
 msgid "Disable"
-msgstr "Inaktivera"
+msgstr "Nyahboleh"
 
 #: redirection-strings.php:239 redirection-strings.php:248
 #: redirection-strings.php:340 redirection-strings.php:377
@@ -2550,19 +2548,19 @@ msgstr "Inaktivera"
 #: redirection-strings.php:446 redirection-strings.php:468
 #: redirection-strings.php:508 redirection.js:2
 msgid "Delete"
-msgstr "Ta bort"
+msgstr "Padam"
 
 #: redirection-strings.php:247 redirection-strings.php:507 redirection.js:2
 msgid "Edit"
-msgstr "Redigera"
+msgstr "Sunting"
 
 #: redirection-strings.php:467 redirection-strings.php:481 redirection.js:2
 msgid "Last Access"
-msgstr "Senaste besök"
+msgstr "Akses terkini"
 
 #: redirection-strings.php:466 redirection-strings.php:480 redirection.js:2
 msgid "Hits"
-msgstr "Träffar"
+msgstr "Hit"
 
 #: redirection-strings.php:345 redirection-strings.php:354
 #: redirection-strings.php:406 redirection-strings.php:415
@@ -2573,12 +2571,12 @@ msgstr "URL"
 
 #: database/schema/latest.php:143
 msgid "Modified Posts"
-msgstr "Modifierade inlägg"
+msgstr "Kiriman Diubahsuai"
 
 #: database/schema/latest.php:138 models/group.php:236
 #: redirection-strings.php:269 redirection.js:2
 msgid "Redirections"
-msgstr "Omdirigeringar"
+msgstr "Alihan"
 
 #: redirection-strings.php:328 redirection-strings.php:338
 #: redirection-strings.php:347 redirection-strings.php:358
@@ -2586,51 +2584,51 @@ msgstr "Omdirigeringar"
 #: redirection-strings.php:408 redirection-strings.php:418
 #: redirection-strings.php:562 redirection.js:2
 msgid "User Agent"
-msgstr "Användaragent"
+msgstr ""
 
 #: matches/user-agent.php:24 redirection-strings.php:57 redirection.js:2
 msgid "URL and user agent"
-msgstr "URL och användaragent"
+msgstr "URL dan ejen pengguna"
 
 #: redirection-strings.php:211 redirection-strings.php:334
 #: redirection-strings.php:561 redirection.js:2
 msgid "Target URL"
-msgstr "Mål-URL"
+msgstr "Sasaran Pautan"
 
 #: matches/url.php:15 redirection-strings.php:53 redirection.js:2
 msgid "URL only"
-msgstr "Endast URL"
+msgstr "Pautan sahaja"
 
 #: redirection-strings.php:336 redirection-strings.php:356
 #: redirection-strings.php:389 redirection-strings.php:416
 #: redirection-strings.php:477 redirection.js:2
 msgid "HTTP code"
-msgstr "HTTP-kod"
+msgstr ""
 
 #: redirection-strings.php:88 redirection-strings.php:568
 #: redirection-strings.php:572 redirection-strings.php:580
 #: redirection-strings.php:591 redirection.js:2
 msgid "Regex"
-msgstr "Reguljärt uttryck"
+msgstr "Regex"
 
 #: redirection-strings.php:337 redirection-strings.php:357
 #: redirection-strings.php:390 redirection-strings.php:417
 #: redirection-strings.php:589 redirection.js:2
 msgid "Referrer"
-msgstr "Hänvisningsadress"
+msgstr "Perujuk"
 
 #: matches/referrer.php:24 redirection-strings.php:56 redirection.js:2
 msgid "URL and referrer"
-msgstr "URL och hänvisande webbplats"
+msgstr "Pautan dan perujuk"
 
 #: redirection-strings.php:555 redirection.js:2
 msgid "Logged Out"
-msgstr "Utloggad"
+msgstr "Log Keluar"
 
 #: redirection-strings.php:553 redirection.js:2
 msgid "Logged In"
-msgstr "Inloggad"
+msgstr "Log Masuk"
 
 #: matches/login.php:22 redirection-strings.php:54 redirection.js:2
 msgid "URL and login status"
-msgstr "URL och inloggnings-status"
+msgstr "Pautan dan status log masuk"
