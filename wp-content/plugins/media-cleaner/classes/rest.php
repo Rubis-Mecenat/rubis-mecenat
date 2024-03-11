@@ -3,6 +3,8 @@
 class Meow_WPMC_Rest
 {
 	private $core = null;
+	private $admin = null;
+	private $engine = null;
 	private $namespace = 'media-cleaner/v1';
 
 	public function __construct( $core, $admin ) {
@@ -61,6 +63,7 @@ class Meow_WPMC_Rest
 					'orderBy' => array( 'required' => false, 'default' => 'id' ),
 					'order' => array( 'required' => false, 'default' => 'desc' ),
 					'search' => array( 'required' => false ),
+					'repairMode' => array( 'required' => false, 'default' => false ),
 				)
 			) );
 
@@ -85,12 +88,27 @@ class Meow_WPMC_Rest
 				'permission_callback' => array( $this->core, 'can_access_features' ),
 				'callback' => array( $this, 'rest_reset_db' )
 			) );
+			register_rest_route( $this->namespace, '/repair', array(
+				'methods' => 'POST',
+				'permission_callback' => array( $this->core, 'can_access_features' ),
+				'callback' => array( $this, 'rest_repair' )
+			) );
 
 			// SCAN
 			register_rest_route( $this->namespace, '/reset_issues', array(
 				'methods' => 'POST',
 				'permission_callback' => array( $this->core, 'can_access_features' ),
 				'callback' => array( $this, 'rest_reset_issues' )
+			) );
+			register_rest_route( $this->namespace, '/reset_issues_and_references', array(
+				'methods' => 'POST',
+				'permission_callback' => array( $this->core, 'can_access_features' ),
+				'callback' => array( $this, 'rest_reset_issues_and_references' )
+			) );
+			register_rest_route( $this->namespace, '/reset_references', array(
+				'methods' => 'POST',
+				'permission_callback' => array( $this->core, 'can_access_features' ),
+				'callback' => array( $this, 'rest_reset_references' )
 			) );
 			register_rest_route( $this->namespace, '/extract_references', array(
 				'methods' => 'POST',
@@ -112,6 +130,14 @@ class Meow_WPMC_Rest
 				'permission_callback' => array( $this->core, 'can_access_features' ),
 				'callback' => array( $this, 'rest_check_targets' )
 			) );
+			register_rest_route( $this->namespace, '/uploads_directory_hierarchy', array(
+				'methods' => 'GET',
+				'permission_callback' => array( $this->core, 'can_access_features' ),
+				'callback' => array( $this, 'rest_uploads_directory_hierarchy' ),
+				'args' => array(
+					'force' => array( 'required' => false, 'default' => false ),
+				)
+			) );
 
 			// LOGS
 			register_rest_route( $this->namespace, '/refresh_logs', array(
@@ -131,24 +157,35 @@ class Meow_WPMC_Rest
 	}
 
 	/**
-   * Validates certain option values
-   * @param string $option Option name
-   * @param mixed $value Option value
-   * @return mixed|WP_Error Validated value if no problem
-   */
-  function validate_option( $option, $value ) {
-    switch ( $option ) {
-    case 'wpmc_dirs_filter':
-    case 'wpmc_files_filter':
-      if ( $value && @preg_match( $value, '' ) === false ) return new WP_Error( 'invalid_option', __( "Invalid Regular-Expression", 'media-cleaner' ) );
-      break;
-    }
-    return $value;
-  }
+	 * Validates certain option values
+	 * @param string $option Option name
+	 * @param mixed $value Option value
+	 * @return mixed|WP_Error Validated value if no problem
+	 */
+	function validate_option( $option, $value ) {
+		switch ( $option ) {
+		case 'wpmc_dirs_filter':
+		case 'wpmc_files_filter':
+		if ( $value && @preg_match( $value, '' ) === false ) return new WP_Error( 'invalid_option', __( "Invalid Regular-Expression", 'media-cleaner' ) );
+		break;
+		}
+		return $value;
+	}
 
 	function rest_reset_issues() {
 		$this->core->reset_issues();
 		return new WP_REST_Response( [ 'success' => true, 'message' => __( 'Issues were reset.', 'media-cleaner' ) ], 200 );
+	}
+
+	function rest_reset_issues_and_references() {
+		$this->core->reset_issues();
+		$this->core->reset_references();
+		return new WP_REST_Response( [ 'success' => true, 'message' => __( 'Issues and References were reset.', 'media-cleaner' ) ], 200 );
+	}
+
+	function rest_reset_references() {
+		$this->core->reset_references();
+		return new WP_REST_Response( [ 'success' => true, 'message' => __( 'References were reset.', 'media-cleaner' ) ], 200 );
 	}
 
 	function rest_count( $request ) {
@@ -174,15 +211,16 @@ class Meow_WPMC_Rest
 		$params = $request->get_json_params();
 		$src = isset( $params['source'] ) ? $params['source'] : null;
 		$search = isset( $params['search'] ) ? $params['search'] : null;
+		$repair_mode = isset( $params['repairMode'] ) ? rest_sanitize_boolean( $params['repairMode'] ) : false;
 		$ids = [];
 		if ( $src === 'issues' ) {
-			$ids = $this->get_issues_ids($search);
+			$ids = $repair_mode ? $this->core->get_repair_ids( $search ) : $this->get_issues_ids( $search );
 		}
 		else if ( $src === 'ignored' ) {
-			$ids = $this->get_ignored_ids($search);
+			$ids = $this->get_ignored_ids( $search );
 		}
 		else if ( $src === 'trash' ) {
-			$ids = $this->get_trash_ids($search);
+			$ids = $this->get_trash_ids( $search );
 		}
 		else {
 			return new WP_REST_Response( [ 
@@ -197,6 +235,7 @@ class Meow_WPMC_Rest
 		$params = $request->get_json_params();
 		$limit = isset( $params['limit'] ) ? $params['limit'] : 0;
 		$source = isset( $params['source'] ) ? $params['source'] : null;
+		$post_id = isset( $params['postId'] ) ? $params['postId'] : null;
 		$limitsize = $this->core->get_option( 'posts_buffer' );
 		$finished = false;
 		$message = ""; // will be filled by extractRefsFrom...
@@ -206,11 +245,18 @@ class Meow_WPMC_Rest
 		// 	throw new Exception( 'Random Exception' );
 		// }
 
+		if ( $post_id !== null && ( !is_numeric( $post_id ) || !is_int( (int) $post_id ) ) ) {
+			return new WP_REST_Response( [ 
+				'success' => false, 
+				'message' => __( 'The postId parameter must be null or an integer.', 'media-cleaner' ),
+			], 200 );
+		}
+
 		if ( $source === 'content' ) {
-			$finished = $this->engine->extractRefsFromContent( $limit, $limitsize, $message );
+			$finished = $this->engine->extractRefsFromContent( $limit, $limitsize, $message, $post_id );
 		}
 		else if ( $source === 'media' ) {
-			$finished = $this->engine->extractRefsFromLibrary( $limit, $limitsize, $message );
+			$finished = $this->engine->extractRefsFromLibrary( $limit, $limitsize, $message, $post_id );
 		}
 		else {
 			return new WP_REST_Response( [ 
@@ -218,6 +264,8 @@ class Meow_WPMC_Rest
 				'message' => __( 'No source was mentioned while calling the extract_references action.', 'media-cleaner' ),
 			], 200 );
 		}
+
+		$this->core->clean_ob();
 
 		return new WP_REST_Response( [ 
 			'success' => true, 
@@ -231,7 +279,7 @@ class Meow_WPMC_Rest
 
 	function rest_retrieve_files( $request ) {
 		$params = $request->get_json_params();
-		$path = isset( $params['path'] ) ? $params['path'] : null;
+		$path = isset( $params['path'] ) ? ltrim( $params['path'], '/\\' ) : null;
 		$files = $this->engine->get_files( $path );
 		$files_count = count( $files );
 		$message = null;
@@ -258,6 +306,9 @@ class Meow_WPMC_Rest
 		$results = $this->engine->get_media_entries( $limit, $limitsize, $unattachedOnly );
 		$finished = count( $results ) < $limitsize;
 		$message = sprintf( __( "Retrieved %d targets.", 'media-cleaner' ), count( $results ) );
+
+		$this->core->clean_ob();
+
 		return new WP_REST_Response( [ 
 			'success' => true, 
 			'message' => $message,
@@ -326,14 +377,19 @@ class Meow_WPMC_Rest
 
 	function refresh_logs() {
 		$data = "No data.";
-		if ( file_exists( WPMC_PATH . '/logs/media-cleaner.log' ) ) {
-			$data = file_get_contents( WPMC_PATH . '/logs/media-cleaner.log' );
+
+		$log_file = $this->core->get_logs_path();
+
+		if ( file_exists( $log_file ) ) {
+			$data = file_get_contents( $log_file );
 		}
+
 		return new WP_REST_Response( [ 'success' => true, 'data' => $data ], 200 );
 	}
 
 	function clear_logs() {
-		unlink( WPMC_PATH . '/logs/media-cleaner.log' );
+		$log_file = $this->core->get_logs_path();
+		unlink( $log_file );
 		return new WP_REST_Response( [ 'success' => true ], 200 );
 	}
 
@@ -377,15 +433,25 @@ class Meow_WPMC_Rest
 		$orderBy = sanitize_text_field( $request->get_param('orderBy') );
 		$order = sanitize_text_field( $request->get_param('order') );
 		$search = sanitize_text_field( $request->get_param('search') );
+		$referenceFilter = sanitize_text_field( $request->get_param('referenceFilter') );
 		$table_ref = $wpdb->prefix . "mclean_refs";
 
-		$total = $this->count_references($search);
+		$total = $this->count_references($search, $referenceFilter);
+
+		$where_sql = '';
+		if ($referenceFilter === 'mediaIds') {
+			$where_sql = 'AND mediaId IS NOT NULL';
+		} else if ($referenceFilter === 'mediaUrls') {
+			$where_sql = 'AND mediaUrl IS NOT NULL';
+		}
 
 		$order_sql = 'ORDER BY id DESC';
-		if ( $orderBy === 'mediaId' ) {
-			$order_sql = 'ORDER BY mediaId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+		if ( $orderBy === 'id' ) {
+			$order_sql = 'ORDER BY ID IS NULL, ID ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+		} elseif ( $orderBy === 'mediaId' ) {
+			$order_sql = 'ORDER BY mediaId IS NULL, mediaId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
 		} elseif ( $orderBy === 'mediaUrl' ) {
-			$order_sql = 'ORDER BY mediaUrl ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+			$order_sql = 'ORDER BY mediaUrl IS NULL, mediaUrl ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
 		} elseif ( $orderBy === 'originType' ) {
 			$order_sql = 'ORDER BY originType ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
 		}
@@ -395,6 +461,8 @@ class Meow_WPMC_Rest
 			$entries = $wpdb->get_results( 
 				$wpdb->prepare( "SELECT *
 					FROM $table_ref
+					WHERE 1=1
+					$where_sql
 					$order_sql
 					LIMIT %d, %d", $skip, $limit
 				)
@@ -405,6 +473,7 @@ class Meow_WPMC_Rest
 				$wpdb->prepare( "SELECT *
 					FROM $table_ref
 					WHERE mediaUrl LIKE %s
+					$where_sql
 					$order_sql
 					LIMIT %d, %d", ( '%' . $search . '%' ), $skip, $limit
 				)
@@ -422,6 +491,7 @@ class Meow_WPMC_Rest
 		$orderBy = sanitize_text_field( $request->get_param('orderBy') );
 		$order = sanitize_text_field( $request->get_param('order') );
 		$search = sanitize_text_field( $request->get_param('search') );
+		$repair_mode = rest_sanitize_boolean( $request->get_param('repairMode') );
 		$table_scan = $wpdb->prefix . "mclean_scan";
 		$total = 0;
 
@@ -429,61 +499,114 @@ class Meow_WPMC_Rest
 			return $this->rest_reference_entries( $request );
 		}
 
-		$whereSql = '';
-		if ( $filterBy == 'issues' ) {
-			$whereSql = 'WHERE ignored = 0 AND deleted = 0';
-			$total = $this->count_issues($search);
-		}
-		else if ( $filterBy == 'ignored' ) {
-			$whereSql = 'WHERE ignored = 1';
-			$total = $this->count_ignored($search);
-		}
-		else if ( $filterBy == 'trash' ) {
-			$whereSql = 'WHERE deleted = 1';
-			$total = $this->count_trash($search);
-		}
-		else {
-			$whereSql = 'WHERE deleted = 0';
-		}
-
-		$orderSql = 'ORDER BY id DESC';
-		if ( $orderBy === 'type' ) {
-			$orderSql = 'ORDER BY postId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
-		}
-		else if ( $orderBy === 'postId' ) {
-			$orderSql = 'ORDER BY postId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
-		}
-		else if ( $orderBy === 'path' ) {
-			$orderSql = 'ORDER BY path ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
-		}
-		else if ( $orderBy === 'size' ) {
-			$orderSql = 'ORDER BY size ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
-		}
-
 		$entries = [];
-		if ( empty( $search ) ) {
-			$entries = $wpdb->get_results( 
-				$wpdb->prepare( "SELECT id, type, postId, path, size, ignored, deleted, issue
-					FROM $table_scan
-					$whereSql
-					$orderSql
-					LIMIT %d, %d", $skip, $limit
-				)
-			);
-		}
-		else {
-			$entries = $wpdb->get_results( 
-				$wpdb->prepare( "SELECT id, type, postId, path, size, ignored, deleted, issue
-					FROM $table_scan
-					$whereSql
-					AND path LIKE %s
-					$orderSql
-					LIMIT %d, %d", ( '%' . $search . '%' ), $skip, $limit
-				)
-			);
+		if ( $repair_mode ) {
+			$entries = $this->core->get_issues_to_repair( $orderBy, $order, $search, $skip, $limit );
+			$total = $this->core->get_count_of_issues_to_repair( $search );
+		} else {
+			$whereSql = '';
+			if ( $filterBy == 'issues' ) {
+				$whereSql = 'WHERE ignored = 0 AND deleted = 0';
+				$total = $this->count_issues($search);
+			}
+			else if ( $filterBy == 'ignored' ) {
+				$whereSql = 'WHERE ignored = 1';
+				$total = $this->count_ignored($search);
+			}
+			else if ( $filterBy == 'trash' ) {
+				$whereSql = 'WHERE deleted = 1';
+				$total = $this->count_trash($search);
+			}
+			else {
+				$whereSql = 'WHERE deleted = 0';
+			}
+
+			$orderSql = 'ORDER BY id DESC';
+			if ( $orderBy === 'type' ) {
+				$orderSql = 'ORDER BY postId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+			}
+			else if ( $orderBy === 'postId' ) {
+				$orderSql = 'ORDER BY postId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+			}
+			$whereSql = '';
+			if ( $filterBy == 'issues' ) {
+				$whereSql = 'WHERE ignored = 0 AND deleted = 0';
+				$total = $this->count_issues($search);
+			}
+			else if ( $filterBy == 'ignored' ) {
+				$whereSql = 'WHERE ignored = 1';
+				$total = $this->count_ignored($search);
+			}
+			else if ( $filterBy == 'trash' ) {
+				$whereSql = 'WHERE deleted = 1';
+				$total = $this->count_trash($search);
+			}
+			else {
+				$whereSql = 'WHERE deleted = 0';
+			}
+
+			$orderSql = 'ORDER BY id DESC';
+			if ( $orderBy === 'type' ) {
+				$orderSql = 'ORDER BY postId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+			}
+			else if ( $orderBy === 'postId' ) {
+				$orderSql = 'ORDER BY postId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+			}
+			$whereSql = '';
+			if ( $filterBy == 'issues' ) {
+				$whereSql = 'WHERE ignored = 0 AND deleted = 0';
+				$total = $this->count_issues($search);
+			}
+			else if ( $filterBy == 'ignored' ) {
+				$whereSql = 'WHERE ignored = 1';
+				$total = $this->count_ignored($search);
+			}
+			else if ( $filterBy == 'trash' ) {
+				$whereSql = 'WHERE deleted = 1';
+				$total = $this->count_trash($search);
+			}
+			else {
+				$whereSql = 'WHERE deleted = 0';
+			}
+
+			$orderSql = 'ORDER BY id DESC';
+			if ( $orderBy === 'type' ) {
+				$orderSql = 'ORDER BY postId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+			}
+			else if ( $orderBy === 'postId' ) {
+				$orderSql = 'ORDER BY postId ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+			}
+			else if ( $orderBy === 'path' ) {
+				$orderSql = 'ORDER BY path ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+			}
+			else if ( $orderBy === 'size' ) {
+				$orderSql = 'ORDER BY size ' . ( $order === 'asc' ? 'ASC' : 'DESC' );
+			}
+
+			if ( empty( $search ) ) {
+				$entries = $wpdb->get_results( 
+					$wpdb->prepare( "SELECT id, type, postId, path, size, ignored, deleted, issue
+						FROM $table_scan
+						$whereSql
+						$orderSql
+						LIMIT %d, %d", $skip, $limit
+					)
+				);
+			}
+			else {
+				$entries = $wpdb->get_results( 
+					$wpdb->prepare( "SELECT id, type, postId, path, size, ignored, deleted, issue
+						FROM $table_scan
+						$whereSql
+						AND path LIKE %s
+						$orderSql
+						LIMIT %d, %d", ( '%' . $search . '%' ), $skip, $limit
+					)
+				);
+			}
 		}
 
-		$base = '/' . ( $filterBy == 'trash' ? $this->core->get_trashurl() : $this->core->upload_url );
+		$base = $filterBy == 'trash' ? $this->core->get_trashurl() : $this->core->upload_url;
 		foreach ( $entries as $entry ) {
 			// FILESYSTEM
 			if ( $entry->type == 0 ) {
@@ -577,6 +700,23 @@ class Meow_WPMC_Rest
 		return new WP_REST_Response( [ 'success' => true, 'data' => $data ], 200 );
 	}
 
+	function rest_repair( $request ) {
+		$params = $request->get_json_params();
+		$entryIds = isset( $params['entryIds'] ) ? (array)$params['entryIds'] : null;
+		$entryId = isset( $params['entryId'] ) ? (int)$params['entryId'] : null;
+		$data = null;
+		if ( !empty( $entryIds ) ) {
+			foreach ( $entryIds as $entryId ) {
+				$this->core->repair( $entryId );
+			}
+			$data = 'N/A';
+		}
+		else if ( !empty( $entryId ) ) {
+			$data = $this->core->repair( $entryId );
+		}
+		return new WP_REST_Response( [ 'success' => true, 'data' => $data ], 200 );
+	}
+
 	function get_issues_ids($search) {
 		global $wpdb;
 		$whereSql = empty($search) ? '' : $wpdb->prepare("AND path LIKE %s", ( '%' . $search . '%' ));
@@ -619,29 +759,41 @@ class Meow_WPMC_Rest
 		return (int)$wpdb->get_var( "SELECT COUNT(*) FROM $table_scan WHERE deleted = 1 $whereSql" );
 	}
 
-	function count_references($search) {
+	function count_references($search, $referenceFilter) {
 		global $wpdb;
-		$whereSql = empty($search) ? '' : $wpdb->prepare("AND mediaUrl LIKE %s", ( '%' . $search . '%' ));
+		$where_sqls = [];
+		if (! empty($search) ) {
+			$where_sqls[] = $wpdb->prepare("AND mediaUrl LIKE %s", ( '%' . $search . '%' ));
+		}
+		if ( $referenceFilter !== 'showAll' ) {
+			if ($referenceFilter === 'mediaIds') {
+				$where_sqls[] = 'AND mediaId IS NOT NULL';
+			} else if ($referenceFilter === 'mediaUrls') {
+				$where_sqls[] = 'AND mediaUrl IS NOT NULL';
+			}
+		}
+		$where_sql = implode(' ', $where_sqls);
 		$table_ref = $wpdb->prefix . "mclean_refs";
-		return (int)$wpdb->get_var( "SELECT COUNT(id) FROM $table_ref WHERE 1=1 $whereSql" );
+		return (int)$wpdb->get_var( "SELECT COUNT(id) FROM $table_ref WHERE 1=1 $where_sql" );
 	}
 
-	function rest_get_stats($request) {
+	function rest_get_stats( $request ) {
 		$search = sanitize_text_field( $request->get_param('search') );
+		$reference_filter = sanitize_text_field( $request->get_param('referenceFilter') );
+		$repair_mode = rest_sanitize_boolean( $request->get_param('repairMode') );
 
 		global $wpdb;
 		$whereSql = empty($search) ? '' : $wpdb->prepare("AND path LIKE %s", ( '%' . $search . '%' ));
-		$refWhereSql = empty($search) ? '' : $wpdb->prepare("AND mediaUrl LIKE %s", ( '%' . $search . '%' ));
 		$table_scan = $wpdb->prefix . "mclean_scan";
-		$table_ref = $wpdb->prefix . "mclean_refs";
-		$issues = $wpdb->get_row( "SELECT COUNT(*) as entries, SUM(size) as size
-			FROM $table_scan WHERE ignored = 0 AND deleted = 0 $whereSql" );
+		$issues = $repair_mode
+			? $this->core->get_stats_of_issues_to_repair( $search )
+			: $wpdb->get_row( "SELECT COUNT(*) as entries, SUM(size) as size 
+				FROM $table_scan WHERE ignored = 0 AND deleted = 0 $whereSql" );
 		$ignored = (int)$wpdb->get_var( "SELECT COUNT(*) 
 			FROM $table_scan WHERE ignored = 1 $whereSql" );
 		$trash = $wpdb->get_row( "SELECT COUNT(*) as entries, SUM(size) as size
 			FROM $table_scan WHERE deleted = 1 $whereSql" );
-		$references = $wpdb->get_var( "SELECT COUNT(id)
-			FROM $table_ref WHERE 1=1 $refWhereSql" );
+		$references = $this->count_references($search, $reference_filter);
 
 		return new WP_REST_Response( [ 'success' => true, 'data' => array(
 			'issues' => $issues->entries,
@@ -651,5 +803,31 @@ class Meow_WPMC_Rest
 			'trash_size' => $trash->size,
 			'references' => $references,
 		) ], 200 );
+	}
+
+	function rest_uploads_directory_hierarchy( $request ) {
+		if ( !$this->admin->is_pro_user() ) {
+			return new WP_REST_Response( [ 'success' => false, 'message' => __( 'This feature for Pro users.', 'media-cleaner' ) ], 200 );
+		}
+
+		$force = trim( $request->get_param('force') ) === 'true';
+		$transientKey = 'uploads_directory_hierarchy';
+		if ( $force ) {
+			delete_transient( $transientKey );
+		}
+
+		$data = get_transient( $transientKey );
+		if ( !$data ) {
+			$data = $this->core->get_uploads_directory_hierarchy();
+			set_transient( $transientKey, $data );
+		}
+
+		$uploads_dir = wp_upload_dir();
+		$root = '/' . wp_basename( $uploads_dir['basedir'] );
+
+		return new WP_REST_Response( [ 'success' => true, 'data' => [
+			'root' => $root,
+			'hierarchy' => $data,
+		] ] , 200 );
 	}
 }
