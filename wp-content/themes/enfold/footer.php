@@ -250,6 +250,9 @@
 							}
                         ?>
 
+						
+						<?php get_template_part('newsletter', 'form'); ?>
+
                     </div>
 
 	            <!-- ####### END SOCKET CONTAINER ####### -->
