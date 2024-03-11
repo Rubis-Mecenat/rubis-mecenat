@@ -466,6 +466,10 @@
 							value = optionElement.data('enabledToggleValue');
 						}
 
+						if (option === undefined) {
+							return;
+						}
+
 						var originalValue = optionElement.data('originalToggleValue');
 						if (originalValue == value) {
 							delete WFAD.pendingChanges[option];
@@ -510,6 +514,10 @@
 						var optionElement = $(this).closest('.wf-option');
 						var option = optionElement.data('selectOption');
 						var value = $(this).val();
+						
+						if (option === undefined) {
+							return;
+						}
 
 						var originalValue = optionElement.data('originalSelectValue');
 						if (originalValue == value) {
@@ -819,6 +827,35 @@
 						cb(ret);
 					}
 				});
+			},
+			wordfenceSatisfactionChoice: function(choice) {
+				if (choice == 'yes') {
+					$('#wordfenceSatisfactionPrompt-yes').slideDown(400, function() {
+						$('#wordfenceSatisfactionPrompt-initial .wf-btn').addClass('wf-disabled').css('opacity', 0.3);
+						$('#wordfenceSatisfactionPrompt-initial .wf-btn:first-of-type').css('opacity', 0.8);
+					});
+					WFAD.ajax('wordfence_wordfenceSatisfactionChoice', {choice: choice});
+				}
+				else if (choice == 'no') {
+					$('#wordfenceSatisfactionPrompt-no').slideDown(400, function() {
+						$('#wordfenceSatisfactionPrompt-initial .wf-btn').addClass('wf-disabled').css('opacity', 0.3);
+						$('#wordfenceSatisfactionPrompt-initial .wf-btn:last-of-type').css('opacity', 0.8);
+					});
+					WFAD.ajax('wordfence_wordfenceSatisfactionChoice', {choice: choice});
+				}
+				else if (choice == 'feedback') {
+					WFAD.ajax('wordfence_wordfenceSatisfactionChoice', {
+							choice: choice,
+							feedback: $('#wordfenceSatisfactionPrompt-feedback').val(),
+						},
+						function(res) { $('#wordfenceSatisfactionPrompt-no').fadeOut(); $('#wordfenceSatisfactionPrompt-complete').fadeIn(); },
+						function() { $('#wordfenceSatisfactionPrompt-no').fadeOut(); $('#wordfenceSatisfactionPrompt-complete').fadeIn(); }
+					);
+				}
+				else if (choice == 'dismiss') {
+					$('#wordfenceSatisfactionPrompt').fadeOut();
+					WFAD.ajax('wordfence_wordfenceSatisfactionChoice', {choice: choice});
+				}
 			},
 			tourFinish: function(page) {
 				if (WFAD.currentPointer) {
@@ -3060,6 +3097,23 @@
 					if (res.ok) {
 						self.loadIssues(function() {
 							self.colorboxModal((self.isSmallScreen ? '300px' : '400px'), __("Successfully revoked admin"), sprintf(__("All capabilties of admin user %s were successfully revoked."), res.user_login));
+						});
+					} else if (res.errorMsg) {
+						self.loadIssues(function() {
+							WFAD.colorboxError(res.errorMsg, res.tokenInvalid);
+						});
+					}
+				});
+			},
+			
+			acknowledgeAdminUser: function (issueID) {
+				var self = this;
+				this.ajax('wordfence_acknowledgeAdminUser', {
+					issueID: issueID
+				}, function(res) {
+					if (res.ok) {
+						self.loadIssues(function() {
+							self.colorboxModal((self.isSmallScreen ? '300px' : '400px'), __("Successfully acknowledged admin"), sprintf(__("The admin user %s will no longer show up in future scans."), res.user_login));
 						});
 					} else if (res.errorMsg) {
 						self.loadIssues(function() {
