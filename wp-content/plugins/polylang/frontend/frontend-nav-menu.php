@@ -21,7 +21,7 @@ class PLL_Frontend_Nav_Menu extends PLL_Nav_Menu {
 	 *
 	 * @since 1.2
 	 *
-	 * @param object $polylang
+	 * @param object $polylang The Polylang object.
 	 */
 	public function __construct( &$polylang ) {
 		parent::__construct( $polylang );
@@ -119,7 +119,7 @@ class PLL_Frontend_Nav_Menu extends PLL_Nav_Menu {
 				// parent item for dropdown
 				if ( ! empty( $options['dropdown'] ) ) {
 					$name = isset( $options['display_names_as'] ) && 'slug' === $options['display_names_as'] ? $this->curlang->slug : $this->curlang->name;
-					$item->title = $this->get_item_title( $this->curlang->get_display_flag(), $name, $options );
+					$item->title = $this->get_item_title( $this->curlang->get_display_flag( empty( $options['show_names'] ) ? 'alt' : 'no-alt' ), $name, $options );
 					$item->attr_title = '';
 					$item->classes = array( 'pll-parent-menu-item' );
 					$item->menu_order += $offset;
@@ -262,12 +262,12 @@ class PLL_Frontend_Nav_Menu extends PLL_Nav_Menu {
 	}
 
 	/**
-	 * Attempt to translate the nav menu when it is hardcoded or when no location is defined in wp_nav_menu
+	 * Attempts to translate the nav menu when it is hardcoded or when no location is defined in wp_nav_menu().
 	 *
 	 * @since 1.7.10
 	 *
-	 * @param array $args
-	 * @return array modified $args
+	 * @param array $args Array of `wp_nav_menu()` arguments.
+	 * @return array
 	 */
 	public function wp_nav_menu_args( $args ) {
 		$theme = get_option( 'stylesheet' );
