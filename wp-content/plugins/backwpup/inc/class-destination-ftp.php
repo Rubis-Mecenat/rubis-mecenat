@@ -304,7 +304,7 @@ class BackWPup_Destination_Ftp extends BackWPup_Destinations
                 $ftp_dir = trailingslashit(ftp_pwd($ftp_conn_id));
             }
             // prepend actual ftp dir if relative dir
-            if (substr($ftp_dir, 0, 1) != '/') {
+            if (substr((string) $ftp_dir, 0, 1) != '/') {
                 $ftp_dir = trailingslashit(ftp_pwd($ftp_conn_id)) . $ftp_dir;
             }
             ftp_chdir($ftp_conn_id, $ftp_dir);
@@ -531,14 +531,14 @@ class BackWPup_Destination_Ftp extends BackWPup_Destinations
             $job_object->job['ftpdir'] = trailingslashit(ftp_pwd($ftp_conn_id));
         }
         // prepend actual ftp dir if relative dir
-        if (substr($job_object->job['ftpdir'], 0, 1) != '/') {
+        if (substr((string) $job_object->job['ftpdir'], 0, 1) != '/') {
             $job_object->job['ftpdir'] = trailingslashit(ftp_pwd($ftp_conn_id)) . $job_object->job['ftpdir'];
         }
 
         //test ftp dir and create it if not exists
         if ($job_object->job['ftpdir'] != '/') {
             @ftp_chdir($ftp_conn_id, '/'); //go to root
-            $ftpdirs = explode('/', trim($job_object->job['ftpdir'], '/'));
+            $ftpdirs = explode('/', trim((string) $job_object->job['ftpdir'], '/'));
 
             foreach ($ftpdirs as $ftpdir) {
                 if (empty($ftpdir)) {
@@ -636,9 +636,11 @@ class BackWPup_Destination_Ftp extends BackWPup_Destinations
                     BackWPup_Option::update(
                         $job_object->job['jobid'],
                         'lastbackupdownloadurl',
-                        'ftp://' . $job_object->job['ftpuser'] . ':' . BackWPup_Encryption::decrypt(
-                            $job_object->job['ftppass']
-                        ) . '@' . $job_object->job['ftphost'] . ':' . $job_object->job['ftphostport'] . $current_ftp_dir . $job_object->backup_file
+                        network_admin_url(
+                            'admin.php?page=backwpupbackups&action=downloadftp&file=' .
+                            $current_ftp_dir . $job_object->backup_file . '&local_file=' .
+                            $job_object->backup_file . '&jobid=' . $job_object->job['jobid']
+                        )
                     );
                 }
 

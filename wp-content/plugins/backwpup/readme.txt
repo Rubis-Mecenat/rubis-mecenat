@@ -1,16 +1,18 @@
 === BackWPup - WordPress Backup Plugin ===
-Contributors: inpsyde, danielhuesken, Bueltge, nullbyte, wido, dinamiko, cocreation
+Contributors: wp_media, danielhuesken, Bueltge, nullbyte, wido, dinamiko, cocreation, krafit
 Tags: backup, database backup, cloud backup, restore, wordpress backup
 Requires at least: 3.9
-Tested up to: 6.1
+Tested up to: 6.4
 Requires PHP: 7.2
-Stable tag: 4.0.0
+Stable tag: 4.0.3
 License: GPLv2+
 
 Schedule complete automatic backups of your WordPress installation. Decide which content will be stored (Dropbox, S3…). This is the free version
 
 == Description ==
-The **backup plugin** **[BackWPup](https://backwpup.com/)** can be used to save your complete installation including /wp-content/ and push them to an external Backup Service, like **Dropbox**, **S3**, **FTP** and many more, see list below. With a single backup .zip file you are able to easily restore an installation. Please understand: this free version will not be supported as good as the [BackWPup Pro version](https://backwpup.com). With our premium version you get first class support and more features.
+The **backup plugin** **[BackWPup](https://backwpup.com/)** can be used to save your complete installation including /wp-content/ and push them to an external Backup Service, like **Dropbox**, **S3**, **FTP** and many more, see list below. With a single backup .zip file you are able to easily restore an installation. 
+
+Please understand: this free version will not be supported as well as the [BackWPup Pro version](https://backwpup.com). With our premium version you get first class support and more features.
 
 * Database Backup  *(needs mysqli)*
 * WordPress XML Export
@@ -38,8 +40,6 @@ The **backup plugin** **[BackWPup](https://backwpup.com/)** can be used to save 
 
 In case you need to comply with the new GDPR regulation, check out our post [BacKWPup, Backups and GDPR](https://backwpup.com/docs/backwpup-backups-and-gdpr/).
 
-<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/510138536?loop=1&color=c9ff23&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-
 = Requirements =
 * WordPress 3.9 and PHP 7.2 required! (read more about [recommended php version and why you should switch to modern php](https://inpsyde.com/en/wordpress-recommended-php-version-update-php))
 * To use the Plugin with full functionality PHP 7.2 with mysqli, FTP,gz, bz2, ZipArchive and curl is needed.
@@ -48,8 +48,6 @@ In case you need to comply with the new GDPR regulation, check out our post [Bac
 
 Our friends at [OSTraining](https://www.ostraining.com/) have done a tremendous job with their video tutorials on BackWPup. The complete series of five videos have been made [available for free on YouTube](https://www.youtube.com/watch?v=pECMkLE27QQ&list=PLtaXuX0nEZk9_54BOxcBYXMI3gx3ZxICQ&index=1).
 
-https://www.youtube.com/watch?v=pECMkLE27QQ&w=532&rel=0
-
 *(Are you a WordPress novice? Check out all of OSTraining’s [WordPress video trainings](https://www.ostraining.com/courses/categories/wordpress/)!)*
 
 
@@ -57,7 +55,7 @@ https://www.youtube.com/watch?v=pECMkLE27QQ&w=532&rel=0
 
 Get the [BackWPup Pro](https://backwpup.com) Version with more features.
 
-**Made by [Inpsyde](https://inpsyde.com) &middot; We love WordPress**
+**Made by [WP Media](https://wp-media.me)**
 
 == Frequently Asked Questions ==
 
@@ -166,6 +164,34 @@ Yes. You need to have writing access to the wp-config.php file (usually residing
 [You can find a detailed tutorial in the BackWPup documentation.](https://backwpup.com/docs/install-backwpup-pro-activate-licence/)
 
 == Changelog ==
+
+= 4.0.3 =
+Release date: February 22, 2024
+
+* Fixed: Security issue where FTP passwords were stored in the database in plaintext.
+
+= 4.0.2 =
+Release date: November 22, 2023
+
+* Fixed: Disallow backups or logs directories from being outside of wp-content directory for security purposes
+
+= 4.0.1 =
+Release date: October 18, 2023
+
+* Changed (pro): Clarified instructions in the "Path to mysqldump file" field
+* Changed: Upgraded minimum version to PHP 7.2.5
+* Fixed (pro): Restoring a compressed database backup resulted in a "Could not get size of SQL file" error
+* Fixed (pro): 500 error in Restore app, due to missing dependencies
+* Fixed (pro): Escaped previously unescaped SQL query
+* Fixed (pro): Security issue regarding location of restore files
+* Fixed (pro): PHP warning when configuring a wizard with the glacier destination
+* Fixed: Missing nonce validation on certain AJAX endpoints
+* Fixed: Escaping for values on log output
+* Fixed: Escaping of sendmail command
+* Fixed: Corrected an invalid URL in the documentation link found in the plugin overview
+* Fixed: Various deprecation notices on PHP 8.0+
+* Fixed: Issue where webp thumbnail images were not excluded despite enabling the "Don't backup thumbnails from the site's uploads folder" option
+* Fixed: Ensure validation of logfile parameter during job run
 
 = 4.0.0 =
 Release Date: November 16, 2022

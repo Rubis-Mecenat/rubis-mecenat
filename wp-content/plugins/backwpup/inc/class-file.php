@@ -24,7 +24,7 @@ class BackWPup_File
                 return str_replace('\\', '/', trailingslashit(WP_CONTENT_DIR) . 'uploads/');
             }
 
-            return trailingslashit(str_replace('\\', '/', WP_CONTENT_DIR));
+            return trailingslashit(str_replace('\\', '/', (string) WP_CONTENT_DIR));
         }
         $upload_dir = wp_upload_dir(null, false, true);
 
@@ -101,7 +101,7 @@ class BackWPup_File
     public static function get_absolute_path($path = '/')
     {
         $path = str_replace('\\', '/', $path);
-        $content_path = trailingslashit(str_replace('\\', '/', WP_CONTENT_DIR));
+        $content_path = trailingslashit(str_replace('\\', '/', (string) WP_CONTENT_DIR));
 
         //use WP_CONTENT_DIR as root folder
         if (empty($path) || $path === '/') {
@@ -132,10 +132,10 @@ class BackWPup_File
 
         //check that is not home of WP
         $uploads = self::get_upload_dir();
-        if ($folder === untrailingslashit(str_replace('\\', '/', ABSPATH))
-             || $folder === untrailingslashit(str_replace('\\', '/', dirname(ABSPATH)))
-             || $folder === untrailingslashit(str_replace('\\', '/', WP_PLUGIN_DIR))
-             || $folder === untrailingslashit(str_replace('\\', '/', WP_CONTENT_DIR))
+        if ($folder === untrailingslashit(str_replace('\\', '/', (string) ABSPATH))
+             || $folder === untrailingslashit(str_replace('\\', '/', dirname((string) ABSPATH)))
+             || $folder === untrailingslashit(str_replace('\\', '/', (string) WP_PLUGIN_DIR))
+             || $folder === untrailingslashit(str_replace('\\', '/', (string) WP_CONTENT_DIR))
              || $folder === untrailingslashit($uploads)
              || $folder === '/'
         ) {
@@ -161,7 +161,7 @@ class BackWPup_File
 
         //create files for securing folder
         if (get_site_option('backwpup_cfg_protectfolders')) {
-            $server_software = strtolower($_SERVER['SERVER_SOFTWARE']);
+            $server_software = strtolower((string) $_SERVER['SERVER_SOFTWARE']);
             //IIS
             if (strstr($server_software, 'microsoft-iis')) {
                 if (!file_exists($folder . '/Web.config')) {
@@ -198,6 +198,40 @@ class BackWPup_File
         }
 
         return '';
+    }
+
+    /**
+     * @throws InvalidArgumentException If path is absolute or attempts to navigate above root
+     *
+     * @return string[]
+     */
+    public static function normalize_path(string $path): string
+    {
+        if (strpos($path, '/') === 0) {
+            throw new InvalidArgumentException('Absolute paths are not allowed.');
+        }
+
+        $parts = explode('/', $path);
+        $normalized = [];
+
+        foreach ($parts as $part) {
+            if ($part === '..') {
+                if (empty($normalized)) {
+                    throw new InvalidArgumentException(
+                        'Invalid path: Attempting to navigate above the root directory.'
+                    );
+                }
+                array_pop($normalized);
+            } elseif ($part !== '.' && $part !== '') {
+                $normalized[] = $part;
+            }
+        }
+
+        if (empty($normalized)) {
+            throw new InvalidArgumentException('The path resolves to an empty path.');
+        }
+
+        return implode('/', $normalized);
     }
 
     /**
