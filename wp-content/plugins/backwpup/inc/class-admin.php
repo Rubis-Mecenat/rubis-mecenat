@@ -1,5 +1,6 @@
 <?php
 
+use Inpsyde\BackWPup\Infrastructure\Restore\Restore;
 use Inpsyde\BackWPup\Notice;
 use Inpsyde\BackWPup\Notice\DropboxNotice;
 use Inpsyde\BackWPup\Notice\NoticeView;
@@ -7,6 +8,7 @@ use Inpsyde\BackWPup\Notice\PhpNotice;
 use Inpsyde\BackWPup\Notice\WordPressNotice;
 use Inpsyde\BackWPup\Pro\Settings;
 use Inpsyde\BackWPup\Pro\Settings\AjaxEncryptionKeyHandler;
+use Inpsyde\BackWPup\Notice\EvaluateNotice;
 
 /**
  * BackWPup_Admin.
@@ -212,12 +214,14 @@ final class BackWPup_Admin
         add_action('wp_ajax_encrypt_key_handler', [$ajax_encryption_key_handler, 'handle']);
     }
 
-    private function init_notices()
-    {
-        // Show notice if PHP < 7.2
-        $phpNotice = new PhpNotice(
-            new NoticeView(PhpNotice::ID)
-        );
+	/**
+	 * Init the plugin notices.
+	 */
+	private function init_notices() {
+		// Show notice if PHP < 7.4.
+		$phpNotice = new PhpNotice( //phpcs:ignore
+			new NoticeView( PhpNotice::ID )
+		);
         $phpNotice->init(PhpNotice::TYPE_ADMIN);
 
         // Show notice if WordPress < 5.0
@@ -226,13 +230,18 @@ final class BackWPup_Admin
         );
         $wpNotice->init(WordPressNotice::TYPE_ADMIN);
 
-        // Show notice if Dropbox needs to be reauthenticated
-        $dropboxNotice = new DropboxNotice(
-            new NoticeView(DropboxNotice::ID),
-            false // Not dismissible
-        );
-        $dropboxNotice->init(DropboxNotice::TYPE_ADMIN);
-    }
+		// Show notice if Dropbox needs to be reauthenticated.
+		$dropbox_notice = new DropboxNotice(
+			new NoticeView( DropboxNotice::ID ),
+			false // Not dismissible.
+		);
+		$dropbox_notice->init( DropboxNotice::TYPE_ADMIN );
+
+		$evaluate_notice = new EvaluateNotice(
+			new NoticeView( EvaluateNotice::ID )
+		);
+		$evaluate_notice->init( EvaluateNotice::TYPE_ADMIN );
+	}
 
     /**
      * Add Links in Plugins Menu to BackWPup.
@@ -466,6 +475,48 @@ final class BackWPup_Admin
         add_action(
             'admin_print_scripts-' . $this->page_hooks['backwpupsettings'],
             [$this->settings, 'admin_print_scripts']
+        );
+
+        return $page_hooks;
+    }
+
+	/**
+	 * Admin Page Restore.
+	 *
+	 * @param array $page_hooks the page hooks list
+	 *
+	 * @return array $page_hooks
+	 */
+	public function admin_page_restore( $page_hooks ) {
+		$this->page_hooks['backwpuprestore'] = add_submenu_page(
+			'backwpup',
+			esc_html__( 'Restore', 'backwpup' ),
+			esc_html__( 'Restore', 'backwpup' ),
+			'backwpup_restore',
+			'backwpuprestore',
+			[
+				\BackWPup_Page_Restore::class,
+				'page',
+            ]
+        );
+
+		// Register the submenu page (WP take care of capability) but prevent other stuffs to be executed if user
+		// doesn't have correct privileges.
+		if ( ! current_user_can( 'backwpup_restore' ) ) {
+			return $page_hooks;
+		}
+
+		add_action( 'load-' . $this->page_hooks['backwpuprestore'], [ self::class, 'init_general' ] );
+		add_action(
+			'load-' . $this->page_hooks['backwpuprestore'],
+			[ \BackWPup_Page_Restore::class, 'load' ]
+		);
+		add_action(
+			'admin_print_scripts-' . $this->page_hooks['backwpuprestore'],
+			[
+				\BackWPup_Page_Restore::class,
+				'admin_print_scripts',
+            ]
         );
 
         return $page_hooks;
@@ -759,15 +810,18 @@ EOT;
         }
     }
 
-    public function init()
-    {
-        //Add menu pages
-        add_filter('backwpup_admin_pages', [$this, 'admin_page_jobs'], 2);
-        add_filter('backwpup_admin_pages', [$this, 'admin_page_editjob'], 3);
-        add_filter('backwpup_admin_pages', [$this, 'admin_page_logs'], 4);
-        add_filter('backwpup_admin_pages', [$this, 'admin_page_backups'], 5);
-        add_filter('backwpup_admin_pages', [$this, 'admin_page_settings'], 6);
-        add_filter('backwpup_admin_pages', [$this, 'admin_page_about'], 20);
+	public function init() {
+		$restore = new Restore();
+		$restore->set_hooks()->init();
+
+		// Add menu pages
+		add_filter( 'backwpup_admin_pages', [ $this, 'admin_page_jobs' ], 2 );
+		add_filter( 'backwpup_admin_pages', [ $this, 'admin_page_editjob' ], 3 );
+		add_filter( 'backwpup_admin_pages', [ $this, 'admin_page_logs' ], 4 );
+		add_filter( 'backwpup_admin_pages', [ $this, 'admin_page_backups' ], 5 );
+		add_filter( 'backwpup_admin_pages', [ $this, 'admin_page_settings' ], 6 );
+		add_filter( 'backwpup_admin_pages', [ $this, 'admin_page_restore' ], 7 );
+		add_filter( 'backwpup_admin_pages', [ $this, 'admin_page_about' ], 20 );
 
         //Add Menu
         if (is_multisite()) {

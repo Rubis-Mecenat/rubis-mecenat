@@ -1,13 +1,13 @@
 <?php
 /*
- * Plugin Name: BackWPup
- * Plugin URI: http://backwpup.com
+ * Plugin Name: BackWPup 
+ * Plugin URI: https://backwpup.com/
  * Description: WordPress Backup Plugin
- * Author: WP MEDIA SAS
- * Author URI: https://wp-media.me/
- * Version: 4.0.3
+ * Author: BackWPup – WordPress Backup & Restore Plugin
+ * Author URI: https://backwpup.com
+ * Version: 4.1.4
  * Requires at least: 3.9
- * Requires PHP: 7.2
+ * Requires PHP: 7.4
  * Text Domain: backwpup
  * Domain Path: /languages/
  * Network: true
@@ -74,6 +74,9 @@ if (!class_exists(\BackWPup::class, false)) {
                 'pluginName' => 'backwpup-pro/backwpup.php',
                 'slug' => 'backwpup',
             ];
+
+			// Register the third party services.
+			BackWPup_ThirdParties::register();
 
             // Load pro features
             if (self::$is_pro) {
@@ -153,10 +156,17 @@ if (!class_exists(\BackWPup::class, false)) {
                 $admin = new BackWPup_Admin($settings);
                 $admin->init();
 
-                if (get_site_option('backwpup_cfg_showadminbar')) {
-                    $adminBar = new BackWPup_Adminbar($admin);
-                    add_action('init', [$adminBar, 'init']);
-                }
+				/**
+				 * Filter whether BackWPup will show the plugins in the admin bar or not.
+				 *
+				 * @param bool $is_in_admin_bar Whether the admin link will be shown in the admin bar or not.
+				 */
+				$is_in_admin_bar = (bool) apply_filters( 'backwpup_is_in_admin_bar', (bool) get_site_option( 'backwpup_cfg_showadminbar' ) );
+
+				if ( true === $is_in_admin_bar ) {
+					$admin_bar = new BackWPup_Adminbar( $admin );
+					add_action( 'init', [ $admin_bar, 'init' ] );
+				}
 
                 new BackWPup_EasyCron();
             }
@@ -164,8 +174,8 @@ if (!class_exists(\BackWPup::class, false)) {
             // Work with wp-cli
             if (defined(\WP_CLI::class) && WP_CLI && method_exists(\WP_CLI::class, 'add_command')) {
                 WP_CLI::add_command('backwpup', \BackWPup_WP_CLI::class);
-            }
-        }
+			}
+		}
 
         /**
          * @return self
@@ -224,33 +234,35 @@ if (!class_exists(\BackWPup::class, false)) {
                         'version' => 'Version',
                     ],
                     'plugin'
-                );
-                self::$plugin_data['name'] = trim(self::$plugin_data['name']);
-                //set some extra vars
-                self::$plugin_data['basename'] = plugin_basename(__DIR__);
-                self::$plugin_data['mainfile'] = __FILE__;
-                self::$plugin_data['plugindir'] = untrailingslashit(__DIR__);
-                self::$plugin_data['hash'] = get_site_option('backwpup_cfg_hash');
-                if (empty(self::$plugin_data['hash']) || strlen(self::$plugin_data['hash']) < 6
-                     || strlen(
-                         self::$plugin_data['hash']
-                     ) > 12) {
-                    self::$plugin_data['hash'] = self::get_generated_hash(6);
-                    update_site_option('backwpup_cfg_hash', self::$plugin_data['hash']);
-                }
+				);
+				self::$plugin_data['name'] = trim( self::$plugin_data['name'] );
+				// set some extra vars.
+				self::$plugin_data['basename']          = plugin_basename( __DIR__ );
+				self::$plugin_data['mainfile']          = __FILE__;
+				self::$plugin_data['plugindir']         = untrailingslashit( __DIR__ );
+				self::$plugin_data['pluginincdir']      = untrailingslashit( self::$plugin_data['plugindir'] . '/inc' );
+				self::$plugin_data['plugin3rdpartydir'] = untrailingslashit( self::$plugin_data['pluginincdir'] . '/ThirdParty' );
+				self::$plugin_data['hash']              = get_site_option( 'backwpup_cfg_hash' );
+				if ( empty( self::$plugin_data['hash'] ) || strlen( self::$plugin_data['hash'] ) < 6
+					|| strlen(
+						self::$plugin_data['hash']
+					) > 12 ) {
+					self::$plugin_data['hash'] = self::get_generated_hash( 6 );
+					update_site_option( 'backwpup_cfg_hash', self::$plugin_data['hash'] );
+				}
                 if (defined('WP_TEMP_DIR') && is_dir(WP_TEMP_DIR)) {
                     self::$plugin_data['temp'] = str_replace(
                         '\\',
                         '/',
                         get_temp_dir()
-                    ) . 'backwpup-' . self::$plugin_data['hash'] . '/';
+                    ) . 'backwpup/' . self::$plugin_data['hash'] . '/';
                 } else {
                     $upload_dir = wp_upload_dir();
                     self::$plugin_data['temp'] = str_replace(
                         '\\',
                         '/',
                         $upload_dir['basedir']
-                    ) . '/backwpup-' . self::$plugin_data['hash'] . '-temp/';
+                    ) . '/backwpup/' . self::$plugin_data['hash'] . '/temp/';
                 }
                 self::$plugin_data['running_file'] = self::$plugin_data['temp'] . 'backwpup-working.php';
                 self::$plugin_data['url'] = plugins_url('', __FILE__);
@@ -263,8 +275,14 @@ if (!class_exists(\BackWPup::class, false)) {
                 /** @var string $wp_version */
                 self::$plugin_data['wp_version'] = $wp_version;
                 //Build User Agent
-                self::$plugin_data['user-agent'] = self::$plugin_data['name'] . '/' . self::$plugin_data['version'] . '; WordPress/' . self::$plugin_data['wp_version'] . '; ' . home_url();
-            }
+				self::$plugin_data['user-agent'] = self::$plugin_data['name'] . '/' . self::$plugin_data['version'] . '; WordPress/' . self::$plugin_data['wp_version'] . '; ' . home_url();
+
+				$activation_time = get_site_option( 'backwpup_activation_time' );
+				if ( ! $activation_time ) {
+					update_site_option( 'backwpup_activation_time', time() );
+				}
+				self::$plugin_data['activation_time'] = $activation_time;
+			}
 
             if (!empty($name)) {
                 return self::$plugin_data[$name];

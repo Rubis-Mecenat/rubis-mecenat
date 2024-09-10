@@ -324,16 +324,16 @@ class BackWPup_Page_Settings
 
         if (\BackWPup::is_pro()) {
             wp_enqueue_script(
-                'backwpuppagesettings-encryption',
-                untrailingslashit(BackWPup::get_plugin_data('URL')) . "/assets/js/pro/settings-encryption{$suffix}.js",
-                [
+				'backwpuppagesettings-encryption',
+				untrailingslashit( BackWPup::get_plugin_data( 'URL' ) ) . "/assets/js/settings-encryption{$suffix}.js",
+				[
                     'underscore',
                     'jquery',
                     'backwpuppagesettings',
                     'thickbox',
-                ],
-                filemtime(untrailingslashit(BackWPup::get_plugin_data('plugindir')) . "/assets/js/pro/settings-encryption{$suffix}.js"),
-                true
+				],
+				filemtime( untrailingslashit( BackWPup::get_plugin_data( 'plugindir' ) ) . "/assets/js/settings-encryption{$suffix}.js" ),
+				true
             );
 
             wp_localize_script(
@@ -498,143 +498,34 @@ class BackWPup_Page_Settings
         ); ?>
 			</h1>
 			<?php
-            $tabs = [];
-        $tabs['general'] = esc_html__('General', 'backwpup');
-        $tabs['job'] = esc_html__('Jobs', 'backwpup');
-        if (BackWPup::is_pro()) {
-            $tabs['encryption'] = esc_html__('Encryption', 'backwpup');
-        }
-        $tabs['log'] = esc_html__('Logs', 'backwpup');
-        $tabs['net'] = esc_html__('Network', 'backwpup');
-        $tabs['apikey'] = esc_html__('API Keys', 'backwpup');
-        $tabs['information'] = esc_html__('Information', 'backwpup');
-        if (BackWPup::is_pro()) {
-            $tabs['license'] = esc_html__('License', 'backwpup');
-        }
-        $tabs = apply_filters('backwpup_page_settings_tab', $tabs);
-        echo '<h2 class="nav-tab-wrapper">';
+			$tabs        = [];
+			$tabs['job'] = esc_html__( 'Jobs', 'backwpup' );
+			if ( BackWPup::is_pro() ) {
+				$tabs['encryption'] = esc_html__( 'Encryption', 'backwpup' );
+			}
+			$tabs['log']         = esc_html__( 'Logs', 'backwpup' );
+			$tabs['net']         = esc_html__( 'Network', 'backwpup' );
+			$tabs['apikey']      = esc_html__( 'API Keys', 'backwpup' );
+			$tabs['information'] = esc_html__( 'Information', 'backwpup' );
+			if ( BackWPup::is_pro() ) {
+				$tabs['license'] = esc_html__( 'License', 'backwpup' );
+			}
+			$tabs = apply_filters( 'backwpup_page_settings_tab', $tabs );
+			echo '<h2 class="nav-tab-wrapper">';
 
-        foreach ($tabs as $id => $name) {
-            echo '<a href="#backwpup-tab-' . esc_attr($id) . '" class="nav-tab">' . esc_attr($name) . '</a>';
-        }
-        echo '</h2>';
-        BackWPup_Admin::display_messages(); ?>
+			foreach ( $tabs as $id => $name ) {
+				echo '<a href="#backwpup-tab-' . esc_attr( $id ) . '" class="nav-tab">' . esc_attr( $name ) . '</a>';
+			}
+			echo '</h2>';
+			BackWPup_Admin::display_messages();
+			?>
 
 			<form id="settingsform" action="<?php echo admin_url('admin-post.php'); ?>" method="post">
 				<?php wp_nonce_field('backwpupsettings_page'); ?>
 				<?php wp_nonce_field('backwpup_ajax_nonce', 'backwpupajaxnonce', false); ?>
 				<input type="hidden" name="page" value="backwpupsettings"/>
 				<input type="hidden" name="action" value="backwpup"/>
-				<input type="hidden" name="anchor" value="#backwpup-tab-general"/>
-
-				<div class="table ui-tabs-hide" id="backwpup-tab-general">
-
-					<h3 class="title"><?php esc_html_e('Display Settings', 'backwpup'); ?></h3>
-					<p><?php _e('Do you want to see BackWPup in the WordPress admin bar?', 'backwpup'); ?></p>
-					<table class="form-table">
-						<tr>
-							<th scope="row"><?php esc_html_e('Admin bar', 'backwpup'); ?></th>
-							<td>
-								<fieldset>
-									<legend class="screen-reader-text">
-										<span>
-											<?php esc_html_e('Admin Bar', 'backwpup'); ?>
-										</span>
-									</legend>
-									<label for="showadminbarmenu">
-										<input name="showadminbarmenu" type="checkbox" id="showadminbarmenu"
-										       value="1" <?php checked(
-            get_site_option('backwpup_cfg_showadminbar'),
-            true
-        ); ?> />
-										<?php esc_html_e('Show BackWPup links in admin bar.', 'backwpup'); ?>
-									</label>
-								</fieldset>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row"><?php esc_html_e('Folder sizes', 'backwpup'); ?></th>
-							<td>
-								<fieldset>
-									<legend class="screen-reader-text">
-										<span>
-											<?php esc_html_e('Folder sizes', 'backwpup'); ?>
-										</span>
-									</legend>
-									<label for="showfoldersize">
-										<input name="showfoldersize" type="checkbox" id="showfoldersize"
-										       value="1" <?php checked(
-            get_site_option('backwpup_cfg_showfoldersize'),
-            true
-        ); ?> />
-										<?php esc_html_e(
-            'Display folder sizes in the files tab when editing a job. (Might increase loading time of files tab.)',
-            'backwpup'
-        ); ?>
-									</label>
-								</fieldset>
-							</td>
-						</tr>
-					</table>
-					<h3 class="title"><?php esc_html_e('Security', 'backwpup'); ?></h3>
-					<p><?php _e('Security option for BackWPup', 'backwpup'); ?></p>
-					<table class="form-table">
-						<tr>
-							<th scope="row"><?php esc_html_e('Protect folders', 'backwpup'); ?></th>
-							<td>
-								<fieldset>
-									<legend class="screen-reader-text">
-										<span>
-											<?php esc_html_e('Protect folders', 'backwpup'); ?>
-										</span>
-									</legend>
-									<label for="protectfolders">
-										<input name="protectfolders" type="checkbox" id="protectfolders"
-										       value="1" <?php checked(
-            get_site_option('backwpup_cfg_protectfolders'),
-            true
-        ); ?> />
-										<?php echo wp_kses(
-            __(
-                'Protect BackWPup folders ( Temp, Log and Backups ) with <code>.htaccess</code> and <code>index.php</code>',
-                'backwpup'
-            ),
-            ['code' => []]
-        ); ?>
-									</label>
-								</fieldset>
-							</td>
-						</tr>
-					</table>
-
-                    <table class="form-table">
-                        <tr>
-                            <th scope="row"><?php esc_html_e('Plugin data', 'backwpup'); ?></th>
-                            <td>
-                                <fieldset>
-                                    <legend class="screen-reader-text">
-											<span>
-												<?php esc_html_e('Keep plugin data', 'backwpup'); ?>
-											</span>
-                                    </legend>
-                                    <label for="keepplugindata">
-                                        <input name="keepplugindata" type="checkbox"
-                                               id="keepplugindata"
-                                               value="1" <?php checked(
-            get_site_option('backwpup_cfg_keepplugindata'),
-            true
-        ); ?> />
-                                        <?php esc_html_e(
-            'Keep BackWPup data stored in the database after uninstall',
-            'backwpup'
-        ); ?>
-                                    </label>
-                                </fieldset>
-                            </td>
-                        </tr>
-                    </table>
-					<?php do_action('backwpup_page_settings_tab_generel'); ?>
-				</div>
+				<input type="hidden" name="anchor" value="#backwpup-tab-job"/>
 
 				<div class="table ui-tabs-hide" id="backwpup-tab-log">
 					<p>
@@ -682,26 +573,6 @@ class BackWPup_Page_Settings
             get_site_option('backwpup_cfg_maxlogs')
         ); ?>" class="small-text"/>
 								<?php esc_html_e('Maximum log files in folder.', 'backwpup'); ?>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row"><?php esc_html_e('Compression', 'backwpup'); ?></th>
-							<td>
-								<fieldset>
-									<legend class="screen-reader-text"><span><?php _e(
-            'Compression',
-            'backwpup'
-        ); ?></span></legend>
-									<label for="gzlogs">
-										<input name="gzlogs" type="checkbox" id="gzlogs" value="1" <?php checked(
-            get_site_option('backwpup_cfg_gzlogs'),
-            true
-        ); ?><?php if (!function_exists('gzopen')) {
-            echo ' disabled="disabled"';
-        } ?> />
-										<?php esc_html_e('Compress log files with GZip.', 'backwpup'); ?>
-									</label>
-								</fieldset>
 							</td>
 						</tr>
 						<tr>
@@ -1032,13 +903,14 @@ class BackWPup_Page_Settings
                     ]
                 );
 
-        foreach ($users as $user) {
-            echo '<option value="' . $user->ID . '" ' . selected(
-                $authentication['user_id'],
-                $user->ID,
-                false
-            ) . '>' . esc_attr($user->display_name) . '</option>';
-        } ?>
+											foreach ( $users as $user ) {
+												echo '<option value="' . $user->ID . '" ' . selected(
+													$authentication['user_id'],
+													$user->ID,
+													false
+																					) . '>' . esc_attr( $user->display_name ) . '</option>';
+											}
+											?>
 										</select>
 									</label>
 								</fieldset>
@@ -1142,10 +1014,13 @@ class BackWPup_Page_Settings
 						</div>
 
 						<textarea id="backwpup-debug-info" readonly="readonly"
-						          style="width: 100%;height: 100%;overflow: scroll;"><?php
-                            foreach ($information as $item) {
-                                echo esc_html($item['label']) . ': ' . esc_html($item['value']) . "\n";
-                            } ?></textarea>
+									style="width: 100%;height: 100%;overflow: scroll;">
+									<?php
+									foreach ( $information as $item ) {
+										echo esc_html( $item['label'] ) . ': ' . esc_html( $item['value'] ) . "\n";
+									}
+									?>
+							</textarea>
 					</div>
 
 					<script type="text/javascript">
@@ -1202,15 +1077,16 @@ class BackWPup_Page_Settings
             'backwpup'
         ) . '</th></tr></tfoot>';
 
-        foreach ($information as $item) {
-            echo "<tr>\n" .
-                             '<td>' . $item['label'] . "</td>\n" .
-                             '<td>' .
-                             ($item['html'] ?? esc_html($item['value'])) .
-                             "</td>\n" .
-                             "</tr>\n";
-        }
-        echo '</table>'; ?>
+					foreach ( $information as $item ) {
+						echo "<tr>\n" .
+							'<td>' . $item['label'] . "</td>\n" .
+							'<td>' .
+							( $item['html'] ?? esc_html( $item['value'] ) ) .
+							"</td>\n" .
+							"</tr>\n";
+					}
+					echo '</table>';
+					?>
 				</div>
 
 				<?php do_action('backwpup_page_settings_tab_content'); ?>
