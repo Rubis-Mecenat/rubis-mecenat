@@ -143,12 +143,12 @@ class Meow_WPMC_Rest
 			register_rest_route( $this->namespace, '/refresh_logs', array(
 				'methods' => 'POST',
 				'permission_callback' => array( $this->core, 'can_access_features' ),
-				'callback' => array( $this, 'refresh_logs' )
+				'callback' => array( $this, 'rest_refresh_logs' )
 			) );
 			register_rest_route( $this->namespace, '/clear_logs', array(
 				'methods' => 'POST',
 				'permission_callback' => array( $this->core, 'can_access_features' ),
-				'callback' => array( $this, 'clear_logs' )
+				'callback' => array( $this, 'rest_clear_logs' )
 			) );
 		} 
 		catch (Exception $e) {
@@ -327,7 +327,7 @@ class Meow_WPMC_Rest
 
 		//ob_start();
 		$data = $params['targets'];
-		$method = $this->core->current_method;
+		$method = $this->core->get_option( 'method' );
 
 		$this->core->timeout_check_start( count( $data ) );
 		$success = 0;
@@ -337,7 +337,7 @@ class Meow_WPMC_Rest
 		foreach ( $data as $piece ) {
 			$this->core->timeout_check();
 			if ( $method == 'files' ) {
-				$this->core->log( "🔎 Checking: {$piece}..." );
+				$this->core->log( "🔎 Checking File: {$piece}..." );
 				$result = ( $this->engine->check_file( $piece ) ? 1 : 0 );
 				if ( $result ) {
 					$success += $result;
@@ -347,7 +347,7 @@ class Meow_WPMC_Rest
 				// }
 			}
 			else if ( $method == 'media' ) {
-				$this->core->log( "🔎 Checking #{$piece}..." );
+				$this->core->log( "🔎 Checking Media #{$piece}..." );
 				$result = ( $this->engine->check_media( $piece ) ? 1 : 0 );
 				if ( $result ) {
 					$success += $result;
@@ -375,21 +375,12 @@ class Meow_WPMC_Rest
 		], 200 );
 	}
 
-	function refresh_logs() {
-		$data = "No data.";
-
-		$log_file = $this->core->get_logs_path();
-
-		if ( file_exists( $log_file ) ) {
-			$data = file_get_contents( $log_file );
-		}
-
-		return new WP_REST_Response( [ 'success' => true, 'data' => $data ], 200 );
+	function rest_refresh_logs() {
+		return new WP_REST_Response( [ 'success' => true, 'data' => $this->core->get_logs() ], 200 );
 	}
 
-	function clear_logs() {
-		$log_file = $this->core->get_logs_path();
-		unlink( $log_file );
+	function rest_clear_logs() {
+		$this->core->clear_logs();
 		return new WP_REST_Response( [ 'success' => true ], 200 );
 	}
 
@@ -405,7 +396,17 @@ class Meow_WPMC_Rest
 	function rest_update_options( $request ) {
 		try {
 			$params = $request->get_json_params();
+
+			if ( count( $params['options']) == 1 ) {
+				$this->core->log( "Ensuring the scan method: " . key( $params['options'] ) . " to " . $params['options'][ key( $params['options'] ) ] );
+
+				$options = $this->core->get_all_options();
+				$options[ key( $params['options'] ) ] = $params['options'][ key( $params['options'] ) ];
+				$params['options'] = $options;
+			}
+
 			$value = $params['options'];
+
 			$options = $this->core->update_options( $value );
 			$success = !!$options;
 			$message = __( $success ? 'OK' : "Could not update options.", 'media-cleaner' );
@@ -479,6 +480,42 @@ class Meow_WPMC_Rest
 				)
 			);
 		}
+
+		foreach ( $entries as $entry ) {
+			//Try and get a Post Title
+			$originType = $entry->originType;
+			preg_match( '/\[(.*?)\]/', $originType, $matches );
+			if ( isset( $matches[1] ) && is_numeric( $matches[1] ) ){
+				$id = $matches[1];
+				$post_title = get_the_title( $id );
+				if( $post_title ) {
+					$entry->post_title = $post_title;
+				}
+			}
+
+			// Try and get a Media URL (thumbnail)
+			$mediaId = $entry->mediaId;
+			if ( $mediaId ) {
+				$media = wp_get_attachment_image_src( $mediaId, 'thumbnail' );
+				if ( $media ) {
+					$entry->thumbnail = $media[0];
+				}
+			}
+
+			// Same but from MediaUrl if we didn't get one yet
+			$mediaUrl = $entry->mediaUrl;
+			if( $mediaUrl && empty( $entry->thumbnail ) ) {
+				// Get the ID of the attachment from its URL
+				$attachmentId = attachment_url_to_postid( $mediaUrl );
+
+				// Get the thumbnail of the attachment
+				$media = wp_get_attachment_image_src( $attachmentId, 'thumbnail' );
+				if ( $media ) {
+					$entry->thumbnail = $media[0];
+				}
+			}
+		}
+
 
 		return new WP_REST_Response( [ 'success' => true, 'data' => $entries, 'total' => $total ], 200 );
 	}
@@ -817,13 +854,14 @@ class Meow_WPMC_Rest
 		}
 
 		$data = get_transient( $transientKey );
+		$data = null;
 		if ( !$data ) {
 			$data = $this->core->get_uploads_directory_hierarchy();
 			set_transient( $transientKey, $data );
 		}
 
 		$uploads_dir = wp_upload_dir();
-		$root = '/' . wp_basename( $uploads_dir['basedir'] );
+		$root = wp_normalize_path( '/' . wp_basename( $uploads_dir['basedir'] ) );
 
 		return new WP_REST_Response( [ 'success' => true, 'data' => [
 			'root' => $root,

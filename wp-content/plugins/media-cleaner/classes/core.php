@@ -250,6 +250,7 @@ class Meow_WPMC_Core {
 			return array();
 		}
 
+
 		// Proposal/fix by @copytrans
 		// Discussion: https://wordpress.org/support/topic/bug-in-core-php/#post-11647775
 		// Modified by Jordy again in 2021 for those who don't have MB enabled
@@ -300,6 +301,8 @@ class Meow_WPMC_Core {
 			}
 		}
 
+		
+
 		// IFrames (by Mike Meinz)
 		$iframes = $dom->getElementsByTagName( 'iframe' );
 		foreach( $iframes as $iframe ) {
@@ -349,12 +352,33 @@ class Meow_WPMC_Core {
 			}
 		}
 
-		// Videos: src
-		$videos = $dom->getElementsByTagName( 'video' );
-		foreach ( $videos as $video ) {
-			//error_log($video->getAttribute('src'));
-			$src = $this->clean_url( $video->getAttribute('src') );
-    	array_push( $results, $src );
+		// Videos: src, poster, and attached file
+		$videos = $dom->getElementsByTagName('video');
+		foreach ($videos as $video) {
+			// Get src attribute
+			$raw_video_src = $video->getAttribute( 'src' );
+			$src = $this->clean_url( $raw_video_src );
+			if ( !empty( $src ) ) {
+				$video_id = $this->custom_attachment_url_to_postid( $raw_video_src );
+
+				$attached_file = get_post_meta( $video_id, '_wp_attached_file', true );
+				if ( !empty( $attached_file ) ) {
+					array_push( $results, $attached_file );
+				}
+			}
+			
+			// Get poster attribute
+			$raw_poster_src = $video->getAttribute( 'poster' );
+			$poster = $this->clean_url( $raw_poster_src );
+			if ( !empty( $poster ) ) {
+				$poster_id = $this->custom_attachment_url_to_postid( $raw_poster_src );
+				
+				$attached_file = get_post_meta( $poster_id, '_wp_attached_file', true );
+				if ( !empty( $attached_file ) ) {
+					array_push( $results, $attached_file );
+				}
+			}
+
 		}
 
 		// Audios: src
@@ -508,11 +532,7 @@ class Meow_WPMC_Core {
 		}
 	}
 
-	function logs_directory_check() {
-		if ( !file_exists( WPMC_PATH . '/logs/' ) ) {
-			mkdir( WPMC_PATH . '/logs/', 0777 );
-		}
-	}
+	#region LOGS
 
 	function log( $data = null, $force = false ) {
 		if ( !$this->debug_logs && !$force )
@@ -537,25 +557,76 @@ class Meow_WPMC_Core {
 		return true;
 	}
 
+	//WPMC_PREFIX
+
 	function get_logs_path() {
-		$path = $this->get_option( 'logs_path' );
-		if ( $path && file_exists( $path ) ) {
-			return $path;
-		}
 		$uploads_dir = wp_upload_dir();
-		$path = trailingslashit( $uploads_dir['basedir'] ) . WPMC_PREFIX . "_" . $this->random_ascii_chars() . ".log";
-		if ( !file_exists( $path ) ) {
-			touch( $path );
+		$uploads_dir_path = trailingslashit( $uploads_dir['basedir'] );
+
+		$path = $this->get_option( 'logs_path' );
+
+		if ( $path && file_exists( $path ) ) {
+			// make sure the path is legal (within the uploads directory with the WPMC_PREFIX prefix and log extension)
+			if ( strpos( $path, $uploads_dir_path ) !== 0 || strpos( $path, WPMC_PREFIX ) === false || substr( $path, -4 ) !== '.log' ) {
+				$path = null;
+			} else {
+				return $path;
+			}
 		}
-		$options = $this->get_all_options();
-		$options['logs_path'] = $path;
-		$this->update_options( $options );
+
+		if ( !$path ) {
+			$path = $uploads_dir_path . WPMC_PREFIX . "_" . $this->random_ascii_chars() . ".log";
+			if ( !file_exists( $path ) ) {
+				touch( $path );
+			}
+			
+			$options = $this->get_all_options();
+			$options['logs_path'] = $path;
+			$this->update_options( $options );
+		}
+
 		return $path;
 	}
+	
 
-	private function random_ascii_chars( $length = 8 ) {
-		$characters = array_merge( range( 'A', 'Z' ), range( 'a', 'z' ), range( '0', '9' ) );
-		$characters_length = count( $characters );
+	function get_logs() {
+		$log_file_path = $this->get_logs_path();
+
+		if ( !file_exists( $log_file_path ) ) {
+			return "No logs found.";
+		}
+
+		$content = file_get_contents( $log_file_path );
+		$lines = explode( "\n", $content );
+		$lines = array_filter( $lines );
+		$lines = array_reverse( $lines );
+		$content = implode( "\n", $lines );
+		return $content;
+	}
+
+	function clear_logs() {
+		$logPath = $this->get_logs_path();
+		if ( file_exists( $logPath ) ) {
+			unlink( $logPath );
+		}
+
+		$options = $this->get_all_options();
+		$options['logs_path'] = null;
+		$this->update_options( $options );
+	}
+
+	#endregion
+
+	/**
+	 *
+	 * HELPERS
+	 *
+	 */
+
+	private function random_ascii_chars($length = 8)
+	{
+		$characters = array_merge(range('A', 'Z'), range('a', 'z'), range('0', '9'));
+		$characters_length = count($characters);
 		$random_string = '';
 
 		for ($i = 0; $i < $length; $i++) {
@@ -564,12 +635,6 @@ class Meow_WPMC_Core {
 
 		return $random_string;
 	}
-
-	/**
-	 *
-	 * HELPERS
-	 *
-	 */
 
 	function get_trashdir() {
 		return trailingslashit( $this->upload_path ) . 'wpmc-trash';
@@ -1326,6 +1391,35 @@ class Meow_WPMC_Core {
 		return $finalUrl;
 	}
 
+	function custom_attachment_url_to_postid( $url ) {
+		global $wpdb;
+		
+		// Remove the query string
+		$url = preg_replace('/\?.*/', '', $url);
+		
+		// Try to find the attachment ID by matching the URL with the guid
+		$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid LIKE %s;", $url ) );
+		
+		// If found, return the first attachment ID
+		if ( !empty( $attachment ) ) {
+			return ( int )$attachment[0];
+		}
+		
+		// If not found, try to match the URL without the upload directory path
+		$upload_dir = wp_upload_dir();
+		$url_relative = str_replace( $upload_dir['baseurl'] . '/', '', $url );
+		
+		$attachment = $wpdb->get_col( $wpdb->prepare( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_attached_file' AND meta_value LIKE %s;", '%' . $wpdb->esc_like( $url_relative ) ) );
+		
+		// If found, return the first attachment ID
+		if ( !empty( $attachment ) ) {
+			return ( int )$attachment[0];
+		}
+		
+		// If still not found, return 0
+		return 0;
+	}
+
 	// From a fullpath to the shortened and cleaned path (for example '2013/02/file.png')
 	// Original version by Jordy
 	// function clean_uploaded_filename( $fullpath ) {
@@ -1394,7 +1488,7 @@ class Meow_WPMC_Core {
 		$paths = array();
 		$fullpath = get_attached_file( $attachmentId );
 		if ( empty( $fullpath ) ) {
-			error_log( 'Media Cleaner: Could not find attached file for Media ID ' . $attachmentId );
+			$this->log( 'Could not find attached file for Media ID ' . $attachmentId );
 			return array();
 		}
 		$mainfile = $this->clean_uploaded_filename( $fullpath );
@@ -1552,23 +1646,26 @@ class Meow_WPMC_Core {
 
 	function get_uploads_directory_hierarchy() {
 		$uploads_dir = wp_upload_dir();
-		$base_dir = $uploads_dir['basedir'];
+		$base_dir = wp_normalize_path( $uploads_dir['basedir'] );
 		$root = '/' . wp_basename( $base_dir );
 		$directories = array();
-
+	
 		// Get all subdirectories of the base directory
-		$dir_iterator = new RecursiveDirectoryIterator( $base_dir, FilesystemIterator::KEY_AS_PATHNAME|FilesystemIterator::CURRENT_AS_FILEINFO|FilesystemIterator::SKIP_DOTS );
+		$dir_iterator = new RecursiveDirectoryIterator( $base_dir, FilesystemIterator::KEY_AS_PATHNAME | FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS );
 		$iterator = new RecursiveIteratorIterator( $dir_iterator, RecursiveIteratorIterator::SELF_FIRST );
+	
 		foreach ( $iterator as $file ) {
 			if ( $file->isDir() ) {
+				// Normalize path for consistency
+				$file_path = wp_normalize_path( $file->getPathname() );
 				// Remove base_dir from path
-				$directory = str_replace( $base_dir, '', $file->getPathname() );
+				$directory = str_replace( $base_dir, '', $file_path );
 				if ( $directory ) {
 					$directories[] = $root . $directory;
 				}
 			}
 		}
-
+	
 		// Return the hierarchy as a JSON file
 		return json_encode( $directories );
 	}
