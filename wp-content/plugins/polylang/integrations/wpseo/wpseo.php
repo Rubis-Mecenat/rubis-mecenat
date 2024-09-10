@@ -78,6 +78,8 @@ class PLL_WPSEO {
 			'company_name',
 			'rssbefore',
 			'rssafter',
+			'social-title-*',
+			'social-description-*',
 		);
 
 		new PLL_Translate_Option( 'wpseo_titles', array_fill_keys( $keys, 1 ), array( 'context' => 'wordpress-seo' ) );
@@ -200,7 +202,7 @@ class PLL_WPSEO {
 	}
 
 	/**
-	 * Add filters before the sitemap is evaluated and outputed.
+	 * Add filters before the sitemap is evaluated and outputted.
 	 *
 	 * @since 2.6
 	 *
@@ -422,8 +424,8 @@ class PLL_WPSEO {
 	 *
 	 * @param string[] $keys List of custom fields names.
 	 * @param bool     $sync True if it is synchronization, false if it is a copy.
-	 * @param int      $from Id of the post from which we copy informations.
-	 * @param int      $to   Id of the post to which we paste informations.
+	 * @param int      $from Id of the post from which we copy information.
+	 * @param int      $to   Id of the post to which we paste information.
 	 * @return array
 	 */
 	public function copy_post_metas( $keys, $sync, $from, $to ) {
