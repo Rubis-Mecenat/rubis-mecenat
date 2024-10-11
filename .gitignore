@@ -1,5 +1,6 @@
 .DS_Store
 /map
+/_map
 /wp-content/themes/rubis/videos
 /wp-content/themes/rubis/catalogue
 /wp-content/themes/rubis/mp3
@@ -25,3 +26,7 @@
 
 /wp-content/wflogs
 /wp-content/uploads
+/test
+/private
+/Nouveau dossier
+/cgi-bin
