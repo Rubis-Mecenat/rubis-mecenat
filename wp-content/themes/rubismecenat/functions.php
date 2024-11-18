@@ -70,20 +70,6 @@ function rubismecenat_setup() {
 		)
 	);
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'rubismecenat_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
-
-	// Add theme support for selective refresh for widgets.
-	add_theme_support( 'customize-selective-refresh-widgets' );
 
 	/**
 	 * Add support for core custom logo.
@@ -102,46 +88,16 @@ function rubismecenat_setup() {
 }
 add_action( 'after_setup_theme', 'rubismecenat_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function rubismecenat_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'rubismecenat_content_width', 640 );
-}
-add_action( 'after_setup_theme', 'rubismecenat_content_width', 0 );
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function rubismecenat_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'rubismecenat' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'rubismecenat' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'rubismecenat_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
 function rubismecenat_scripts() {
-	wp_enqueue_style( 'rubismecenat-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'rubismecenat-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/main.min.css', array(), _S_VERSION );
 
-	wp_enqueue_script( 'rubismecenat-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'rubismecenat-navigation', get_template_directory_uri() . '/Assets/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/main.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -164,15 +120,4 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/template-functions.php';
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 

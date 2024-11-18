@@ -33,3 +33,5 @@ _.php
 /Nouveau dossier
 /cgi-bin
 /img
+/node_modules
+package-lock.json
