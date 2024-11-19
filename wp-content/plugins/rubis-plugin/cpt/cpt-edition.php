@@ -1,15 +1,15 @@
 <?php 
 
-function information_register_post_types() {
+function edition_register_post_types() {
 	
     // CPT Portfolio
     $labels = array(
-        'name'                 => 'Informations',
-        'all_items'            => 'Tous les informations',  // affiché dans le sous menu
-        'singular_name'        => 'Information',
-        'add_new_item'         => 'Ajouter une informations',
-        'edit_item'            => 'Modifier l\'information',
-        'menu_name'            => 'Informations',
+        'name'                 => 'Editions',
+        'all_items'            => 'Toutes les Editions',  // affiché dans le sous menu
+        'singular_name'        => 'Edition',
+        'add_new_item'         => 'Ajouter une Editions',
+        'edit_item'            => 'Modifier l\'Edition',
+        'menu_name'            => 'Editions',
 		'name_admin_bar'       => __( 'Post Type', 'text_domain' ),
     );
 
@@ -20,8 +20,8 @@ function information_register_post_types() {
         'has_archive' => true,
         'supports' => array( 'title', 'editor','thumbnail','custom-fields','excerpt','page-attributes', 'author' ),
         'taxonomies' => array('category', 'post_tag'),
-        'rewrite' => array('slug' => 'informations','with_front' => true),
-        'menu_icon' => 'dashicons-info',
+        'rewrite' => array('slug' => 'edition','with_front' => true),
+        'menu_icon' => 'dashicons-book',
         'hierarchical' => true,
         'public'              => true,
 		'show_ui'             => true,
@@ -35,6 +35,6 @@ function information_register_post_types() {
 		'publicly_queryable'  => true,
 	);
 
-	register_post_type( 'information', $args );
+	register_post_type( 'edition', $args );
 }
-add_action( 'init', 'information_register_post_types' ); // Le hook init lance la fonction
+add_action( 'init', 'edition_register_post_types' ); // Le hook init lance la fonction
