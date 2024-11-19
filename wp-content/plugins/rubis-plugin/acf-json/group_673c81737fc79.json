@@ -282,6 +282,90 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_673ca53f4ca4a": {
+                    "key": "layout_673ca53f4ca4a",
+                    "name": "mod_carousel_horizontal",
+                    "label": "Module Carousel Horizontal",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_673cadbf1a0d8",
+                            "label": "Titre sur fond rouge",
+                            "name": "mod_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_673ca5564ca4c",
+                            "label": "Contenu du Slide d'entrée",
+                            "name": "mod_firstContent",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "allow_in_bindings": 0,
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_673cae7e65ac2",
+                            "label": "Contenus des Slides suivants (page ou projets)",
+                            "name": "mod_slides",
+                            "aria-label": "",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "project"
+                            ],
+                            "post_status": "",
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
+                            "return_format": "object",
+                            "min": "",
+                            "max": "",
+                            "allow_in_bindings": 0,
+                            "elements": "",
+                            "bidirectional": 0,
+                            "bidirectional_target": []
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -321,5 +405,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732026179
+    "modified": 1732030468
 }

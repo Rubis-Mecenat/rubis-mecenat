@@ -145,6 +145,26 @@ if (have_rows( $flex_content )) :
 
 
 
+        /*
+         * CAROUSEL HORIZONTAL 
+         * (Transmettre...)
+         */
+        elseif (get_row_layout() == 'mod_carousel_horizontal') :
+
+            $title = get_sub_field('mod_title');
+            $firstContent = get_sub_field('mod_firstContent');
+            $relations = get_sub_field('mod_slides');
+
+            $args = array(
+                'title'   => $title,
+                'firstContent'   => $firstContent,
+                'relations'   => $relations
+            );
+
+            get_template_part('Components/Modules/Module', 'CarouselHorizontal', $args);
+
+
+
         endif;
 
 
