@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Template Name: Page Programmes
+ * Template Name: Page Créer & Accompagner
  *
  * @package rubismecenat
  */

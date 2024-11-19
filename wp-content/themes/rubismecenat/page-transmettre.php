@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Template Name: Page Programmes
+ * Template Name: Page Transmettre
  *
  * @package rubismecenat
  */
