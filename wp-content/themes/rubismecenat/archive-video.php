@@ -2,50 +2,57 @@
 /**
  * The template for displaying archive pages
  *
+ * Template Name: Archives Editions
+ * 
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package rubismecenat
  */
 
 get_header();
+
+$args = array(
+	'post_type' => 'video',
+	'posts_per_page' => 10,
+);
+
+$query = new WP_Query($args);
 ?>
 
 	<main id="primary" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
 
+		<?php if ($query->have_posts()) : ?>
+			
 			<header class="page-header">
 				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
+					the_archive_title( '<h1 class="page-title">', '</h1>' );
+					the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<div>
+				<h2>Filtres</h2>
+			</div>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'Components/content', get_post_type() );
+			<?php while ($query->have_posts()) : $query->the_post(); ?>
 
-			endwhile;
+				<div>
+					<a href="<?php the_permalink(); ?>">
+						<?php the_title(); ?>
+					</a>
+				</div>
 
-			the_posts_navigation();
+			<?php endwhile;  wp_reset_postdata(); ?>
 
-		else :
+		<?php else : ?>
+			// Display no posts found message
 
-			get_template_part( 'Components/content', 'none' );
+		<?php endif; ?>
 
-		endif;
-		?>
+
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

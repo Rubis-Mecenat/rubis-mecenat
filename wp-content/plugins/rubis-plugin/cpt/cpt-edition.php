@@ -17,7 +17,6 @@ function edition_register_post_types() {
         'labels' => $labels,
         'public' => true,
         'show_in_rest' => true,
-        'has_archive' => true,
         'supports' => array( 'title', 'editor','thumbnail','custom-fields','excerpt','page-attributes', 'author' ),
         'taxonomies' => array('category', 'post_tag'),
         'rewrite' => array('slug' => 'edition','with_front' => true),

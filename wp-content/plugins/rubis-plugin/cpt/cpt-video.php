@@ -17,7 +17,6 @@ function video_register_post_types() {
         'labels' => $labels,
         'public' => true,
         'show_in_rest' => true,
-        'has_archive' => true,
         'supports' => array( 'title', 'editor','thumbnail','excerpt','author' ),
         'taxonomies' => array('category', 'post_tag'),
         'rewrite' => array('slug' => 'video','with_front' => true),
