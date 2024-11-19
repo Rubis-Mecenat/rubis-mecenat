@@ -100,15 +100,11 @@ function rubismecenat_scripts() {
 
 	// ENQUEUE SCRIPTS
 	wp_enqueue_script( 'rubismecenat-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _S_VERSION, true );
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/main.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/main.min.js', array(), _S_VERSION, true );
 
+	// ENQUEUE PARTICULAR SCRIPTS
 }
 add_action( 'wp_enqueue_scripts', 'rubismecenat_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.

@@ -1,19 +1,14 @@
 <?php
 
-function rubismecenat_acf_load_json($paths)
-{
+function rubismecenat_acf_load_json($paths){
     $paths = array(
         RUBIS_DIR . '/acf-json'
     );
-
     return $paths;
 }
 
-function rubismecenat_acf_save_json($paths)
-{
-
+function rubismecenat_acf_save_json($paths) {
     $paths = RUBIS_DIR . '/acf-json';
-
     return $paths;
 }
 
