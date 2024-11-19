@@ -1,0 +1,557 @@
+0000.001 (0) Opened log file at time: Tue, 19 Nov 2024 08:56:17 +0000 on https://rubis-mecenat.local:8890
+0000.005 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.24.11 WP: 6.7 PHP: 8.2.0 (apache2handler, Darwin Alexis-MacBook-Air.local 23.6.0 Darwin Kernel Version 23.6.0: Mon Jul 29 21:14:21 PDT 2024; root:xnu-10063.141.2~1/RELEASE_ARM64_T8103 arm64) MySQL: 5.7.39 (max packet size=134217728) WPLANG: en_US Server: Apache/2.4.54 (Unix) mod_fastcgi/mod_fastcgi-SNAP-0910052141 PHP/8.2.0 OpenSSL/1.0.2u mod_wsgi/3.5 Python/2.7.18 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 70.7M | 73M) multisite: N openssl: OpenSSL 1.0.2u  20 Dec 2019 mcrypt: N LANG:  ZipArchive::addFile: Y
+0000.007 (0) Free space on disk containing Updraft's temporary directory: 46214.2 MB
+0000.011 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.013 (0) Processed schedules. Combining jobs from identical schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.034 (0) Requesting semaphore lock (fd) (apparently via scheduler: last_scheduled_action_called_at=1731892166, seconds_ago=114411)
+0000.038 (0) Set semaphore last lock (fd) time to 2024-11-19 08:56:17
+0000.040 (0) Semaphore lock (fd) complete
+0000.048 (0) Backup run: resumption=0, nonce=8142e02db8dd, file_nonce=8142e02db8dd begun at=1732006577 (1s ago), job type=backup
+0000.053 (0) Scheduling a resumption (1) after 600 seconds (1732007178) in case this run gets aborted
+0000.087 (0) Checking if we have a zip executable available
+0000.090 (0) Testing: /usr/bin/zip
+0000.121 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.122 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.123 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.124 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.125 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.137 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.139 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.150 (0) Working binary zip found: /usr/bin/zip
+0000.153 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.154 (0) Creation of backups of directories: beginning
+0000.156 (0) No backup of plugins: excluded by user's options
+0000.157 (0) No backup of themes: excluded by user's options
+0000.159 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0000.159 (0) Looking for candidates to backup in: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/uploads
+0000.160 (0) finding files: 2024: adding to list (1)
+0000.161 (0) finding files: backwpup-67a0c8-logs: skipping: excluded by options (glob)
+0000.162 (0) finding files: dynamic_avia: adding to list (2)
+0000.162 (0) finding files: backwpup-67a0c8-temp: skipping: excluded by options (glob)
+0000.163 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0000.170 (0) Total entities for the zip file: 3 directories, 78 files (0 skipped as non-modified), 15.9 MB
+0000.610 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-uploads.zip.tmp: size is now: 3.10 MB
+0000.613 (0) Creating zip file manifest (backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-uploads.zip.list-temp.tmp)
+0000.614 (0) Successfully created zip file manifest (size: 7950)
+0000.660 (0) Created uploads zip (0) - 3152.7 KB in 0.5 s (6373.7 KB/s) (sha1: b30d74d87c66b885986018d5f7fbe13f88b706d8, sha256: 6352cf4eca3ea6daa791e790e9212eab96fbc9c71094c27fb4ed0b8be57c2a4c)
+0000.662 (0) Cloud backup selection (1/1): dropbox with instance (1/1) (last)
+0000.663 (0) Beginning dispatch of backup to remote (dropbox) (instance identifier s-06a5df1691236d8cf071855a843c1d6c)
+0000.663 (0) Dropbox: begin cloud upload (using API version 2 with OAuth v2 token)
+0000.971 (0) Successfully updated and refreshed the access token
+0000.975 (0) Dropbox: access gained; setting chunk size to: 1024 KB
+0001.302 (0) Dropbox: quota usage: used=119955.3 MB, total=2101888 MB, available=1981932.7 MB
+0001.306 (0) Dropbox: Attempt to upload: backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-uploads.zip to: backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-uploads.zip
+0902.092 (0) The time we have been running (902.1) is approaching the resumption interval (600) - increasing resumption interval to 933
+0902.114 (0) Dropbox chunked upload: 32.5 % uploaded (pid_upload_session:ABIIgK_gOwLSt0Pzg02BwkBJnfv2otjq9n5sYx0O7QX5GK6fjg, 1048576, 1024 KB)
+0903.268 (0) The time we have been running (903.3) is approaching the resumption interval (933) - increasing resumption interval to 934
+0903.273 (0) Dropbox chunked upload: 65 % uploaded (pid_upload_session:ABIIgK_gOwLSt0Pzg02BwkBJnfv2otjq9n5sYx0O7QX5GK6fjg, 2097152, 7680 KB)
+0904.296 (0) The time we have been running (904.3) is approaching the resumption interval (934) - increasing resumption interval to 935
+0904.299 (0) Dropbox chunked upload: 100 % uploaded (pid_upload_session:ABIIgK_gOwLSt0Pzg02BwkBJnfv2otjq9n5sYx0O7QX5GK6fjg, 3228373, 7680 KB)
+0905.887 (0) Recording as successfully uploaded: backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-uploads.zip
+0905.893 (0) Deleting local file: backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-uploads.zip: OK
+0905.894 (0) Dropbox: File upload success (backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-uploads.zip): 3152 KB in 904s (3 KB/s)
+0905.912 (0) No backup of mu-plugins: excluded by user's options
+0905.914 (0) No backup of others: excluded by user's options
+0905.924 (0) Saving backup status to database (elements: 2)
+0905.946 (0) Beginning creation of database dump (WordPress DB)
+0905.965 (0) SQL compatibility mode is: NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+0906.352 (0) Table wp_options: Total expected rows (via COUNT): 568
+0906.930 (0) Table wp_options: Rows added in this batch (next record: 9192570): 564 (uncompressed bytes in this segment=1234982) in 0.68 seconds
+0906.965 (0) The time we have been running (907) is approaching the resumption interval (935) - increasing resumption interval to 937
+0906.967 (0) Table wp_options: finishing file(s) (2, 241.1 KB)
+0906.971 (0) Table wp_users: Total expected rows (via COUNT): 3
+0906.972 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0906.976 (0) Table wp_users: Rows added in this batch (next record: 6): 3 (uncompressed bytes in this segment=1669) in 0.01 seconds
+0906.979 (0) Table wp_users: finishing file(s) (2, 0.8 KB)
+0906.985 (0) Table wp_usermeta: Total expected rows (via COUNT): 96
+0906.986 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0906.989 (0) Table wp_usermeta: Rows added in this batch (next record: 252): 96 (uncompressed bytes in this segment=7481) in 0.01 seconds
+0906.993 (0) Table wp_usermeta: finishing file(s) (2, 2.5 KB)
+0906.998 (0) Table wp_commentmeta: Total expected rows (via COUNT): 0
+0907.000 (0) Table wp_commentmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=661) in 0.00 seconds
+0907.003 (0) The time we have been running (907) is approaching the resumption interval (937) - increasing resumption interval to 938
+0907.005 (0) Table wp_commentmeta: finishing file(s) (2, 0.4 KB)
+0907.008 (0) Table wp_comments: Total expected rows (via COUNT): 1
+0907.008 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0907.012 (0) Table wp_comments: Rows added in this batch (next record: 9): 1 (uncompressed bytes in this segment=2253) in 0.00 seconds
+0907.015 (0) Table wp_comments: finishing file(s) (2, 0.9 KB)
+0907.019 (0) Table wp_links: Total expected rows (via COUNT): 0
+0907.021 (0) Table wp_links: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1237) in 0.00 seconds
+0907.024 (0) Table wp_links: finishing file(s) (2, 0.5 KB)
+0907.132 (0) Table wp_postmeta: Total expected rows (approximate): 17404
+0907.991 (0) Table wp_postmeta: Rows added in this batch (next record: 35814): 24482 (uncompressed bytes in this segment=21636043) in 0.96 seconds
+0907.999 (0) Table wp_postmeta: finishing file(s) (2, 1640.8 KB)
+0908.210 (0) Table wp_posts: Total expected rows (approximate): 6643
+0909.437 (0) Table wp_posts: Rows added in this batch (next record: 15188): 8910 (uncompressed bytes in this segment=39908897) in 1.44 seconds
+0909.444 (0) The time we have been running (909.4) is approaching the resumption interval (938) - increasing resumption interval to 940
+0909.447 (0) Table wp_posts: finishing file(s) (2, 2833.6 KB)
+0909.450 (0) Table wp_term_relationships: Total expected rows (approximate): 9478
+0909.489 (0) Table wp_term_relationships: Rows added in this batch (next record: 100000): 9478 (uncompressed bytes in this segment=162085) in 0.04 seconds
+0909.493 (0) Table wp_term_relationships: finishing file(s) (2, 30.8 KB)
+0909.501 (0) Table wp_term_taxonomy: Total expected rows (approximate): 2356
+0909.523 (0) Table wp_term_taxonomy: Rows added in this batch (next record: 2379): 2356 (uncompressed bytes in this segment=193820) in 0.03 seconds
+0909.527 (0) Table wp_term_taxonomy: finishing file(s) (2, 28 KB)
+0909.530 (0) Table wp_termmeta: Total expected rows (via COUNT): 2
+0909.531 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0909.534 (0) Table wp_termmeta: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=52973) in 0.01 seconds
+0909.537 (0) Table wp_termmeta: finishing file(s) (2, 17 KB)
+0909.540 (0) Table wp_terms: Total expected rows (approximate): 2356
+0909.555 (0) Table wp_terms: Rows added in this batch (next record: 2379): 2356 (uncompressed bytes in this segment=106402) in 0.02 seconds
+0909.558 (0) Table wp_terms: finishing file(s) (2, 18.6 KB)
+0909.562 (0) Table wp_fb3d_pages: Total expected rows (via COUNT): 0
+0909.564 (0) Table wp_fb3d_pages: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1070) in 0.00 seconds
+0909.567 (0) Table wp_fb3d_pages: finishing file(s) (2, 0.4 KB)
+0909.569 (0) Table wp_icl_background_task: Total expected rows (via COUNT): 0
+0909.570 (0) Table wp_icl_background_task: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=892) in 0.00 seconds
+0909.572 (0) Table wp_icl_background_task: finishing file(s) (2, 0.4 KB)
+0909.576 (0) Table wp_icl_cms_nav_cache: Total expected rows (via COUNT): 0
+0909.576 (0) Table wp_icl_cms_nav_cache: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=662) in 0.00 seconds
+0909.578 (0) Table wp_icl_cms_nav_cache: finishing file(s) (2, 0.4 KB)
+0909.580 (0) Table wp_icl_content_status: Total expected rows (via COUNT): 0
+0909.581 (0) Table wp_icl_content_status: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=567) in 0.00 seconds
+0909.582 (0) Table wp_icl_content_status: finishing file(s) (2, 0.3 KB)
+0909.584 (0) Table wp_icl_core_status: Total expected rows (via COUNT): 0
+0909.585 (0) Table wp_icl_core_status: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=769) in 0.00 seconds
+0909.586 (0) Table wp_icl_core_status: finishing file(s) (2, 0.4 KB)
+0909.588 (0) Table wp_icl_flags: Total expected rows (via COUNT): 64
+0909.588 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0909.589 (0) Table wp_icl_flags: Rows added in this batch (next record: 64): 64 (uncompressed bytes in this segment=2322) in 0.00 seconds
+0909.591 (0) Table wp_icl_flags: finishing file(s) (2, 0.9 KB)
+0909.592 (0) Table wp_icl_languages: Total expected rows (via COUNT): 64
+0909.593 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0909.594 (0) Table wp_icl_languages: Rows added in this batch (next record: 64): 64 (uncompressed bytes in this segment=4417) in 0.00 seconds
+0909.596 (0) Table wp_icl_languages: finishing file(s) (2, 1.6 KB)
+0909.597 (0) Table wp_icl_languages_translations: Total expected rows (approximate): 4096
+0909.625 (0) Table wp_icl_languages_translations: Rows added in this batch (next record: 4096): 4096 (uncompressed bytes in this segment=141463) in 0.03 seconds
+0909.627 (0) Table wp_icl_languages_translations: finishing file(s) (2, 31.9 KB)
+0909.628 (0) Table wp_icl_locale_map: Total expected rows (approximate): 2
+0909.629 (0) Table wp_icl_locale_map: Rows added in this batch (next record: 1000): 2 (uncompressed bytes in this segment=573) in 0.00 seconds
+0909.630 (0) Table wp_icl_locale_map: finishing file(s) (2, 0.3 KB)
+0909.631 (0) Table wp_icl_message_status: Total expected rows (via COUNT): 0
+0909.632 (0) Table wp_icl_message_status: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=930) in 0.00 seconds
+0909.634 (0) Table wp_icl_message_status: finishing file(s) (2, 0.4 KB)
+0909.635 (0) Table wp_icl_mo_files_domains: Total expected rows (via COUNT): 71
+0909.636 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0909.637 (0) Table wp_icl_mo_files_domains: Rows added in this batch (next record: 81): 71 (uncompressed bytes in this segment=14579) in 0.00 seconds
+0909.639 (0) Table wp_icl_mo_files_domains: finishing file(s) (2, 4.4 KB)
+0909.640 (0) Table wp_icl_node: Total expected rows (via COUNT): 0
+0909.641 (0) Table wp_icl_node: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=473) in 0.00 seconds
+0909.643 (0) Table wp_icl_node: finishing file(s) (2, 0.3 KB)
+0909.644 (0) Table wp_icl_reminders: Total expected rows (via COUNT): 0
+0909.645 (0) Table wp_icl_reminders: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=562) in 0.00 seconds
+0909.646 (0) Table wp_icl_reminders: finishing file(s) (2, 0.3 KB)
+0909.648 (0) Table wp_icl_string_batches: Total expected rows (via COUNT): 0
+0909.648 (0) Table wp_icl_string_batches: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=539) in 0.00 seconds
+0909.650 (0) Table wp_icl_string_batches: finishing file(s) (2, 0.3 KB)
+0909.651 (0) Table wp_icl_string_packages: Total expected rows (via COUNT): 161
+0909.651 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0909.654 (0) Table wp_icl_string_packages: Rows added in this batch (next record: 161): 161 (uncompressed bytes in this segment=24676) in 0.00 seconds
+0909.656 (0) Table wp_icl_string_packages: finishing file(s) (2, 3.1 KB)
+0909.657 (0) Table wp_icl_string_pages: Total expected rows (via COUNT): 0
+0909.658 (0) Table wp_icl_string_pages: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=595) in 0.00 seconds
+0909.660 (0) Table wp_icl_string_pages: finishing file(s) (2, 0.3 KB)
+0909.661 (0) Table wp_icl_string_positions: Total expected rows (via COUNT): 0
+0909.661 (0) Table wp_icl_string_positions: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=634) in 0.00 seconds
+0909.663 (0) Table wp_icl_string_positions: finishing file(s) (2, 0.4 KB)
+0909.664 (0) Table wp_icl_string_status: Total expected rows (via COUNT): 0
+0909.664 (0) Table wp_icl_string_status: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=693) in 0.00 seconds
+0909.666 (0) Table wp_icl_string_status: finishing file(s) (2, 0.4 KB)
+0909.668 (0) Table wp_icl_string_translations: Total expected rows (via COUNT): 152
+0909.669 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0909.671 (0) Table wp_icl_string_translations: Rows added in this batch (next record: 481): 152 (uncompressed bytes in this segment=34404) in 0.00 seconds
+0909.676 (0) Table wp_icl_string_translations: finishing file(s) (2, 10.8 KB)
+0909.677 (0) Table wp_icl_string_urls: Total expected rows (via COUNT): 0
+0909.678 (0) Table wp_icl_string_urls: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=618) in 0.00 seconds
+0909.680 (0) Table wp_icl_string_urls: finishing file(s) (2, 0.4 KB)
+0909.686 (0) Table wp_icl_strings: Total expected rows (approximate): 1296
+0909.729 (0) Table wp_icl_strings: Rows added in this batch (next record: 3038): 1305 (uncompressed bytes in this segment=686571) in 0.05 seconds
+0909.734 (0) Table wp_icl_strings: finishing file(s) (2, 188.3 KB)
+0909.764 (0) Table wp_icl_translate: Total expected rows (approximate): 1403
+0909.937 (0) Table wp_icl_translate: Rows added in this batch (next record: 2172): 1532 (uncompressed bytes in this segment=5712077) in 0.20 seconds
+0909.941 (0) Table wp_icl_translate: finishing file(s) (2, 882.4 KB)
+0909.942 (0) Table wp_icl_translate_job: Total expected rows (via COUNT): 265
+0909.943 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0909.946 (0) Table wp_icl_translate_job: Rows added in this batch (next record: 318): 265 (uncompressed bytes in this segment=18531) in 0.00 seconds
+0909.948 (0) Table wp_icl_translate_job: finishing file(s) (2, 2.7 KB)
+0909.950 (0) Table wp_icl_translation_batches: Total expected rows (via COUNT): 117
+0909.950 (0) Table is relatively small; fetch_rows will thus be: 200 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0909.952 (0) Table wp_icl_translation_batches: Rows added in this batch (next record: 117): 117 (uncompressed bytes in this segment=11483) in 0.00 seconds
+0909.954 (0) Table wp_icl_translation_batches: finishing file(s) (2, 2.2 KB)
+0909.955 (0) Table wp_icl_translation_downloads: Total expected rows (via COUNT): 0
+0909.956 (0) Table wp_icl_translation_downloads: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=616) in 0.00 seconds
+0909.957 (0) Table wp_icl_translation_downloads: finishing file(s) (2, 0.4 KB)
+0909.965 (0) Table wp_icl_translation_status: Total expected rows (approximate): 2017
+0910.056 (0) Table wp_icl_translation_status: Rows added in this batch (next record: 2297): 2202 (uncompressed bytes in this segment=1973852) in 0.10 seconds
+0910.060 (0) The time we have been running (910.1) is approaching the resumption interval (940) - increasing resumption interval to 941
+0910.062 (0) Table wp_icl_translation_status: finishing file(s) (2, 366.8 KB)
+0910.065 (0) Table wp_icl_translations: Total expected rows (approximate): 4585
+0910.106 (0) Table wp_icl_translations: Rows added in this batch (next record: 4963): 4605 (uncompressed bytes in this segment=238985) in 0.04 seconds
+0910.110 (0) Table wp_icl_translations: finishing file(s) (2, 39.7 KB)
+0910.113 (0) Table wp_layerslider: Total expected rows (via COUNT): 2
+0910.114 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0910.117 (0) Table wp_layerslider: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=37108) in 0.00 seconds
+0910.119 (0) Table wp_layerslider: finishing file(s) (2, 3 KB)
+0910.122 (0) Table wp_layerslider_revisions: Total expected rows (via COUNT): 0
+0910.123 (0) Table wp_layerslider_revisions: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=614) in 0.00 seconds
+0910.126 (0) Table wp_layerslider_revisions: finishing file(s) (2, 0.3 KB)
+0910.128 (0) Table wp_mclean_refs: Total expected rows (via COUNT): 368
+0910.128 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0910.132 (0) Table wp_mclean_refs: Rows added in this batch (next record: 368): 368 (uncompressed bytes in this segment=15966) in 0.00 seconds
+0910.134 (0) Table wp_mclean_refs: finishing file(s) (2, 2.9 KB)
+0910.138 (0) Table wp_mclean_scan: Total expected rows (approximate): 2017
+0910.163 (0) Table wp_mclean_scan: Rows added in this batch (next record: 5716): 2017 (uncompressed bytes in this segment=240851) in 0.03 seconds
+0910.166 (0) Table wp_mclean_scan: finishing file(s) (2, 26.8 KB)
+0910.169 (0) Table wp_redirection_404: Total expected rows (approximate): 4590
+0910.240 (0) Table wp_redirection_404: Rows added in this batch (next record: 527140): 4324 (uncompressed bytes in this segment=870983) in 0.07 seconds
+0910.244 (0) Table wp_redirection_404: finishing file(s) (2, 75 KB)
+0910.248 (0) Table wp_redirection_groups: Total expected rows (via COUNT): 2
+0910.249 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0910.250 (0) Table wp_redirection_groups: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=976) in 0.00 seconds
+0910.253 (0) Table wp_redirection_groups: finishing file(s) (2, 0.5 KB)
+0910.257 (0) Table wp_redirection_items: Total expected rows (via COUNT): 195
+0910.257 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0910.268 (0) Table wp_redirection_items: Rows added in this batch (next record: 195): 195 (uncompressed bytes in this segment=50178) in 0.01 seconds
+0910.271 (0) Table wp_redirection_items: finishing file(s) (2, 6.9 KB)
+0910.275 (0) Table wp_redirection_logs: Total expected rows (via COUNT): 400
+0910.275 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0910.288 (0) Table wp_redirection_logs: Rows added in this batch (next record: 18355): 400 (uncompressed bytes in this segment=140512) in 0.01 seconds
+0910.291 (0) Table wp_redirection_logs: finishing file(s) (2, 11.3 KB)
+0910.294 (0) Table wp_wfAuditEvents: Total expected rows (via COUNT): 0
+0910.295 (0) Table wp_wfAuditEvents: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=705) in 0.00 seconds
+0910.298 (0) Table wp_wfAuditEvents: finishing file(s) (2, 0.4 KB)
+0910.300 (0) Table wp_wfblockediplog: Total expected rows (approximate): 2000
+0910.319 (0) Table wp_wfblockediplog: Rows added in this batch (next record: 2000): 1891 (uncompressed bytes in this segment=121625) in 0.02 seconds
+0910.322 (0) Table wp_wfblockediplog: finishing file(s) (2, 12.4 KB)
+0910.325 (0) Table wp_wfblocks7: Total expected rows (via COUNT): 0
+0910.326 (0) Table wp_wfblocks7: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=811) in 0.00 seconds
+0910.328 (0) Table wp_wfblocks7: finishing file(s) (2, 0.4 KB)
+0910.330 (0) Table wp_wfconfig: Total expected rows (approximate): 277
+0910.375 (0) Table wp_wfconfig: Rows added in this batch (next record: 1000): 285 (uncompressed bytes in this segment=888315) in 0.05 seconds
+0910.378 (0) Table wp_wfconfig: finishing file(s) (2, 447.3 KB)
+0910.381 (0) Table wp_wfcrawlers: Total expected rows (approximate): 1
+0910.382 (0) Table wp_wfcrawlers: Rows added in this batch (next record: 1000): 1 (uncompressed bytes in this segment=722) in 0.00 seconds
+0910.384 (0) Table wp_wfcrawlers: finishing file(s) (2, 0.4 KB)
+0910.387 (0) Table wp_wffilechanges: Total expected rows (approximate): 0
+0910.387 (0) Table wp_wffilechanges: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=452) in 0.00 seconds
+0910.389 (0) Table wp_wffilechanges: finishing file(s) (2, 0.3 KB)
+0910.392 (0) Table wp_wffilemods: Total expected rows (approximate): 10260
+0910.722 (0) Table wp_wffilemods: Rows added in this batch (next record: 12000): 10476 (uncompressed bytes in this segment=4063952) in 0.33 seconds
+0910.726 (0) Table wp_wffilemods: finishing file(s) (2, 1105.8 KB)
+0910.729 (0) Table wp_wfhits: Total expected rows (approximate): 1610
+0910.780 (0) Table wp_wfhits: Rows added in this batch (next record: 206110): 1679 (uncompressed bytes in this segment=727384) in 0.05 seconds
+0910.783 (0) Table wp_wfhits: finishing file(s) (2, 50.5 KB)
+0910.787 (0) Table wp_wfhoover: Total expected rows (via COUNT): 0
+0910.788 (0) Table wp_wfhoover: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=476) in 0.00 seconds
+0910.790 (0) Table wp_wfhoover: finishing file(s) (2, 0.3 KB)
+0910.806 (0) Table wp_wfissues: Total expected rows (via COUNT): 3
+0910.806 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0910.808 (0) Table wp_wfissues: Rows added in this batch (next record: 3463): 3 (uncompressed bytes in this segment=4993) in 0.00 seconds
+0910.811 (0) Table wp_wfissues: finishing file(s) (2, 2 KB)
+0910.813 (0) Table wp_wfknownfilelist: Total expected rows (approximate): 10554
+0910.920 (0) Table wp_wfknownfilelist: Rows added in this batch (next record: 10477): 10477 (uncompressed bytes in this segment=2124936) in 0.11 seconds
+0910.924 (0) Table wp_wfknownfilelist: finishing file(s) (2, 146.1 KB)
+0910.927 (0) Table wp_wflivetraffichuman: Total expected rows (approximate): 0
+0910.928 (0) Table wp_wflivetraffichuman: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=648) in 0.00 seconds
+0910.930 (0) Table wp_wflivetraffichuman: finishing file(s) (2, 0.3 KB)
+0910.932 (0) Table wp_wflocs: Total expected rows (approximate): 2
+0910.933 (0) Table wp_wflocs: Rows added in this batch (next record: 1000): 1 (uncompressed bytes in this segment=809) in 0.00 seconds
+0910.936 (0) Table wp_wflocs: finishing file(s) (2, 0.4 KB)
+0910.939 (0) Table wp_wflogins: Total expected rows (approximate): 1987
+0910.977 (0) Table wp_wflogins: Rows added in this batch (next record: 13304): 2006 (uncompressed bytes in this segment=437175) in 0.04 seconds
+0910.980 (0) Table wp_wflogins: finishing file(s) (2, 41.2 KB)
+0910.983 (0) Table wp_wfls_2fa_secrets: Total expected rows (via COUNT): 2
+0910.983 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0910.985 (0) Table wp_wfls_2fa_secrets: Rows added in this batch (next record: 3): 2 (uncompressed bytes in this segment=1095) in 0.00 seconds
+0910.987 (0) Table wp_wfls_2fa_secrets: finishing file(s) (2, 0.6 KB)
+0910.990 (0) Table wp_wfls_role_counts: Total expected rows (approximate): 0
+0910.991 (0) Table wp_wfls_role_counts: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=551) in 0.00 seconds
+0910.994 (0) Table wp_wfls_role_counts: finishing file(s) (2, 0.3 KB)
+0910.996 (0) Table wp_wfls_settings: Total expected rows (approximate): 32
+0910.997 (0) Table wp_wfls_settings: Rows added in this batch (next record: 1000): 32 (uncompressed bytes in this segment=2180) in 0.00 seconds
+0910.999 (0) Table wp_wfls_settings: finishing file(s) (2, 1 KB)
+0911.002 (0) Table wp_wfnotifications: Total expected rows (approximate): 3
+0911.002 (0) Table wp_wfnotifications: Rows added in this batch (next record: 1000): 3 (uncompressed bytes in this segment=1684) in 0.00 seconds
+0911.004 (0) The time we have been running (911) is approaching the resumption interval (941) - increasing resumption interval to 942
+0911.007 (0) Table wp_wfnotifications: finishing file(s) (2, 0.8 KB)
+0911.009 (0) Table wp_wfpendingissues: Total expected rows (via COUNT): 0
+0911.009 (0) Table wp_wfpendingissues: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=846) in 0.00 seconds
+0911.011 (0) Table wp_wfpendingissues: finishing file(s) (2, 0.4 KB)
+0911.012 (0) Table wp_wfreversecache: Total expected rows (approximate): 2
+0911.013 (0) Table wp_wfreversecache: Rows added in this batch (next record: 1000): 1 (uncompressed bytes in this segment=600) in 0.00 seconds
+0911.015 (0) Table wp_wfreversecache: finishing file(s) (2, 0.4 KB)
+0911.016 (0) Table wp_wfsecurityevents: Total expected rows (via COUNT): 0
+0911.016 (0) Table wp_wfsecurityevents: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=678) in 0.00 seconds
+0911.018 (0) Table wp_wfsecurityevents: finishing file(s) (2, 0.4 KB)
+0911.019 (0) Table wp_wfsnipcache: Total expected rows (via COUNT): 0
+0911.020 (0) Table wp_wfsnipcache: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=722) in 0.00 seconds
+0911.021 (0) Table wp_wfsnipcache: finishing file(s) (2, 0.4 KB)
+0911.023 (0) Table wp_wfstatus: Total expected rows (via COUNT): 953
+0911.031 (0) Table wp_wfstatus: Rows added in this batch (next record: 47342): 953 (uncompressed bytes in this segment=94406) in 0.01 seconds
+0911.033 (0) Table wp_wfstatus: finishing file(s) (2, 15.1 KB)
+0911.035 (0) Table wp_wftrafficrates: Total expected rows (approximate): 0
+0911.035 (0) Table wp_wftrafficrates: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=566) in 0.00 seconds
+0911.037 (0) Table wp_wftrafficrates: finishing file(s) (2, 0.3 KB)
+0911.038 (0) Table wp_wfwaffailures: Total expected rows (via COUNT): 0
+0911.038 (0) Table wp_wfwaffailures: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=527) in 0.00 seconds
+0911.040 (0) Table wp_wfwaffailures: finishing file(s) (2, 0.3 KB)
+0911.042 (0) Table wp_yoast_indexable: Total expected rows (via COUNT): 3
+0911.042 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0911.043 (0) Table wp_yoast_indexable: Rows added in this batch (next record: 3): 3 (uncompressed bytes in this segment=4959) in 0.00 seconds
+0911.045 (0) Table wp_yoast_indexable: finishing file(s) (2, 1.3 KB)
+0911.046 (0) Table wp_yoast_indexable_hierarchy: Total expected rows (approximate): 0
+0911.047 (0) Table wp_yoast_indexable_hierarchy: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=750) in 0.00 seconds
+0911.049 (0) Table wp_yoast_indexable_hierarchy: finishing file(s) (2, 0.4 KB)
+0911.050 (0) Table wp_yoast_migrations: Total expected rows (via COUNT): 18
+0911.050 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0911.051 (0) Table wp_yoast_migrations: Rows added in this batch (next record: 18): 18 (uncompressed bytes in this segment=1074) in 0.00 seconds
+0911.053 (0) Table wp_yoast_migrations: finishing file(s) (2, 0.6 KB)
+0911.054 (0) Table wp_yoast_primary_term: Total expected rows (via COUNT): 0
+0911.054 (0) Table wp_yoast_primary_term: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=862) in 0.00 seconds
+0911.056 (0) Table wp_yoast_primary_term: finishing file(s) (2, 0.4 KB)
+0911.057 (0) Table wp_yoast_seo_links: Total expected rows (via COUNT): 0
+0911.058 (0) Table wp_yoast_seo_links: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=981) in 0.00 seconds
+0911.059 (0) Table wp_yoast_seo_links: finishing file(s) (2, 0.4 KB)
+0911.061 (0) PHP event: code E_WARNING: filemtime(): stat failed for /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/updraft/backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db.gz (line 1925, wp-content/plugins/updraftplus/backup.php)
+0911.062 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_options.table.tmpr9192571.gz (1/77/fopen): adding to final database dump
+0911.065 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_options.table.gz (2/77/fopen): adding to final database dump
+0911.065 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_users.table.tmpr7.gz (3/77/fopen): adding to final database dump
+0911.065 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_users.table.gz (4/77/fopen): adding to final database dump
+0911.066 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_usermeta.table.tmpr253.gz (5/77/fopen): adding to final database dump
+0911.066 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_usermeta.table.gz (6/77/fopen): adding to final database dump
+0911.066 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_commentmeta.table.tmpr0.gz (7/77/fopen): adding to final database dump
+0911.066 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_commentmeta.table.gz (8/77/fopen): adding to final database dump
+0911.066 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_comments.table.tmpr10.gz (9/77/fopen): adding to final database dump
+0911.067 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_comments.table.gz (10/77/fopen): adding to final database dump
+0911.067 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_links.table.tmpr0.gz (11/77/fopen): adding to final database dump
+0911.067 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_links.table.gz (12/77/fopen): adding to final database dump
+0911.068 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_postmeta.table.tmpr35815.gz (13/77/fopen): adding to final database dump
+0911.082 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_postmeta.table.gz (14/77/fopen): adding to final database dump
+0911.083 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_posts.table.tmpr15189.gz (15/77/fopen): adding to final database dump
+0911.109 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_posts.table.gz (16/77/fopen): adding to final database dump
+0911.109 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_term_relationships.table.tmpr100001.gz (17/77/fopen): adding to final database dump
+0911.109 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_term_relationships.table.gz (18/77/fopen): adding to final database dump
+0911.110 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_term_taxonomy.table.tmpr2380.gz (19/77/fopen): adding to final database dump
+0911.110 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_term_taxonomy.table.gz (20/77/fopen): adding to final database dump
+0911.111 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_termmeta.table.tmpr3.gz (21/77/fopen): adding to final database dump
+0911.111 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_termmeta.table.gz (22/77/fopen): adding to final database dump
+0911.111 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_terms.table.tmpr2380.gz (23/77/fopen): adding to final database dump
+0911.112 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_terms.table.gz (24/77/fopen): adding to final database dump
+0911.112 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_fb3d_pages.table.tmpr0.gz (25/77/fopen): adding to final database dump
+0911.112 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_fb3d_pages.table.gz (26/77/fopen): adding to final database dump
+0911.112 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_background_task.table.tmpr0.gz (27/77/fopen): adding to final database dump
+0911.113 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_background_task.table.gz (28/77/fopen): adding to final database dump
+0911.113 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_cms_nav_cache.table.tmpr0.gz (29/77/fopen): adding to final database dump
+0911.113 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_cms_nav_cache.table.gz (30/77/fopen): adding to final database dump
+0911.113 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_content_status.table.tmpr0.gz (31/77/fopen): adding to final database dump
+0911.113 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_content_status.table.gz (32/77/fopen): adding to final database dump
+0911.114 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_core_status.table.tmpr0.gz (33/77/fopen): adding to final database dump
+0911.114 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_core_status.table.gz (34/77/fopen): adding to final database dump
+0911.114 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_flags.table.tmpr65.gz (35/77/fopen): adding to final database dump
+0911.114 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_flags.table.gz (36/77/fopen): adding to final database dump
+0911.114 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_languages.table.tmpr65.gz (37/77/fopen): adding to final database dump
+0911.115 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_languages.table.gz (38/77/fopen): adding to final database dump
+0911.115 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_languages_translations.table.tmpr4097.gz (39/77/fopen): adding to final database dump
+0911.115 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_languages_translations.table.gz (40/77/fopen): adding to final database dump
+0911.116 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_locale_map.table.tmpr1001.gz (41/77/fopen): adding to final database dump
+0911.116 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_locale_map.table.gz (42/77/fopen): adding to final database dump
+0911.116 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_message_status.table.tmpr0.gz (43/77/fopen): adding to final database dump
+0911.116 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_message_status.table.gz (44/77/fopen): adding to final database dump
+0911.116 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_mo_files_domains.table.tmpr82.gz (45/77/fopen): adding to final database dump
+0911.117 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_mo_files_domains.table.gz (46/77/fopen): adding to final database dump
+0911.117 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_node.table.tmpr0.gz (47/77/fopen): adding to final database dump
+0911.117 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_node.table.gz (48/77/fopen): adding to final database dump
+0911.117 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_reminders.table.tmpr0.gz (49/77/fopen): adding to final database dump
+0911.117 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_reminders.table.gz (50/77/fopen): adding to final database dump
+0911.118 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_batches.table.tmpr0.gz (51/77/fopen): adding to final database dump
+0911.118 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_batches.table.gz (52/77/fopen): adding to final database dump
+0911.118 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_packages.table.tmpr162.gz (53/77/fopen): adding to final database dump
+0911.118 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_packages.table.gz (54/77/fopen): adding to final database dump
+0911.118 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_pages.table.tmpr0.gz (55/77/fopen): adding to final database dump
+0911.119 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_pages.table.gz (56/77/fopen): adding to final database dump
+0911.119 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_positions.table.tmpr0.gz (57/77/fopen): adding to final database dump
+0911.119 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_positions.table.gz (58/77/fopen): adding to final database dump
+0911.119 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_status.table.tmpr0.gz (59/77/fopen): adding to final database dump
+0911.119 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_status.table.gz (60/77/fopen): adding to final database dump
+0911.120 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_translations.table.tmpr482.gz (61/77/fopen): adding to final database dump
+0911.120 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_translations.table.gz (62/77/fopen): adding to final database dump
+0911.120 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_urls.table.tmpr0.gz (63/77/fopen): adding to final database dump
+0911.120 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_string_urls.table.gz (64/77/fopen): adding to final database dump
+0911.121 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_strings.table.tmpr3039.gz (65/77/fopen): adding to final database dump
+0911.123 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_strings.table.gz (66/77/fopen): adding to final database dump
+0911.123 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translate.table.tmpr2173.gz (67/77/fopen): adding to final database dump
+0911.129 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translate.table.gz (68/77/fopen): adding to final database dump
+0911.130 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translate_job.table.tmpr319.gz (69/77/fopen): adding to final database dump
+0911.130 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translate_job.table.gz (70/77/fopen): adding to final database dump
+0911.130 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translation_batches.table.tmpr118.gz (71/77/fopen): adding to final database dump
+0911.130 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translation_batches.table.gz (72/77/fopen): adding to final database dump
+0911.130 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translation_downloads.table.tmpr0.gz (73/77/fopen): adding to final database dump
+0911.131 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translation_downloads.table.gz (74/77/fopen): adding to final database dump
+0911.131 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translation_status.table.tmpr2298.gz (75/77/fopen): adding to final database dump
+0911.134 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translation_status.table.gz (76/77/fopen): adding to final database dump
+0911.134 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translations.table.tmpr4964.gz (77/77/fopen): adding to final database dump
+0911.135 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_icl_translations.table.gz (78/77/fopen): adding to final database dump
+0911.135 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_layerslider.table.tmpr3.gz (79/77/fopen): adding to final database dump
+0911.135 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_layerslider.table.gz (80/77/fopen): adding to final database dump
+0911.135 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_layerslider_revisions.table.tmpr0.gz (81/77/fopen): adding to final database dump
+0911.135 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_layerslider_revisions.table.gz (82/77/fopen): adding to final database dump
+0911.136 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_mclean_refs.table.tmpr369.gz (83/77/fopen): adding to final database dump
+0911.136 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_mclean_refs.table.gz (84/77/fopen): adding to final database dump
+0911.136 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_mclean_scan.table.tmpr5717.gz (85/77/fopen): adding to final database dump
+0911.137 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_mclean_scan.table.gz (86/77/fopen): adding to final database dump
+0911.137 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_redirection_404.table.tmpr527141.gz (87/77/fopen): adding to final database dump
+0911.138 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_redirection_404.table.gz (88/77/fopen): adding to final database dump
+0911.138 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_redirection_groups.table.tmpr3.gz (89/77/fopen): adding to final database dump
+0911.138 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_redirection_groups.table.gz (90/77/fopen): adding to final database dump
+0911.138 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_redirection_items.table.tmpr196.gz (91/77/fopen): adding to final database dump
+0911.138 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_redirection_items.table.gz (92/77/fopen): adding to final database dump
+0911.139 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_redirection_logs.table.tmpr18356.gz (93/77/fopen): adding to final database dump
+0911.139 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_redirection_logs.table.gz (94/77/fopen): adding to final database dump
+0911.139 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfAuditEvents.table.tmpr0.gz (95/77/fopen): adding to final database dump
+0911.139 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfAuditEvents.table.gz (96/77/fopen): adding to final database dump
+0911.140 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfblockediplog.table.tmpr2001.gz (97/77/fopen): adding to final database dump
+0911.140 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfblockediplog.table.gz (98/77/fopen): adding to final database dump
+0911.140 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfblocks7.table.tmpr0.gz (99/77/fopen): adding to final database dump
+0911.141 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfblocks7.table.gz (100/77/fopen): adding to final database dump
+0911.141 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfconfig.table.tmpr1001.gz (101/77/fopen): adding to final database dump
+0911.145 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfconfig.table.gz (102/77/fopen): adding to final database dump
+0911.145 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfcrawlers.table.tmpr1001.gz (103/77/fopen): adding to final database dump
+0911.145 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfcrawlers.table.gz (104/77/fopen): adding to final database dump
+0911.145 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wffilechanges.table.tmpr1.gz (105/77/fopen): adding to final database dump
+0911.146 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wffilechanges.table.gz (106/77/fopen): adding to final database dump
+0911.146 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wffilemods.table.tmpr12001.gz (107/77/fopen): adding to final database dump
+0911.156 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wffilemods.table.gz (108/77/fopen): adding to final database dump
+0911.156 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfhits.table.tmpr206111.gz (109/77/fopen): adding to final database dump
+0911.157 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfhits.table.gz (110/77/fopen): adding to final database dump
+0911.157 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfhoover.table.tmpr0.gz (111/77/fopen): adding to final database dump
+0911.157 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfhoover.table.gz (112/77/fopen): adding to final database dump
+0911.158 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfissues.table.tmpr3464.gz (113/77/fopen): adding to final database dump
+0911.158 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfissues.table.gz (114/77/fopen): adding to final database dump
+0911.158 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfknownfilelist.table.tmpr10478.gz (115/77/fopen): adding to final database dump
+0911.160 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfknownfilelist.table.gz (116/77/fopen): adding to final database dump
+0911.161 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wflivetraffichuman.table.tmpr1.gz (117/77/fopen): adding to final database dump
+0911.163 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wflivetraffichuman.table.gz (118/77/fopen): adding to final database dump
+0911.163 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wflocs.table.tmpr1001.gz (119/77/fopen): adding to final database dump
+0911.163 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wflocs.table.gz (120/77/fopen): adding to final database dump
+0911.163 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wflogins.table.tmpr13305.gz (121/77/fopen): adding to final database dump
+0911.164 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wflogins.table.gz (122/77/fopen): adding to final database dump
+0911.164 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfls_2fa_secrets.table.tmpr4.gz (123/77/fopen): adding to final database dump
+0911.164 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfls_2fa_secrets.table.gz (124/77/fopen): adding to final database dump
+0911.165 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfls_role_counts.table.tmpr1.gz (125/77/fopen): adding to final database dump
+0911.165 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfls_role_counts.table.gz (126/77/fopen): adding to final database dump
+0911.165 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfls_settings.table.tmpr1001.gz (127/77/fopen): adding to final database dump
+0911.165 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfls_settings.table.gz (128/77/fopen): adding to final database dump
+0911.165 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfnotifications.table.tmpr1001.gz (129/77/fopen): adding to final database dump
+0911.166 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfnotifications.table.gz (130/77/fopen): adding to final database dump
+0911.166 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfpendingissues.table.tmpr0.gz (131/77/fopen): adding to final database dump
+0911.166 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfpendingissues.table.gz (132/77/fopen): adding to final database dump
+0911.166 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfreversecache.table.tmpr1001.gz (133/77/fopen): adding to final database dump
+0911.166 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfreversecache.table.gz (134/77/fopen): adding to final database dump
+0911.167 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfsecurityevents.table.tmpr0.gz (135/77/fopen): adding to final database dump
+0911.167 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfsecurityevents.table.gz (136/77/fopen): adding to final database dump
+0911.167 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfsnipcache.table.tmpr0.gz (137/77/fopen): adding to final database dump
+0911.167 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfsnipcache.table.gz (138/77/fopen): adding to final database dump
+0911.167 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfstatus.table.tmpr47343.gz (139/77/fopen): adding to final database dump
+0911.168 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfstatus.table.gz (140/77/fopen): adding to final database dump
+0911.168 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wftrafficrates.table.tmpr1.gz (141/77/fopen): adding to final database dump
+0911.168 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wftrafficrates.table.gz (142/77/fopen): adding to final database dump
+0911.168 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfwaffailures.table.tmpr0.gz (143/77/fopen): adding to final database dump
+0911.169 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_wfwaffailures.table.gz (144/77/fopen): adding to final database dump
+0911.169 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_indexable.table.tmpr4.gz (145/77/fopen): adding to final database dump
+0911.169 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_indexable.table.gz (146/77/fopen): adding to final database dump
+0911.169 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_indexable_hierarchy.table.tmpr1.gz (147/77/fopen): adding to final database dump
+0911.170 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_indexable_hierarchy.table.gz (148/77/fopen): adding to final database dump
+0911.170 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_migrations.table.tmpr19.gz (149/77/fopen): adding to final database dump
+0911.170 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_migrations.table.gz (150/77/fopen): adding to final database dump
+0911.170 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_primary_term.table.tmpr0.gz (151/77/fopen): adding to final database dump
+0911.170 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_primary_term.table.gz (152/77/fopen): adding to final database dump
+0911.171 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_seo_links.table.tmpr0.gz (153/77/fopen): adding to final database dump
+0911.171 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db-table-wp_yoast_seo_links.table.gz (154/77/fopen): adding to final database dump
+0911.176 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db.gz: finished writing out complete database file (8312.2 KB)
+0911.302 (0) Total database tables backed up: 77 (backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db.gz, size: 8511772, sha1: 846cbe3b31eec13f0a8625540fd37fb0e87f4fdb, sha256: 3b30a35665ea729ac1e6a6e75b34219a62ce62b53dda3fd1d7a268d5700772ab)
+0911.311 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-uploads.zip: uploads: This file has already been successfully uploaded
+0911.311 (0) backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db.gz: db: This file has not yet been successfully uploaded: will queue
+0911.312 (0) Saving backup history. Total backup size: 11.2 MB
+0911.314 (0) Requesting upload of the files that have not yet been successfully uploaded (1)
+0911.315 (0) Cloud backup selection (1/1): dropbox with instance (1/1) (last)
+0911.317 (0) Beginning dispatch of backup to remote (dropbox) (instance identifier s-06a5df1691236d8cf071855a843c1d6c)
+0911.317 (0) Dropbox: begin cloud upload (using API version 2 with OAuth v2 token)
+0911.319 (0) Dropbox: access gained; setting chunk size to: 7680 KB
+0911.627 (0) Dropbox: quota usage: used=119958.4 MB, total=2101888 MB, available=1981929.6 MB
+0911.631 (0) Dropbox: Attempt to upload: backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db.gz to: backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db.gz
+0914.302 (0) The time we have been running (914.3) is approaching the resumption interval (942) - increasing resumption interval to 945
+0914.305 (0) Dropbox chunked upload: 92.4 % uploaded (pid_upload_session:ABIIgIQjbmB5pcDI7DBwZ889fMnASzIsMxplm0kpycABrV0pPw, 7864320, 10240 KB)
+0916.260 (0) The time we have been running (916.3) is approaching the resumption interval (945) - increasing resumption interval to 947
+0916.264 (0) Dropbox chunked upload: 100 % uploaded (pid_upload_session:ABIIgIQjbmB5pcDI7DBwZ889fMnASzIsMxplm0kpycABrV0pPw, 8511772, 10240 KB)
+0917.608 (0) Recording as successfully uploaded: backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db.gz
+0917.619 (0) Deleting local file: backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db.gz: OK
+0917.621 (0) Dropbox: File upload success (backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-db.gz): 8312 KB in 5s (1387 KB/s)
+0917.629 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=1, retain_db=2
+0917.635 (0) Number of backup sets in history: 3; groups (db): 1
+0917.638 (0) Examining (for databases) backup set with group_id=0, nonce=8142e02db8dd, datestamp=1732006577 (Nov 19 2024 08:56:17)
+0917.639 (0) This backup set is the backup set just made, so will not be deleted.
+0917.639 (0) Examining (for databases) backup set with group_id=0, nonce=4299dbc378fc, datestamp=1731892166 (Nov 18 2024 01:09:26)
+0917.640 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0917.641 (0) Examining (for databases) backup set with group_id=0, nonce=a83868f1a071, datestamp=1731805866 (Nov 17 2024 01:11:06)
+0917.642 (0) 1731805866: db: this set includes a database (backup_2024-11-17-0211_Rubis_mcnat_a83868f1a071-db.gz); db count is now 2
+0917.642 (0) 1731805866: db: over retain limit (2); will delete this database
+0917.644 (0) Dropbox: request deletion: backup_2024-11-17-0211_Rubis_mcnat_a83868f1a071-db.gz
+0917.938 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0917.941 (0) Dropbox: deletion failed
+0917.949 (0) The time we have been running (917.9) is approaching the resumption interval (947) - increasing resumption interval to 948
+0917.953 (0) This backup set is now empty; will remove from history
+0917.954 (0) Corresponding log file (log.a83868f1a071.txt) not found - must have already been deleted
+0917.955 (0) Number of backup sets in history: 2; groups (files): 1
+0917.957 (0) Examining (for files) backup set with nonce=8142e02db8dd, datestamp=1732006577 (Nov 19 2024 08:56:17)
+0917.957 (0) This backup set is the backup set just made, so will not be deleted.
+0917.959 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0917.960 (0) Examining (for files) backup set with nonce=4299dbc378fc, datestamp=1731892166 (Nov 18 2024 01:09:26)
+0917.960 (0) uploads: over retain limit (1); will delete this file entity
+0917.962 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads.zip
+0918.286 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0918.288 (0) Dropbox: deletion failed
+0918.289 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads2.zip
+0918.606 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0918.609 (0) Dropbox: deletion failed
+0918.610 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads3.zip
+0918.888 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0918.893 (0) Dropbox: deletion failed
+0918.894 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads4.zip
+0919.174 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0919.177 (0) Dropbox: deletion failed
+0919.178 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads5.zip
+0919.452 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0919.455 (0) Dropbox: deletion failed
+0919.457 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads6.zip
+0919.776 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0919.779 (0) Dropbox: deletion failed
+0919.780 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads7.zip
+0920.072 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0920.075 (0) Dropbox: deletion failed
+0920.077 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads8.zip
+0920.352 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0920.355 (0) Dropbox: deletion failed
+0920.357 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads9.zip
+0920.634 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0920.637 (0) Dropbox: deletion failed
+0920.638 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads10.zip
+0920.935 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0920.937 (0) Dropbox: deletion failed
+0920.938 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads11.zip
+0921.202 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0921.203 (0) Dropbox: deletion failed
+0921.204 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads12.zip
+0921.477 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0921.479 (0) Dropbox: deletion failed
+0921.481 (0) Dropbox: request deletion: backup_2024-11-18-0209_Rubis_mcnat_4299dbc378fc-uploads13.zip
+0921.766 (0) Dropbox: path_lookup/not_found/ (line: 294, file: /Users/alexis/Sites/thomas/rubis-mecenat/wp-content/plugins/updraftplus/includes/Dropbox2/OAuth/Consumer/Curl.php)
+0921.770 (0) Dropbox: deletion failed
+0921.782 (0) The time we have been running (921.8) is approaching the resumption interval (948) - increasing resumption interval to 952
+0921.787 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0921.789 (0) Retain: saving new backup history (sets now: 2) and finishing retain operation
+0921.797 (0) Resume backup (8142e02db8dd, 0): finish run
+0921.802 (0) Decremented the semaphore (fd) by 1
+0921.805 (0) Semaphore (fd) unlocked
+0921.806 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0921.818 (0) Deleting zip manifest (backup_2024-11-19-0956_Rubis_mcnat_8142e02db8dd-uploads.zip.list.tmp)
+0921.821 (0) No email will/can be sent - the user has not configured an email address.
+0921.823 (0) The backup succeeded and is now complete
