@@ -1,0 +1,58 @@
+@use "sass:map";
+
+/*--------------------------------------------------------------
+Breakpoints
+--------------------------------------------------------------*/
+
+$breakpoints: (
+    tiny:   0px,
+    small:  320px,
+    medium: 920px,
+    large:  1200px,
+    wide:   1600px
+);
+
+/*--------------------------------------------------------------
+Responsive
+--------------------------------------------------------------*/
+
+@mixin min($point) {
+    @media (min-width: map.get($breakpoints, $point)) { @content; }
+}
+
+@mixin max($point) {
+    @media (max-width: map.get($breakpoints, $point)) { @content; }
+}
+
+@mixin min-max($min, $max) {
+    @media (min-width: map.get($breakpoints, $min)) and (max-width: map.get($breakpoints, $max)) { @content; }
+}
+
+@mixin touchDevice() {
+    @media (hover: none) { @content; }
+}
+
+@mixin hoverDevice() {
+    @media (hover: hover) { @content; }
+}
+
+/*--------------------------------------------------------------
+Wrapper
+--------------------------------------------------------------*/
+
+@mixin wrapper($size: null) {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    width: 94%;
+
+    @if $size == small {
+        max-width: 800px;
+    }
+}
+
+@mixin wrapper-padding {
+    max-width: var(--max-width);
+    padding-left: 5%;
+    padding-right: 5%;
+}

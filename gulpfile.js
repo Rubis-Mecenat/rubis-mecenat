@@ -10,26 +10,28 @@ const sourcemaps = require('gulp-sourcemaps');
 
 
 // VARIABLES
-var theme_folder = './wp-content/themes/rubismecenat/';
+var app_folder = './';
+var theme_folder = app_folder + 'wp-content/themes/rubismecenat/';
 var assets_folder = theme_folder + 'assets/';
 
 var jsfolder = assets_folder + 'js/';
 var mainjs = jsfolder + 'main.js';
 var alljs = [mainjs];
 
-var sassfolder = assets_folder + 'stylesheets/';
+var sassfolder = assets_folder + 'styles/';
 var sassfiles = sassfolder + '**/*.scss';
+var sassMain = sassfolder + 'style.scss';
 
 
 
 // task2 : compiler les fichiers dans le dossier scss => style.css
 function sassMainTask(){
     const flags = {outputStyle: 'compressed'};
-    return src( sassfiles )
+    return src( sassMain )
     .pipe(sourcemaps.init())
     .pipe(sass(flags).on('error', sass.logError))
     .pipe(sourcemaps.write('./maps'))
-    .pipe(rename("main.css"))
+    .pipe(rename("style.css"))
     .pipe(dest(assets_folder));
 }
 

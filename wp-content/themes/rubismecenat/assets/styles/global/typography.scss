@@ -1,0 +1,184 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+
+/*--------------------------------------------------------------
+Weights
+--------------------------------------------------------------*/
+
+$font-extralight: 200;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+$font-black: 900;
+
+/*--------------------------------------------------------------
+Font face
+--------------------------------------------------------------*/
+
+/* Jakarta */
+
+// @font-face {
+//     font-family: 'Jarkata';
+//     src: url('fonts/jakarta/PlusJakartaSans-ExtraLight.woff2') format('woff2'),
+//          url('fonts/jakarta/PlusJakartaSans-ExtraLight.ttf') format('truetype');
+//     font-weight: 200;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Jarkata';
+//     src: url('fonts/jakarta/PlusJakartaSans-Regular.woff2') format('woff2'),
+//          url('fonts/jakarta/PlusJakartaSans-Regular.ttf') format('truetype');
+//     font-weight: 400;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Jarkata';
+//     src: url('fonts/jakarta/PlusJakartaSans-Medium.woff2') format('woff2'),
+//          url('fonts/jakarta/PlusJakartaSans-Medium.ttf') format('truetype');
+//     font-weight: 500;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Jarkata';
+//     src: url('fonts/jakarta/PlusJakartaSans-SemiBold.woff2') format('woff2'),
+//          url('fonts/jakarta/PlusJakartaSans-SemiBold.ttf') format('truetype');
+//     font-weight: 600;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Jarkata';
+//     src: url('fonts/jakarta/PlusJakartaSans-Bold.woff2') format('woff2'),
+//          url('fonts/jakarta/PlusJakartaSans-Bold.ttf') format('truetype');
+//     font-weight: 700;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// /* Gravity */
+
+// @font-face {
+//     font-family: 'Gravity';
+//     src: url('fonts/gravity/gravity-black-normal-ae0c9907.woff2') format('woff2'),
+//          url('fonts/gravity/gravity-black-normal-ae0c9907.ttf') format('truetype');
+//     font-weight: 100 900;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Gravity';
+//     src: url('fonts/gravity/ABCGravity-XCompressed.woff2') format('woff2'),
+//          url('fonts/gravity/ABCGravity-XCompressed.ttf') format('truetype');
+//     font-weight: 100 900;
+//     font-style: normal;
+// }
+
+/*--------------------------------------------------------------
+Headings
+--------------------------------------------------------------*/
+
+h1, .h1, h2, .h2, h3, .h3 {
+    font-family: "Gravity", sans-serif;
+    font-variation-settings: "wght" 900, "wdth" 1.75;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+h1, .h1 {
+    font-size: 9.6rem;
+    letter-spacing: 1.68px;
+    line-height: 80px;
+    @include max(medium) {
+        font-size: 6.4rem;
+    }
+}
+
+h2, .h2 {
+    font-size: 8rem;
+    font-weight: $font-black;
+    line-height: .9;
+    @include max(medium) {
+        font-size: 5.4rem;
+    }
+}
+
+h3, .h3 {
+    font-size: 4rem;
+    line-height: 1;
+    letter-spacing: .02em;
+    @include max(medium) {
+        font-size: 3rem;
+    }
+}
+
+h4, .h4 {
+    font-size: 2rem;
+    font-family: inherit;
+    text-transform: none;
+}
+
+
+/*--------------------------------------------------------------
+Others
+--------------------------------------------------------------*/
+
+p, .p {
+    font-size: 1.8rem;
+    font-weight: $font-extralight;
+    line-height: 1.6;
+    
+    @include max(medium) {
+        font-size: 1.6rem;
+    }
+
+    &.small {
+        font-size: 1.4rem;
+    }
+
+    &.big {
+        font-size: 2.4rem;
+        @include max(medium) {
+            font-size: 2rem;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+
+.menu-item {
+    white-space: nowrap;
+    font-size: 1.5rem;
+    font-weight: $font-bold;
+
+    &:hover, &.e-open {
+        text-decoration: underline;
+    }
+}
+
+
+.menu-item2 {
+    white-space: nowrap;
+    font-size: 1.3rem;
+    font-weight: $font-extralight;
+    text-transform: uppercase;
+    line-height: 1.8;
+
+    &:hover {
+        opacity: .8;
+        font-weight: 600;
+    }
+}

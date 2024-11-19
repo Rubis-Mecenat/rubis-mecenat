@@ -96,7 +96,7 @@ add_action( 'after_setup_theme', 'rubismecenat_setup' );
 function rubismecenat_scripts() {
 
 	// ENQUEUE STYLES
-	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/main.css', array(), _S_VERSION );
+	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/style.css', array(), _S_VERSION );
 
 	// ENQUEUE SCRIPTS
 	wp_enqueue_script( 'rubismecenat-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _S_VERSION, true );
