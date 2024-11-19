@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
+ * Template Name: Page d'accueil
  *
  * @package rubismecenat
  */
@@ -13,8 +13,6 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
-
-			get_template_part( 'Components/content', 'page' );
 
 			get_template_part('Components/content', 'flexible'); 
 
