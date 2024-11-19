@@ -1,6 +1,7 @@
 <?php
 /**
- * The template for displaying all pages
+ *
+ * Template Name: Page Programmes
  *
  * @package rubismecenat
  */

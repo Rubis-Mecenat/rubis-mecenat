@@ -1,10 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
- *
  * Template Name: Archives posts
- * 
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package rubismecenat
  */
