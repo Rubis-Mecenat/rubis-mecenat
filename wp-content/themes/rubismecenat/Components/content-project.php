@@ -1,8 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * Template part for displaying project
  *
  * @package rubismecenat
  */
@@ -12,39 +10,39 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-        <?php the_field('project_artiste'); ?>
+        <?php rubismecenat_post_thumbnail(); ?>
+        <h1 class="entry-title"><?php the_title(); ?></h1>
+        <p><?php the_field('project_subtitle'); ?></p>
+        <p><?php the_field('project_place'); ?></p>
+        <p><?php the_field('project_artiste'); ?></p>
 	</header><!-- .entry-header -->
 
-	<?php rubismecenat_post_thumbnail(); ?>
 
-	<div class="entry-content">
-		<?php the_content(); ?>
+	<div class="entry-content grid">
 
-        <div>
-            <?php the_field('project_practical'); ?>
+        <div class="m-6col">
+            <?php the_content(); ?>
         </div>
 
-        <div>
-            <?php 
-                $presskit = get_field('project_presskit');
-                if( $presskit ): ?>
-                    <a href="<?php echo $presskit['url']; ?>" target="_blank">
-                        <?php echo $presskit['filename']; ?>
-                    </a>
-            <?php endif; ?>
+        <div class="m-6col">
+            <div>
+                <?php the_field('project_practical'); ?>
+            </div>
+
+            <div>
+                <?php 
+                    $presskit = get_field('project_presskit');
+                    if( $presskit ): ?>
+                        <a href="<?php echo $presskit['url']; ?>" target="_blank">
+                            <?php echo $presskit['filename']; ?>
+                        </a>
+                <?php endif; ?>
+            </div>
+            
         </div>
 
         
-        <div>
-            <?php 
-                $artist = get_field('project_artists');
-                $args = array(
-                    'artist'   => $artist
-                );
-                get_template_part('Components/Modules/Module', 'Artist', $args);
-            ?>
-        </div>
+        <?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('project_artists') )); ?>
        
 
 	</div><!-- .entry-content -->

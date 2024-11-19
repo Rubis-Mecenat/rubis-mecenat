@@ -165,6 +165,25 @@ if (have_rows( $flex_content )) :
 
 
 
+
+        /*
+         * CAROUSEL HORIZONTAL 
+         * (Transmettre...)
+         */
+        elseif (get_row_layout() == 'mod_featuredProjects') :
+
+            $title = get_sub_field('mod_title');
+            $relations = get_sub_field('mod_relations');
+
+            $args = array(
+                'title'   => $title,
+                'relations'   => $relations
+            );
+
+            get_template_part('Components/Modules/Module', 'FeaturedProjects', $args);
+
+
+
         endif;
 
 

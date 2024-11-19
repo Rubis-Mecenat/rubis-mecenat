@@ -366,6 +366,69 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_673cb1b921761": {
+                    "key": "layout_673cb1b921761",
+                    "name": "mod_featuredProjects",
+                    "label": "Module de mise en avant de projets",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_673cb1d621767",
+                            "label": "Titre du module",
+                            "name": "mod_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_673cb1de21768",
+                            "label": "Projets à afficher",
+                            "name": "mod_relations",
+                            "aria-label": "",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "project"
+                            ],
+                            "post_status": "",
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
+                            "return_format": "object",
+                            "min": "",
+                            "max": "",
+                            "allow_in_bindings": 0,
+                            "elements": "",
+                            "bidirectional": 0,
+                            "bidirectional_target": []
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -405,5 +468,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732030468
+    "modified": 1732030965
 }

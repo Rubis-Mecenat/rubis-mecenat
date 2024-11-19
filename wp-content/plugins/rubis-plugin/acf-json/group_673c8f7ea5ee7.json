@@ -3,9 +3,72 @@
     "title": "Détails du projet",
     "fields": [
         {
+            "key": "field_673cb226c9531",
+            "label": "Sous titre \/ Tagline",
+            "name": "project_subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_673cb3aef0837",
+            "label": "Date du projet",
+            "name": "project_date",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_673c8f7e7f8d5",
             "label": "Artiste",
             "name": "project_artiste",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_673cb0d486224",
+            "label": "Lieu du projet",
+            "name": "project_place",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -111,5 +174,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732025957
+    "modified": 1732031435
 }
