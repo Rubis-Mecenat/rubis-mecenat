@@ -1,11 +1,11 @@
 <?php
-$title = $args['title'];
-$posts = $args['relations'];
-
+    $title = $args['title'];
+    $posts = $args['relations'];
+    $bg = $args['bg'];
 ?>
 
 
-<section class="mod_carousel">
+<section class="mod_carousel <?php echo $bg ? '-bg' : ''; ?>">
 
     <header class="mod_title ">
         <h2 class=" ">
@@ -16,7 +16,7 @@ $posts = $args['relations'];
     <div class="mod_relations">
         <?php if ($posts) : ?>
 
-            <div class="">
+            <div class="flex">
 
                 <?php foreach ($posts as $post) : setup_postdata($post); ?>
                  

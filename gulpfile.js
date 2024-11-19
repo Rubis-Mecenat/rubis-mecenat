@@ -7,8 +7,6 @@ const rename = require("gulp-rename");
 const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 
-sass.compiler = require("sass");
-
 
 
 // VARIABLES

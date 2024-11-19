@@ -62,6 +62,20 @@ if (have_rows( $flex_content )) :
          * ACTUALITES BIG
          * (cf. Accueil)
          */
+        elseif (get_row_layout() == 'mod_artist') :
+            $artist = get_sub_field('mod_artistPublication');
+
+            $args = array(
+                'artist'   => $artist
+            );
+
+            get_template_part('Components/Modules/Module', 'Artist', $args);
+
+
+        /*
+         * ACTUALITES BIG
+         * (cf. Accueil)
+         */
         elseif (get_row_layout() == 'mod_news') :
             $publication = get_sub_field('mod_publication');
             $title = get_sub_field('mod_title');
@@ -74,7 +88,6 @@ if (have_rows( $flex_content )) :
             get_template_part('Components/Modules/Module', 'News', $args);
 
 
-
         /*
          * LISTE DE POSTS 
          * (actualités, événements, etc.)
@@ -82,6 +95,7 @@ if (have_rows( $flex_content )) :
         elseif (get_row_layout() == 'mod_carousel') :
 
             $title = get_sub_field('mod_title');
+            $bg = get_sub_field('mod_bg');
             $auto = get_sub_field('mod_auto');
             $postsperpage = get_sub_field('mod_postsperpage');
             $posttype = get_sub_field('mod_posttype');
@@ -122,7 +136,8 @@ if (have_rows( $flex_content )) :
 
             $args = array(
                 'title'   => $title,
-                'relations'   => $relations
+                'relations'   => $relations,
+                'bg'   => $bg,
             );
 
             get_template_part('Components/Modules/Module', 'Carousel', $args);
