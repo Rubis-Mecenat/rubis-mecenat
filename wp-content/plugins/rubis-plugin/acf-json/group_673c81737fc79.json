@@ -245,6 +245,43 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_673cb79d20765": {
+                    "key": "layout_673cb79d20765",
+                    "name": "mod_artist",
+                    "label": "Module Artiste",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_673cb79d2076b",
+                            "label": "Artiste à afficher",
+                            "name": "mod_publication",
+                            "aria-label": "",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "artist"
+                            ],
+                            "post_status": "",
+                            "taxonomy": "",
+                            "return_format": "object",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "bidirectional": 0,
+                            "ui": 1,
+                            "bidirectional_target": []
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_673c8a6ea18c5": {
                     "key": "layout_673c8a6ea18c5",
                     "name": "mod_visualgrid",
@@ -468,5 +505,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732030965
+    "modified": 1732032448
 }

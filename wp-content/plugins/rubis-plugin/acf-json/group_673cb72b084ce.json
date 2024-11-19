@@ -1,0 +1,67 @@
+{
+    "key": "group_673cb72b084ce",
+    "title": "Détail de la vidéo",
+    "fields": [
+        {
+            "key": "field_673cb72bc3ff9",
+            "label": "Player Vimeo",
+            "name": "video_player",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "par ex. : https:\/\/player.vimeo.com\/video\/843829550?autoplay=1",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_673cb7647c1f2",
+            "label": "Artiste",
+            "name": "video_artist",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "video"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1732032366
+}

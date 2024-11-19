@@ -1,9 +1,6 @@
 <?php
     $title = $args['title'];
     $publication = $args['publication'];
-
-    var_dump($publication);
-
 ?>
 
 

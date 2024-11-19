@@ -59,11 +59,11 @@ if (have_rows( $flex_content )) :
 
             
         /*
-         * ACTUALITES BIG
+         * ARTIST BIG
          * (cf. Accueil)
          */
         elseif (get_row_layout() == 'mod_artist') :
-            $artist = get_sub_field('mod_artistPublication');
+            $artist = get_sub_field('mod_publication');
 
             $args = array(
                 'artist'   => $artist
@@ -86,6 +86,8 @@ if (have_rows( $flex_content )) :
             );
 
             get_template_part('Components/Modules/Module', 'News', $args);
+
+
 
 
         /*

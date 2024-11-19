@@ -2,8 +2,6 @@
     $title = $args['title'];
     $firstContent = $args['firstContent'];
     $posts = $args['relations'];
-
-    var_dump($posts);
 ?>
 
 
