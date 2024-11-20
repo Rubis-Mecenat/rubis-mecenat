@@ -1,5 +1,6 @@
 @use './global/colors' as *;
 
+
 .site-header {
     position: fixed;
     top: 0;
@@ -8,49 +9,49 @@
     background-color: $white;
     border-bottom: 1.5px solid $black;
 
-    #primary-menu {
-        align-items: stretch;
-        height: 100%;
-
+    .main-navigation-2 {
+        border-left: 1.5px solid $black;
+        border-right: 1.5px solid $black;
+        
         li a {
-            text-decoration: none;
-            padding: 40px;
-            font-size: 2rem;
-            
+            font-size: 1.6rem;
         }
+    }
 
-        li {
-            display: flex;
-            align-items: center;
+    .menu li a {
+        text-decoration: none;
+        padding: 40px;
+        white-space: nowrap;
+    }
 
-            &:nth-last-child(-n + 2) {
-                a {
-                    font-size: 1.6rem;
-                }
-            }
+    li {
+        display: flex;
+        align-items: center;
 
-            &:last-child {
-                border-right: 1.5px solid $black;
-            }
-            &:nth-last-child(2) {
-                border-left: 1.5px solid $black;
-            }
+        a {
+            font-size: 2rem;
         }
     }
 
     .search {
         border-right: 1.5px solid $black;
-        padding: 40px 25px;
+        a {
+            display: block;
+            padding: 30px 25px;
+        }
+
     }
 
-    .lang {
+    .lang_menu {
         padding: 40px 0 40px 40px;
 
         a {
             color: $gray-mid;
             text-decoration: none;
             text-transform: uppercase;
+            font-size: 1.6rem;
         }
+
         .current-lang a {
             color: $black;
 

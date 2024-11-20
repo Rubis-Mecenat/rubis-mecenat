@@ -33,28 +33,30 @@
 				<?php get_template_part('svg/svg', 'rubis-mecenat'); ?>
 			</a>
 
-			<nav id="site-navigation" class="main-navigation">
+			
+			
+			<div class="flex">
+				
+				<nav id="site-navigation" class="main-navigation-1 menu">
 					<?php
 						wp_nav_menu(
 							array(
 								'theme_location' => 'menu-primary-1',
 								'menu_id'        => 'primary-menu',	
-								'menu_class' => 'flex',
+								'menu_class' => 'primary-menu-1 flex h-full',
 								'container' => false,
 							)
 						);
 					?>
-			</nav><!-- #site-navigation -->
+				</nav><!-- #site-navigation -->
 
-
-			<div class="flex">
-				<nav id="site-navigation" class="main-navigation">
+				<nav id="site-navigation" class="main-navigation-2 menu">
 					<?php
 						wp_nav_menu(
 							array(
 								'theme_location' => 'menu-primary-2',
 								'menu_id'        => 'primary-menu',	
-								'menu_class' => 'flex',
+								'menu_class' => 'primary-menu-2 flex h-full',
 								'container' => false,
 							)
 						);
@@ -67,8 +69,8 @@
 					</a>
 				</nav>
 
-				<nav class="lang flex center-y">
-					<ul id="" class="lang_menu flex gap-xs">
+				<nav class="lang_menu flex center-y">
+					<ul id="" class="flex gap-xs">
 						<?php pll_the_languages(array( 'display_names_as' => 'slug') );?>
 					</ul>
 				</nav>
