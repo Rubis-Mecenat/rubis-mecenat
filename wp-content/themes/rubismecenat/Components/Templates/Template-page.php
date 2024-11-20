@@ -5,19 +5,36 @@
  * @package rubismecenat
  */
 
+	$head_design = get_field('head_design');
 ?>
+
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if( ! get_field('hide_title')) : ?>
+	<?php if( $head_design === 'simple' ) : ?>
+		<header class="entry-header">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			<?php the_excerpt(); ?>
+		</header><!-- .entry-header -->
+
+
+	<?php elseif( $head_design === 'full' ) : ?>
+
 		<header class="entry-header">
 			<?php rubismecenat_post_thumbnail(); ?>
 
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+			<?php the_excerpt(); ?>
+
 		</header><!-- .entry-header -->
+
+	<?php elseif( $head_design === 'notitle' ) : ?>
+
 	<?php endif; ?>
 
 
+	
 	<div class="entry-content">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
