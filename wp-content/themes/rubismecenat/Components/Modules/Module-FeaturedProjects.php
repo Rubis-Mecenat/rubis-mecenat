@@ -4,11 +4,11 @@
 ?>
 
 
-<section class="mod_carousel <?php echo $bg ? '-bg' : ''; ?>">
+<section class="mod_featured-projects <?php echo $bg ? '-bg' : ''; ?>">
 
     <div class="">
 
-        <header class=" mod_title grid">
+        <header class="mod_title grid">
             <div class="m-6col">
                 <h2 class="">
                     <?php echo $title; ?>
@@ -17,7 +17,7 @@
         </header>
 
         <?php if ($posts) : ?>
-            <div class="grid">
+            <div class="grid gap-m">
                 <?php foreach ($posts as $post) : setup_postdata($post); ?>
                         
                     <div class="m-4col">

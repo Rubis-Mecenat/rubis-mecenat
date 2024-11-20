@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header grid">
+	<header class="entry-header grid gap-xl">
 
         <div class="entry-content m-6col">
             <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>

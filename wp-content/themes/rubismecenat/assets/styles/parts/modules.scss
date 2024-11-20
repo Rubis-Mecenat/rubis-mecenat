@@ -27,7 +27,14 @@
 
     img {
         aspect-ratio: 6/7;
+        object-fit: cover;
+        object-position: center;
         width: 100%;
         height: 100%;
     }
+}
+
+.mod_featured-projects {
+    margin: 100px 0;
+    border: 50px solid $accent-color;
 }
