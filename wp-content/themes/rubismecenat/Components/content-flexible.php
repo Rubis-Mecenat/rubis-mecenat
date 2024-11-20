@@ -224,6 +224,26 @@ if (have_rows( $flex_content )) :
 
 
 
+        /*
+         * EQUIPE / CONTACTS
+         * (cf. Le Fonds / Espace Presse)
+         */
+        elseif (get_row_layout() == 'mod_contacts') :
+
+            $title = get_sub_field('mod_title');
+            $contacts = get_sub_field('mod_contacts');
+
+            $args = array(
+                'title'   => $title,
+                'contacts'   => $contacts
+            );
+
+            get_template_part('Components/Modules/Module', 'Contacts', $args);
+
+
+
+
+
 
 
         endif;
