@@ -1,0 +1,13 @@
+
+@use './global/colors' as *;
+
+
+
+.search-form {
+    input {
+        background-color: $gray-light;
+        border-radius: 30px;
+        border: none;
+        padding: 20px;
+    }
+}

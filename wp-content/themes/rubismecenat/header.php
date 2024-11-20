@@ -62,9 +62,9 @@
 				</nav><!-- #site-navigation -->
 
 				<nav class="search">
-					<button>
+					<a href="/?s=">
 						<?php get_template_part('svg/svg', 'search'); ?>
-					</button>
+					</a>
 				</nav>
 
 				<nav class="lang flex center-y">
