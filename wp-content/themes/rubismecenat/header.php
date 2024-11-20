@@ -33,12 +33,26 @@
 				<?php get_template_part('svg/svg', 'rubis-mecenat'); ?>
 			</a>
 
+			<nav id="site-navigation" class="main-navigation">
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-primary-1',
+								'menu_id'        => 'primary-menu',	
+								'menu_class' => 'flex',
+								'container' => false,
+							)
+						);
+					?>
+			</nav><!-- #site-navigation -->
+
+
 			<div class="flex">
 				<nav id="site-navigation" class="main-navigation">
 					<?php
 						wp_nav_menu(
 							array(
-								'theme_location' => 'menu-1',
+								'theme_location' => 'menu-primary-2',
 								'menu_id'        => 'primary-menu',	
 								'menu_class' => 'flex',
 								'container' => false,
