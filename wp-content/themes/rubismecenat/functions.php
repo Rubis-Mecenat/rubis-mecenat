@@ -50,7 +50,11 @@ function rubismecenat_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'rubismecenat' ),
+			'menu-primary-1' => esc_html__( 'Menu Header gauche', 'rubismecenat' ),
+			'menu-primary-2' => esc_html__( 'Menu Header droit', 'rubismecenat' ),
+			'menu-footer-1' => esc_html__( 'Menu Footer gauche', 'rubismecenat' ),
+			'menu-footer-2' => esc_html__( 'Menu Footer droit', 'rubismecenat' ),
+			'menu-footer-last' => esc_html__( 'Menu Footer Mentions', 'rubismecenat' ),
 		)
 	);
 

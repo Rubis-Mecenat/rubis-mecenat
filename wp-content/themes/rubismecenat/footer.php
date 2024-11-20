@@ -12,18 +12,52 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'rubismecenat' ) ); ?>">
+		<div class="grid">
+
+			<div class="m-6col">
+				<h3>Newsletter</h3>
+				<p>Recevez l’actualité de nos actions artistiques et culturelles</p>
+
+				<form>
+					<input type="text" name="email">
+				</form>
+
+				<p>Nous contacter</p>
+
+
 				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'rubismecenat' ), 'WordPress' );
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-footer-last',
+							'menu_id'        => 'footer-menu',
+						)
+					);
 				?>
-			</a>
-			<span class="sep"> | </span>
+
+			</div>
+
+			<div class="m-3col">
 				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'rubismecenat' ), 'rubismecenat', '<a href="https://thomasflorentin.net/">Thomas Florentin</a>' );
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-footer-1',
+							'menu_id'        => 'footer-menu',
+						)
+					);
 				?>
+			</div>
+
+			<div class="m-3col">
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-footer-2',
+							'menu_id'        => 'footer-menu',
+						)
+					);
+				?>
+			</div>
+
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
