@@ -27,7 +27,6 @@ if (have_rows( $flex_content )) :
 
 
 
-
         /*
          * CITATION (BIG TYPO) 
          * (cf. Accueil)
@@ -42,6 +41,7 @@ if (have_rows( $flex_content )) :
             get_template_part('Components/Modules/Module', 'Quote', $args);
 
 
+            
         /*
          * CITATION (BIG TYPO) 
          * (cf. Accueil)
