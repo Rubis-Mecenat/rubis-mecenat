@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page Programmes
+ * Template Name: Espace Presse
  *
  * @package rubismecenat
  */
@@ -14,7 +14,9 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'Components/Templates/Template', 'programmes' );
+			get_template_part( 'Components/Templates/Template', 'presse' );
+
+			get_template_part('Components/content', 'flexible'); 
 
 		endwhile; // End of the loop.
 		?>
@@ -22,4 +24,5 @@ get_header();
 	</main><!-- #main -->
 
 <?php
+get_sidebar();
 get_footer();

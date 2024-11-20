@@ -207,6 +207,23 @@ if (have_rows( $flex_content )) :
             get_template_part('Components/Modules/Module', 'ContentSplit', $args);
 
 
+        /*
+         * DOSSIERS DE PRESSE
+         * (cf. Espace presse)
+         */
+        elseif (get_row_layout() == 'mod_presskits') :
+
+            $presskits = get_sub_field('presskits');
+
+            $args = array(
+                'presskits'   => $presskits
+            );
+
+            get_template_part('Components/Modules/Module', 'Presskits', $args);
+
+
+
+
 
 
         endif;
