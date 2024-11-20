@@ -1,3 +1,5 @@
+@use "./global/colors" as *;
+
 /*------------------------------------*\
     VISUEL TEXT
 \*------------------------------------*/
@@ -13,4 +15,19 @@
 .mod_quote {
     margin: 100px 0;
     text-align: center;
+}
+
+.mod_news {
+    margin: 100px 0;
+    border: 50px solid $accent-color;
+
+    .mod_publication {
+        padding: 70px;
+    }
+
+    img {
+        aspect-ratio: 6/7;
+        width: 100%;
+        height: 100%;
+    }
 }
