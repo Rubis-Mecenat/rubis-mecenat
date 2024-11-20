@@ -1,0 +1,49 @@
+@use './global/colors' as *;
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $white;
+    border-bottom: 1.5px solid $black;
+
+    #primary-menu {
+        align-items: stretch;
+        height: 100%;
+
+        li a {
+            text-decoration: none;
+            padding: 40px;
+            font-size: 2rem;
+            
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+
+            &:nth-last-child(-n + 2) {
+                a {
+                    font-size: 1.6rem;
+                }
+            }
+
+            &:last-child {
+                border-right: 1.5px solid $black;
+            }
+            &:nth-last-child(2) {
+                border-left: 1.5px solid $black;
+            }
+        }
+    }
+
+    .search {
+        border-right: 1.5px solid $black;
+        padding: 40px 25px;
+    }
+
+    .lang {
+        padding: 40px 0 40px 40px;
+    }
+}

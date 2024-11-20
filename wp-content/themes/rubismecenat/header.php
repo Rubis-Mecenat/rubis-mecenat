@@ -26,34 +26,38 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'rubismecenat' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$rubismecenat_description = get_bloginfo( 'description', 'display' );
-			if ( $rubismecenat_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $rubismecenat_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'rubismecenat' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+		<div class="wrapper flex center-y gap-l space center-y">
+
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<?php get_template_part('svg/svg', 'rubis-mecenat'); ?>
+			</a>
+
+			<div class="flex">
+				<nav id="site-navigation" class="main-navigation">
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-1',
+								'menu_id'        => 'primary-menu',	
+								'menu_class' => 'flex',
+								'container' => false,
+							)
+						);
+					?>
+				</nav><!-- #site-navigation -->
+
+				<div class="search">
+					<button>
+						<?php get_template_part('svg/svg', 'search'); ?>
+					</button>
+				</div>
+
+				<div class="lang flex center-y gap-xs">
+					<span>FR</span>
+					<span>EN</span>	
+				</div>
+			</div>
+
+		</div>
 	</header><!-- #masthead -->
