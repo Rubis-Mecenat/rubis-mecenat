@@ -43,8 +43,8 @@ if (have_rows( $flex_content )) :
 
             
         /*
-         * CITATION (BIG TYPO) 
-         * (cf. Accueil)
+         * GRILLE DE VISUELS 
+         * (cf. Projets)
          */
         elseif (get_row_layout() == 'mod_visualgrid') :
             $visuals = get_sub_field('mod_visuals');
@@ -59,7 +59,7 @@ if (have_rows( $flex_content )) :
 
             
         /*
-         * ARTIST BIG
+         * IDENTITE ARTIST 
          * (cf. Accueil)
          */
         elseif (get_row_layout() == 'mod_artist') :
@@ -70,6 +70,7 @@ if (have_rows( $flex_content )) :
             );
 
             get_template_part('Components/Modules/Module', 'Artist', $args);
+
 
 
         /*
@@ -91,8 +92,8 @@ if (have_rows( $flex_content )) :
 
 
         /*
-         * LISTE DE POSTS 
-         * (actualités, événements, etc.)
+         * CAROUSEL DE PROJETS / PAGE / VIDEO / ACTU / ETC. 
+         * (Page, projet, etc.)
          */
         elseif (get_row_layout() == 'mod_carousel') :
 
@@ -169,8 +170,8 @@ if (have_rows( $flex_content )) :
 
 
         /*
-         * CAROUSEL HORIZONTAL 
-         * (Transmettre...)
+         * PROJETS MIS EN AVANT () 
+         * (Projet NDAO)
          */
         elseif (get_row_layout() == 'mod_featuredProjects') :
 
@@ -183,6 +184,28 @@ if (have_rows( $flex_content )) :
             );
 
             get_template_part('Components/Modules/Module', 'FeaturedProjects', $args);
+
+
+
+
+        /*
+         * CONTENU SUR 2 COLONNES LIBRE
+         * (cf. Créez et Accompagner)
+         */
+        elseif (get_row_layout() == 'mod_contentSplit') :
+
+            $title = get_sub_field('mod_title');
+            $medias = get_sub_field('mod_media');
+            $content = get_sub_field('mod_content');
+
+            $args = array(
+                'title'   => $title,
+                'medias'   => $medias,
+                'content'   => $content
+            );
+
+            get_template_part('Components/Modules/Module', 'ContentSplit', $args);
+
 
 
 
