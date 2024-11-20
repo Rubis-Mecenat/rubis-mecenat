@@ -45,5 +45,15 @@
 
     .lang {
         padding: 40px 0 40px 40px;
+
+        a {
+            color: $gray-mid;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .current-lang a {
+            color: $black;
+
+        }
     }
 }

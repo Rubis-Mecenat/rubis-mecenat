@@ -61,16 +61,17 @@
 					?>
 				</nav><!-- #site-navigation -->
 
-				<div class="search">
+				<nav class="search">
 					<button>
 						<?php get_template_part('svg/svg', 'search'); ?>
 					</button>
-				</div>
+				</nav>
 
-				<div class="lang flex center-y gap-xs">
-					<span>FR</span>
-					<span>EN</span>	
-				</div>
+				<nav class="lang flex center-y">
+					<ul id="" class="lang_menu flex gap-xs">
+						<?php pll_the_languages(array( 'display_names_as' => 'slug') );?>
+					</ul>
+				</nav>
 			</div>
 
 		</div>
