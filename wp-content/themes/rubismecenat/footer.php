@@ -12,7 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="grid">
+		<div class="grid wrapper">
 
 			<div class="m-6col">
 				<h3>Newsletter</h3>
