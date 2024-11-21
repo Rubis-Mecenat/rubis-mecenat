@@ -66,10 +66,8 @@ const initSearchScript = () => {
     const addListenerToFilterTriggers = () => {
         if ( filter_trigger ) {
             filter_trigger.forEach( el => {
-                if( cl(el).contains('active') ) {
-                    cl(el).remove('active');
-                }
                 el.addEventListener('click', event => {
+                    cl( qs('.active') ).remove('active');
                     load_filtered_posts(event, el)
                     cl(el).add('active');
                 })
