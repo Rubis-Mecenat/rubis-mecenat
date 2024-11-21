@@ -146,5 +146,6 @@ require get_template_directory() . '/inc/loaders.php';
 
 load_theme_textdomain( 'rubismecenat', get_template_directory() . '/languages' );
 pll_register_string('rubismecenat', 'Tous les détails', 'true');
+pll_register_string('rubismecenat', 'Tous les ouvrages', 'true');
 
 

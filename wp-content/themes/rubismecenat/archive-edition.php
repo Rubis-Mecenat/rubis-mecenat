@@ -28,10 +28,11 @@ $query = new WP_Query($args);
 			<div class="grid">
 				<div class="m-4col">
 					<h2>Filtres</h2>
+					<?php list_terms_custom_taxonomy(array( 'tax' => 'edition_cat', 'posttype' => 'edition' )); ?>
 				</div>
 
 				<div class="m-8col">
-					<div class="grid">
+					<div id="mainGrid" class="grid">
 
 						<?php while ($query->have_posts()) : $query->the_post(); ?>
 

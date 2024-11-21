@@ -12,8 +12,10 @@ define('RUBIS_URL', WP_PLUGIN_URL.'/rubis-plugin');
 
 
 require_once(RUBIS_DIR.'/acf.php');
+
 require_once(RUBIS_DIR.'/cpt/cpt-project.php');
 require_once(RUBIS_DIR.'/cpt/cpt-edition.php');
 require_once(RUBIS_DIR.'/cpt/cpt-video.php');
 require_once(RUBIS_DIR.'/cpt/cpt-artist.php');
 
+require_once(RUBIS_DIR.'/taxonomies/tax-editions.php');

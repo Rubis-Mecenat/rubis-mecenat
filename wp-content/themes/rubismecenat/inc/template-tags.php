@@ -163,3 +163,34 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+
+
+if ( ! function_exists( 'list_terms_custom_taxonomy' ) ) :
+	/**
+	 * Displays FIlters for an archive page.
+	 *
+	 */
+	function list_terms_custom_taxonomy( $atts ) {
+					
+		$terms = get_terms( array(
+			'taxonomy'   =>  $atts['tax'],
+			'hide_empty' => false,
+		) );
+
+		if ( !empty($terms) ) :
+			$output = '';
+			
+			$output.= '<button class="btn js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les ouvrages') . '</button>';
+
+			foreach( $terms as $term ) {
+				if( $term->parent == 0 ) {
+					$output.= '<button class="btn js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="' . $term->slug . '">' . esc_attr( $term->name ) . '</button>';
+				}
+			}
+
+			echo $output;
+		endif;
+	}
+						
+endif;

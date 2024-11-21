@@ -14,6 +14,8 @@ const initSearchScript = () => {
     const page = qs('main')
     const modal = qs('#modal')
     const modal_inner = qs('#modal-inner')
+    const mainGrid = qs('#mainGrid')
+    let loader_triggers, filter_trigger;
 
     // UTILS
     let offset = 0;
@@ -34,6 +36,49 @@ const initSearchScript = () => {
         UTILS FUNCS
     \*------------------------------------*/
     
+    // MODAL
+    const queryModalTriggers = cb => {
+        loader_triggers = qsa('.js-load-modal');
+        console.log('queryModalTriggers', loader_triggers)
+        cb();
+    } 
+    const addListenerToModalTriggers = () => {
+        console.log('addListenerToModalTriggers', loader_triggers)
+        if ( loader_triggers ) {
+            loader_triggers.forEach( el => {
+                el.addEventListener('click', event => {
+                    load_one_post(event, el)
+                })
+            })
+        }
+    }
+    const initModalTriggers = () => {
+        setTimeout( () => {
+            queryModalTriggers( addListenerToModalTriggers )
+        }, 1000)
+    }
+
+
+    // FILTERS
+    const queryFilterTriggers = async () => {
+        filter_trigger = qsa('.js-filter-content')
+    }   
+    const addListenerToFilterTriggers = () => {
+        if ( filter_trigger ) {
+            filter_trigger.forEach( el => {
+                el.addEventListener('click', event => {
+                    load_filtered_posts(event, el)
+                })
+            })
+        }
+    }
+    const initFilterTriggers = () => {
+        queryFilterTriggers()
+            .then( () => {
+                addListenerToFilterTriggers()
+            })
+    }
+
 
     // NOT USED YET
     const displayFoundPosts = async () => {
@@ -49,9 +94,15 @@ const initSearchScript = () => {
         }, 500)
     }
 
-     // NOT USED YET
+
+    /*------------------------------------*\
+      LOADING POSTS IN ARCHIVES CONTAINER
+    \*------------------------------------*/
+
     const fetchAndDisplayDatas = async ( append = false ) => {
         console.log('fetchAndDisplayDatas')
+
+        data.set('action', 'filter_content');
 
         fetch(ajaxurl, {
             method: 'POST',
@@ -63,21 +114,16 @@ const initSearchScript = () => {
         })
         .then(response => response.json())
         .then(body => {
-        
-            if (!body.success) {
-                return;
-            }
-        
+            if (!body.success) return;
+
             if( append ) {
-                modal.insertAdjacentHTML('beforeend', body.data); 
-            }else {
-                modal.innerHTML = body.data; 
+                mainGrid.insertAdjacentHTML('beforeend', body.data); 
+            } else {
+                mainGrid.innerHTML = body.data; 
             }
         });
 
     }
-
-
 
 
 
@@ -113,10 +159,10 @@ const initSearchScript = () => {
         data.set('offset', 0);
         data.set('keyword', '');
 
-        cl(page).add('loading')
+        pageLoadingStart()
 
         fetchAndDisplayDatas().then( () => {
-            page.classList.remove('loading')
+            pageLoadingEnd()
         });
     }
 
@@ -126,19 +172,6 @@ const initSearchScript = () => {
         LOADING FUNCS
     \*------------------------------------*/
 
-    // NOT USED YET
-    const load_contents = async (event) => {
-        event.preventDefault();
-        cl(page).add('loading')
-        
-        data.set('action', 'load_popin');
-        data.set('offset', offset);
-
-        fetchAndDisplayDatas().then( () => {
-            //displayFoundPosts();
-            cl(page).remove('loading')
-        });
-    }
 
     // NOT USED YET
     const load_more_contents = async (event) => {
@@ -149,27 +182,47 @@ const initSearchScript = () => {
 
         fetchAndDisplayDatas( true ).then( () => {
             // displayFoundPosts()
-            cl(page).remove('loading')
+            pageLoadingEnd();
         });
     }
 
 
-    // USED FOR EDITION ARCHIVES
+    // USED FOR ARCHIVES & VIDEO FILTERS
+    const load_filtered_posts = async (event, el) => {
+        event.preventDefault();
+
+        pageLoadingStart()
+        
+        data.set('offset', offset);
+        data.set('posttype', el.getAttribute('data-posttype'));
+        data.set('tax', el.getAttribute('data-tax'));
+        data.set('term', el.getAttribute('data-term'));
+
+        fetchAndDisplayDatas().then( () => {
+            pageLoadingEnd();
+            initModalTriggers()
+        });
+    }
+
+    
+    // USED TO DISPLAY MODAL WITH CONTENT (EDITION, VIDEO)
     const load_one_post = async (event, el) => {
         event.preventDefault();
-        cl(page).add('loading')
+        pageLoadingStart()
 
         fetchAndDisplayPostContent( el )
             .then( () => {
-                cl(page).remove('loading');
+
+                pageLoadingEnd()
+
                 if(cl(modal).contains('open') ) {
                     closeModal()
                     setTimeout( () => {
-                        cl(modal).add('open');
+                        openModal();
                     }, 700)
                 }
                 else {
-                    cl(modal).add('open');
+                    openModal();
                 }
             });
     }
@@ -180,16 +233,9 @@ const initSearchScript = () => {
         TRIGGERS
     \*------------------------------------*/
 
-    const loader_trigger = qsa('.js-load-modal')
+    initModalTriggers()
 
-    if ( loader_trigger ) {
-        loader_trigger.forEach( el => {
-            el.addEventListener('click', event => {
-                load_one_post(event, el)
-            })
-        })
-    }
-
+    initFilterTriggers();
 
 
 }
