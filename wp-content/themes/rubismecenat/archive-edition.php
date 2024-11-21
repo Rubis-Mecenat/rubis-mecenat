@@ -20,11 +20,9 @@ $query = new WP_Query($args);
 
 		<?php if ($query->have_posts()) : ?>
 			
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
+			<header class="page-header txt-center mb-xxl">
+				<h1 class="page-title"><?php the_title();?></h1>
+				<div><?php the_excerpt(); ?></div>
 			</header><!-- .page-header -->
 
 			<div class="grid">

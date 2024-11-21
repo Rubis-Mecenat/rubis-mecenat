@@ -1,6 +1,6 @@
 {
     "key": "group_673effaf35860",
-    "title": "Détails de l'Edition",
+    "title": "Détails Edition \/ Vidéo",
     "fields": [
         {
             "key": "field_673effafebdad",
@@ -79,6 +79,13 @@
                 "operator": "==",
                 "value": "edition"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "video"
+            }
         ]
     ],
     "menu_order": 0,
@@ -90,5 +97,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732182038
+    "modified": 1732183516
 }
