@@ -104,3 +104,19 @@ ul {
 //         aspect-ratio: unset;
 //     }
 // }
+
+
+/*------------------------------------*\
+    SLIDER
+\*------------------------------------*/
+
+.swiper {
+    .swiper-button {
+        cursor: pointer;
+
+        &.swiper-button-disabled {
+            cursor: unset;
+            opacity: 0.3;
+        }
+    }
+}

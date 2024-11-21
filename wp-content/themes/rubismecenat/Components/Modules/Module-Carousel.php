@@ -5,22 +5,31 @@
 ?>
 
 
-<section class="mod_carousel <?php echo $bg ? '-bg' : ''; ?>">
+<section class="mod_carousel swiper  <?php echo $bg ? '-bg' : ''; ?>">
 
-    <header class="mod_title wrapper">
-        <h2 class="mb-m">
+    <header class="mod_title mb-m flex space center-y">
+        <h2>
             <?php echo $title; ?>
         </h2>
+
+        <div class="navigation flex gap-m center-y">
+            <div class="swiper-button prev">
+                <?php get_template_part('svg/svg', 'arrow-prev'); ?>
+            </div>
+            <div class="swiper-button next">
+                <?php get_template_part('svg/svg', 'arrow-next'); ?>
+            </div>
+        </div>
     </header>
 
-    <div class="mod_relations wrapper">
+    <!-- <div class="mod_relations "> -->
         <?php if ($posts) : ?>
 
-            <div class="grid gap-m">
+            <div class="swiper-wrapper">
 
                 <?php foreach ($posts as $post) : setup_postdata($post); ?>
                  
-                    <div class="s-4col">
+                    <div class="swiper-slide">
                         <?php get_template_part('Components/Blocks/Block', 'Project'); ?>
                     </div>
 
@@ -30,7 +39,7 @@
 
             <?php wp_reset_postdata(); ?>
         <?php endif; ?>
-    </div>
+    <!-- </div> -->
 
 
 </section>
