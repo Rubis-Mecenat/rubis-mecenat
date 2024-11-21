@@ -51,13 +51,28 @@
     $posttype = $_REQUEST["posttype"];
     $tax = $_REQUEST["tax"];
     $term = $_REQUEST["term"];
+    $search = $_REQUEST["search"];
+    $step = $_REQUEST["step"];
+    $offset = $_REQUEST["offset"];
 
     $args = array(
-        'post_type'         => array($posttype),
         'post_status'       => 'publish',
-        'post_per_pages'    => -1
+        'post_per_pages'    => -1,
+        'offset'            => $offset
     );
-    if( $term !== '' ) {
+
+    if( $search !== '' ) {
+        $args['s'] = $search;
+    }
+
+    if( $posttype === 'all' ) {
+        $args['post_type'] = array('post', 'edition', 'video', 'artist', 'project');
+    }
+    else {
+        $args['post_type'] = array($posttype);
+    }
+    
+    if( $term !== '') {
         $args['tax_query'] = array(
             array(
                 'taxonomy' => $tax,

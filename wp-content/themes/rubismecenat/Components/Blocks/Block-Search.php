@@ -4,5 +4,4 @@
         <?php the_post_thumbnail('medium'); ?>
         <h3><?php the_title(); ?></h3>
     </a>
-    <?php the_excerpt(); ?>
 </article>

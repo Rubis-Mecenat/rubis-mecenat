@@ -12,7 +12,7 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-		<header class="wrapper">
+		<header class="wrapper mb-xl">
 			<?php get_search_form(); ?>
 
 			<?php
@@ -22,31 +22,34 @@ get_header();
 
 		</header>
 
-		<?php if ( have_posts() ) : ?>
-			<div class="wrapper">
+		<div class="grid wrapper">
+				<div class="m-4col">
+					<h2>Filtres</h2>
+					<?php list_post_type(); ?>
+				</div>
 
-				<?php
-				while ( have_posts() ) :
-					the_post();
+				<div class="m-8col">
+					<div id="mainGrid" class="grid">
+						<?php if ( have_posts() ) : ?>
 
-					get_template_part( 'Components/Blocks/Block', 'Search' );
+							<?php while ( have_posts()) : the_post(); ?>
 
-				endwhile; 
+								<div class="m-6col mb-l">
+									<?php get_template_part( 'Components/Blocks/Block', 'Search' ); ?>
+								</div>
 
-				the_posts_navigation(); ?>
+							<?php endwhile; the_posts_navigation();?>
 
+						<?php else :
+
+						get_template_part( 'Components/content', 'none' );
+
+						endif; ?>
+					</div>
+				</div>
 			</div>
-
-
-		<?php else :
-
-			get_template_part( 'Components/content', 'none' );
-
-		endif;
-		?>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

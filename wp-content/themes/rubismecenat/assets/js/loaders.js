@@ -15,12 +15,14 @@ const initSearchScript = () => {
     const modal = qs('#modal')
     const modal_inner = qs('#modal-inner')
     const mainGrid = qs('#mainGrid')
+    const searchform = qs('.search-form')
+    const searchformValue = qs('.search-form input[name="s"]');
+
     let loader_triggers, filter_trigger;
 
     // UTILS
     let offset = 0;
     let step = 20;
-    let format = '';
 
     // DATAS
     const data = new FormData();
@@ -28,7 +30,6 @@ const initSearchScript = () => {
     data.set('nonce', ajax_datas.nonce);
     data.set('step', step);
     data.set('offset', offset);
-    data.set('format', format);
 
 
 
@@ -37,13 +38,12 @@ const initSearchScript = () => {
     \*------------------------------------*/
     
     // MODAL
+    ///////////
     const queryModalTriggers = cb => {
         loader_triggers = qsa('.js-load-modal');
-        console.log('queryModalTriggers', loader_triggers)
         cb();
     } 
     const addListenerToModalTriggers = () => {
-        console.log('addListenerToModalTriggers', loader_triggers)
         if ( loader_triggers ) {
             loader_triggers.forEach( el => {
                 el.addEventListener('click', event => {
@@ -60,6 +60,7 @@ const initSearchScript = () => {
 
 
     // FILTERS
+    ///////////
     const queryFilterTriggers = async () => {
         filter_trigger = qsa('.js-filter-content')
     }   
@@ -81,8 +82,20 @@ const initSearchScript = () => {
             })
     }
 
+    // SEARCH
+    ///////////
+    const initSearchSubmit = () => {
+        searchform.addEventListener('submit', event => {
+            event.preventDefault();
+    
+            console.log( searchformValue.value );
+            load_filtered_posts(event)
+        })
+    }
+
 
     // NOT USED YET
+    ///////////
     const displayFoundPosts = async () => {
         setTimeout( () => {
             const nbr = qs('#foundPosts') ? qs('#foundPosts').getAttribute('data-posts') : 0;
@@ -102,7 +115,7 @@ const initSearchScript = () => {
     \*------------------------------------*/
 
     const fetchAndDisplayDatas = async ( append = false ) => {
-        console.log('fetchAndDisplayDatas')
+        console.log('fetchAndDisplayDatas', data)
 
         data.set('action', 'filter_content');
 
@@ -194,15 +207,36 @@ const initSearchScript = () => {
 
 
     // USED FOR ARCHIVES & VIDEO FILTERS
-    const load_filtered_posts = async (event, el) => {
+    const load_filtered_posts = async (event, el = undefined) => {
         event.preventDefault();
 
         pageLoadingStart()
         
+        const activeFilter = qs('.js-filter-content.active');
+        
+        if( searchform ) {
+            data.set('search', searchformValue.value );
+            data.set('term', '');
+
+            if( data.get('posttype') !== 'all' )
+
+            if( !el ) {
+                data.set('posttype', 'all');
+            }
+        }
+        else {
+            data.set('search', '' );
+        }
+
+        if( el ) {
+            data.set('posttype', el.getAttribute('data-posttype'));
+            if (el.hasAttribute('data-tax')) data.set('tax', el.getAttribute('data-tax'));
+            if (el.hasAttribute('data-term')) data.set('term', el.getAttribute('data-term'));
+        }
+
         data.set('offset', offset);
-        data.set('posttype', el.getAttribute('data-posttype'));
-        data.set('tax', el.getAttribute('data-tax'));
-        data.set('term', el.getAttribute('data-term'));
+
+
 
         fetchAndDisplayDatas().then( () => {
             pageLoadingEnd();
@@ -241,6 +275,7 @@ const initSearchScript = () => {
 
     initModalTriggers()
     initFilterTriggers();
+    if(searchform) initSearchSubmit();
 
 }
 

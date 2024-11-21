@@ -184,13 +184,35 @@ if ( ! function_exists( 'list_terms_custom_taxonomy' ) ) :
 			$output.= '<button class="btn active js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les ouvrages') . '</button>';
 
 			foreach( $terms as $term ) {
-				if( $term->parent == 0 ) {
-					$output.= '<button class="btn js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="' . $term->slug . '">' . esc_attr( $term->name ) . '</button>';
-				}
+				$output.= '<button class="btn js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="' . $term->slug . '">' . esc_attr( $term->name ) . '</button>';
 			}
 
 			echo $output;
 		endif;
+	}
+						
+endif;
+
+
+
+if ( ! function_exists( 'list_post_type' ) ) :
+	/**
+	 * Displays FIlters for an archive page.
+	 *
+	 */
+	function list_post_type( ) {
+
+		$posttypes = array('post', 'page', 'project', 'video', 'edition', 'artist');
+
+			$output = '';
+			
+			$output.= '<button class="btn active js-filter-content" data-posttype="all">' . pll__('Tous les contenus') . '</button>';
+
+			foreach( $posttypes as $type ) {
+				$output.= '<button class="btn js-filter-content" data-posttype="' . $type . '">' . esc_attr( $type ) . '</button>';
+			}
+
+			echo $output;
 	}
 						
 endif;
