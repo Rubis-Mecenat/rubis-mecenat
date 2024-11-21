@@ -117,9 +117,13 @@ const initSearchScript = () => {
             if (!body.success) return;
 
             if( append ) {
-                mainGrid.insertAdjacentHTML('beforeend', body.data); 
+                setTimeout( () => {
+                    mainGrid.insertAdjacentHTML('beforeend', body.data); 
+                }, 400)
             } else {
-                mainGrid.innerHTML = body.data; 
+                setTimeout( () => {
+                    mainGrid.innerHTML = body.data; 
+                }, 400)
             }
         });
 

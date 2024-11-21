@@ -1,11 +1,11 @@
 <?php 
 //hook into the init action and call create_book_taxonomies when it fires
   
-add_action( 'init', 'create_subjects_hierarchical_taxonomy', 0 );
+add_action( 'init', 'create_editions_taxonomy', 0 );
   
 //create a custom taxonomy name it subjects for your posts
   
-function create_subjects_hierarchical_taxonomy() {
+function create_editions_taxonomy() {
   
 // Add new taxonomy, make it hierarchical like categories
 //first do the translations part for GUI
