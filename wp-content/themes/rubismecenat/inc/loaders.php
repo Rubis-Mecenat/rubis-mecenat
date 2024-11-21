@@ -1,7 +1,14 @@
 <?php 
 
 function getPostTypesArray() {
-    return array('post', 'page', 'project', 'video', 'edition', 'artist');
+    return array(
+        'post'      => "Actualités", 
+        'page'      => 'Pages', 
+        'project'   => "Projets", 
+        'video'     => 'Vidéos', 
+        'edition'   => 'Editions', 
+        'artist'    => "Artistes"
+    );
 }
 
 
@@ -21,7 +28,7 @@ function getPostTypesArray() {
 
     $args = array(
         'name'  => $postslug,
-        'post_type' => getPostTypesArray(),
+        'post_type' => array_keys(getPostTypesArray()),
         'post_status' => 'publish',
     );
     $query = new WP_Query( $args );
@@ -71,7 +78,7 @@ function getPostTypesArray() {
     }
 
     if( $posttype === 'all' ) {
-        $args['post_type'] = getPostTypesArray();
+        $args['post_type'] = array_keys(getPostTypesArray());
     }
     else {
         $args['post_type'] = array($posttype);

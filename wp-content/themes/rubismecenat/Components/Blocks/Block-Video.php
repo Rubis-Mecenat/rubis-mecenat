@@ -5,7 +5,7 @@
 
     ?>
 
-<article class="block-edition">
+<article class="block-video">
     <a 
         href="<?php the_permalink(); ?>" 
         data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" 

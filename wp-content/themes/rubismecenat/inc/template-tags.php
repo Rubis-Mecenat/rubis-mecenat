@@ -203,14 +203,14 @@ if ( ! function_exists( 'list_post_type' ) ) :
 	 */
 	function list_post_type( ) {
 
-		$posttypes = array('post', 'page', 'project', 'video', 'edition', 'artist');
+		$posttypes = getPostTypesArray();
 
 			$output = '<nav class="filter flex column gap-s start-y">';
 			
 				$output.= '<button class="btn active js-filter-content" data-posttype="all">' . pll__('Tous les contenus') . '</button>';
 
-				foreach( $posttypes as $type ) {
-					$output.= '<button class="btn js-filter-content" data-posttype="' . $type . '">' . esc_attr( $type ) . '</button>';
+				foreach( $posttypes as $slug => $label ) {
+					$output.= '<button class="btn js-filter-content" data-posttype="' . $slug . '">' . esc_attr( $label ) . '</button>';
 				}
 
 			$output .= '</nav>';
@@ -219,3 +219,20 @@ if ( ! function_exists( 'list_post_type' ) ) :
 	}
 						
 endif;
+
+
+function pagination_bar() {
+    global $wp_query;
+ 
+	$big = 9999999; // need an unlikely integer
+
+	echo paginate_links( array(
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $wp_query->max_num_pages,
+		'prev_text'	=> '<',
+		'next_text' => '>',
+		'mid_size' => 1
+	) );
+}

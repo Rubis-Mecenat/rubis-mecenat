@@ -28,23 +28,32 @@ get_header();
 				</div>
 
 				<div class="m-8col">
-					<div id="mainGrid" class="grid">
+
 						<?php if ( have_posts() ) : ?>
+							<div id="mainGrid" class="grid">
 
-							<?php while ( have_posts()) : the_post(); ?>
+								<?php while ( have_posts()) : the_post(); ?>
 
-								<div class="m-6col mb-l">
-									<?php get_template_part( 'Components/Blocks/Block', 'Search' ); ?>
-								</div>
+									<div class="m-6col mb-l">
+										<?php get_template_part( 'Components/Blocks/Block', get_post_type() ); ?>
+									</div>
 
-							<?php endwhile; the_posts_navigation();?>
+									
+								<?php endwhile; ?>
+								
+
+							</div>
+
+							<div class="pagination flex center gap-s">
+								<?php pagination_bar(); ?>
+							</div>
 
 						<?php else :
 
 						get_template_part( 'Components/content', 'none' );
 
 						endif; ?>
-					</div>
+					
 				</div>
 			</div>
 
