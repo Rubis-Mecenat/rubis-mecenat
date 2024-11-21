@@ -16,7 +16,7 @@
     <div class="mod_relations wrapper">
         <?php if ($posts) : ?>
 
-            <div class="grid">
+            <div class="grid gap-m">
 
                 <?php foreach ($posts as $post) : setup_postdata($post); ?>
                  

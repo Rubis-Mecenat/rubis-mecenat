@@ -7,11 +7,11 @@
 
 <section class="mod_carousel">
 
-    <div class="flex">
-        <h2><?php echo $title; ?></h2>
+    <div class="flex wrapper">
+        <h2 class="txt-center mb-l"><?php echo $title; ?></h2>
     </div>
 
-    <div class="grid">
+    <div class="grid gap-l">
 
         <div class="m-6col">
             <div><?php echo $content; ?></div>
@@ -19,9 +19,9 @@
 
         <div class="m-6col">
             <?php if( $medias ): ?>
-                <div class="">
+                <div class="grid">
                     <?php foreach( $medias as $media ): ?>
-                        <figure>
+                        <figure class="s-12col">
                             <img src="<?php echo $media["url"]; ?>">
                         </figure>
                     <?php endforeach; ?>
