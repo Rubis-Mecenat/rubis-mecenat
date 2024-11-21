@@ -8,7 +8,7 @@
 <section class="mod_carousel <?php echo $bg ? '-bg' : ''; ?>">
 
     <header class="mod_title wrapper">
-        <h2 class=" ">
+        <h2 class="mb-m">
             <?php echo $title; ?>
         </h2>
     </header>

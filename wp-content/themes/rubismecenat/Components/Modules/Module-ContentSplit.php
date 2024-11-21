@@ -11,7 +11,7 @@
         <h2 class="txt-center mb-l"><?php echo $title; ?></h2>
     </div>
 
-    <div class="grid gap-l">
+    <div class="grid gap-l wrapper">
 
         <div class="m-6col">
             <div><?php echo $content; ?></div>
