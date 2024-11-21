@@ -25,7 +25,7 @@
         <div class="page_content">
             <?php if ( $query->have_posts() ) : ?>
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>       
-                    <?php get_template_part( 'Components/Blocks/Block', 'Edition' ); ?>
+                    <?php get_template_part( 'Components/Blocks/Modal', 'Edition' ); ?>
                 <?php endwhile; endif; ?>
             <?php wp_reset_postdata(); ?>
         </div>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Archives Editions
+ * Template Name: Archives Vidéos
  *
  * @package rubismecenat
  */

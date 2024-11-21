@@ -136,3 +136,15 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/loaders.php';
 
 
+
+/*
+ * Make theme available for translation.
+ * Translations can be filed in the /languages/ directory.
+ * If you're building a theme based on mep_2021, use a find and replace
+ * to change 'mep_2021' to the name of your theme in all the template files.
+*/
+
+load_theme_textdomain( 'rubismecenat', get_template_directory() . '/languages' );
+pll_register_string('rubismecenat', 'Tous les détails', 'true');
+
+

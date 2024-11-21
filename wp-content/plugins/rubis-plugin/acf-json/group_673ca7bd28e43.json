@@ -3,27 +3,6 @@
     "title": "Options de la publication",
     "fields": [
         {
-            "key": "field_673ca7bd0a5d3",
-            "label": "Ne pas afficher le cadre titre + image à la une ?",
-            "name": "hide_title",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "allow_in_bindings": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
             "key": "field_673dd14c72bc8",
             "label": "Design \/ Affichage du haut de page (titre, visuels)",
             "name": "head_design",
@@ -58,6 +37,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "default"
             }
         ]
     ],
@@ -70,5 +54,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732104848
+    "modified": 1732182962
 }
