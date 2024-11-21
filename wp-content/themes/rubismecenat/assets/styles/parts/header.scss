@@ -1,6 +1,11 @@
 @use './global/colors' as *;
 
 
+// Adjust header position when admin bar is displayed
+body.admin-bar .site-header {
+    top: 32px;
+}
+
 .site-header {
     position: fixed;
     top: 0;
@@ -8,6 +13,7 @@
     right: 0;
     background-color: $white;
     border-bottom: 1.5px solid $black;
+    z-index: 50;
 
     .main-navigation-2 {
         border-left: 1.5px solid $black;

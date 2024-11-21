@@ -8,7 +8,7 @@
 <section class="mod_carousel <?php echo $bg ? '-bg' : ''; ?>">
 
     <header class="mod_title wrapper">
-        <h2 class=" ">
+        <h2 class="mb-m">
             <?php echo $title; ?>
         </h2>
     </header>
@@ -16,7 +16,7 @@
     <div class="mod_relations wrapper">
         <?php if ($posts) : ?>
 
-            <div class="grid">
+            <div class="grid gap-m">
 
                 <?php foreach ($posts as $post) : setup_postdata($post); ?>
                  

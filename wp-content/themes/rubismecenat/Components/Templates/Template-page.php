@@ -21,12 +21,15 @@
 	<?php elseif( $head_design === 'full' ) : ?>
 
 		<header class="entry-header">
-			<?php rubismecenat_post_thumbnail(); ?>
-
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-			<?php the_excerpt(); ?>
-
+			<div class="grid">
+				<div class="s-6col">
+					<?php rubismecenat_post_thumbnail(); ?>
+				</div>
+				<div class="s-6col">
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<?php the_excerpt(); ?>	
+				</div>
+			</div>
 		</header><!-- .entry-header -->
 
 	<?php elseif( $head_design === 'notitle' ) : ?>
