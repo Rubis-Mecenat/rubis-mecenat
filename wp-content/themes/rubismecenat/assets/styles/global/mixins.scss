@@ -52,7 +52,7 @@ Wrapper
 }
 
 @mixin wrapper-padding {
-    max-width: var(--max-width);
+    // max-width: var(--max-width);
     padding-left: 5%;
     padding-right: 5%;
 }
