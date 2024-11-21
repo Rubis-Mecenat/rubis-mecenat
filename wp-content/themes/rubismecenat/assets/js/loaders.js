@@ -11,8 +11,9 @@ const initSearchScript = () => {
     \*------------------------------------*/
 
     // ELEMENTS
-    const page = document.querySelector('main')
-    const modal = document.querySelector('#modal')
+    const page = qs('main')
+    const modal = qs('#modal')
+    const modal_inner = qs('#modal-inner')
 
     // UTILS
     let offset = 0;
@@ -33,9 +34,11 @@ const initSearchScript = () => {
         UTILS FUNCS
     \*------------------------------------*/
     
+
+    // NOT USED YET
     const displayFoundPosts = async () => {
         setTimeout( () => {
-            const nbr = document.querySelector('#foundPosts') ? document.querySelector('#foundPosts').getAttribute('data-posts') : 0;
+            const nbr = qs('#foundPosts') ? qs('#foundPosts').getAttribute('data-posts') : 0;
             found_posts_label.innerHTML = nbr;
 
             const rest = nbr > 0 ? nbr - offset - step : 0;
@@ -46,6 +49,7 @@ const initSearchScript = () => {
         }, 500)
     }
 
+     // NOT USED YET
     const fetchAndDisplayDatas = async ( append = false ) => {
         console.log('fetchAndDisplayDatas')
 
@@ -74,38 +78,43 @@ const initSearchScript = () => {
     }
 
 
+
+
+
+
+    /*------------------------------------*\
+      LOADING ONE POST CONTENT IN MODAL
+    \*------------------------------------*/
+
     const fetchAndDisplayPostContent = async ( el ) => {
         console.log('fetchAndDisplayPostContent')
 
         // DATAS
-                data.set('type', el.getAttribute('data-type'));
-                data.set('action', 'load_popin');
-                data.set('postslug', el.getAttribute('data-slug'));
+        data.set('type', el.getAttribute('data-type'));
+        data.set('action', 'load_popin');
+        data.set('postslug', el.getAttribute('data-slug'));
                 
-                fetch(ajaxurl, {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/x-www-form-urlencoded',
-                      'Cache-Control': 'no-cache',
-                  },
-                  body: new URLSearchParams(data),
-                })
-                .then(response => response.json())
-                .then(body => {
-                    if (!body.success) {
-                        return;
-                    }
-                    modal.classList.add('open');
-                    modal.innerHTML = body.data;
-        
-                });
+        fetch(ajaxurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Cache-Control': 'no-cache',
+            },
+            body: new URLSearchParams(data),
+        })
+        .then(response => response.json())
+        .then(body => {
+            if (!body.success) return;
+            modal_inner.innerHTML = body.data;        
+        });
     }
 
+    // NOT USED YET
     const resetDisplay = async () => {
         data.set('offset', 0);
         data.set('keyword', '');
 
-        page.classList.add('loading')
+        cl(page).add('loading')
 
         fetchAndDisplayDatas().then( () => {
             page.classList.remove('loading')
@@ -118,19 +127,21 @@ const initSearchScript = () => {
         LOADING FUNCS
     \*------------------------------------*/
 
+    // NOT USED YET
     const load_contents = async (event) => {
         event.preventDefault();
-        page.classList.add('loading')
+        cl(page).add('loading')
         
         data.set('action', 'load_popin');
         data.set('offset', offset);
 
         fetchAndDisplayDatas().then( () => {
             //displayFoundPosts();
-            page.classList.remove('loading')
+            cl(page).remove('loading')
         });
     }
 
+    // NOT USED YET
     const load_more_contents = async (event) => {
         event.preventDefault();
         offset += step;
@@ -139,18 +150,29 @@ const initSearchScript = () => {
 
         fetchAndDisplayDatas( true ).then( () => {
             // displayFoundPosts()
-            page.classList.remove('loading')
+            cl(page).remove('loading')
         });
     }
 
+
+    // USED FOR EDITION ARCHIVES
     const load_one_post = async (event, el) => {
         event.preventDefault();
+        cl(page).add('loading')
 
-        page.classList.add('loading')
-
-        fetchAndDisplayPostContent( el ).then( () => {
-            page.classList.remove('loading')
-        });
+        fetchAndDisplayPostContent( el )
+            .then( () => {
+                cl(page).remove('loading');
+                if(cl(modal).contains('open') ) {
+                    closeModal()
+                    setTimeout( () => {
+                        cl(modal).add('open');
+                    }, 700)
+                }
+                else {
+                    cl(modal).add('open');
+                }
+            });
     }
 
 
@@ -159,7 +181,7 @@ const initSearchScript = () => {
         TRIGGERS
     \*------------------------------------*/
 
-    const loader_trigger = document.querySelectorAll('.js-load-modal')
+    const loader_trigger = qsa('.js-load-modal')
 
     if ( loader_trigger ) {
         loader_trigger.forEach( el => {

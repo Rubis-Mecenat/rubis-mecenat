@@ -63,9 +63,10 @@
 </div><!-- #page -->
 
 
-<div id="modal">
-	
+<div id="modal" class="modal">
+	<div id="modal-inner"  class="wrapper modal-inner"></div>
 </div>
+
 <?php wp_footer(); ?>
 
 </body>

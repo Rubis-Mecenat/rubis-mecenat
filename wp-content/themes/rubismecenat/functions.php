@@ -105,7 +105,6 @@ function rubismecenat_scripts() {
 
 	
 	// ENQUEUE SCRIPTS
-	wp_enqueue_script( 'rubismecenat-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/main.min.js', array(), _S_VERSION, true );
 
 
@@ -115,7 +114,7 @@ function rubismecenat_scripts() {
         'nonce' => wp_create_nonce( 'handle_contents_loading' )
     ) ), 'before' );
 
-	wp_enqueue_script( 'loaders', get_template_directory_uri() . '/assets/js/loaders.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'loaders', get_template_directory_uri() . '/assets/js/loaders.js', array("main"), _S_VERSION, true );
 
 }
 add_action( 'wp_enqueue_scripts', 'rubismecenat_scripts' );
