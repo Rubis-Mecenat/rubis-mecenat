@@ -24,7 +24,6 @@ get_header();
 
 		<div class="grid wrapper">
 				<div class="m-4col">
-					<h2>Filtres</h2>
 					<?php list_post_type(); ?>
 				</div>
 

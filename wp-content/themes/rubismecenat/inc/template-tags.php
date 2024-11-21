@@ -179,13 +179,14 @@ if ( ! function_exists( 'list_terms_custom_taxonomy' ) ) :
 		) );
 
 		if ( !empty($terms) ) :
-			$output = '';
-			
-			$output.= '<button class="btn active js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les ouvrages') . '</button>';
+			$output = '<nav class="filter flex column gap-s start-y">';
+				
+				$output.= '<button class="btn active js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les ouvrages') . '</button>';
 
-			foreach( $terms as $term ) {
-				$output.= '<button class="btn js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="' . $term->slug . '">' . esc_attr( $term->name ) . '</button>';
-			}
+				foreach( $terms as $term ) {
+					$output.= '<button class="btn js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="' . $term->slug . '">' . esc_attr( $term->name ) . '</button>';
+				}
+			$output .= '</nav>';
 
 			echo $output;
 		endif;
@@ -204,13 +205,15 @@ if ( ! function_exists( 'list_post_type' ) ) :
 
 		$posttypes = array('post', 'page', 'project', 'video', 'edition', 'artist');
 
-			$output = '';
+			$output = '<nav class="filter flex column gap-s start-y">';
 			
-			$output.= '<button class="btn active js-filter-content" data-posttype="all">' . pll__('Tous les contenus') . '</button>';
+				$output.= '<button class="btn active js-filter-content" data-posttype="all">' . pll__('Tous les contenus') . '</button>';
 
-			foreach( $posttypes as $type ) {
-				$output.= '<button class="btn js-filter-content" data-posttype="' . $type . '">' . esc_attr( $type ) . '</button>';
-			}
+				foreach( $posttypes as $type ) {
+					$output.= '<button class="btn js-filter-content" data-posttype="' . $type . '">' . esc_attr( $type ) . '</button>';
+				}
+
+			$output .= '</nav>';
 
 			echo $output;
 	}

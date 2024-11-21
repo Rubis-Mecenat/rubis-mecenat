@@ -22,7 +22,7 @@ const initSearchScript = () => {
 
     // UTILS
     let offset = 0;
-    let step = 20;
+    let step = 30;
 
     // DATAS
     const data = new FormData();
@@ -87,8 +87,6 @@ const initSearchScript = () => {
     const initSearchSubmit = () => {
         searchform.addEventListener('submit', event => {
             event.preventDefault();
-    
-            console.log( searchformValue.value );
             load_filtered_posts(event)
         })
     }

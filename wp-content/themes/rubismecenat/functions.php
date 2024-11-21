@@ -155,3 +155,4 @@ pll_register_string('rubismecenat', 'Tous les détails', 'true');
 pll_register_string('rubismecenat', 'Tous les ouvrages', 'true');
 
 
+

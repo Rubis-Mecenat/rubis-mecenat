@@ -1,5 +1,10 @@
 <?php 
 
+function getPostTypesArray() {
+    return array('post', 'page', 'project', 'video', 'edition', 'artist');
+}
+
+
 
 
 /*
@@ -16,7 +21,7 @@
 
     $args = array(
         'name'  => $postslug,
-        'post_type' => array('post', 'page', 'edition', 'video'),
+        'post_type' => getPostTypesArray(),
         'post_status' => 'publish',
     );
     $query = new WP_Query( $args );
@@ -57,7 +62,7 @@
 
     $args = array(
         'post_status'       => 'publish',
-        'post_per_pages'    => -1,
+        'post_per_pages'    => $step,
         'offset'            => $offset
     );
 
@@ -66,7 +71,7 @@
     }
 
     if( $posttype === 'all' ) {
-        $args['post_type'] = array('post', 'edition', 'video', 'artist', 'project');
+        $args['post_type'] = getPostTypesArray();
     }
     else {
         $args['post_type'] = array($posttype);
@@ -88,7 +93,7 @@
             <?php if ( $query->have_posts() ) : ?>
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>       
                     <div class="m-6col mb-l">
-                        <?php get_template_part( 'Components/Blocks/Block', $posttype ); ?>
+                        <?php get_template_part( 'Components/Blocks/Block', get_post_type() ); ?>
 					</div>
                 <?php endwhile; endif; ?>
             <?php wp_reset_postdata(); ?>
