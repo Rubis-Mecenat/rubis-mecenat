@@ -5,6 +5,9 @@
  * @package rubismecenat
  */
 
+ $artist = get_field('edition_artist');
+
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -17,7 +20,7 @@
 	<div class="entry-content grid">
         <div class="m-6col">
             <h1 class="entry-title"><?php the_title(); ?></h1>
-            <p><?php the_field('video_artist'); ?></p>
+            <p><?php echo $artist ? $artist->post_title : '' ?></p>
         </div>
 
         <div class="m-6col">
