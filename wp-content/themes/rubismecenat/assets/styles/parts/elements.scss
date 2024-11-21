@@ -1,4 +1,17 @@
+@use "./global/colors" as *;
+
+
 /*------------------------------------*\
     BUTTONS
 \*------------------------------------*/
 
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid $black;
+
+    &.active {
+        background-color: $black;
+        color: $white;
+    }
+}

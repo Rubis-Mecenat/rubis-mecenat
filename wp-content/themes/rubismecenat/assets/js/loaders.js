@@ -47,7 +47,7 @@ const initSearchScript = () => {
         if ( loader_triggers ) {
             loader_triggers.forEach( el => {
                 el.addEventListener('click', event => {
-                    load_one_post(event, el)
+                    load_one_post(event, el);
                 })
             })
         }
@@ -66,8 +66,12 @@ const initSearchScript = () => {
     const addListenerToFilterTriggers = () => {
         if ( filter_trigger ) {
             filter_trigger.forEach( el => {
+                if( cl(el).contains('active') ) {
+                    cl(el).remove('active');
+                }
                 el.addEventListener('click', event => {
                     load_filtered_posts(event, el)
+                    cl(el).add('active');
                 })
             })
         }
@@ -204,7 +208,7 @@ const initSearchScript = () => {
 
         fetchAndDisplayDatas().then( () => {
             pageLoadingEnd();
-            initModalTriggers()
+            initModalTriggers();
         });
     }
 
@@ -238,9 +242,7 @@ const initSearchScript = () => {
     \*------------------------------------*/
 
     initModalTriggers()
-
     initFilterTriggers();
-
 
 }
 

@@ -26,12 +26,13 @@ body {
 
 main {
     flex-grow: 1;
+}
+#mainGrid {
     transition: opacity .4s;
     &.loading {
         opacity: .4;
     }
 }
-
 button {
     background: none;
     border: none;

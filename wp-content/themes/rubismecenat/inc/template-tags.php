@@ -181,7 +181,7 @@ if ( ! function_exists( 'list_terms_custom_taxonomy' ) ) :
 		if ( !empty($terms) ) :
 			$output = '';
 			
-			$output.= '<button class="btn js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les ouvrages') . '</button>';
+			$output.= '<button class="btn active js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les ouvrages') . '</button>';
 
 			foreach( $terms as $term ) {
 				if( $term->parent == 0 ) {

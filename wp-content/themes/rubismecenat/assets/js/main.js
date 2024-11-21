@@ -16,6 +16,7 @@ console.log('hello')
     \*------------------------------------*/
 
     const page = qs('#primary')
+    const mainGrid = qs('#mainGrid')
 
 
 
@@ -30,11 +31,11 @@ console.log('hello')
     }
 
     const pageLoadingStart = () => {
-        cl(page).add('loading');
+        cl(mainGrid).add('loading');
     }
     const pageLoadingEnd = () => {
         setTimeout( () => {
-            cl(page).remove('loading');
+            cl(mainGrid).remove('loading');
         }, 500)
     }
 
