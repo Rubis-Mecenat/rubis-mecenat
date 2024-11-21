@@ -103,11 +103,20 @@ function rubismecenat_scripts() {
 	// ENQUEUE STYLES
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/assets/style.css', array(), _S_VERSION );
 
+	
 	// ENQUEUE SCRIPTS
 	wp_enqueue_script( 'rubismecenat-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/main.min.js', array(), _S_VERSION, true );
 
+
 	// ENQUEUE PARTICULAR SCRIPTS
+	wp_add_inline_script( 'main', 'const ajax_datas = ' . json_encode( array(
+        'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+        'nonce' => wp_create_nonce( 'handle_contents_loading' )
+    ) ), 'before' );
+
+	wp_enqueue_script( 'loaders', get_template_directory_uri() . '/assets/js/loaders.js', array(), _S_VERSION, true );
+
 }
 add_action( 'wp_enqueue_scripts', 'rubismecenat_scripts' );
 
@@ -120,5 +129,11 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+
+/**
+ * Functions which load content (ajax).
+ */
+require get_template_directory() . '/inc/loaders.php';
 
 

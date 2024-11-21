@@ -62,6 +62,10 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+
+<div id="modal">
+	
+</div>
 <?php wp_footer(); ?>
 
 </body>

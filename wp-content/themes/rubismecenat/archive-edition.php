@@ -15,7 +15,7 @@ $args = array(
 $query = new WP_Query($args);
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main wrapper">
 
 
 		<?php if ($query->have_posts()) : ?>
@@ -27,20 +27,24 @@ $query = new WP_Query($args);
 				?>
 			</header><!-- .page-header -->
 
-			<div>
-				<h2>Filtres</h2>
-			</div>
-
-			<?php while ($query->have_posts()) : $query->the_post(); ?>
-
-				<div>
-					<a href="<?php the_permalink(); ?>">
-						<?php the_title(); ?>
-					</a>
+			<div class="grid">
+				<div class="m-4col">
+					<h2>Filtres</h2>
 				</div>
 
-			<?php endwhile;  wp_reset_postdata(); ?>
+				<div class="m-8col">
+					<div class="grid">
 
+						<?php while ($query->have_posts()) : $query->the_post(); ?>
+
+							<div class="m-6col">
+								<?php get_template_part( 'Components/Blocks/Block', 'Edition' ); ?>
+							</div>
+
+						<?php endwhile;  wp_reset_postdata(); ?>
+					</div>
+				</div>
+			</div>
 		<?php else : ?>
 			// Display no posts found message
 
