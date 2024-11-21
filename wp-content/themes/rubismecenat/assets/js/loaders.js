@@ -81,7 +81,6 @@ const initSearchScript = () => {
 
 
 
-
     /*------------------------------------*\
       LOADING ONE POST CONTENT IN MODAL
     \*------------------------------------*/
@@ -90,9 +89,9 @@ const initSearchScript = () => {
         console.log('fetchAndDisplayPostContent')
 
         // DATAS
-        data.set('type', el.getAttribute('data-type'));
         data.set('action', 'load_popin');
         data.set('postslug', el.getAttribute('data-slug'));
+        data.set('type', el.getAttribute('data-type'));
                 
         fetch(ajaxurl, {
             method: 'POST',

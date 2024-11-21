@@ -12,7 +12,8 @@
  function load_popin() {
  
     $postslug = $_REQUEST["postslug"];
- 
+    $type = $_REQUEST["type"];
+
     $args = array(
         'name'  => $postslug,
         'post_type' => array('post', 'page', 'edition', 'video'),
@@ -25,7 +26,7 @@
         <div class="page_content">
             <?php if ( $query->have_posts() ) : ?>
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>       
-                    <?php get_template_part( 'Components/Blocks/Modal', 'Edition' ); ?>
+                    <?php get_template_part( 'Components/Blocks/Modal', $type ); ?>
                 <?php endwhile; endif; ?>
             <?php wp_reset_postdata(); ?>
         </div>
