@@ -16,3 +16,17 @@
         }
     }
 }
+
+
+
+
+.block-presskit {
+    background-color: $gray-light;
+    padding: 30px 80px;
+
+    img {
+        aspect-ratio: 4/5;
+        height: 225px;
+        object-fit: cover;
+    }
+}

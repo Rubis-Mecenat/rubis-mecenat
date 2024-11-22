@@ -12,9 +12,13 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php if( $head_design === 'simple' ) : ?>
-		<header class="entry-header">
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-			<?php the_excerpt(); ?>
+		<header class="entry-header txt-center mb-xxl">
+			<div class="grid">
+				<div class="m-8col">
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<?php the_excerpt(); ?>
+				</div>
+			</div>
 		</header><!-- .entry-header -->
 
 

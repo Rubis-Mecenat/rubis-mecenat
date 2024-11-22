@@ -40,6 +40,7 @@ Grid
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-row-gap: 0;
+    grid-column-gap: 30px;
 }
 
 @mixin parse-columns($suffix: ''){ 
