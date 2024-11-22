@@ -12,9 +12,11 @@ get_header();
 
 		<?php
 		while ( have_posts() ) :
-			the_post();
+			the_post(); 
 
-			get_template_part( 'Components/Templates/Template', get_post_type() );
+			$template = get_post_type() === 'post' ? 'project' : get_post_type();
+
+			get_template_part( 'Components/Templates/Template', $template );
 
 			get_template_part('Components/content', 'flexible'); 
 
