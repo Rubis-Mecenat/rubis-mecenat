@@ -7,7 +7,7 @@
 
 <section class="mod_carousel">
 
-    <div class="flex wrapper">
+    <div class="wrapper">
         <h2 class="txt-center mb-l"><?php echo $title; ?></h2>
     </div>
 
@@ -17,15 +17,15 @@
             <div><?php echo $content; ?></div>
         </div>
 
-        <div class="m-6col">
+        <div class="m-6col <?php echo count($medias) >= 2 ? 'swiper content-split' : ''; ?>">
             <?php if( $medias ): ?>
-                <div class="grid">
-                    <?php foreach( $medias as $media ): ?>
-                        <figure class="s-12col">
-                            <img src="<?php echo $media["url"]; ?>">
-                        </figure>
-                    <?php endforeach; ?>
-                </div>
+            <div class="swiper-wrapper">
+                <?php foreach( $medias as $media ): ?>
+                <figure class="swiper-slide">
+                    <img class="h-full" src="<?php echo $media["url"]; ?>">
+                </figure>
+                <?php endforeach; ?>
+            </div>
             <?php endif; ?>
         </div>
 

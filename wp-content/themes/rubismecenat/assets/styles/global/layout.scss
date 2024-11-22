@@ -47,6 +47,7 @@ Grid
     @for $i from 1 through 12 {
         .#{$suffix}-#{$i}col {
             grid-column: span #{$i};
+            max-width: 100%;
         }
     }
 }
