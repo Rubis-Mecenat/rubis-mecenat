@@ -5,33 +5,37 @@
 ?>
 
 
-<section class="mod_carousel <?php echo $bg ? '-bg' : ''; ?>">
+<section class="mod_carousel-horizontal <?php echo $bg ? '-bg' : ''; ?>">
 
-    <div class="swiper">
+    <div class="swiper carousel-horizontal">
 
-        <header class="swiper-slide mod_title grid">
-            <div class="m-6col">
-                <h2 class="">
-                    <?php echo $title; ?>
-                </h2>
-            </div>
-            <div class="m-6col">
-                <div class="">
-                    <?php echo $firstContent; ?>
-                </div>
-            </div>
-        </header>
+
 
         <?php if ($posts) : ?>
+            <div class="swiper-wrapper">
 
-            <?php foreach ($posts as $post) : setup_postdata($post); ?>
-                    
-                <div class="swiper-slide">
-                    <?php get_template_part('Components/Blocks/Slide', 'Project'); ?>
-                </div>
+                <header class="swiper-slide mod_title grid swiper-slide">
+                    <div class="m-6col">
+                        <h2 class="">
+                            <?php echo $title; ?>
+                        </h2>
+                    </div>
+                    <div class="m-6col">
+                        <div class="">
+                            <?php echo $firstContent; ?>
+                        </div>
+                    </div>
+                </header>
 
-            <?php endforeach; ?>
+                <?php foreach ($posts as $post) : setup_postdata($post); ?>
+                        
+                    <div class="swiper-slide">
+                        <?php get_template_part('Components/Blocks/Slide', 'Project'); ?>
+                    </div>
 
+                <?php endforeach; ?>
+
+            </div>
             <?php wp_reset_postdata(); ?>
         <?php endif; ?>
 

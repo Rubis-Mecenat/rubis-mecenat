@@ -16,6 +16,13 @@
     }
 }
 
+.mod_carousel-horizontal {
+    height: 100vh;
+    .carousel-horizontal {
+        height: 100%;
+    } 
+}
+
 .mod_quote {
     margin: 100px 0;
     text-align: center;

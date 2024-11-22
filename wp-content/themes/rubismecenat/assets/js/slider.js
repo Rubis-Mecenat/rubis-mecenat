@@ -32,6 +32,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+
+    const swiperCarouselHorizontal = document.querySelectorAll('.swiper.carousel-horizontal');
+
+    swiperCarouselHorizontal.forEach((slider) => {
+        let swiperCarousel = new Swiper(slider, {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            speed: 800,
+            mousewheel: {
+                invert: false,
+                releaseOnEdges: true,
+                thresholdDelta: 5,
+                thresholdTime: 500,
+            },
+        });
+    });
+
     
 
 
