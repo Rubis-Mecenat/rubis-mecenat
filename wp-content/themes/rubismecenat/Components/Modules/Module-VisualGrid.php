@@ -3,11 +3,11 @@
     $size = 'thumbnail'; // (thumbnail, medium, large, full or custom size)
 ?>
 
-<section class="mod_carousel">
+<section class="mod_visual-grid wrapper">
 
 
     <?php if( $visuals ): ?>
-        <div class="">
+        <div class="visual-grid">
             <?php foreach( $visuals as $visual ): ?>
                 <figure>
                     <img src="<?php echo $visual["url"]; ?>">

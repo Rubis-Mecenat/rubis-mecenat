@@ -23,6 +23,27 @@
     } 
 }
 
+.mod_visual-grid {
+    margin: 100px 0;
+
+    .visual-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 36px;
+
+        figure {
+            height: 50vh;
+            flex-grow: 1;
+            img {
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
 .mod_quote {
     margin: 100px 0;
     text-align: center;
