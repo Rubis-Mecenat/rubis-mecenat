@@ -97,13 +97,21 @@ function getPostTypesArray() {
  
     ob_start(); ?>
  
+            <div id="foundPosts" style="display:none" data-results="<?php echo $query->found_posts; ?>" data-posttype="<?php echo $posttype; ?>"></div>
+
             <?php if ( $query->have_posts() ) : ?>
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>       
                     <div class="m-6col mb-l">
+                    <?php echo get_post_type(); ?>
+
                         <?php get_template_part( 'Components/Blocks/Block', get_post_type() ); ?>
 					</div>
-                <?php endwhile; endif; ?>
+                <?php endwhile; ?>
+            <?php else : ?>
+                <p class="m-6col"><?php pll_e('Aucun résultat'); ?></p>
+            <?php endif; ?>
             <?php wp_reset_postdata(); ?>
+            
  
     <?php 
 

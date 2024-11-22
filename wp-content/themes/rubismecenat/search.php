@@ -14,12 +14,6 @@ get_header();
 
 		<header class="wrapper mb-xl">
 			<?php get_search_form(); ?>
-
-			<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'rubismecenat' ), '<span>' . get_search_query() . '</span>' );
-					?>
-
 		</header>
 
 		<div class="grid wrapper">
@@ -30,22 +24,24 @@ get_header();
 				<div class="m-8col">
 
 						<?php if ( have_posts() ) : ?>
-							<div id="mainGrid" class="grid">
-
+							<div id="mainGrid" class="grid mb-l">
+								
 								<?php while ( have_posts()) : the_post(); ?>
 
 									<div class="m-6col mb-l">
 										<?php get_template_part( 'Components/Blocks/Block', get_post_type() ); ?>
 									</div>
-
 									
 								<?php endwhile; ?>
-								
 
 							</div>
 
-							<div class="pagination flex center gap-s">
+							<div id="search-pagination" class="pagination flex center gap-s">
 								<?php pagination_bar(); ?>
+							</div>
+
+							<div id="search-loadmore" class="pagination flex center hidden">
+								<button class="btn"><?php pll_e('Charger plus de résultats'); ?></button>
 							</div>
 
 						<?php else :

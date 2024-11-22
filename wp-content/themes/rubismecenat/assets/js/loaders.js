@@ -17,8 +17,11 @@ const initSearchScript = () => {
     const mainGrid = qs('#mainGrid')
     const searchform = qs('.search-form')
     const searchformValue = qs('.search-form input[name="s"]');
+    const searchPagination = qs('#search-pagination');
+    const searchLoadmore = qs('#search-loadmore');
+    const searchLoadmoreTrigger = qs('#search-loadmore button');
 
-    let loader_triggers, filter_trigger;
+    let loader_triggers, filter_trigger, postFounds, posttype;
 
     // UTILS
     let offset = 0;
@@ -58,6 +61,39 @@ const initSearchScript = () => {
         }, 1000)
     }
 
+    const checkResults = () => {
+        cl(searchPagination).add('hidden');
+
+        setTimeout( () => {
+            
+            postFounds = qs('#foundPosts').getAttribute('data-results');
+            posttype = qs('#foundPosts').getAttribute('data-posttype');
+            console.log('posttype', posttype)
+            console.log('postFounds', postFounds)
+            console.log('offset', offset)
+
+            if( offset === 0 ) {
+                if( postFounds < step ) {
+                    cl(searchLoadmore).add('hidden');
+                }
+                else {
+                    cl(searchLoadmore).remove('hidden');
+                    offset += step;
+                }
+            }
+            else {
+                if( postFounds < offset ) {
+                    cl(searchLoadmore).add('hidden');
+                }
+                else {
+                    cl(searchLoadmore).remove('hidden');
+                    offset += step;
+                }
+            }
+
+        }, 1000)
+    }
+
 
     // FILTERS
     ///////////
@@ -68,6 +104,7 @@ const initSearchScript = () => {
         if ( filter_trigger ) {
             filter_trigger.forEach( el => {
                 el.addEventListener('click', event => {
+                    offset = 0; // Reset 
                     cl( qs('.active') ).remove('active');
                     load_filtered_posts(event, el)
                     cl(el).add('active');
@@ -91,6 +128,13 @@ const initSearchScript = () => {
         })
     }
 
+    const initLoadmoreTrigger = () => {
+        searchLoadmoreTrigger.addEventListener('click', event => {
+            event.preventDefault();
+            load_filtered_posts(event, undefined, true)
+        })
+    }
+
 
     // NOT USED YET
     ///////////
@@ -108,10 +152,12 @@ const initSearchScript = () => {
     }
 
 
+
     /*------------------------------------*\
-      LOADING POSTS IN ARCHIVES CONTAINER
+      FETCHING FUNCTIONS
     \*------------------------------------*/
 
+    // LOADING POSTS IN ARCHIVES CONTAINER
     const fetchAndDisplayDatas = async ( append = false ) => {
         console.log('fetchAndDisplayDatas', data)
 
@@ -139,15 +185,10 @@ const initSearchScript = () => {
                 }, 400)
             }
         });
-
     }
 
 
-
-    /*------------------------------------*\
-      LOADING ONE POST CONTENT IN MODAL
-    \*------------------------------------*/
-
+    // LOADING ONE POST CONTENT IN MODAL
     const fetchAndDisplayPostContent = async ( el ) => {
         console.log('fetchAndDisplayPostContent')
 
@@ -171,47 +212,21 @@ const initSearchScript = () => {
         });
     }
 
-    // NOT USED YET
-    const resetDisplay = async () => {
-        data.set('offset', 0);
-        data.set('keyword', '');
-
-        pageLoadingStart()
-
-        fetchAndDisplayDatas().then( () => {
-            pageLoadingEnd()
-        });
-    }
-
 
 
     /*------------------------------------*\
         LOADING FUNCS
     \*------------------------------------*/
 
-
-    // NOT USED YET
-    const load_more_contents = async (event) => {
-        event.preventDefault();
-        offset += step;
-
-        data.set('offset', offset);
-
-        fetchAndDisplayDatas( true ).then( () => {
-            // displayFoundPosts()
-            pageLoadingEnd();
-        });
-    }
-
-
     // USED FOR ARCHIVES & VIDEO FILTERS
-    const load_filtered_posts = async (event, el = undefined) => {
+    const load_filtered_posts = async (event, el = undefined, append = false) => {
         event.preventDefault();
-
         pageLoadingStart()
+
+        checkResults();
         
         const activeFilter = qs('.js-filter-content.active');
-        
+
         if( searchform ) {
             data.set('search', searchformValue.value );
             data.set('term', '');
@@ -236,7 +251,7 @@ const initSearchScript = () => {
 
 
 
-        fetchAndDisplayDatas().then( () => {
+        fetchAndDisplayDatas( append ).then( () => {
             pageLoadingEnd();
             initModalTriggers();
         });
@@ -274,6 +289,8 @@ const initSearchScript = () => {
     initModalTriggers()
     initFilterTriggers();
     if(searchform) initSearchSubmit();
+    if(searchLoadmoreTrigger) initLoadmoreTrigger();
+
 
 }
 
