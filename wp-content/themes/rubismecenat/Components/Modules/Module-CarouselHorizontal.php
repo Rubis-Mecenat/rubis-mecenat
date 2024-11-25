@@ -5,7 +5,7 @@
 ?>
 
 
-<section class="mod_carousel-horizontal wrapper">
+<section class="mod_carousel-horizontal">
 
     <div class="swiper carousel-horizontal">
 
@@ -23,7 +23,20 @@
                         
                         <div class="m-6col mod_content flex -center-y">
                             <div class="body-title">
-                                <?php echo $firstContent; ?>
+                                <div class="mb-m">
+                                    <?php echo $firstContent; ?>
+                                </div>
+
+                                <div class="links">
+                                    <?php foreach ($posts as $key => $post) : setup_postdata($post); ?>
+                                        <p class="">
+                                            <button class="js-slide-trigger h3 -bold" data-slide="<?php echo $key+1; ?>">
+                                                <?php the_title(); ?>
+                                                <?php get_template_part('Components/Svgs/Svg', 'ArrowRightSmall'); ?>
+                                            </button>
+                                        </p>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                         </div>
 

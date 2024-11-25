@@ -4,21 +4,46 @@ $contacts = $args['contacts'];
 ?>
 
 
-<section class="mod_presskits">
+<section class="mod_contacts">
 
-    <div class="mod_content">
+    <div class="mod_title txt-center mb-xxl">
+        <h2><?php echo $title; ?></h2>
+    </div>
+
+    <div class="mod_content wrapper">
         <?php if( $contacts ) : ?>
 
-            <div class="flex">
-                <?php foreach( $contacts as $contact ) : ?>
-                    <div class="">
-                        <h3><?php echo $contact['contact_name']; ?></h3>
-                        <h3><?php echo $contact['contact_fonction']; ?></h3>
-                        <p><?php echo $contact['contact_details']; ?></p>
-                        <p><?php echo $contact['contact_tel']; ?></p>
-                        <p><?php echo $contact['contact_email']; ?></p>
-                        <p><?php echo $contact['contact_linkedIn']; ?></p>
+            <div class="grid">
+                <?php foreach( $contacts as $key => $contact ) : ?>
 
+                    <?php if($key % 2 === 1) : ?>
+                        <div class="s-12col m-2col"></div>
+                    <?php endif; ?>
+
+                    <div class="s-12col m-5col">
+
+                        <h3 class="flex -column mb-m">
+                            <span class="h4"><?php echo $contact['contact_name']; ?></span>
+                            <span class="h3 -regular"><?php echo $contact['contact_fonction']; ?></span>
+                        </h3>
+
+                        <div class="body mb-l">
+                            <?php echo $contact['contact_details']; ?></div>
+
+                        <div class="contact-methods">
+                            <p class="flex -center-y gap-s mb-m">
+                                <span class="btn -round -small -black"><?php get_template_part('Components/Svgs/Svg', 'Phone'); ?></span>
+                                <?php echo $contact['contact_tel']; ?></p>
+
+                            <a href="mailto:<?php echo $contact['contact_email']; ?>" class="body flex -center-y gap-s mb-m">
+                                <span class="btn -round -small -black"><?php get_template_part('Components/Svgs/Svg', 'Email'); ?></span>
+                                <?php echo $contact['contact_email']; ?></a>
+
+                            <a href="https://<?php echo $contact['contact_linkedIn']; ?>" class="body flex -center-y gap-s mb-m">
+                                <span class="btn -round -small -black"><?php get_template_part('Components/Svgs/Svg', 'Linkedin'); ?></span>
+                                <?php echo $contact['contact_linkedIn']; ?></a>
+
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>

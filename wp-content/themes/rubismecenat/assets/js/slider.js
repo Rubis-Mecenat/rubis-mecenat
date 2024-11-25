@@ -33,9 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
+
     const swiperCarouselHorizontal = document.querySelectorAll('.swiper.carousel-horizontal');
 
     swiperCarouselHorizontal.forEach((slider) => {
+
         let swiperCarousel = new Swiper(slider, {
             slidesPerView: 1,
             spaceBetween: 200,
@@ -52,7 +54,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 enabled: true,
             },
         });
+
+        qsa('.js-slide-trigger').forEach( el => {
+            el.addEventListener('click', (event) => {
+                console.log('js-slide-trigger', el)
+                const index = el.getAttribute('data-slide');
+                swiperCarousel.slideTo(index, 600)
+            })
+        })
+
     });
+
 
     
 

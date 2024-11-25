@@ -34,6 +34,22 @@
             }
         }
     }
+    &.-small {
+        width: 45px;
+    }
+    &.-black {
+        background-color: $black;
+        border-color: $black;
+        path {
+            fill: $white;
+        }
+        &:hover {
+            border-color: $black;
+            path {
+                fill: $black;
+            }
+        }
+    }
 }
 
 
