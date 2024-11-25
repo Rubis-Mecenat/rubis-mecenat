@@ -57,14 +57,13 @@
                             
             <?php endif; ?>
             
-        </div>
-
-        
-        <?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('project_artists') )); ?>
-       
+        </div>       
 
 	</div><!-- .entry-content -->
 
 
+    <?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('project_artists') )); ?>
+
+    
 
 </article><!-- #post-<?php the_ID(); ?> -->

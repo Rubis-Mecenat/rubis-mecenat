@@ -91,6 +91,17 @@
 
 
 
+/*------------------------------------*\
+    MOD CAROUSEL
+\*------------------------------------*/
+
+section[class*="mod"] {
+    &.-bordered {
+        border: 50px solid $accent-color;
+        padding: 70px;
+    }
+}
+
 
 
 /*------------------------------------*\
@@ -100,8 +111,14 @@
 
 .mod_carousel {
     margin: 100px 0;
+
     &.swiper {
         @include wrapper-padding;
+
+        @include min(wide) {
+            padding-left: calc( calc( 100vw - var(--max-width) ) / 2);
+            padding-right: calc( calc( 100vw - var(--max-width) ) / 2);
+        }
     }
 }
 
@@ -184,14 +201,9 @@
 
 .mod_news {
     margin: 100px 0;
-    border: 50px solid $accent-color;
 
     .mod_header {
         color: $accent-color;
-    }
-
-    .mod_publication {
-        padding: 70px;
     }
 
     img {
@@ -208,9 +220,17 @@
 \*------------------------------------*/
 
 .mod_featured-projects {
-    margin: 100px 0;
-    border: 50px solid $accent-color;
-    padding: 160px 0
+
 }
+
+
+/*------------------------------------*\
+    MOD ARTIST
+\*------------------------------------*/
+
+.mod_artist {
+
+}
+
 
 
