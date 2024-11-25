@@ -125,7 +125,9 @@ p, .body {
     &.-bold {
         font-weight: $font-bold;
     }
-
+    &.-light {
+        font-weight: $font-light;
+    }
     &.-other {
         font-family: 'HarrietText';
         font-style: italic;
