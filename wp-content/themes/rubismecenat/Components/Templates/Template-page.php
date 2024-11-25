@@ -44,6 +44,26 @@
 			</div>
 		</header><!-- .entry-header -->
 
+		<?php elseif( $head_design === 'fullwrapped' ) : ?>
+
+			<header class="entry-header -fullwrapped -red">
+				<div class="grid gap-0">
+					
+					<div class="m-6col mod_cover is-relative">
+						<div class="content-absolute">
+							<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+						</div>
+					</div>
+					
+					<div class="m-6col mod_content flex -center-y">
+						<div class="body-title">
+							<?php the_excerpt(); ?>	
+						</div>
+					</div>
+
+				</div>
+			</header><!-- .entry-header -->
+
 	<?php elseif( $head_design === 'notitle' ) : ?>
 
 	<?php endif; ?>

@@ -5,27 +5,31 @@
 ?>
 
 
-<section class="mod_carousel-horizontal <?php echo $bg ? '-bg' : ''; ?>">
+<section class="mod_carousel-horizontal wrapper">
 
     <div class="swiper carousel-horizontal">
-
-
 
         <?php if ($posts) : ?>
             <div class="swiper-wrapper">
 
-                <header class="swiper-slide mod_title grid swiper-slide">
-                    <div class="m-6col">
-                        <h2 class="">
-                            <?php echo $title; ?>
-                        </h2>
-                    </div>
-                    <div class="m-6col">
-                        <div class="">
-                            <?php echo $firstContent; ?>
+                <header class="swiper-slide ">
+                    <div class="entry-header -fullwrapped -red grid gap-0">
+                        
+                        <div class="m-6col mod_cover is-relative">
+                            <div class="content-absolute">
+                                <h1 class="h1"><?php echo $title; ?></h1>
+                            </div>
                         </div>
+                        
+                        <div class="m-6col mod_content flex -center-y">
+                            <div class="body-title">
+                                <?php echo $firstContent; ?>
+                            </div>
+                        </div>
+
                     </div>
-                </header>
+                </header><!-- .entry-header -->
+                
 
                 <?php foreach ($posts as $post) : setup_postdata($post); ?>
                         
@@ -37,6 +41,15 @@
 
             </div>
             <?php wp_reset_postdata(); ?>
+
+            <div class="navigation flex gap-m -space">
+                <div class="swiper-button prev">
+                    <?php get_template_part('Components/Svgs/Svg', 'ArrowLeft'); ?>
+                </div>
+                <div class="swiper-button next">
+                    <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
+                </div>
+            </div>
         <?php endif; ?>
 
     </div>

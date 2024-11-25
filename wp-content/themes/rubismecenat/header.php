@@ -27,9 +27,9 @@
 
 	<header id="masthead" class="site-header">
 
-		<div class="wrapper flex center-y gap-l space center-y">
+		<div class="wrapper flex gap-l -space -center-y">
 
-			<div class="header-brand">
+			<div class="header-brand flex -center-y -center-x">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-big" rel="home">
 					<?php get_template_part('Components/Svgs/Svg', 'Logo'); ?>
 				</a>

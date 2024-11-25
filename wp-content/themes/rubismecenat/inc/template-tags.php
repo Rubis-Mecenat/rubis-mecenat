@@ -124,11 +124,11 @@ if ( ! function_exists( 'rubismecenat_post_thumbnail' ) ) :
 			return;
 		} ?>
 
-			<div class="post-thumbnail">
-				<div class="mb-xs">
+			<div class="post-thumbnail is-relative">
+				<div class="">
 					<?php the_post_thumbnail(); ?>
 				</div>
-				<div class="flex -space">
+				<div class="thumbnail_captions flex -space">
 					<p class="credit"><?php the_post_thumbnail_caption(); ?></p>
 					<p class="caption"><?php the_post_thumbnail_caption(); ?></p>
 				</div>
@@ -163,7 +163,7 @@ if ( ! function_exists( 'list_terms_custom_taxonomy' ) ) :
 		) );
 
 		if ( !empty($terms) ) :
-			$output = '<nav class="filter flex column gap-s start-y">';
+			$output = '<nav class="filter flex column gap-s -start-y">';
 				
 				$output.= '<button class="btn active js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les ouvrages') . '</button>';
 
@@ -189,7 +189,7 @@ if ( ! function_exists( 'list_post_type' ) ) :
 
 		$posttypes = getPostTypesArray();
 
-			$output = '<nav class="filter flex column gap-s start-y">';
+			$output = '<nav class="filter flex -column gap-s -start-y">';
 			
 				$output.= '<button class="btn active js-filter-content" data-posttype="all">' . pll__('Tous les contenus') . '</button>';
 

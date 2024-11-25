@@ -29,6 +29,16 @@
     &.-wrapped {
         @include wrapper;
     }
+    &.-fullwrapped {
+        @include wrapper;
+
+        .mod_cover {
+            height: 60vh;
+        }
+        .mod_content {
+            margin-left: 0;
+        }
+    }
     &.-linked {
         .mod_button {
             position: absolute;
@@ -101,10 +111,34 @@
 \*------------------------------------*/
 
 .mod_carousel-horizontal {
-    height: 100vh;
+    // height: 90vh;
+    
+    .swiper {
+        overflow: visible;
+    }
     .carousel-horizontal {
         height: 100%;
     } 
+    .entry-header {
+        height: 80vh;
+        width: 100%;
+        .mod_cover {
+            height: 100%;
+        }
+    }
+    .mod_content {
+        height: calc(100% - var(--space-xl) * 2);
+    }
+    .navigation {
+        position: absolute;
+        top: 48%;
+        left: calc( var(--space-xl) * -1);
+        right: calc( var(--space-xl) * -1);
+        z-index: 3;
+        .prev {
+            opacity: 0;
+        }
+    }
 }
 
 

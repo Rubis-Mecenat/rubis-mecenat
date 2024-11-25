@@ -15,6 +15,25 @@
         color: $white;
         pointer-events: none;
     }
+    &.-round {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        aspect-ratio: 1/1;
+        border-radius: 50px;
+        border-color: $accent-color;
+
+        path {
+            fill: $accent-color;
+        }
+        &:hover {
+            border-color: $black;
+            path {
+                fill: $black;
+            }
+        }
+    }
 }
 
 

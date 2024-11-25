@@ -7,12 +7,12 @@
 
 <section class="mod_carousel swiper carousel  <?php echo $bg ? '-bg' : ''; ?>">
 
-    <header class="mod_title mb-m flex -space --center-y">
+    <header class="mod_title mb-m flex -space -center-y">
         <h2>
             <?php echo $title; ?>
         </h2>
 
-        <div class="navigation flex gap-m --center-y">
+        <div class="navigation flex gap-m -center-y">
             <div class="swiper-button prev">
                 <?php get_template_part('Components/Svgs/Svg', 'ArrowLeft'); ?>
             </div>

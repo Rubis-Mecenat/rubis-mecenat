@@ -108,6 +108,8 @@ h3, .h3 {
     &.-other {
         font-family: 'HarrietText';
         font-weight: $font-regular;
+    }
+    &.-italic {
         font-style: italic;
     }
     p {
@@ -134,7 +136,6 @@ p, .body {
     }
     &.-other {
         font-family: 'HarrietText';
-        font-style: italic;
     }
 
     &.-big {

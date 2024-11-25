@@ -38,13 +38,18 @@ document.addEventListener('DOMContentLoaded', function() {
     swiperCarouselHorizontal.forEach((slider) => {
         let swiperCarousel = new Swiper(slider, {
             slidesPerView: 1,
-            spaceBetween: 30,
+            spaceBetween: 200,
             speed: 800,
             mousewheel: {
                 invert: false,
                 releaseOnEdges: true,
                 thresholdDelta: 5,
                 thresholdTime: 500,
+            },
+            navigation: {
+                nextEl: slider.querySelector('.swiper-button.next'),
+                prevEl: slider.querySelector('.swiper-button.prev'),
+                enabled: true,
             },
         });
     });

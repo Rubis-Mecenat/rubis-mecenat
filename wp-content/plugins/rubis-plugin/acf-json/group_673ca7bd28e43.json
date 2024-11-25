@@ -18,6 +18,7 @@
             },
             "choices": {
                 "full": "Sur le modèle du Design \"Le Fonds\"",
+                "fullwrapped": "Sur le modèle du Design \"Créez & Accompagnez\"",
                 "notitle": "Pas de titre (modèle du design de l'accueil)",
                 "simple": "titre et chapo centrés (modèle du Design \"Espace Press\")"
             },
@@ -54,5 +55,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732182962
+    "modified": 1732537920
 }

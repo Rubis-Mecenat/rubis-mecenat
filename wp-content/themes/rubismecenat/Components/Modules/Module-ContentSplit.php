@@ -21,8 +21,8 @@
             <?php if( $medias ): ?>
             <div class="swiper-wrapper">
                 <?php foreach( $medias as $media ): ?>
-                <figure class="swiper-slide">
-                    <img class="h-full" src="<?php echo $media["url"]; ?>">
+                <figure class="swiper-slide ratio-square">
+                    <img class="h-full " src="<?php echo $media["url"]; ?>">
                 </figure>
                 <?php endforeach; ?>
             </div>

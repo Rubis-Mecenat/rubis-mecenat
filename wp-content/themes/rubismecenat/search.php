@@ -36,11 +36,11 @@ get_header();
 
 							</div>
 
-							<div id="search-pagination" class="pagination flex center gap-s">
+							<div id="search-pagination" class="pagination flex -center gap-s">
 								<?php pagination_bar(); ?>
 							</div>
 
-							<div id="search-loadmore" class="pagination flex center hidden">
+							<div id="search-loadmore" class="pagination flex -center hidden">
 								<button class="btn"><?php pll_e('Charger plus de résultats'); ?></button>
 							</div>
 
