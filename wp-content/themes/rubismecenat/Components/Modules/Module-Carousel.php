@@ -14,10 +14,10 @@
 
         <div class="navigation flex gap-m center-y">
             <div class="swiper-button prev">
-                <?php get_template_part('svg/svg', 'arrow-prev'); ?>
+                <?php get_template_part('Components/Svgs/Svg', 'ArrowLeft'); ?>
             </div>
             <div class="swiper-button next">
-                <?php get_template_part('svg/svg', 'arrow-next'); ?>
+                <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
             </div>
         </div>
     </header>

@@ -29,12 +29,15 @@
 
 		<div class="wrapper flex center-y gap-l space center-y">
 
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<?php get_template_part('svg/svg', 'rubis-mecenat'); ?>
-			</a>
+			<div class="header-brand">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-big" rel="home">
+					<?php get_template_part('Components/Svgs/Svg', 'Logo'); ?>
+				</a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-small" rel="home">
+					<?php get_template_part('Components/Svgs/Svg', 'LogoSmall'); ?>
+				</a>
+			</div>
 
-			
-			
 			<div class="flex">
 				
 				<nav id="site-navigation" class="main-navigation-1 menu">
@@ -65,7 +68,7 @@
 
 				<nav class="search">
 					<a href="/?s=">
-						<?php get_template_part('svg/svg', 'search'); ?>
+						<?php get_template_part('Components/Svgs/Svg', 'Search'); ?>
 					</a>
 				</nav>
 

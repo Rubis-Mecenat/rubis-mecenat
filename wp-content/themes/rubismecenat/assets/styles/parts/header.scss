@@ -14,6 +14,37 @@ body.admin-bar .site-header {
     background-color: $white;
     border-bottom: 1.5px solid $black;
     z-index: 50;
+    transition: transform .3s;
+
+    .logo-small {
+        display: none;
+    }
+    &.-reduced {
+        .logo-big {
+            display: none;
+        }
+        .logo-small {
+            display: block;
+            svg {
+                height: 45px;
+            }
+        }
+        .menu li a {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+        .search a {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+        .lang_menu {
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+    }
+    &.-out {
+        transform: translateY(-100%);
+    }
 
     .main-navigation-2 {
         border-left: 1.5px solid $black;

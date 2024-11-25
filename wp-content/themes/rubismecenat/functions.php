@@ -105,7 +105,9 @@ function rubismecenat_scripts() {
 
 	
 	// ENQUEUE SCRIPTS
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/main.min.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'utils', get_template_directory_uri() . '/assets/js/utils.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/main.min.js', array('utils'), _S_VERSION, true );
+	wp_enqueue_script( 'navigation', get_template_directory_uri() . '/assets/js/navigation.js', array('utils', 'main'), _S_VERSION, true );
 
 
 	// ENQUEUE SWIPER
