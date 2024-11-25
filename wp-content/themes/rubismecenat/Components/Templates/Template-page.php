@@ -70,20 +70,21 @@
 
 
 	
-	<div class="entry-content wrapper mb-xxl">
+	<?php if( get_the_content() !== '' ) : ?>
+		<div class="entry-content wrapper mb-xxl">
 
-		<div class="grid">
-			<div class="s-12col m-6col">
-				<?php the_content(); ?>
+			<div class="grid">
+				<div class="s-12col m-6col body">
+					<?php the_content(); ?>
+				</div>
+
+				<div class="s-12col m-1col"></div>
+
+				<div class="s-12col m-5col">
+				
+				</div>
 			</div>
-
-			<div class="s-12col m-1col"></div>
-
-			<div class="s-12col m-5col">
-			
-			</div>
-		</div>
-	</div><!-- .entry-content -->
-
+		</div><!-- .entry-content -->
+	<?php endif; ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
