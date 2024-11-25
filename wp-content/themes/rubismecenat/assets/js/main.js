@@ -17,7 +17,8 @@ console.log('hello')
 
     const page = qs('#primary')
     const mainGrid = qs('#mainGrid')
-
+    const modal = qs('#modal')
+    const modal_inner = qs('#modal-inner')
 
 
     /*------------------------------------*\
@@ -31,11 +32,11 @@ console.log('hello')
     }
 
     const pageLoadingStart = () => {
-        cl(mainGrid).add('loading');
+        if(mainGrid) cl(mainGrid).add('loading');
     }
     const pageLoadingEnd = () => {
         setTimeout( () => {
-            cl(mainGrid).remove('loading');
+            if(mainGrid) cl(mainGrid).remove('loading');
         }, 500)
     }
 

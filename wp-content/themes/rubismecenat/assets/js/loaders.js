@@ -11,9 +11,6 @@ const initSearchScript = () => {
     \*------------------------------------*/
 
     // ELEMENTS
-    const page = qs('main')
-    const modal = qs('#modal')
-    const modal_inner = qs('#modal-inner')
     const mainGrid = qs('#mainGrid')
     const searchform = qs('.search-form')
     const searchformValue = qs('.search-form input[name="s"]');
@@ -263,6 +260,9 @@ const initSearchScript = () => {
         event.preventDefault();
         pageLoadingStart()
 
+        console.log('el', el)
+
+        
         fetchAndDisplayPostContent( el )
             .then( () => {
 

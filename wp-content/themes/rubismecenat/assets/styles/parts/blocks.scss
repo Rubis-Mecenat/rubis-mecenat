@@ -87,3 +87,27 @@ article.slide_project {
         object-fit: cover;
     }
 }
+
+.block-edition {
+    .swiper-slide & {
+        a {
+            display: block;
+        }
+        img {
+            width: 100%;
+            aspect-ratio: 5/4;
+        }
+    }
+}
+
+.block-video {
+    .swiper-slide & {
+        a {
+            display: block;
+        }
+        img {
+            width: 100%;
+            aspect-ratio: 5/4;
+        }
+    }
+}

@@ -30,7 +30,7 @@
                 <?php foreach ($posts as $post) : setup_postdata($post); ?>
                  
                     <div class="swiper-slide">
-                        <?php get_template_part('Components/Blocks/Block', 'Project'); ?>
+                        <?php get_template_part('Components/Blocks/Block', get_post_type()); ?>
                     </div>
 
                 <?php endforeach; ?>
