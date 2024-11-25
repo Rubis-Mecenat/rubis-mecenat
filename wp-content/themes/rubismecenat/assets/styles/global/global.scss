@@ -17,6 +17,10 @@ html {
 
 body {
     font-size: 16px;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
     #page {
         display: flex;
         flex-flow: column;

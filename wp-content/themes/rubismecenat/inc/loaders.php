@@ -102,8 +102,6 @@ function getPostTypesArray() {
             <?php if ( $query->have_posts() ) : ?>
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>       
                     <div class="m-6col mb-l">
-                    <?php echo get_post_type(); ?>
-
                         <?php get_template_part( 'Components/Blocks/Block', get_post_type() ); ?>
 					</div>
                 <?php endwhile; ?>

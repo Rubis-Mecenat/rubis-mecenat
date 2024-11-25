@@ -163,7 +163,7 @@ if ( ! function_exists( 'list_terms_custom_taxonomy' ) ) :
 		) );
 
 		if ( !empty($terms) ) :
-			$output = '<nav class="filter flex column gap-s -start-y">';
+			$output = '<nav class="filter flex -column gap-s -start-y">';
 				
 				$output.= '<button class="btn active js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les ouvrages') . '</button>';
 

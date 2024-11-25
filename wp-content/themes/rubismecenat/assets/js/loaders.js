@@ -39,6 +39,7 @@ const initSearchScript = () => {
     
     // MODAL
     ///////////
+
     const queryModalTriggers = cb => {
         loader_triggers = qsa('.js-load-modal');
         cb();
@@ -59,41 +60,45 @@ const initSearchScript = () => {
     }
 
     const checkResults = () => {
-        cl(searchPagination).add('hidden');
 
-        setTimeout( () => {
-            
-            postFounds = qs('#foundPosts').getAttribute('data-results');
-            posttype = qs('#foundPosts').getAttribute('data-posttype');
-            console.log('posttype', posttype)
-            console.log('postFounds', postFounds)
-            console.log('offset', offset)
+        if(searchform) {
+            cl(searchPagination).add('hidden');
 
-            if( offset === 0 ) {
-                if( postFounds < step ) {
-                    cl(searchLoadmore).add('hidden');
+            setTimeout( () => {
+                
+                postFounds = qs('#foundPosts').getAttribute('data-results');
+                posttype = qs('#foundPosts').getAttribute('data-posttype');
+                console.log('posttype', posttype)
+                console.log('postFounds', postFounds)
+                console.log('offset', offset)
+
+                if( offset === 0 ) {
+                    if( postFounds < step ) {
+                        cl(searchLoadmore).add('hidden');
+                    }
+                    else {
+                        cl(searchLoadmore).remove('hidden');
+                        offset += step;
+                    }
                 }
                 else {
-                    cl(searchLoadmore).remove('hidden');
-                    offset += step;
+                    if( postFounds < offset ) {
+                        cl(searchLoadmore).add('hidden');
+                    }
+                    else {
+                        cl(searchLoadmore).remove('hidden');
+                        offset += step;
+                    }
                 }
-            }
-            else {
-                if( postFounds < offset ) {
-                    cl(searchLoadmore).add('hidden');
-                }
-                else {
-                    cl(searchLoadmore).remove('hidden');
-                    offset += step;
-                }
-            }
 
-        }, 1000)
+            }, 1000)
+        }
     }
 
 
     // FILTERS
     ///////////
+
     const queryFilterTriggers = async () => {
         filter_trigger = qsa('.js-filter-content')
     }   
@@ -116,8 +121,10 @@ const initSearchScript = () => {
             })
     }
 
+
     // SEARCH
     ///////////
+
     const initSearchSubmit = () => {
         searchform.addEventListener('submit', event => {
             event.preventDefault();
@@ -134,7 +141,6 @@ const initSearchScript = () => {
 
 
     // NOT USED YET
-    ///////////
     const displayFoundPosts = async () => {
         setTimeout( () => {
             const nbr = qs('#foundPosts') ? qs('#foundPosts').getAttribute('data-posts') : 0;
@@ -155,6 +161,8 @@ const initSearchScript = () => {
     \*------------------------------------*/
 
     // LOADING POSTS IN ARCHIVES CONTAINER
+    //////////////////
+
     const fetchAndDisplayDatas = async ( append = false ) => {
         console.log('fetchAndDisplayDatas', data)
 
@@ -186,6 +194,8 @@ const initSearchScript = () => {
 
 
     // LOADING ONE POST CONTENT IN MODAL
+    //////////////////
+
     const fetchAndDisplayPostContent = async ( el ) => {
         console.log('fetchAndDisplayPostContent')
 
@@ -216,12 +226,15 @@ const initSearchScript = () => {
     \*------------------------------------*/
 
     // USED FOR ARCHIVES & VIDEO FILTERS
+    //////////////////
+
     const load_filtered_posts = async (event, el = undefined, append = false) => {
         event.preventDefault();
         pageLoadingStart()
 
         checkResults();
-        
+
+
         const activeFilter = qs('.js-filter-content.active');
 
         if( searchform ) {
@@ -238,6 +251,7 @@ const initSearchScript = () => {
             data.set('search', '' );
         }
 
+
         if( el ) {
             data.set('posttype', el.getAttribute('data-posttype'));
             if (el.hasAttribute('data-tax')) data.set('tax', el.getAttribute('data-tax'));
@@ -246,28 +260,22 @@ const initSearchScript = () => {
 
         data.set('offset', offset);
 
-
-
         fetchAndDisplayDatas( append ).then( () => {
             pageLoadingEnd();
             initModalTriggers();
         });
+
     }
 
     
     // USED TO DISPLAY MODAL WITH CONTENT (EDITION, VIDEO)
+    //////////////////
+
     const load_one_post = async (event, el) => {
         event.preventDefault();
-        pageLoadingStart()
-
-        console.log('el', el)
-
         
         fetchAndDisplayPostContent( el )
             .then( () => {
-
-                pageLoadingEnd()
-
                 if(cl(modal).contains('open') ) {
                     closeModal()
                     setTimeout( () => {

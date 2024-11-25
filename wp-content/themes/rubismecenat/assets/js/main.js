@@ -15,6 +15,7 @@ console.log('hello')
         VARIABLES
     \*------------------------------------*/
 
+    const body = document.body
     const page = qs('#primary')
     const mainGrid = qs('#mainGrid')
     const modal = qs('#modal')
@@ -26,9 +27,11 @@ console.log('hello')
     \*------------------------------------*/
     const closeModal = () => {
         cl(modal).remove('open');
+        bodyUnfixed()
     }
     const openModal = () => {
         cl(modal).add('open');
+        bodyFixed()
     }
 
     const pageLoadingStart = () => {
@@ -37,6 +40,14 @@ console.log('hello')
     const pageLoadingEnd = () => {
         setTimeout( () => {
             if(mainGrid) cl(mainGrid).remove('loading');
+        }, 500)
+    }
+    const bodyFixed = () => {
+        if(body) cl(body).add('no-scroll');
+    }
+    const bodyUnfixed = () => {
+        setTimeout( () => {
+            if(body) cl(body).remove('no-scroll');
         }, 500)
     }
 

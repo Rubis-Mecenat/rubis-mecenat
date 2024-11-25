@@ -1,7 +1,6 @@
 
 
 	const header = qs('#masthead');
-	const body = document.body;
 
 	console.log('navigation');
 
