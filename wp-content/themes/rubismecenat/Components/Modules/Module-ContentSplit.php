@@ -5,16 +5,16 @@
     $size = 'thumbnail'; // (thumbnail, medium, large, full or custom size)
 ?>
 
-<section class="mod_carousel">
+<section class="mod_contentSplit">
 
     <div class="wrapper">
-        <h2 class="txt-center mb-l"><?php echo $title; ?></h2>
+        <h2 class="txt-center mb-xl"><?php echo $title; ?></h2>
     </div>
 
     <div class="grid gap-l wrapper">
 
         <div class="m-6col">
-            <div><?php echo $content; ?></div>
+            <div class="body"><?php echo $content; ?></div>
         </div>
 
         <div class="m-6col <?php echo count($medias) >= 2 ? 'swiper content-split' : ''; ?>">

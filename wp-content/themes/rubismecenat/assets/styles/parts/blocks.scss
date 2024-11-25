@@ -111,3 +111,14 @@ article.slide_project {
         }
     }
 }
+.block-post {
+    .swiper-slide & {
+        a {
+            display: block;
+        }
+        img {
+            width: 100%;
+            aspect-ratio: 5/4;
+        }
+    }
+}

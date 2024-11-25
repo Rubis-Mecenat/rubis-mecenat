@@ -110,7 +110,7 @@ section[class*="mod"] {
 
 
 .mod_carousel {
-    margin: 100px 0;
+    margin-bottom: calc( var(--space-xxl) * 1.5);
 
     &.swiper {
         @include wrapper-padding;
@@ -124,7 +124,7 @@ section[class*="mod"] {
 
 
 /*------------------------------------*\
-    MOD CAROUSEL
+    MOD CAROUSEL HORIZONTAL
 \*------------------------------------*/
 
 .mod_carousel-horizontal {
@@ -156,6 +156,31 @@ section[class*="mod"] {
             opacity: 0;
         }
     }
+}
+
+
+/*------------------------------------*\
+    MOD VISUAL GRID (MEDIAS)
+\*------------------------------------*/
+
+.mod_contentSplit {
+    margin-bottom: calc( var(--space-xxl) * 1.5);
+
+    .swiper {
+        width: calc( 100% + 5vw);
+        max-width: none;
+
+        @include min(wide) {
+            width: calc( 100% + 10vw);
+        }
+    }
+
+    img {
+        width: 100%;
+        max-height: 60vh;
+    }
+    
+    
 }
 
 

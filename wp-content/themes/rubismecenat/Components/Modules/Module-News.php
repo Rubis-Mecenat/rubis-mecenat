@@ -7,7 +7,7 @@
 <section class="mod_news -bordered">
 
     <header class="mod_header">
-        <h2 class="h2 txt-center mt-xxl"><?php echo $title; ?></h2>
+        <h2 class="h2 txt-center mb-xxl"><?php echo $title; ?></h2>
     </header>
 
     <div class="mod_publication">
