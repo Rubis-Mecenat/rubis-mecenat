@@ -17,15 +17,15 @@
 
 .flex, .grid {
 
-    &.space     { justify-content: space-between }
-    &.center    { justify-content: center; align-items: center }
-    &.center-x  { justify-content: center }
-    &.center-y  { align-items: center }
-    &.start-y   { align-items: flex-start }
-    &.end-y     { align-items: flex-end }
-    &.end-x     { justify-content: flex-end }
-    &.column    { flex-direction: column }
-    &.wrap      { flex-wrap: wrap }
+    &.-space     { justify-content: space-between }
+    &.-center    { justify-content: center; align-items: center }
+    &.-center-x  { justify-content: center }
+    &.-center-y  { align-items: center }
+    &.-start-y   { align-items: flex-start }
+    &.-end-y     { align-items: flex-end }
+    &.-end-x     { justify-content: flex-end }
+    &.-column    { flex-direction: column }
+    &.-wrap      { flex-wrap: wrap }
 
 }
 

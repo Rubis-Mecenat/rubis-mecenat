@@ -24,15 +24,23 @@
 
 	<?php elseif( $head_design === 'full' ) : ?>
 
-		<header class="entry-header">
-			<div class="grid">
-				<div class="s-6col">
+		<header class="entry-header -red">
+			<div class="grid gap-0">
+				
+				<div class="m-6col mod_cover is-relative">
 					<?php rubismecenat_post_thumbnail(); ?>
+
+					<div class="content-absolute">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					</div>
 				</div>
-				<div class="s-6col">
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-					<?php the_excerpt(); ?>	
+				
+				<div class="m-6col mod_content flex -center-y">
+					<div class="body-title">
+						<?php the_excerpt(); ?>	
+					</div>
 				</div>
+
 			</div>
 		</header><!-- .entry-header -->
 

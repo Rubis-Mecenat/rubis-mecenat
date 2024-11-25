@@ -1,17 +1,45 @@
 @use "./global/colors" as *;
 @use "./global/mixins" as *;
 
+
+
 /*------------------------------------*\
-    VISUEL TEXT
+    HEADS
 \*------------------------------------*/
 
-.mod_visuel-text {
 
-    .mod_cover img {
+.entry-header {
+    position: relative;
+    margin-bottom: var(--space-xxl);
+    text-decoration: none;
+
+    img {
         width: 100%;
         height: 60vh;
     }
+    &.-red {
+        background-color: $accent-color;
+    }
+    &.-inversed {        
+        .mod_content {
+            background-color: $accent-color;
+            color: white;
+        }
+    }
+    &.-wrapped {
+        @include wrapper;
+    }
+
+    &:hover {
+        color: inherit;
+    }
+
+    .mod_title {
+        color: $accent-color;
+    }
     .mod_content {
+        position: relative;
+        z-index: 1;
         margin: var(--space-xl) 0 var(--space-xl) calc(var(--space-xl) * -1);
         background-color: white;
         padding: var(--space-xl);
@@ -19,11 +47,25 @@
         h1 {
             margin-bottom: var(--space-l);
         }
-        p {
-
-        }
     }
 }
+.content-absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: $white;
+}
+
+
+
+
+
+/*------------------------------------*\
+    MOD CAROUSEL
+\*------------------------------------*/
+
 
 .mod_carousel {
     margin: 100px 0;
@@ -32,12 +74,22 @@
     }
 }
 
+
+/*------------------------------------*\
+    MOD CAROUSEL
+\*------------------------------------*/
+
 .mod_carousel-horizontal {
     height: 100vh;
     .carousel-horizontal {
         height: 100%;
     } 
 }
+
+
+/*------------------------------------*\
+    MOD VISUAL GRID (MEDIAS)
+\*------------------------------------*/
 
 .mod_visual-grid {
     margin: 100px 0;
@@ -60,10 +112,20 @@
     }
 }
 
+
+/*------------------------------------*\
+    MOD QUOTE
+\*------------------------------------*/
+
 .mod_quote {
     margin: calc(var(--space-xxl) * 2) 0;
     text-align: center;
 }
+
+
+/*------------------------------------*\
+    MOD NEWS
+\*------------------------------------*/
 
 .mod_news {
     margin: 100px 0;
@@ -72,7 +134,7 @@
     .mod_header {
         color: $accent-color;
     }
-    
+
     .mod_publication {
         padding: 70px;
     }
@@ -85,21 +147,14 @@
     }
 }
 
+
+/*------------------------------------*\
+    MOD FEATURED PROJECTS
+\*------------------------------------*/
+
 .mod_featured-projects {
     margin: 100px 0;
     border: 50px solid $accent-color;
 }
 
 
-.mod_header-page {
-    margin-bottom: 100px;
-
-    .content-absolute {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        color: $white;
-    }
-}

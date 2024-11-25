@@ -7,17 +7,21 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="mod_header-page grid gap-xl">
+	<header class="entry-header -inversed -wrapped grid gap-0">
 
-        <div class="left is-relative entry-content m-6col">
+        <div class="m-6col mod_cover is-relative">
+
             <?php rubismecenat_post_thumbnail(); ?>
+            
             <div class="content-absolute">
                 <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
             </div>
         </div>
 
-        <div class="right entry-content m-6col flex center-y">
-            <?php the_content(); ?>
+        <div class="m-6col mod_content flex -center-y">
+            <div class="body-title">
+                <?php the_content(); ?>
+            </div>
         </div><!-- .entry-content -->
         
 	</header><!-- .entry-header -->
@@ -35,15 +39,24 @@
 
         <?php if( $children) : foreach($children as $child) : ?>
 
-            <article>
-                <a href="<?php the_permalink($child->ID); ?>" class="grid gap-l">
-                    <div class="s-6col">
+            <article >
+                <a href="<?php the_permalink($child->ID); ?>" class="entry-header -wrapped grid gap-0">
+
+                    <div class="m-6col">
                         <?php echo get_the_post_thumbnail( $child->ID, 'full' ); ?>
                     </div>
-                    <div class="s-6col flex column center-x">
-                        <h2><?php echo $child->post_title; ?></h2>
-                        <?php echo $child->post_excerpt; ?>
-                    </div>
+
+                    <div class="m-6col mod_content flex -center-y">
+                        <div class="">
+                            <div class="mod_title">
+                                <h2 class="h2 mb-m"><?php echo $child->post_title; ?></h2>
+                            </div>
+                            <div class="body -big">
+                                <?php echo $child->post_excerpt; ?>
+                            </div>
+                        </div>
+                    </div><!-- .entry-content -->
+                    
                 </a>
             </article>
 

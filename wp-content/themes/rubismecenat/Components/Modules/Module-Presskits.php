@@ -12,13 +12,13 @@ $presskits = $args['presskits'];
                 <?php foreach( $presskits as $presskit ) : ?>
 
                     <div class="m-6col">
-                        <div class="block-presskit flex gap-l center-y">
+                        <div class="block-presskit flex gap-l -center-y">
 
                             <div class="block_media">
                                 <img src="<?php echo $presskit['presskit_cover']; ?>">
                             </div>
 
-                            <div class="block_texts flex column gap-m">
+                            <div class="block_texts flex -column gap-m">
                                 <h3 class="h3 -bold">
                                     <?php echo $presskit['presskit_title']; ?>
                                     <p class="h3 light"><?php echo $presskit['presskit_date']; ?></p>
