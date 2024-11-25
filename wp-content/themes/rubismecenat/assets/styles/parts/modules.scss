@@ -20,7 +20,7 @@
             margin-bottom: var(--space-l);
         }
         p {
-            
+
         }
     }
 }
@@ -61,7 +61,7 @@
 }
 
 .mod_quote {
-    margin: 100px 0;
+    margin: calc(var(--space-xxl) * 2) 0;
     text-align: center;
 }
 
@@ -69,16 +69,19 @@
     margin: 100px 0;
     border: 50px solid $accent-color;
 
+    .mod_header {
+        color: $accent-color;
+    }
+    
     .mod_publication {
         padding: 70px;
     }
 
     img {
-        aspect-ratio: 6/7;
+        aspect-ratio: 1/1;
         object-fit: cover;
         object-position: center;
         width: 100%;
-        height: 100%;
     }
 }
 
