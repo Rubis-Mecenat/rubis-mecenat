@@ -56,6 +56,8 @@ body.admin-bar .site-header {
     }
 
     .menu li a {
+        transition: padding .3s;
+
         text-decoration: none;
         padding: 40px;
         white-space: nowrap;
@@ -75,12 +77,14 @@ body.admin-bar .site-header {
         a {
             display: block;
             padding: 30px 25px;
+            transition: padding .3s;
         }
 
     }
 
     .lang_menu {
         padding: 40px 0 40px 40px;
+        transition: padding .3s;
 
         a {
             color: $gray-mid;

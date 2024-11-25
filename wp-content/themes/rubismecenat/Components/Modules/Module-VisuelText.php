@@ -7,13 +7,13 @@ $txt = $args['txt'];
 
 <section class="mod_visuel-text">
 
-    <div class="wrapper grid gap-l">
-        <figure class="mod_title s-6col">
+    <div class="grid gap-0">
+        <figure class="mod_cover s-6col">
             <img src="<?php echo $visuel['url']; ?>" alt="<?php echo $visuel["caption"]; ?>">
         </figure>
         
-        <div class="mod_relations s-6col flex center-y">
-            <div>
+        <div class="mod_content s-6col flex center-y">
+            <div class="body-title">
                 <?php echo $txt; ?>
             </div>
         </div>
