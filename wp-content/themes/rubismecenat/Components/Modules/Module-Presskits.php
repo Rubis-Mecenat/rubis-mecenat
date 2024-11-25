@@ -19,7 +19,7 @@ $presskits = $args['presskits'];
                             </div>
 
                             <div class="block_texts flex column gap-m">
-                                <h3 class="h3 bold">
+                                <h3 class="h3 -bold">
                                     <?php echo $presskit['presskit_title']; ?>
                                     <p class="h3 light"><?php echo $presskit['presskit_date']; ?></p>
                                 </h3>

@@ -7,14 +7,26 @@
 .block-project {
 
     &__image {
-        transition: border 0.3s;
+        img {
+            border: 0px solid $accent-color;
+            transition: border 0.3s;
+            aspect-ratio: 5/4;
+            width: 100%;
+        }
     }
 
-    &:hover {
-        .block-project__image {
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: $gray-mid;
+
+        .block-project__image img {
             border: 30px solid $accent-color;
         }
     }
+
 }
 
 
