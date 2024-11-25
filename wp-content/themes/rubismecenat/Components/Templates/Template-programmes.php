@@ -40,7 +40,7 @@
         <?php if( $children) : foreach($children as $child) : ?>
 
             <article >
-                <a href="<?php the_permalink($child->ID); ?>" class="entry-header -wrapped grid gap-0">
+                <a href="<?php the_permalink($child->ID); ?>" class="entry-header -linked -wrapped grid gap-0">
 
                     <div class="m-6col">
                         <?php echo get_the_post_thumbnail( $child->ID, 'full' ); ?>
@@ -57,6 +57,9 @@
                         </div>
                     </div><!-- .entry-content -->
                     
+                    <span class="mod_button flex -center-y -center-x">
+                        <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
+                    </span>
                 </a>
             </article>
 

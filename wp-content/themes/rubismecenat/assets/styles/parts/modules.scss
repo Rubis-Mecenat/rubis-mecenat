@@ -29,6 +29,27 @@
     &.-wrapped {
         @include wrapper;
     }
+    &.-linked {
+        .mod_button {
+            position: absolute;
+            z-index: 2;
+            right: 0;
+            top: var(--space-xl);
+            bottom: var(--space-xl);
+            width: 0;
+            background-color: $accent-color;
+            transition: width .3s;
+
+            svg, path {
+                fill: white;
+            }
+        }
+        &:hover {
+            .mod_button {
+                width: var(--space-xl);
+            }
+        }
+    }
 
     &:hover {
         color: inherit;
