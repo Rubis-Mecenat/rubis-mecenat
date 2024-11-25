@@ -4,11 +4,11 @@
 ?>
 
 
-<section class="mod_featured-projects <?php echo $bg ? '-bg' : ''; ?>">
+<section class="mod_featured-projects">
 
-    <div class="">
+    <div class="wrapper">
 
-        <header class="mod_title grid">
+        <header class="mod_title grid mb-xl">
             <div class="m-6col">
                 <h2 class="">
                     <?php echo $title; ?>

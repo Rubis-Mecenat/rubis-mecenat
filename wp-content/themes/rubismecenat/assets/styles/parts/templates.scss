@@ -1,0 +1,33 @@
+@use "./global/colors" as *;
+@use "./global/mixins" as *;
+
+
+
+
+.project-header {
+    margin-bottom: var(--space-xxl);
+
+    .project_cover {
+        img {
+            aspect-ratio: 16/7;
+            width: 100%;
+        }
+    }
+    .project_titles {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        background-color: $white;
+        padding: var(--space-l);
+        border-right: var(--space-l) solid $accent-color;
+        margin-right: calc( var(--space-l) * -1);
+    }
+}
+
+.project-content {
+    .project_presskit {
+        margin-top: var(--space-l);
+    }
+}
+
+

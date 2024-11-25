@@ -8,9 +8,9 @@
         <?php endif; ?>
 
         <div class="">
-            <h3 class="h3"><?php the_title(); ?></h3>
-            <p class="h3 -other"><?php the_field('project_subtitle'); ?></p>
-            <p class="h3 -other"><?php the_field('project_place'); ?></p>
+            <h3 class="h3 mb-xxs"><?php the_title(); ?></h3>
+            <p class="h3 -other mb-xs"><?php the_field('project_subtitle'); ?></p>
+            <p class="body -big -light mb-xs"><?php the_field('project_place'); ?></p>
             <p class="-light"><?php the_field('project_artiste'); ?></p>
         </div>
     </a>
