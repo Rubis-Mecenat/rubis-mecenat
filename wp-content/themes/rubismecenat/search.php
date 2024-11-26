@@ -28,7 +28,7 @@ get_header();
 								
 								<?php while ( have_posts()) : the_post(); ?>
 
-									<div class="m-6col mb-l">
+									<div class="m-6col mb-xxl">
 										<?php get_template_part( 'Components/Blocks/Block', get_post_type() ); ?>
 									</div>
 									

@@ -26,10 +26,16 @@
     CARDS
 \*------------------------------------*/
 
+article[class*="block"] {
+    .block_placeholder {
+        background-color: $gray-light;
+    }
+}
 .block-project {
 
     &__image {
-        img {
+        img,
+        .block_placeholder {
             border: 0px solid $accent-color;
             transition: border 0.3s;
             aspect-ratio: 5/4;
@@ -44,7 +50,8 @@
     a:hover {
         color: $gray-mid;
 
-        .block-project__image img {
+        img,
+        .block_placeholder {
             border: 30px solid $accent-color;
         }
     }
@@ -111,14 +118,55 @@ article.slide_project {
         }
     }
 }
-.block-post {
-    .swiper-slide & {
-        a {
-            display: block;
-        }
-        img {
+
+.block-post,
+.block-edition,
+.block-video,
+.block-artist,
+.block-page {
+
+    &__image {
+        position: relative;
+
+        img,
+        .block_placeholder {
             width: 100%;
             aspect-ratio: 5/4;
         }
+
+        .overlay {
+            position: absolute;
+            transition: all .3s;
+            top: 50%; left: 50%; right: 50%; bottom: 50%;
+            background-color: $white;
+        }
     }
+
+    a:hover {
+        color: $gray-mid;
+
+        .overlay {
+            top: 30px; left: 30px; right: 30px; bottom: 30px;
+        }
+    }
+}
+
+.block-edition {
+    &__image {
+        img,
+        .block_placeholder {
+            width: 100%;
+            aspect-ratio: 1/1;
+        }
+    } 
+}
+
+.block-page {
+    &__image {
+        img,
+        .block_placeholder {
+            width: 100%;
+            aspect-ratio: 1/1;
+        }
+    } 
 }

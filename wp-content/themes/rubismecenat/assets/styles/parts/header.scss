@@ -55,13 +55,22 @@ body.admin-bar .site-header {
         }
     }
 
-    .menu li a {
-        transition: padding .3s;
+    .menu {
+        padding: 0 20px;
+        gap: 10px;
 
-        text-decoration: none;
-        padding: 40px;
-        white-space: nowrap;
+        li {
+            padding: 10px;
+        }
+        li a {
+            transition: padding .3s;
+    
+            text-decoration: none;
+            padding: 10px;
+            white-space: nowrap;
+        }
     }
+
 
     li {
         display: flex;
@@ -98,4 +107,13 @@ body.admin-bar .site-header {
 
         }
     }
+}
+
+.current-menu-item, 
+.current-page-ancestor {
+    a {
+        background-color: $black;
+        color: white;
+    }
+
 }

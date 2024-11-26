@@ -21,12 +21,12 @@ $presskits = $args['presskits'];
                             <div class="block_texts flex -column gap-m">
                                 <h3 class="h3 -bold">
                                     <?php echo $presskit['presskit_title']; ?>
-                                    <p class="h3 light"><?php echo $presskit['presskit_date']; ?></p>
+                                    <p class="h3 -light"><?php echo $presskit['presskit_date']; ?></p>
                                 </h3>
                                 
-                                <a href="<?php echo $presskit['presskit_file']['url']; ?>">
-                                    <span>Consulter</span>
-                                    <span><?php echo human_filesize($presskit['presskit_file']['filesize'], 0); ?></span>
+                                <a href="<?php echo $presskit['presskit_file']['url']; ?>" class="flex gap-s -center-y">
+                                    <span class="btn -round -black -medium"><?php get_template_part('Components/Svgs/Svg', 'Download'); ?></span>
+                                    <span class="body -light"><?php echo human_filesize($presskit['presskit_file']['filesize'], 0); ?></span>
                                 </a>
                             </div>
 

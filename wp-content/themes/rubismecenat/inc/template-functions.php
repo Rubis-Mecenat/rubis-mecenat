@@ -26,6 +26,7 @@ function rubismecenat_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'rubismecenat_body_classes' );
 
+
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
@@ -38,7 +39,9 @@ add_action( 'wp_head', 'rubismecenat_pingback_header' );
 
 
 
-
+/**
+ * Return a file size readable by human
+ */
 function human_filesize($bytes, $decimals = 2) {
     $factor = floor((strlen($bytes) - 1) / 3);
     if ($factor > 0) $sz = 'KMGT';

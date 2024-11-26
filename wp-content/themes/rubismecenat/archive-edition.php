@@ -35,7 +35,7 @@ $query = new WP_Query($args);
 
 						<?php while ($query->have_posts()) : $query->the_post(); ?>
 
-							<div class="m-6col mb-l">
+							<div class="m-6col mb-xxl">
 								<?php get_template_part( 'Components/Blocks/Block', 'Edition' ); ?>
 							</div>
 

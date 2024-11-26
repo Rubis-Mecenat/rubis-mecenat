@@ -40,26 +40,26 @@
 
 			<div class="flex">
 				
-				<nav id="site-navigation" class="main-navigation-1 menu">
+				<nav id="site-navigation" class="main-navigation-1">
 					<?php
 						wp_nav_menu(
 							array(
 								'theme_location' => 'menu-primary-1',
 								'menu_id'        => 'primary-menu',	
-								'menu_class' => 'primary-menu-1 flex h-full',
+								'menu_class' => 'menu primary-menu-1 flex h-full',
 								'container' => false,
 							)
 						);
 					?>
 				</nav><!-- #site-navigation -->
 
-				<nav id="site-navigation" class="main-navigation-2 menu">
+				<nav id="site-navigation" class="main-navigation-2">
 					<?php
 						wp_nav_menu(
 							array(
 								'theme_location' => 'menu-primary-2',
 								'menu_id'        => 'primary-menu',	
-								'menu_class' => 'primary-menu-2 flex h-full',
+								'menu_class' => 'menu primary-menu-2 flex h-full',
 								'container' => false,
 							)
 						);
