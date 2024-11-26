@@ -13,11 +13,19 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header wrapper">
+        
         <div class="project_breadcrumb s-12col">
             <?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
         </div>
 
-        <iframe src="<?php the_field('video_player'); ?>?autoplay=0&amp;loop=0&amp;controls=1&amp;muted=0" width="1500" height="844" frameborder="0" title="ART(ist) Geert Goiris" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
+        <?php if( get_field('edition_file') ) : ?>
+                <iframe class="" src="<?php echo get_field('edition_file')["url"]; ?>"></iframe>
+
+            <?php else : ?>
+                <?php the_post_thumbnail('medium'); ?>
+                
+            <?php endif; ?>
 	</header><!-- .entry-header -->
 
 
@@ -33,9 +41,8 @@
 	</div><!-- .entry-content -->
 
 
-
 </article><!-- #post-<?php the_ID(); ?> -->
 
 
-<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist') )); ?>
+<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist'),  'bg' =>  false )); ?>
 

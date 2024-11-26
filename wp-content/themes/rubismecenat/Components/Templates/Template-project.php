@@ -11,6 +11,10 @@
 
 	<header class="wrapper project-header grid is-relative">
 
+        <div class="project_breadcrumb s-12col">
+            <?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
+        </div>
+
         <div class="project_cover s-12col">
             <?php rubismecenat_post_thumbnail(); ?>
         </div>

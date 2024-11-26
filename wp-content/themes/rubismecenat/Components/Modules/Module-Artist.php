@@ -1,10 +1,11 @@
 <?php
     $artist = $args['artist'];
+    $bg = $args['bg'];
 ?>
 
 
 <?php if($artist ) : ?>
-    <section class="mod_artist -bordered">
+    <section class="mod_artist <?php echo $bg ? '-bordered' : ''; ?>">
 
         <div class="mod_publication wrapper">
 

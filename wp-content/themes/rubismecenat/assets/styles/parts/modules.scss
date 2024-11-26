@@ -1,5 +1,6 @@
 @use "./global/colors" as *;
 @use "./global/mixins" as *;
+@use "./global/typography" as *;
 
 
 
@@ -280,4 +281,40 @@ section[class*="mod"] {
 .mod_contacts {
     background-color: $gray-light;
     padding: var(--space-xxl) 0 ;
+}
+
+
+/*------------------------------------*\
+    MOD BREADCRUMBS
+\*------------------------------------*/
+
+.mod_breadcrumbs {
+    padding: var(--space-s) 0;
+
+    .separator {
+        display: inline-block;
+    }
+    a, .separator {
+        text-decoration: none;
+        color: $gray-mid;
+        font-weight: $font-light;
+
+    }
+    a:hover {
+        color: $black;
+    }
+    .current {
+        color: $gray-mid2;
+        font-weight: $font-light;
+    }
+}
+.mod_parent_nav {
+    position: absolute;
+    left: -40px;
+    top: 40px;
+    writing-mode: sideways-lr;
+
+    a:hover {
+        color: $accent-color
+    }
 }

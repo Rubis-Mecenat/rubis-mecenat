@@ -2,10 +2,9 @@
 
 function artist_register_post_types() {
 	
-    // CPT Portfolio
     $labels = array(
         'name'                 => 'Artistes',
-        'all_items'            => 'Tous les Artistes',  // affiché dans le sous menu
+        'all_items'            => 'Tous les Artistes', 
         'singular_name'        => 'Artiste',
         'add_new_item'         => 'Ajouter un Artiste',
         'edit_item'            => 'Modifier l\'Artiste',
@@ -36,4 +35,4 @@ function artist_register_post_types() {
 
 	register_post_type( 'artist', $args );
 }
-add_action( 'init', 'artist_register_post_types' ); // Le hook init lance la fonction
+add_action( 'init', 'artist_register_post_types' );

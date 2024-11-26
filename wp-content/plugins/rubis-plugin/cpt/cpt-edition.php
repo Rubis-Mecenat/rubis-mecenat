@@ -2,10 +2,9 @@
 
 function edition_register_post_types() {
 	
-    // CPT Portfolio
     $labels = array(
         'name'                 => 'Editions',
-        'all_items'            => 'Toutes les Editions',  // affiché dans le sous menu
+        'all_items'            => 'Toutes les Editions', 
         'singular_name'        => 'Edition',
         'add_new_item'         => 'Ajouter une Editions',
         'edit_item'            => 'Modifier l\'Edition',
@@ -36,4 +35,4 @@ function edition_register_post_types() {
 
 	register_post_type( 'edition', $args );
 }
-add_action( 'init', 'edition_register_post_types' ); // Le hook init lance la fonction
+add_action( 'init', 'edition_register_post_types' ); 
