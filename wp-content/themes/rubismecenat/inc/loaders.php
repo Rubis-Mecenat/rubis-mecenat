@@ -38,7 +38,7 @@ function getPostTypesArray() {
         <div class="page_content">
             <?php if ( $query->have_posts() ) : ?>
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>       
-                    <?php get_template_part( 'Components/Blocks/Modal', $type ); ?>
+                    <?php get_template_part( 'Components/Blocks/Modal', get_post_type() ); ?>
                 <?php endwhile; endif; ?>
             <?php wp_reset_postdata(); ?>
         </div>

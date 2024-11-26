@@ -55,9 +55,9 @@ console.log('hello')
     document.addEventListener(
         "click",
         event => {
-            if ( 
-                event.target.closest('.close-modal-btn') || 
-                ! event.target.closest(".js-load-modal") 
+            if ( event.target.closest('.close') && 
+                ! event.target.closest(".js-load-modal") &&
+                ! event.target.closest("#modal-inner") 
             )
             {
                 closeModal()

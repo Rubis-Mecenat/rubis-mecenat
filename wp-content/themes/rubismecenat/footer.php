@@ -69,7 +69,10 @@
 
 
 <div id="modal" class="modal">
-	<div id="modal-inner"  class="wrapper modal-inner"></div>
+	<button id="modal-close" class="close">
+		<?php get_template_part( 'Components/Svgs/Svg', 'Close' ); ?>
+	</button>
+	<div id="modal-inner" class="wrapper modal-inner"></div>
 </div>
 
 <?php wp_footer(); ?>

@@ -8,21 +8,31 @@
 <article class="block-edition">
     <div class="grid">
 
-    <div class="m-6col">
-        <iframe src="<?php the_field('video_player'); ?>?autoplay=0&amp;loop=0&amp;controls=1&amp;muted=0" width="1500" height="844" frameborder="0" title="ART(ist) Geert Goiris" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-    </div>
-
-    <div class="m-6col">
+        <div class="m-6col">
+            <iframe src="<?php the_field('video_player'); ?>?autoplay=0&amp;loop=0&amp;controls=1&amp;muted=0" width="1500" height="844" frameborder="0" title="ART(ist) Geert Goiris" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+        </div>
         
+        <div class="m-1col"></div>
 
-        <h3><?php the_title(); ?></h3>
-        <p><?php echo $artist ? $artist->post_title : ''; ?></p>
-        <p><?php echo $date; ?></p>
-        <p><?php echo $editor; ?></p>
+        <div class="m-5col">
 
-        <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class="js-load-modal">
-            <?php pll_e('Tous les détails'); ?>
-        </a>
+            <div class="mb-m">
+                <h3 class="h4"><?php the_title(); ?></h3>
+                <p class="body-title"><?php echo $artist ? $artist->post_title : ''; ?></p>
+            </div>
+
+            <div class="mb-l">
+                <p class="body -light"><?php echo $date; ?></p>
+            </div>
+
+            <div class="mb-l">
+                <p class="body"><?php the_excerpt(); ?></p>
+            </div>
+
+            <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class=" -block flex gap-s -center-y">
+                <span class="btn -round -medium -clean"><?php get_template_part( 'Components/Svgs/Svg', 'Plus' ); ?></span>
+                <span class="body"><?php pll_e('Tous les détails'); ?></span>
+            </a>
         </div>
 
 
