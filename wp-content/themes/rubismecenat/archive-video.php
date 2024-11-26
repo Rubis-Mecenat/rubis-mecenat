@@ -20,10 +20,14 @@ $query = new WP_Query($args);
 
 		<?php if ($query->have_posts()) : ?>
 			
-			<header class="page-header txt-center mb-xxl">
-				<h1 class="page-title"><?php the_title();?></h1>
-				<div><?php the_excerpt(); ?></div>
-			</header><!-- .page-header -->
+			<header class="entry-header -simple txt-center mb-xxl">
+				<div class="wrapper flex -center-x">
+					<div class="header-titles">
+						<h1 class="entry-title mb-m"><?php the_title(); ?></h1>
+						<div class="body-title"><?php the_excerpt(); ?></div>
+					</div>
+				</div>
+			</header><!-- .entry-header -->
 
 			<div class="grid">
 				<div class="m-4col">
