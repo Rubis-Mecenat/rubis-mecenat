@@ -133,7 +133,9 @@ p, .body {
     &.-other {
         font-family: 'HarrietText';
     }
-
+    &.-gray {
+        color: $gray-mid;
+    }
     &.-big {
         font-size: 2.4rem;
         @include max(medium) {
@@ -176,12 +178,20 @@ p, .body {
 
 a {
     color: $black;
-    transition: color 0.3s;
+    transition: color 0.3s, opacity .3s;
 
     &:hover {
         color: $accent-color;
     }
 
+    &.-clean {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            opacity: .7;
+        }
+    }
     &.-block {
         color: inherit;
         text-decoration: none;

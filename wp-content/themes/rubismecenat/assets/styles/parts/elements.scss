@@ -25,17 +25,18 @@
         border-color: $accent-color;
 
         path {
-            fill: $accent-color;
+            stroke: $accent-color;
         }
         &:hover {
             border-color: $black;
             path {
-                fill: $black;
+                stroke: $black;
             }
         }
     }
     &.-small {
         width: 45px;
+        padding: 0;
     }
     &.-black {
         background-color: $black;
@@ -47,6 +48,20 @@
             border-color: $black;
             path {
                 fill: $black;
+            }
+        }
+    }
+    &.-gray {
+        background-color: $gray-mid;
+        border-color: $gray-mid;
+        
+        path {
+            stroke: #fff;
+        }
+        &:hover {
+            border-color: $gray-mid;
+            path {
+                stroke: $black;
             }
         }
     }

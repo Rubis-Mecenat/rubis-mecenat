@@ -1,10 +1,28 @@
+@use "./global/typography" as *;
+@use "./global/colors" as *;
 
 .site-footer {
     background-color: black;
     // margin-top: 100px;
-    padding: 40px 0;
+    padding: var(--space-xl) 0;
 
     a, h3, p {
         color: white;
+    }
+
+    .menu {
+        a {
+            @extend .h3;
+            &:hover {
+                opacity: .7;
+            }
+        }
+    }
+    .menu-footer-last {
+        a {
+            @extend .body;
+            font-weight: $font-light;
+            color: $gray-mid;
+        }
     }
 }

@@ -15,24 +15,31 @@
 		<div class="grid wrapper">
 
 			<div class="m-6col">
-				<h3>Newsletter</h3>
-				<p>Recevez l’actualité de nos actions artistiques et culturelles</p>
 
-				<form>
-					<input type="text" name="email">
-				</form>
+				<div class="mb-l">
+					<h3 class="h1">Newsletter</h3>
+					
+					<?php get_template_part('Components/Modules/Module', 'NewsletterForm'); ?>
+				</div>
 
-				<p>Nous contacter</p>
+				<div class="mb-xxl">
+					<a href="mailto:<?php the_field('rubis_contact_mail', 'option'); ?>" class="-clean flex -center-y gap-s">
+						<span class="btn -round -small -gray">
+							<?php get_template_part('Components/Svgs/Svg', 'Mail'); ?>
+						</span>
+						<span class="body -bold -gray">Nous contacter</span>
+					</a>
+				</div>
 
-
-				<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-footer-last',
-							'menu_id'        => 'footer-menu',
-						)
-					);
-				?>
+				<div class="">
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-footer-last',
+								'menu_id'        => 'footer-menu',
+								'menu_class' => 'menu-footer-last menu flex -center-y gap-m',
+							)); ?>
+				</div>
 
 			</div>
 
@@ -42,9 +49,8 @@
 						array(
 							'theme_location' => 'menu-footer-1',
 							'menu_id'        => 'footer-menu',
-						)
-					);
-				?>
+							'menu_class' => 'menu-footer-1 menu flex -column gap-xs',
+						)); ?>
 			</div>
 
 			<div class="m-3col">
@@ -53,9 +59,8 @@
 						array(
 							'theme_location' => 'menu-footer-2',
 							'menu_id'        => 'footer-menu',
-						)
-					);
-				?>
+							'menu_class'	 => 'menu-footer-2 menu flex -column gap-xs',
+						)); ?>
 			</div>
 
 		</div><!-- .site-info -->
