@@ -241,7 +241,25 @@ if (have_rows( $flex_content )) :
             get_template_part('Components/Modules/Module', 'Contacts', $args);
 
 
+        /*
+         * EQUIPE / CONTACTS
+         * (cf. Le Fonds / Espace Presse)
+         */
+        elseif (get_row_layout() == 'mod_instafeed') :
 
+            $id = get_sub_field('mod_feedId');
+            $account = get_sub_field('mod_account');
+            $hashtag = get_sub_field('mod_hashtag');
+            $bg = get_sub_field('mod_bg');
+
+            $args = array(
+                'id'   => $id,
+                'account'   => $account,
+                'hashtag'   => $hashtag,
+                'bg'   => $bg,
+            );
+
+            get_template_part('Components/Modules/Module', 'Instafeed', $args);
 
 
 

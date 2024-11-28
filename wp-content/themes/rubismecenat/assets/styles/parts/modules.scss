@@ -318,3 +318,11 @@ section[class*="mod"] {
         color: $accent-color
     }
 }
+
+
+.mod_instafeed {
+    &.-backgrounded {
+        padding: var(--space-xxl) 0;
+        background-color: $gray-light;
+    }
+}

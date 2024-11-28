@@ -858,6 +858,100 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_6745d7199cddd": {
+                    "key": "layout_6745d7199cddd",
+                    "name": "mod_instafeed",
+                    "label": "Module de Feed Insta",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6745d7289cddf",
+                            "label": "Identifiant du feed",
+                            "name": "mod_feedId",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6745d8d14cb6a",
+                            "label": "Compte Insta",
+                            "name": "mod_account",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6745d8fa8c7c0",
+                            "label": "Hashtag à afficher",
+                            "name": "mod_hashtag",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_6745d90bec8a3",
+                            "label": "Afficher le fond gris",
+                            "name": "mod_bg",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "allow_in_bindings": 1,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -897,5 +991,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732104282
+    "modified": 1732630894
 }
