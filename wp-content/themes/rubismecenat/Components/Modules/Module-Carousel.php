@@ -27,7 +27,7 @@
 
             <div class="swiper-wrapper">
 
-                <?php foreach ($posts as $post) : setup_postdata($post); var_dump( $post )?>
+                <?php foreach ($posts as $post) : setup_postdata($post); var_dump( get_post_type() )?>
                  
                     <div class="swiper-slide">
                         <?php get_template_part('Components/Blocks/Block', get_post_type()); ?>
