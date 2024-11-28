@@ -16,7 +16,7 @@ get_header();
 
 			$template = get_post_type() === 'post' ? 'project' : get_post_type();
 
-			get_template_part( 'Components/Templates/Template', $template );
+			get_template_part( 'Components/Templates/Template', ucfirst($template) );
 
 			get_template_part('Components/content', 'flexible'); 
 
