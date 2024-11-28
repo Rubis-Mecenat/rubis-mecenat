@@ -14,7 +14,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'Components/Templates/Template', 'Page' );
+			get_template_part( 'Components/Templates/Template', 'page' );
 
 			get_template_part('Components/content', 'flexible'); 
 

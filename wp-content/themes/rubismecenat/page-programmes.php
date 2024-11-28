@@ -14,7 +14,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'Components/Templates/Template', 'Programmes' );
+			get_template_part( 'Components/Templates/Template', 'programmes' );
 
 		endwhile; // End of the loop.
 		?>
