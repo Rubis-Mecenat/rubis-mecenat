@@ -139,10 +139,13 @@ section[class*="mod"] {
     
     .carousel-horizontal {
         height: 100%;
+        margin-bottom: var(--space-xl);
     } 
     .entry-header {
-        height: 80vh;
+        height: 78vh;
         width: 100%;
+        margin-bottom: 0;
+
         .mod_cover {
             height: 100%;
         }
@@ -154,6 +157,10 @@ section[class*="mod"] {
             text-decoration: none;
         }
     }
+    .swiper-wrapper {
+        margin-top: var(--space-m);
+        margin-bottom: var(--space-xl);
+    }
     .navigation {
         position: absolute;
         top: 48%;
@@ -162,6 +169,22 @@ section[class*="mod"] {
         z-index: 3;
         .prev, .swiper-button-disabled {
             opacity: 0;
+        }
+    }
+    .swiper-scrollbar {
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $black;
+        border-radius: 0;
+        z-index: 3;
+
+        .swiper-scrollbar-drag {
+            cursor: grab;
+            height: 3px ;
+            background-color: $black;
+            border-radius: 0;
+            top: -1px;
         }
     }
 }

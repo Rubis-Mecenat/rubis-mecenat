@@ -53,6 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 prevEl: slider.querySelector('.swiper-button.prev'),
                 enabled: true,
             },
+            scrollbar: {
+                el: slider.querySelector('.swiper-scrollbar'),
+                draggable: true,
+                hide: false,
+                snapOnRelease: true,
+            }
         });
 
         qsa('.js-slide-trigger').forEach( el => {
