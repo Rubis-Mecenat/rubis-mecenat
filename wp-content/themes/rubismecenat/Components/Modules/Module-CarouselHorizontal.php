@@ -7,7 +7,7 @@
 
 <section class="mod_carousel-horizontal">
 
-    <div class="swiper carousel-horizontal">
+    <div class="swiper carousel-horizontal wrapper">
 
         <?php if ($posts) : ?>
             <div class="swiper-wrapper">
@@ -63,6 +63,9 @@
                     <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
                 </div>
             </div>
+
+            <div class="swiper-scrollbar"></div>
+
         <?php endif; ?>
 
     </div>
