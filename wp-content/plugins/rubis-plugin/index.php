@@ -20,4 +20,3 @@ require_once(RUBIS_DIR.'/cpt/cpt-artist.php');
 
 require_once(RUBIS_DIR.'/taxonomies/tax-editions.php');
 require_once(RUBIS_DIR.'/taxonomies/tax-videos.php');
-require_once(RUBIS_DIR.'/taxonomies/tax-projects.php');
