@@ -4,7 +4,6 @@
     $parent = false;
 
     if( get_post_type() === "project" ) {
-        $cat = wp_get_post_terms( $post->ID, 'project_cat', array( 'fields' => 'all' ) )[0];
         $parent = get_post_parent();
     }
     if( get_post_type() === "video" ) {
@@ -20,24 +19,34 @@
         $parent_title_for_nav = $parent->post_title;
 
         $grandparent = get_post_parent($parent->ID);
-    }
-    else {
-        if( $cat ) {
-            $parent_id_for_nav = $cat->ID;
-            $parent_permalink_for_nav = $home_url . $cat->slug;
-            $parent_title_for_nav = $cat->name;
+
+        if( $grandparent ) {
+            $grandparent = get_post_parent($parent->ID);
+            $grandparent_id_for_nav = $grandparent->ID;
+            $grandparent_permalink_for_nav = get_the_permalink( $grandparent_id_for_nav );
+            $grandparent_title_for_nav = $grandparent->post_title;
+    
+            $grandgrandparent = get_post_parent($grandparent->ID);
+
+            if( $grandgrandparent ) {
+                $grandgrandparent_id_for_nav = $grandparent->ID;
+                $grandgrandparent_permalink_for_nav = get_the_permalink( $grandgrandparent_id_for_nav );
+                $grandgrandparent_title_for_nav = $grandgrandparent->post_title;
+            }
         }
     }
+
 ?>
 
 
-<nav class="mod_parent_nav">
-    <a href="<?php echo $parent_permalink_for_nav; ?>" class="-block h3 -bold flex gap-xs -center">
-        <?php echo $parent_title_for_nav; ?>
-        <?php get_template_part('Components/Svgs/Svg', "ArrowLeftSmall"); ?>
-    </a>
-</nav>
-
+<?php if( isset($parent)) : ?>
+    <nav class="mod_parent_nav">
+        <a href="<?php echo $parent_permalink_for_nav; ?>" class="-block h3 -bold flex gap-xs -center">
+            <?php echo $parent_title_for_nav; ?>
+            <?php get_template_part('Components/Svgs/Svg', "ArrowLeftSmall"); ?>
+        </a>
+    </nav>
+<?php endif; ?>
 
 <nav class="mod_breadcrumbs">
 
@@ -47,20 +56,32 @@
         </li>
         <span class="separator">></span>
 
-        <?php if( $cat ) : ?>
+        <?php if( isset( $grandgrandparent ) ) : ?>
             <li>
-                <a href="<?php echo $home_url . $cat->slug; ?>"><?php echo $cat->name; ?></a> 
+                <a href="<?php echo $grandgrandparent_permalink_for_nav; ?>"><?php echo $grandgrandparent_title_for_nav; ?></a> 
             </li>
             <span class="separator"> > </span>
+        
         <?php endif; ?>
 
-        <?php if( $parent ) : ?>
+
+        <?php if( isset ($grandparent ) ) : ?>
+            <li>
+                <a href="<?php echo $grandparent_permalink_for_nav; ?>"><?php echo $grandparent_title_for_nav; ?></a> 
+            </li>
+            <span class="separator"> > </span>
+
+        <?php endif; ?>
+
+
+        <?php if( isset( $parent ) ) : ?>
             <li>
                 <a href="<?php echo $parent_permalink_for_nav; ?>"><?php echo $parent_title_for_nav; ?></a> 
             </li>
             <span class="separator"> > </span>
 
         <?php endif; ?>
+
 
         <li>
             <span class="current"><?php the_title(); ?></span> 

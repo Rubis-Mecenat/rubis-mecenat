@@ -10,13 +10,42 @@ get_header();
 
 	<main id="primary" class="site-main">
 
+	
 		<?php
+
 		while ( have_posts() ) :
 			the_post(); 
+			$args = array();
 
-			$template = get_post_type() === 'post' ? 'project' : get_post_type();
+			switch ( get_post_type() ) {
+				case 'post':
+					$template = 'project';
+					break;
+				
+				case 'project':
 
-			get_template_part( 'Components/Templates/Template', $template );
+					if( get_field('page_model') === 'programmes' ) {
+						$template = 'programmes';
+					}
+					else if( get_field('page_model') === 'transmettre' ) {
+						$template = 'transmettre';
+					}
+					else if( get_field('page_model') === 'creer' ) {
+						$template = 'page';
+						$args['head_design'] = 'fullwrapped';
+						$args['breadcrumbs'] = true;
+					}
+					else {
+						$template = 'project';
+					}
+					break;
+
+				default:
+					$template =  get_post_type();
+					break;
+			}
+
+			get_template_part( 'Components/Templates/Template', $template, $args );
 
 			get_template_part('Components/content', 'flexible'); 
 

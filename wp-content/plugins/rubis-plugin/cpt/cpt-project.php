@@ -18,7 +18,7 @@ function project_register_post_types() {
         'has_archive' => true,
         'supports' => array( 'page-attributes', 'title', 'editor','thumbnail','excerpt'),
         'taxonomies' => array('post_tag'),
-        'rewrite' => array('slug' => 'projet','with_front' => true),
+        'rewrite' => array('slug' => 'p','with_front' => true),
         'menu_position' => 5, 
         'menu_icon' => 'dashicons-archive',
         'show_ui' => true,

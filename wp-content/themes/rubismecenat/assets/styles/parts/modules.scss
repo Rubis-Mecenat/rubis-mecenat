@@ -313,7 +313,8 @@ section[class*="mod"] {
 
 .mod_breadcrumbs {
     padding: var(--space-s) 0;
-
+    background-color: $white;
+    
     .separator {
         display: inline-block;
     }

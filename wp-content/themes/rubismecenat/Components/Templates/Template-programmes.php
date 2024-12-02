@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header -inversed -wrapped grid gap-0">
+	<header class="entry-header -red grid gap-0">
 
         <div class="m-6col mod_cover is-relative">
 
@@ -31,7 +31,7 @@
     <?php 
         $child_args = array(
             'post_parent' => $post->ID, // The parent id.
-            'post_type'   => 'page',
+            'post_type'   => 'project',
             'post_status' => 'publish'
         );
         

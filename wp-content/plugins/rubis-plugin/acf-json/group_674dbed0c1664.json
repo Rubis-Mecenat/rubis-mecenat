@@ -1,0 +1,54 @@
+{
+    "key": "group_674dbed0c1664",
+    "title": "Attributs de la publication",
+    "fields": [
+        {
+            "key": "field_674dbed0527ad",
+            "label": "Modèle de page projet",
+            "name": "page_model",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "projet": "Modèle projet par défaut",
+                "transmettre": "Modèle Transmettre",
+                "creer": "Modèle Créer & Accompagner",
+                "programmes": "Modèle Les Programmes"
+            },
+            "default_value": "projet",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "project"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1733149057
+}

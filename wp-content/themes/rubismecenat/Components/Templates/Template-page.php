@@ -5,7 +5,12 @@
  * @package rubismecenat
  */
 
-	$head_design = get_field('head_design');
+	if( isset( $args['head_design']) ) {
+		$head_design = $args['head_design'];
+	}
+	else {
+		$head_design = get_field('head_design');
+	}
 ?>
 
 
@@ -47,6 +52,14 @@
 		<?php elseif( $head_design === 'fullwrapped' ) : ?>
 
 			<header class="entry-header -fullwrapped -red">
+
+				<?php if( $args['breadcrumbs']) : ?>
+					<div class="project_breadcrumb s-12col">
+						<?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
+					</div>
+				<?php endif; ?>
+
+
 				<div class="grid gap-0">
 					
 					<div class="m-6col mod_cover is-relative">
