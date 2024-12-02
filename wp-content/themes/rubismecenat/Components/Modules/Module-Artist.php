@@ -1,6 +1,6 @@
 <?php
     $artist = $args['artist'];
-    $bg = $args['bg'];
+    $bg = isset( $args['bg'] ) ? $args['bg'] : '' ;
 ?>
 
 
