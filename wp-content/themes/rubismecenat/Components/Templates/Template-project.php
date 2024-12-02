@@ -47,7 +47,7 @@
                                 <a href="<?php echo $presskit['url']; ?>" target="_blank" class="flex gap-s -center-y">
 
                                     <p class="btn -round">
-                                        <?php get_template_part('Components/Svgs/Sgv',  'Download'); ?>
+                                        <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
                                     </p>
 
                                     <p class="flex -column">

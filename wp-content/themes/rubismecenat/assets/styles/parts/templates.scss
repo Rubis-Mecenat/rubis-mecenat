@@ -1,5 +1,6 @@
 @use "./global/colors" as *;
 @use "./global/mixins" as *;
+@use "./global/typography" as *;
 
 
 
@@ -27,6 +28,28 @@
 .project-content {
     .project_presskit {
         margin-top: var(--space-l);
+
+        a {
+            text-decoration: none;
+
+            &:hover {
+                color: $black;
+                .btn {
+                    opacity: 0.5;
+                }
+            }
+
+            .btn {
+                background-color: $black;
+                transition: 0.3s;
+                border: none;
+            }
+        }
+    }
+    .body p {
+        &:first-of-type {
+            font-weight: $font-bold;
+        }
     }
 }
 
