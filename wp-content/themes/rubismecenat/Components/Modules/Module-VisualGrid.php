@@ -10,7 +10,7 @@
         <div class="visual-grid">
             <?php foreach( $visuals as $visual ): ?>
                 <figure>
-                    <img src="<?php echo $visual["url"]; ?>">
+                    <img src="<?php echo $visual['sizes']['medium']; ?>">
                 </figure>
             <?php endforeach; ?>
         </div>
