@@ -144,6 +144,19 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/loaders.php';
 
 
+/**
+ * Images sizes.
+ */
+
+add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+function wpdocs_theme_setup() {
+    add_image_size( 'theme_tiny', 200 );
+	add_image_size( 'theme_small', 500 );
+	add_image_size( 'theme_medium', 700 );
+	add_image_size( 'theme_large', 1300 );
+	add_image_size( 'theme_wide', 1800 );
+}
+
 
 /*
  * Make theme available for translation.
