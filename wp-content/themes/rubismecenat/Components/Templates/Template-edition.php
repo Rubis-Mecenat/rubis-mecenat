@@ -39,6 +39,10 @@
 
             <div class="m-6col">
                 <?php the_content(); ?>
+
+                <div class="">
+                    <a href="<?php echo get_field('edition_file')["url"]; ?>">Récupérér le fichier</a>
+                </div>
             </div>
 
         </div><!-- .entry-content -->
