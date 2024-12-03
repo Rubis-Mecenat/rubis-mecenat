@@ -60,3 +60,14 @@ article.video {
     margin-bottom: var(--space-xxl);
     padding-bottom: var(--space-xxl);
 }
+
+
+article.edition {
+    background-color: $beige;
+    padding-bottom: 0.1px; //take inner margin in consideration
+    margin-bottom: 100px;
+
+    .mod_breadcrumbs {
+        background-color: transparent;
+    }
+}
