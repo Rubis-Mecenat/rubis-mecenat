@@ -41,7 +41,11 @@
                 <?php the_content(); ?>
 
                 <div class="">
+
                     <a href="<?php echo get_field('edition_file')["url"]; ?>">Récupérér le fichier</a>
+                    
+                    <a href="<?php echo get_field('edition_link'); ?>">Voir le site de l'éditeur</a>
+
                 </div>
             </div>
 
