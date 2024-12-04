@@ -252,8 +252,10 @@ section[class*="mod"] {
         gap: 36px;
 
         figure {
-            height: 50vh;
             flex-grow: 1;
+            height: 500px;
+            max-height: 35vh;
+            
             img {
                 object-fit: cover;
                 object-position: center;
