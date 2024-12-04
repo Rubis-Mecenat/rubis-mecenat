@@ -1,49 +1,60 @@
 <?php
 /**
- * Template Name: Archives posts
+ * Template Name: Archives Vidéos
  *
  * @package rubismecenat
  */
 
 get_header();
+
+$args = array(
+	'post_type' => 'post',
+	'posts_per_page' => 10,
+);
+
+$query = new WP_Query($args);
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main wrapper">
 
-		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+		<?php if ($query->have_posts()) : ?>
+			
+			<header class="entry-header -simple txt-center mb-xxl">
+				<div class="wrapper flex -center-x">
+					<div class="header-titles">
+						<h1 class="entry-title mb-m"><?php the_title(); ?></h1>
+						<div class="body-title"><?php the_excerpt(); ?></div>
+					</div>
+				</div>
+			</header><!-- .entry-header -->
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<div class="grid">
+				<div class="m-4col">
+					<?php list_terms_custom_taxonomy(array( 'tax' => 'category', 'posttype' => 'video' )); ?>
+				</div>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'Components/content', ucfirst(get_post_type()) );
+				<div class="m-8col">
+					<div id="mainGrid" class="grid">
 
-			endwhile;
+						<?php while ($query->have_posts()) : $query->the_post(); ?>
 
-			the_posts_navigation();
+							<div class="m-6col mb-xxl">
+								<?php get_template_part( 'Components/Blocks/Block', 'Video' ); ?>
+							</div>
 
-		else :
+						<?php endwhile;  wp_reset_postdata(); ?>
+					</div>
+				</div>
+			</div>
 
-			get_template_part( 'Components/content', 'none' );
+		<?php else : ?>
+			// Display no posts found message
 
-		endif;
-		?>
+		<?php endif; ?>
+
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

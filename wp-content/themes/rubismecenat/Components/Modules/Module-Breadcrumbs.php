@@ -12,6 +12,9 @@
     if( get_post_type() === "edition" ) {
         $parent = get_field('archives_editions', 'options');
     }
+    if( get_post_type() === "post" ) {
+        $parent = get_field('archives_actualites', 'options');
+    }
 
     if( $parent ) {
         $parent_id_for_nav = $parent->ID;

@@ -14,7 +14,7 @@ get_header();
 
 		<section class="error-404 not-found">
 
-			<header class="entry-header -red">
+			<header class="entry-header -red mb-0">
 				<div class="grid gap-0">
 					
 					<div class="m-6col mod_cover is-relative">
