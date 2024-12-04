@@ -48,6 +48,11 @@ Grid
         .#{$suffix}-#{$i}col {
             grid-column: span #{$i};
             max-width: 100%;
+
+            &.centered {
+                $start-column: ((12 - $i) / 2) + 1;
+                grid-column: #{$start-column} / span #{$i};
+            }
         }
     }
 }
