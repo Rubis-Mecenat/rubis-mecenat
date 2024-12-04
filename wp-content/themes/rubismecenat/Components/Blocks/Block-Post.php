@@ -1,6 +1,3 @@
-<?php 
-
-    ?>
 
 <article class="block-post">
     <a 
@@ -17,8 +14,6 @@
                 </span>
             </div>
         <?php endif; ?>
-
-
 
         <div class="">
             <h3 class="h3 mb-xxs"><?php the_title(); ?></h3>

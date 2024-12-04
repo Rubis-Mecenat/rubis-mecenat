@@ -106,7 +106,7 @@
 section[class*="mod"] {
     &.-bordered {
         border: 50px solid $accent-color;
-        padding: 70px;
+        padding: var(--space-xxl) 0;
     }
 }
 

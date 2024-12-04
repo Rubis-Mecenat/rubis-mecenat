@@ -6,11 +6,11 @@
 
 <section class="mod_news -bordered">
 
-    <header class="mod_header">
+    <header class="mod_header wrapper">
         <h2 class="h2 txt-center mb-xxl"><?php echo $title; ?></h2>
     </header>
 
-    <div class="mod_publication">
+    <div class="mod_publication wrapper">
         <?php if( $publication ): ?>
             <article class="">
                 <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">

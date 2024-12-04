@@ -6,16 +6,17 @@
  */
 
 get_header();
-
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $args = array(
 	'post_type' => 'post',
-	'posts_per_page' => 10,
+	'posts_per_page' => 4,
+	'paged' => $paged
 );
 
 $query = new WP_Query($args);
 ?>
 
-	<main id="primary" class="site-main wrapper">
+	<main id="primary" class="site-main -archive">
 
 
 		<?php if ($query->have_posts()) : ?>
@@ -29,7 +30,7 @@ $query = new WP_Query($args);
 				</div>
 			</header><!-- .entry-header -->
 
-			<div class="grid">
+			<div class="grid wrapper">
 				<div class="m-4col">
 					<?php list_terms_custom_taxonomy(array( 'tax' => 'category', 'posttype' => 'video' )); ?>
 				</div>
@@ -43,10 +44,18 @@ $query = new WP_Query($args);
 								<?php get_template_part( 'Components/Blocks/Block', 'Video' ); ?>
 							</div>
 
-						<?php endwhile;  wp_reset_postdata(); ?>
+						<?php endwhile; ?>
+							
 					</div>
+
+					<div id="search-pagination" class="pagination flex -center gap-s">
+						<?php pagination_bar(); ?>
+					</div>
+
 				</div>
 			</div>
+
+			<?php wp_reset_postdata(); ?>
 
 		<?php else : ?>
 			// Display no posts found message

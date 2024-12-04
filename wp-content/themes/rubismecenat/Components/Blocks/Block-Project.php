@@ -1,6 +1,10 @@
 
 <article class="block-project">
-    <a href="<?php the_permalink(); ?>" class="-block">
+    <a 
+        href="<?php the_permalink(); ?>" 
+        data-slug="<?php echo get_post_field( 'post_name', get_post() );?>"
+        data-type="Project"
+        class="-block">
 
         <div class="block-project__image mb-m">
             <?php if (has_post_thumbnail()) : ?>

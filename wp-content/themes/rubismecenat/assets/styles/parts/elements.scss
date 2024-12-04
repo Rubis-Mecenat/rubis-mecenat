@@ -6,13 +6,19 @@
 \*------------------------------------*/
 
 .btn {
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 1em 2em .9em 2em;
+    border-radius: 50px;
     border: 1px solid $black;
+    font-size: 2rem;
+    background-color: $white;
+    transition: all .3s;
 
-    &.active {
+    &.active,
+    &:hover {
         background-color: $black;
         color: $white;
+    }
+    &.active {
         pointer-events: none;
     }
     &.-round {
