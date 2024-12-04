@@ -22,8 +22,8 @@ $query = new WP_Query($args);
 		<?php if ($query->have_posts()) : ?>
 			
 			<header class="entry-header -simple txt-center mb-xxl">
-				<div class="wrapper flex -center-x">
-					<div class="header-titles">
+				<div class="wrapper grid">
+					<div class="header-titles m-8col -centered">
 						<h1 class="entry-title mb-m"><?php the_title(); ?></h1>
 						<div class="body-title"><?php the_excerpt(); ?></div>
 					</div>
