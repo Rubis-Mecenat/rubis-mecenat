@@ -4,9 +4,11 @@
 
 
 .search-form {
-    background-color: $gray-light;
-    border-radius: 30px;
-    padding: 0 20px;
+    background-color: $white;
+    border: 1px solid $black;
+    border-radius: 40px;
+    padding: 0 30px;
+    width: 100%;
 
     label {
         width: 90%;
@@ -15,6 +17,19 @@
         background: none;
         border: none;
         padding: 20px;
-        width: 90%;
+        width: 100%;
+        font-size: 2rem;
+    }
+    ::placeholder {
+        color: $black;
+        opacity: .4; 
+    }
+      
+    ::-ms-input-placeholder { 
+        color: $black;
+        opacity: .4; 
+    }
+    .hidden {
+        display: none;
     }
 }

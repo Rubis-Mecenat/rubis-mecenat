@@ -27,9 +27,10 @@ function getPostTypesArray() {
     $type = $_REQUEST["type"];
 
     $args = array(
-        'name'  => $postslug,
-        'post_type' => array_keys(getPostTypesArray()),
-        'post_status' => 'publish',
+        'name'              => $postslug,
+        'post_type'         => array($type),
+        'post_status'       => 'publish',
+        'posts_per_page'    => 1
     );
     $query = new WP_Query( $args );
  

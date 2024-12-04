@@ -10,11 +10,14 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main -archive">
 
-		<header class="wrapper mb-xl">
-			<?php get_search_form(); ?>
-		</header>
+		<header class="entry-header -simple txt-center mb-xxl">
+			<div class="wrapper flex -center-x">
+				<?php get_search_form(); ?>
+			</div>
+		</header><!-- .entry-header -->
+
 
 		<div class="grid wrapper">
 				<div class="m-4col">
@@ -36,12 +39,14 @@ get_header();
 
 							</div>
 
-							<div id="search-pagination" class="pagination flex -center gap-s">
-								<?php pagination_bar(); ?>
-							</div>
+							<div class="mb-xxl">
+								<div id="search-pagination" class="pagination flex -center gap-s">
+									<?php global $wp_query; pagination_bar($wp_query); ?>
+								</div>
 
-							<div id="search-loadmore" class="pagination flex -center hidden">
-								<button class="btn"><?php pll_e('Charger plus de résultats'); ?></button>
+								<div id="search-loadmore" class="pagination flex -center hidden">
+									<button class="btn"><?php pll_e('Charger plus de résultats'); ?></button>
+								</div>
 							</div>
 
 						<?php else :

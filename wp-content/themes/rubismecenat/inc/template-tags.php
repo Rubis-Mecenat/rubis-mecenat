@@ -205,8 +205,7 @@ if ( ! function_exists( 'list_post_type' ) ) :
 endif;
 
 
-function pagination_bar() {
-    global $wp_query;
+function pagination_bar($query) {
  
 	$big = 9999999; // need an unlikely integer
 
@@ -214,7 +213,7 @@ function pagination_bar() {
 		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 		'format' => '?paged=%#%',
 		'current' => max( 1, get_query_var('paged') ),
-		'total' => $wp_query->max_num_pages,
+		'total' => $query->max_num_pages,
 		'prev_text'	=> '<',
 		'next_text' => '>',
 		'mid_size' => 1

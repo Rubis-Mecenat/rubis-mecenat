@@ -9,7 +9,7 @@ get_header();
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $args = array(
 	'post_type' => 'post',
-	'posts_per_page' => 4,
+	'posts_per_page' => 20,
 	'paged' => $paged
 );
 
@@ -48,8 +48,8 @@ $query = new WP_Query($args);
 							
 					</div>
 
-					<div id="search-pagination" class="pagination flex -center gap-s">
-						<?php pagination_bar(); ?>
+					<div id="search-pagination" class="pagination flex -center gap-s mb-xxl">
+						<?php pagination_bar($query); ?>
 					</div>
 
 				</div>

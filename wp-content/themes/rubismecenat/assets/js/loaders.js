@@ -17,6 +17,7 @@ const initSearchScript = () => {
     const searchPagination = qs('#search-pagination');
     const searchLoadmore = qs('#search-loadmore');
     const searchLoadmoreTrigger = qs('#search-loadmore button');
+    const searchClear = qs('#search-clear');
 
     let loader_triggers, filter_trigger, postFounds, posttype;
 
@@ -128,6 +129,7 @@ const initSearchScript = () => {
     const initSearchSubmit = () => {
         searchform.addEventListener('submit', event => {
             event.preventDefault();
+            cl(searchClear).remove('hidden');
             load_filtered_posts(event)
         })
     }
@@ -298,7 +300,6 @@ const initSearchScript = () => {
     initFilterTriggers();
     if(searchform) initSearchSubmit();
     if(searchLoadmoreTrigger) initLoadmoreTrigger();
-
 
 }
 
