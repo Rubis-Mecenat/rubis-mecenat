@@ -13,44 +13,38 @@ get_header();
 	<main id="primary" class="site-main">
 
 		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'rubismecenat' ); ?></h1>
-			</header><!-- .page-header -->
 
+			<header class="entry-header -red">
+				<div class="grid gap-0">
+					
+					<div class="m-6col mod_cover is-relative">
+						<?php 
+						$image = get_field('404_media', 'options');
+						if( !empty( $image ) ): ?>
+							<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+						<?php endif; ?>
+
+					</div>
+					
+					<div class="m-6col mod_content flex -center-y">
+						<div class="body-title">
+							<div class="mb-l">
+								<?php pll_e("Oops. Nous ne trouvons pas la page..."); ?> <br>
+								<?php pll_e("Essayer avec une recherche"); ?> 
+							</div>
+
+							<div class="mb-l">
+								<?php get_search_form(); ?>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</header><!-- .entry-header -->
+
+			
 			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'rubismecenat' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'rubismecenat' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$rubismecenat_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'rubismecenat' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$rubismecenat_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->
 

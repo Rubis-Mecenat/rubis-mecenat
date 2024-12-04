@@ -170,6 +170,12 @@ pll_register_string('rubismecenat', 'Tous les détails', 'true');
 pll_register_string('rubismecenat', 'Tous les ouvrages', 'true');
 pll_register_string('rubismecenat', 'Récupérér le fichier', 'true');
 pll_register_string('rubismecenat', 'Voir le site de l\'éditeur', 'true');
+pll_register_string('rubismecenat', "Nous n'avons pas pu confirmer votre inscription.", 'true');
+pll_register_string('rubismecenat', "Votre inscription est confirmée.", 'true');
+pll_register_string('rubismecenat', "Recevez l’actualité de nos actions artistiques et culturelles", 'true');
+pll_register_string('rubismecenat', "Nous n'avons pas trouvé de contenu.", 'true');
+pll_register_string('rubismecenat', "Désolé, aucun contenu ne correspond à votre recherche. Veuillez essayer différents termes.", 'true');
+pll_register_string('rubismecenat', "Oops. Nous ne trouvons pas la page...", 'true');
 
 
 
