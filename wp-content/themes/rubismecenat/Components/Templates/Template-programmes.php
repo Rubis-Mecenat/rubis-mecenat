@@ -18,10 +18,14 @@
             </div>
         </div>
 
-        <div class="m-6col mod_content flex -center-y">
+        <div class="m-6col mod_content flex -column -center-y -center-x gap-xl">
             <div class="body-title">
                 <?php the_content(); ?>
             </div>
+
+            <button class="btn -hover-black">
+				<?php get_template_part('Components/Svgs/svg', "CircledArrowDown"); ?>
+			</button>
         </div><!-- .entry-content -->
         
 	</header><!-- .entry-header -->

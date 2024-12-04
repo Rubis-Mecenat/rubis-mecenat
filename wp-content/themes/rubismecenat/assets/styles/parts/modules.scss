@@ -157,17 +157,6 @@ section[class*="mod"] {
             text-decoration: none;
         }
 
-        button {
-            transition: 0.3s;
-
-            &:hover {
-                color: $accent-color;
-
-                svg path {
-                    fill: $accent-color;
-                }
-            }
-        }
         .body-title p {
             display: -webkit-box;
             -webkit-box-orient: vertical;
@@ -293,6 +282,10 @@ section[class*="mod"] {
         object-fit: cover;
         object-position: center;
         width: 100%;
+    }
+
+    svg path {
+        fill: $accent-color;
     }
 }
 

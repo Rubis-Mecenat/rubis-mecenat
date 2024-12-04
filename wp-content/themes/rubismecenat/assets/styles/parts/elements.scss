@@ -28,16 +28,6 @@
         border-radius: 50px;
         border-color: $accent-color;
         border-width: 2px;
-
-        // path {
-        //     stroke: $accent-color;
-        // }
-        // &:hover {
-        //     border-color: $black;
-        //     path {
-        //         stroke: $black;
-        //     }
-        // }
     }
     &.-small {
         width: 60px;
@@ -113,6 +103,24 @@
             
             &.-small {
                 width: 45px;
+            }
+        }
+    }
+
+    &.-hover-black {
+        border: none;
+        padding: 0;
+        
+        svg path, svg circle {
+            transition: 0.3s;
+        }
+        
+        &:hover {
+            svg path {
+                fill: $black;
+            }
+            circle {
+                stroke: $black;
             }
         }
     }
