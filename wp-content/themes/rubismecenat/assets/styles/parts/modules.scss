@@ -330,10 +330,13 @@ section[class*="mod"] {
     MOD BREADCRUMBS
 \*------------------------------------*/
 
+.breadcrumb_container {
+    position: relative;
+}
 .mod_breadcrumbs {
     padding: var(--space-s) 0;
     background-color: $white;
-    
+
     .separator {
         display: inline-block;
     }
@@ -353,10 +356,16 @@ section[class*="mod"] {
 }
 .mod_parent_nav {
     position: absolute;
-    left: -40px;
-    top: 40px;
+    left: -45px;
+    top: 45px;
     writing-mode: sideways-lr;
+    min-height: 300px;
+    justify-content: flex-end;
+    display: flex;
 
+    .-editions & {
+        top: 130px;
+    }
     a:hover {
         color: $accent-color
     }

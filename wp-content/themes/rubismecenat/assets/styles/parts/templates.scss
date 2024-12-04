@@ -59,6 +59,10 @@ article.video {
     background-color: $gray-light;
     margin-bottom: var(--space-xxl);
     padding-bottom: var(--space-xxl);
+
+    .mod_breadcrumbs {
+        background-color: transparent;
+    }
 }
 
 
@@ -69,5 +73,9 @@ article.edition {
 
     .mod_breadcrumbs {
         background-color: transparent;
+    }
+    .wp-post-image {
+        object-fit: contain;
+        object-position: top;
     }
 }

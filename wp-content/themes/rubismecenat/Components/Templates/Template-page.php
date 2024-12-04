@@ -57,7 +57,7 @@
 			<header class="entry-header -fullwrapped -red">
 
 				<?php if( $args['breadcrumbs']) : ?>
-					<div class="project_breadcrumb s-12col">
+					<div class="breadcrumb_container s-12col">
 						<?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
 					</div>
 				<?php endif; ?>
