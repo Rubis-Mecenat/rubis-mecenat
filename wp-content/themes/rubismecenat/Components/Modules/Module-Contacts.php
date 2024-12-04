@@ -31,17 +31,20 @@ $contacts = $args['contacts'];
                             <?php echo $contact['contact_details']; ?></div>
 
                         <div class="contact-methods">
-                            <p class="flex -center-y gap-s mb-m">
-                                <span class="btn -round -small -black"><?php get_template_part('Components/Svgs/Svg', 'Phone'); ?></span>
-                                <?php echo $contact['contact_tel']; ?></p>
+                            <p class="flex -center-y gap-s mb-m btn -media">
+                                <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Phone'); ?></span>
+                                <?php echo $contact['contact_tel']; ?>
+                            </p>
 
-                            <a href="mailto:<?php echo $contact['contact_email']; ?>" class="body flex -center-y gap-s mb-m">
-                                <span class="btn -round -small -black"><?php get_template_part('Components/Svgs/Svg', 'Email'); ?></span>
-                                <?php echo $contact['contact_email']; ?></a>
+                            <a href="mailto:<?php echo $contact['contact_email']; ?>" class="body flex -center-y gap-s mb-m btn -media">
+                                <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Email'); ?></span>
+                                <?php echo $contact['contact_email']; ?>
+                            </a>
 
-                            <a href="https://<?php echo $contact['contact_linkedIn']; ?>" class="body flex -center-y gap-s mb-m">
-                                <span class="btn -round -small -black"><?php get_template_part('Components/Svgs/Svg', 'Linkedin'); ?></span>
-                                <?php echo $contact['contact_linkedIn']; ?></a>
+                            <a href="https://<?php echo $contact['contact_linkedIn']; ?>" class="body flex -center-y gap-s mb-m btn -media">
+                                <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Linkedin'); ?></span>
+                                <?php echo $contact['contact_linkedIn']; ?>
+                            </a>
 
                         </div>
                     </div>
