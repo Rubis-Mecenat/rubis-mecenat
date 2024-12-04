@@ -44,13 +44,13 @@
             <?php $presskit = get_field('project_presskit');
                     if( $presskit ): ?>
                             <div class="project_presskit flex -column gap-m">
-                                <a href="<?php echo $presskit['url']; ?>" target="_blank" class="flex gap-s -center-y">
+                                <a href="<?php echo $presskit['url']; ?>" target="_blank" class="flex gap-s -center-y btn -media">
 
-                                    <p class="btn -round">
+                                    <p class="picto">
                                         <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
                                     </p>
 
-                                    <p class="flex -column">
+                                    <p class="label flex -column">
                                         <span class="body -bold"><?php echo $presskit['filename']; ?></span>
                                         <span class="body -light"><?php echo human_filesize($presskit['filesize'], 0); ?></span>
                                     </p>
