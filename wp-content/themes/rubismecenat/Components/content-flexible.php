@@ -197,9 +197,11 @@ if (have_rows( $flex_content )) :
             $title = get_sub_field('mod_title');
             $medias = get_sub_field('mod_media');
             $content = get_sub_field('mod_content');
+            $design = get_sub_field('mod_design');
 
             $args = array(
                 'title'   => $title,
+                'design'   => $design,
                 'medias'   => $medias,
                 'content'   => $content
             );

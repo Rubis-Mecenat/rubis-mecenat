@@ -10,16 +10,10 @@
     border-radius: 50px;
     border: 1px solid $black;
     font-size: 2rem;
-    background-color: $white;
     transition: all .3s;
 
-    &.active,
-    &:hover {
-        background-color: $black;
-        color: $white;
-    }
-    &.active {
-        pointer-events: none;
+    &.-white {
+        background-color: $white;
     }
     &.-round {
         display: flex;
@@ -118,6 +112,16 @@
             }
         }
     }
+    
+    &.-active,
+    &:hover {
+        background-color: $black;
+        color: $white;
+    }
+    &.-active {
+        pointer-events: none;
+    }
+
 }
 
 

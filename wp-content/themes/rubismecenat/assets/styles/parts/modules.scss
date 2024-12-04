@@ -230,7 +230,12 @@ section[class*="mod"] {
         max-height: 60vh;
     }
     
-    
+    .-left > .mod_media {
+        order: -1;
+    }
+    .-left > .mod_txt {
+        order: 1;
+    }
 }
 
 

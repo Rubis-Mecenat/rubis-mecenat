@@ -483,7 +483,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -495,6 +495,32 @@
                             "append": ""
                         },
                         {
+                            "key": "field_675055f7e3440",
+                            "label": "Sens du contenu",
+                            "name": "mod_design",
+                            "aria-label": "",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "left": "Image à gauche",
+                                "right": "Image à droite"
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
+                        },
+                        {
                             "key": "field_673db48d2cae9",
                             "label": "Visuel(s) du module",
                             "name": "mod_media",
@@ -504,7 +530,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -532,7 +558,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -991,5 +1017,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732630894
+    "modified": 1733318258
 }

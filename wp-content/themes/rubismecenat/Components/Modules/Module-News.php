@@ -23,9 +23,9 @@
                                 <div class="h2 -other mb-xxs">
                                     <?php the_field('project_subtitle', $publication->ID); ?>
                                 </div>
-                                <div>
+                                <div class="h3 -other mb-xxs">
                                     <?php the_field('project_place', $publication->ID); ?></div>
-                                <div>
+                                <div class="h3 -other mb-s">
                                     <?php the_field('project_artiste', $publication->ID); ?>
                                 </div>
                                 <div class="h3 -light">

@@ -108,9 +108,9 @@ const initSearchScript = () => {
             filter_trigger.forEach( el => {
                 el.addEventListener('click', event => {
                     offset = 0; // Reset 
-                    cl( qs('.active') ).remove('active');
+                    cl( qs('.-active') ).remove('-active');
                     load_filtered_posts(event, el)
-                    cl(el).add('active');
+                    cl(el).add('-active');
                 })
             })
         }
@@ -237,7 +237,7 @@ const initSearchScript = () => {
         checkResults();
 
 
-        const activeFilter = qs('.js-filter-content.active');
+        const activeFilter = qs('.js-filter-content.-active');
 
         if( searchform ) {
             data.set('search', searchformValue.value );
