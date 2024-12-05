@@ -24,8 +24,8 @@
         <div class="">
             <h3 class="h3 -other mb-xxs"><?php the_title(); ?></h3>
             <p class="h3 mb-xs"><?php echo $artist ? $artist->post_title : ''; ?></p>
-            <p class="-light"><?php echo $editor; ?></p>
-            <p class="body -big -light"><?php echo $date; ?></p>
+            <p class="body -light"><?php echo $editor; ?></p>
+            <p class="body -light"><?php echo $date; ?></p>
         </div>
     </a>
 </article>
