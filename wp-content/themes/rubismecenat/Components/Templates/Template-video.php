@@ -27,7 +27,7 @@
             <h2 class="h2"><?php echo $artist ? $artist->post_title : '' ?></h2>
         </div>
 
-        <div class="m-6col body">
+        <div class="m-6col body -styled">
             <?php the_content(); ?>
         </div>
 	</div><!-- .entry-content -->

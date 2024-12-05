@@ -161,7 +161,11 @@ p, .body {
     p {
         margin-bottom: 2rem;
     }
+    &.-styled p:first-of-type  {
+        font-weight: $font-bold;
+    }
 }
+
 
 .body-title {
     font-size: 2.8rem;

@@ -18,8 +18,8 @@
                     
                         <div class="grid gap-xl">
                             <div class="s-6col">
-                                <div class="body mb-xl">
-                                    <?php echo $artist->post_content; ?>
+                                <div class="body -styled mb-xl">
+                                    <?php echo wpautop($artist->post_content); ?>
                                 </div>
                                 <div class="body mb-s">
 

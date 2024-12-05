@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main -archive">
+	<main id="primary" class="site-main">
 
 		<header class="entry-header -simple txt-center mb-xxl">
 			<div class="wrapper flex -center-x">
