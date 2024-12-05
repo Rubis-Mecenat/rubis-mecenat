@@ -11,7 +11,7 @@
 
         <div class="m-6col mod_cover is-relative">
 
-            <?php rubismecenat_post_thumbnail(); ?>
+            <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
             
             <div class="content-absolute">
                 <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -47,7 +47,7 @@
                 <a href="<?php the_permalink($child->ID); ?>" class="entry-header -linked -wrapped grid gap-0">
 
                     <div class="m-6col">
-                        <?php echo get_the_post_thumbnail( $child->ID, 'full' ); ?>
+                        <?php echo rubismecenat_post_thumbnail( $child->ID, 'full' ); ?>
                     </div>
 
                     <div class="m-6col mod_content flex -center-y">

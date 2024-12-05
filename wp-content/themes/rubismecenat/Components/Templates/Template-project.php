@@ -16,7 +16,7 @@
         </div>
 
         <div class="project_cover s-12col">
-            <?php rubismecenat_post_thumbnail(); ?>
+            <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
         </div>
 
         <div class="project_titles m-5col">

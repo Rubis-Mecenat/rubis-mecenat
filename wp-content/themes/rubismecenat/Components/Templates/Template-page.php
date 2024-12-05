@@ -33,7 +33,7 @@
 			<div class="grid gap-0">
 				
 				<div class="m-6col mod_cover is-relative">
-					<?php rubismecenat_post_thumbnail(); ?>
+					<?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
 
 					<div class="content-absolute">
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>

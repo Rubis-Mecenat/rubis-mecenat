@@ -29,7 +29,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php rubismecenat_post_thumbnail(); ?>
+	<?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
 
 	<div class="entry-content">
 		<?php

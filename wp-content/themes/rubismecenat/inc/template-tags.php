@@ -119,23 +119,52 @@ if ( ! function_exists( 'rubismecenat_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function rubismecenat_post_thumbnail() {
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
-			return;
-		} ?>
+	function rubismecenat_post_thumbnail( $id, $size = '' ) {
+		$thumbnail_id = get_post_thumbnail_id($id);
+		$caption = get_the_post_thumbnail_caption( $id );
+		$title = get_the_title( $thumbnail_id ); 
+		$alt = get_post_meta ( $thumbnail_id, '_wp_attachment_image_alt', true ); ?>
 
 			<div class="post-thumbnail is-relative">
 				<div class="">
-					<?php the_post_thumbnail(); ?>
+					<?php echo get_the_post_thumbnail($id, $size); ?>
 				</div>
 				<div class="thumbnail_captions flex -space">
-					<p class="credit"><?php the_post_thumbnail_caption(); ?></p>
-					<p class="caption"><?php the_post_thumbnail_caption(); ?></p>
+					<p class="credit"><?php echo $caption; ?></p>
+					<p class="caption"><?php echo $alt; ?></p>
 				</div>
 			</div><!-- .post-thumbnail -->
 
 	<?php }
 endif;
+
+
+if ( ! function_exists( 'rubismecenat_attachment' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function rubismecenat_attachment( $attachment, $classes = array() ) {
+		$alt = get_post_meta ( $attachment['ID'], '_wp_attachment_image_alt', true );
+		$title = get_the_title ( $attachment['ID'] );
+		$caption = wp_get_attachment_caption ( $attachment['ID']);
+
+		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+			return;
+		} ?>
+                <figure class="is-relative <?php echo isset($classes['figure_class']) ? $classes['figure_class'] : ''; ?>">
+                    <img src="<?php echo $attachment['sizes']['large']; ?>" class=" <?php echo isset($classes['img_class']) ? $classes['img_class'] : ''; ?>">
+                    <div class="thumbnail_captions flex -space">
+                        <p class="credit"><?php echo $caption; ?></p>
+                        <p class="caption"><?php echo $alt; ?></p>
+                    </div>
+                </figure>
+
+	<?php }
+endif;
+
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**

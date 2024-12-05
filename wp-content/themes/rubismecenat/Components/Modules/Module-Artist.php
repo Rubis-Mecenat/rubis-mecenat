@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="s-6col">
-                                <?php echo get_the_post_thumbnail( $artist->ID, 'full' ); ?>
+                                <?php rubismecenat_post_thumbnail( $artist->ID, 'full' ); ?>
                             </div>
                         </div>
 

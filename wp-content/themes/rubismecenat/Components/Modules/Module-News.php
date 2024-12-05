@@ -45,7 +45,7 @@
                         </div>
                         <div class="s-1col"></div>
                         <div class="s-6col">
-                            <?php echo get_the_post_thumbnail( $publication->ID, 'full' ); ?>
+                            <?php rubismecenat_post_thumbnail( $publication->ID, 'full' ); ?>
                         </div>
                     </div>
                 </a>
