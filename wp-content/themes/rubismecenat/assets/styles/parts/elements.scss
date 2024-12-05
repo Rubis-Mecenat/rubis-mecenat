@@ -10,7 +10,9 @@
     border: 1px solid $black;
     font-size: 2rem;
     transition: 0.3s;
-
+    &.-rounded {
+        border-radius: 50px;
+    }
     &.-white {
         background-color: $white;
 
