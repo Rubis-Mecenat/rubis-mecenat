@@ -97,7 +97,24 @@
 				<div class="s-12col m-1col"></div>
 
 				<div class="s-12col m-5col">
-				
+					<?php 
+						$doc = get_field('page_document');
+						if( $doc ): ?>
+                            <div class="project_presskit flex -column gap-m">
+                                <a href="<?php echo $doc['url']; ?>" target="_blank" class="flex gap-s -center-y btn -media">
+
+                                    <p class="picto">
+                                        <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
+                                    </p>
+
+                                    <p class="label flex -column">
+                                        <span class="body -bold"><?php echo $doc['title']; ?></span>
+                                        <span class="body -light"><?php echo human_filesize($doc['filesize'], 0); ?></span>
+                                    </p>
+
+                                </a>
+                            </div>
+            		<?php endif; ?>
 				</div>
 			</div>
 		</div><!-- .entry-content -->

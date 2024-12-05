@@ -51,7 +51,7 @@
                                     </p>
 
                                     <p class="label flex -column">
-                                        <span class="body -bold"><?php echo $presskit['filename']; ?></span>
+                                        <span class="body -bold"><?php echo $presskit['title']; ?></span>
                                         <span class="body -light"><?php echo human_filesize($presskit['filesize'], 0); ?></span>
                                     </p>
 
