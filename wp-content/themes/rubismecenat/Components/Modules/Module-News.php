@@ -38,7 +38,7 @@
                             </div>
 
                             <footer>
-                                <span class="action" href="<?php echo get_permalink($publication->ID); ?>">
+                                <span class="action btn -simple -red" href="<?php echo get_permalink($publication->ID); ?>">
                                     <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
                                 </span>
                             </footer>

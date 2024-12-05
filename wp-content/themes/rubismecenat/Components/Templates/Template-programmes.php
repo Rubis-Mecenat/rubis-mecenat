@@ -23,9 +23,9 @@
                 <?php the_content(); ?>
             </div>
 
-            <button class="btn -hover-black">
-				<?php get_template_part('Components/Svgs/svg', "CircledArrowDown"); ?>
-			</button>
+            <a href="#" class="btn -round -big -red -hover-black">
+				<?php get_template_part('Components/Svgs/svg', "ArrowDown"); ?>
+            </a>
         </div><!-- .entry-content -->
         
 	</header><!-- .entry-header -->

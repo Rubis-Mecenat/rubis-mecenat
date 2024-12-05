@@ -13,10 +13,10 @@
         </h2>
 
         <div class="navigation flex gap-m -center-y">
-            <div class="swiper-button prev">
+            <div class="swiper-button prev btn -simple">
                 <?php get_template_part('Components/Svgs/Svg', 'ArrowLeft'); ?>
             </div>
-            <div class="swiper-button next">
+            <div class="swiper-button next btn -simple">
                 <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
             </div>
         </div>
