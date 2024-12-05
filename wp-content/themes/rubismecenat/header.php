@@ -30,10 +30,10 @@
 		<div class="wrapper flex gap-l -space -center-y">
 
 			<div class="header-brand flex -center-y -center-x">
-				<a href="<?php echo esc_url( get_home_url() ); ?>" class="logo-big" rel="home">
+				<a href="<?php echo get_home_url(); ?>" class="logo-big" rel="home">
 					<?php get_template_part('Components/Svgs/Svg', 'Logo'); ?>
 				</a>
-				<a href="<?php echo esc_url( get_home_url() ); ?>" class="logo-small" rel="home">
+				<a href="<?php echo get_home_url(); ?>" class="logo-small" rel="home">
 					<?php get_template_part('Components/Svgs/Svg', 'LogoSmall'); ?>
 				</a>
 			</div>
