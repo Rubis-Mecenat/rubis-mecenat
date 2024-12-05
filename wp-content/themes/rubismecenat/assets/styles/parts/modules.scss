@@ -108,6 +108,9 @@ section[class*="mod"] {
         border: 50px solid $accent-color;
         padding: var(--space-xxl) 0;
     }
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 
@@ -119,6 +122,10 @@ section[class*="mod"] {
 .mod_carousel {
     margin-bottom: calc( var(--space-xxl) * 1.5);
 
+    &.-bg {
+        background-color: $gray-light;
+        padding: var(--space-xl) 0;
+    }
     &.swiper {
         @include wrapper-padding;
 
@@ -128,6 +135,8 @@ section[class*="mod"] {
         }
     }
 }
+
+
 
 
 /*------------------------------------*\

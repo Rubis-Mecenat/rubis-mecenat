@@ -63,11 +63,9 @@
             
         </div>       
 
-	</div><!-- .entry-content -->
-
-
-    <?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('project_artists') )); ?>
-
-    
+	</div><!-- .entry-content -->    
 
 </article><!-- #post-<?php the_ID(); ?> -->
+
+
+<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('project_artists'), 'border' => true )); ?>
