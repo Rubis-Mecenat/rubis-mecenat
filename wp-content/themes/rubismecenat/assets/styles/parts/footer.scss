@@ -10,6 +10,33 @@
         color: white;
     }
 
+
+    .entry__field {
+        transition: 0.3s;
+
+        svg path, input::placeholder {
+            transition: 0.3s;
+        }
+
+        input {
+            color: $white !important;
+        }
+
+        &:hover {
+            border-color: $white !important;
+
+            input {
+                color: $white !important;
+                &::placeholder {
+                    color: $white !important;
+                }
+            }
+            svg path {
+                fill: $white;
+            }
+        }
+    }
+
     .menu {
         a {
             @extend .h3;
