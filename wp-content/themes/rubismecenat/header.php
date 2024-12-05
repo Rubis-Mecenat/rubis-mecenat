@@ -66,7 +66,7 @@
 					?>
 				</nav><!-- #site-navigation -->
 
-				<nav class="search">
+				<nav class="search <?php echo is_search() ? 'current-menu-item' : ''; ?>">
 					<a href="/?s=">
 						<?php get_template_part('Components/Svgs/Svg', 'Search'); ?>
 					</a>
