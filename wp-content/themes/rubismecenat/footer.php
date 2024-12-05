@@ -23,11 +23,11 @@
 				</div>
 
 				<div class="mb-xxl">
-					<a href="mailto:<?php the_field('rubis_contact_mail', 'option'); ?>" class="-clean flex -center-y gap-s">
-						<span class="btn -round -small -gray">
+					<a href="mailto:<?php the_field('rubis_contact_mail', 'option'); ?>" class="flex -center-y gap-s btn -footer-picto">
+						<span class="picto">
 							<?php get_template_part('Components/Svgs/Svg', 'Mail'); ?>
 						</span>
-						<span class="body -bold -gray">Nous contacter</span>
+						<span class="body -bold -gray label">Nous contacter</span>
 					</a>
 				</div>
 

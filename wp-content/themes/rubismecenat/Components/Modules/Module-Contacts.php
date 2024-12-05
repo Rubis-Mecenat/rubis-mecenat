@@ -31,17 +31,17 @@ $contacts = $args['contacts'];
                             <?php echo $contact['contact_details']; ?></div>
 
                         <div class="contact-methods">
-                            <p class="flex -center-y gap-s mb-m btn -media">
+                            <p class="flex -center-y gap-s mb-m btn -filled-picto">
                                 <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Phone'); ?></span>
                                 <?php echo $contact['contact_tel']; ?>
                             </p>
 
-                            <a href="mailto:<?php echo $contact['contact_email']; ?>" class="body flex -center-y gap-s mb-m btn -media">
+                            <a href="mailto:<?php echo $contact['contact_email']; ?>" class="body flex -center-y gap-s mb-m btn -filled-picto">
                                 <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Email'); ?></span>
                                 <?php echo $contact['contact_email']; ?>
                             </a>
 
-                            <a href="https://<?php echo $contact['contact_linkedIn']; ?>" class="body flex -center-y gap-s mb-m btn -media">
+                            <a href="https://<?php echo $contact['contact_linkedIn']; ?>" class="body flex -center-y gap-s mb-m btn -filled-picto">
                                 <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Linkedin'); ?></span>
                                 <?php echo $contact['contact_linkedIn']; ?>
                             </a>

@@ -44,7 +44,7 @@
 					<div class="body-title">
 						<?php the_excerpt(); ?>	
 					</div>
-					<a href="#" class="btn -round -big -red -hover-black">
+					<a href="#" class="btn -circled-arrow">
 						<?php get_template_part('Components/Svgs/svg', "ArrowDown"); ?>
 					</a>
 				</div>
@@ -101,7 +101,7 @@
 						$doc = get_field('page_document');
 						if( $doc ): ?>
                             <div class="project_presskit flex -column gap-m">
-                                <a href="<?php echo $doc['url']; ?>" target="_blank" class="flex gap-s -center-y btn -media">
+                                <a href="<?php echo $doc['url']; ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
 
                                     <p class="picto">
                                         <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>

@@ -23,7 +23,7 @@
                 <?php the_content(); ?>
             </div>
 
-            <a href="#" class="btn -round -big -red -hover-black">
+            <a href="#" class="btn -circled-arrow">
 				<?php get_template_part('Components/Svgs/svg', "ArrowDown"); ?>
             </a>
         </div><!-- .entry-content -->

@@ -286,6 +286,19 @@ section[class*="mod"] {
         color: $accent-color;
     }
 
+    .h2, svg path {
+        transition: 0.3s;
+    }
+
+    &:hover {
+        .grid h2 {
+            color: $gray-mid;
+        }
+        svg path {
+            fill: $black;
+        }
+    }
+
     img {
         aspect-ratio: 1/1;
         object-fit: cover;

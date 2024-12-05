@@ -24,7 +24,7 @@ $presskits = $args['presskits'];
                                     <p class="h3 -light"><?php echo $presskit['presskit_date']; ?></p>
                                 </h3>
                                 
-                                <a href="<?php echo $presskit['presskit_file']['url']; ?>" class="flex gap-s -center-y btn -media">
+                                <a href="<?php echo $presskit['presskit_file']['url']; ?>" class="flex gap-s -center-y btn -filled-picto">
                                     <span class="picto"><?php get_template_part('Components/Svgs/Svg', 'Download'); ?></span>
                                     <span class="body -light"><?php echo human_filesize($presskit['presskit_file']['filesize'], 0); ?></span>
                                 </a>

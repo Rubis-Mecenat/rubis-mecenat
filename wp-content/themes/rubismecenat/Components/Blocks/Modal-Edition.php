@@ -37,8 +37,8 @@
                 <p class="body"><?php the_excerpt(); ?></p>
             </div>
 
-            <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class=" -block flex gap-s -center-y">
-                <span class="btn -round -medium -white -clean"><?php get_template_part( 'Components/Svgs/Svg', 'Plus' ); ?></span>
+            <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class=" -block flex gap-s -center-y btn -circled-picto">
+                <span class="picto"><?php get_template_part( 'Components/Svgs/Svg', 'Plus' ); ?></span>
                 <span class="body"><?php pll_e('Tous les détails'); ?></span>
             </a>
         </div>

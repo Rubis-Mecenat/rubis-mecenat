@@ -42,7 +42,7 @@
 
                 <div class="mt-xl">
                 <?php if( get_field('edition_file') ) : ?>
-                    <a href="<?php echo get_field('edition_file')["url"]; ?>" target="_blank" class="flex gap-s -center-y mb-m btn -media">
+                    <a href="<?php echo get_field('edition_file')["url"]; ?>" target="_blank" class="flex gap-s -center-y mb-m btn -filled-picto">
                         <p class="picto">
                             <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
                         </p>
@@ -55,7 +55,7 @@
                 <?php endif; ?>
 
                 <?php if( get_field('edition_link') ) : ?>
-                    <a href="<?php echo get_field('edition_link')["url"]; ?>" target="_blank" class="flex gap-s -center-y btn -media">
+                    <a href="<?php echo get_field('edition_link')["url"]; ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
                         <p class="picto">
                             <?php get_template_part('Components/Svgs/Svg',  'Link'); ?>
                         </p>

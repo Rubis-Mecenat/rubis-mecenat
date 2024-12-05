@@ -44,7 +44,7 @@
             <?php $presskit = get_field('project_presskit');
                     if( $presskit ): ?>
                             <div class="project_presskit flex -column gap-m">
-                                <a href="<?php echo $presskit['url']; ?>" target="_blank" class="flex gap-s -center-y btn -media">
+                                <a href="<?php echo $presskit['url']; ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
 
                                     <p class="picto">
                                         <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
