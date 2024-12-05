@@ -191,10 +191,10 @@ if ( ! function_exists( 'list_post_type' ) ) :
 
 			$output = '<nav class="filter flex -column gap-s -start-y">';
 			
-				$output.= '<button class="btn -active js-filter-content" data-posttype="all">' . pll__('Tous les contenus') . '</button>';
+				$output.= '<button class="btn -white -active js-filter-content" data-posttype="all">' . pll__('Tous les contenus') . '</button>';
 
 				foreach( $posttypes as $slug => $label ) {
-					$output.= '<button class="btn js-filter-content" data-posttype="' . $slug . '">' . esc_attr( $label ) . '</button>';
+					$output.= '<button class="btn -white js-filter-content" data-posttype="' . $slug . '">' . esc_attr( $label ) . '</button>';
 				}
 
 			$output .= '</nav>';

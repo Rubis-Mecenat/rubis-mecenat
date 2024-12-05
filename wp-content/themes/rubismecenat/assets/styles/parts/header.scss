@@ -119,6 +119,7 @@ body.admin-bar .site-header {
     a {
         background-color: $black;
         color: white;
+        pointer-events: none;
     }
 
     line, circle {
