@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
         let swiperCarousel = new Swiper(slider, {
             slidesPerView: 1.25,
             spaceBetween: 56,
+            speed: 600,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
         });
     });
 

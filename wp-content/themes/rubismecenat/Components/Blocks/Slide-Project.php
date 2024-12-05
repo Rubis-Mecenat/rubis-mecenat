@@ -27,9 +27,9 @@
                             <?php the_field('project_artiste'); ?></p>
                     </div>
 
-                    <button class="btn -hover-black">
-                        <?php get_template_part('Components/Svgs/svg', "CircledArrowRight"); ?>
-                    </button>
+                    <a href="#" class="btn -round -big -red -hover-black">
+                        <?php get_template_part('Components/Svgs/svg', "ArrowRight"); ?>
+                    </a>
                 </a>
             </div>
         </div>

@@ -7,27 +7,26 @@
 
 .btn {
     padding: 1em 2em .9em 2em;
-    border-radius: 50px;
     border: 1px solid $black;
     font-size: 2rem;
-    transition: all .3s;
-
+    transition: 0.3s;
+    &.-rounded {
+        border-radius: 50px;
+    }
     &.-white {
         background-color: $white;
+
+        line {
+            stroke: $white;
+        }
         &:hover {
             background-color: $black;
             color: $white;
         }
     }
-    &.-round {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    &.-big {
         width: 70px;
-        aspect-ratio: 1/1;
-        border-radius: 50px;
-        border-color: $accent-color;
-        border-width: 2px;
+        padding: 0;
     }
     &.-medium {
         width: 60px;
@@ -52,6 +51,12 @@
             path {
                 fill: $black;
             }
+        }
+    }
+    &.-red {
+        border-color: $accent-color;
+        path {
+            fill: $accent-color;
         }
     }
     &.-gray {
@@ -110,21 +115,40 @@
             }
         }
     }
+    &.-round {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1/1;
+        border-radius: 50px;
+        border-width: 2px;
+    }
 
     &.-hover-black {
-        border: none;
-        padding: 0;
-        
         svg path, svg circle {
             transition: 0.3s;
         }
         
         &:hover {
+            border-color: $black;
             svg path {
                 fill: $black;
             }
             circle {
                 stroke: $black;
+            }
+        }
+    }
+    &.-hover-gray {
+        svg path, svg circle, svg line {
+            transition: 0.3s;
+        }
+        &:hover {
+            border-color: $gray-mid;
+            color: $gray-mid;
+            
+            line {
+                stroke: $gray-mid;
             }
         }
     }
@@ -136,7 +160,11 @@
     &.-active {
         pointer-events: none;
     }
-
+    &.-simple {
+        padding: 0;
+        border: none;
+        background: none;
+    } 
 }
 
 

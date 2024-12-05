@@ -28,7 +28,7 @@
             </div>
 
             <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class=" -block flex gap-s -center-y">
-                <span class="btn -round -medium -clean"><?php get_template_part( 'Components/Svgs/Svg', 'Plus' ); ?></span>
+                <span class="btn -round -white -medium -clean"><?php get_template_part( 'Components/Svgs/Svg', 'Plus' ); ?></span>
                 <span class="body"><?php pll_e('Tous les détails'); ?></span>
             </a>
         </div>
