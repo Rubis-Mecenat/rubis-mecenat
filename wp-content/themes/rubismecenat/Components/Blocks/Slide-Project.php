@@ -28,7 +28,7 @@
                     </div>
 
                     <a href="#" class="btn -circled-arrow">
-                        <?php get_template_part('Components/Svgs/svg', "ArrowRight"); ?>
+                        <?php get_template_part('Components/Svgs/Svg', "ArrowRight"); ?>
                     </a>
                 </a>
             </div>

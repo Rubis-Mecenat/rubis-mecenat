@@ -45,7 +45,7 @@
 						<?php the_excerpt(); ?>	
 					</div>
 					<a href="#" class="btn -circled-arrow">
-						<?php get_template_part('Components/Svgs/svg', "ArrowDown"); ?>
+						<?php get_template_part('Components/Svgs/Svg', "ArrowDown"); ?>
 					</a>
 				</div>
 
