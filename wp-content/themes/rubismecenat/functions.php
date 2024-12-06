@@ -177,6 +177,7 @@ pll_register_string('rubismecenat', "Recevez l’actualité de nos actions artis
 pll_register_string('rubismecenat', "Nous n'avons pas trouvé de contenu.", 'true');
 pll_register_string('rubismecenat', "Désolé, aucun contenu ne correspond à votre recherche. Veuillez essayer différents termes.", 'true');
 pll_register_string('rubismecenat', "Oops. Nous ne trouvons pas la page...", 'true');
+pll_register_string('rubismecenat', "Nous contacter", 'true');
 
 
 

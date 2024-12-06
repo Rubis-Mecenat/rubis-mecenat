@@ -27,7 +27,7 @@
 						<span class="picto">
 							<?php get_template_part('Components/Svgs/Svg', 'Mail'); ?>
 						</span>
-						<span class="body -bold -gray label">Nous contacter</span>
+						<span class="body -bold -gray label"><?php pll_e('Nous contacter'); ?></span>
 					</a>
 				</div>
 

@@ -194,7 +194,7 @@ if ( ! function_exists( 'list_terms_custom_taxonomy' ) ) :
 		if ( !empty($terms) ) :
 			$output = '<nav class="filter flex -column gap-s -start-y">';
 				
-				$output.= '<button class="btn -filter -active js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les ouvrages') . '</button>';
+				$output.= '<button class="btn -filter -active js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les contenus') . '</button>';
 
 				foreach( $terms as $term ) {
 					$output.= '<button class="btn -filter js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="' . $term->slug . '">' . esc_attr( $term->name ) . '</button>';
