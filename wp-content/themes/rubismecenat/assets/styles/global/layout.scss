@@ -53,6 +53,10 @@ Grid
                 $start-column: ( calc( (12 - $i) / 2 )) + 1;
                 grid-column: #{$start-column} / span #{$i};
             }
+
+            &.-end {
+                grid-column: span #{$i} / -1;
+            }
         }
     }
 }

@@ -9,22 +9,31 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="wrapper project-header grid is-relative">
+	<header class="wrapper project-header is-relative">
 
         <div class="breadcrumb_container s-12col">
             <?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
         </div>
 
-        <div class="project_cover s-12col">
-            <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
+
+        <div class="project-header-container is-relative">
+
+            <div class="project_cover s-12col">
+                <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
+            </div>
+
+            <div class="project_content grid -end-y h-full is-absolute">
+
+                <div class="project_titles m-5col -end flex -column -end-x">
+                    <h1 class="entry-title"><?php the_title(); ?></h1>
+                    <h2 class="h3 -other mb-s"><?php the_field('project_subtitle'); ?></h2>
+                    <p class="body -big -light"><?php the_field('project_place'); ?></p>
+                    <p><?php the_field('project_artiste'); ?></p>
+                </div>
+
+            </div>
         </div>
 
-        <div class="project_titles m-5col">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-            <h2 class="h3 -other mb-s"><?php the_field('project_subtitle'); ?></h2>
-            <p class="body -big -light"><?php the_field('project_place'); ?></p>
-            <p><?php the_field('project_artiste'); ?></p>
-        </div>
 	</header><!-- .entry-header -->
 
 
@@ -33,10 +42,8 @@
         <div class="m-6col body">
             <?php the_content(); ?>
         </div>
-
-        <div class="m-2col "></div>
         
-        <div class="m-4col">
+        <div class="project-right m-5col -end">
             <div>
                 <?php the_field('project_practical'); ?>
             </div>

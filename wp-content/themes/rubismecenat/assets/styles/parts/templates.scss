@@ -8,26 +8,53 @@
 .project-header {
     margin-bottom: var(--space-xxl);
 
+    .project-header-container {
+        .project_content {
+            inset: 0;
+        }
+    }
+
     .project_cover {
+        aspect-ratio: 16/7;
+        background-color: $gray-light;
         img {
             aspect-ratio: 16/7;
+            object-fit: cover;
+            height: 100%;
             width: 100%;
         }
     }
     .project_titles {
-        position: absolute;
-        right: 0;
-        bottom: 0;
+        // position: absolute;
+        // right: 0;
+        // bottom: 0;
         background-color: $white;
         padding: var(--space-l);
-        border-right: var(--space-l) solid $accent-color;
-        margin-right: calc( var(--space-l) * -1);
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: calc(var(--space-l) * -1);
+            width: 0;
+            bottom: 0;
+            height: 100%;
+            width: var(--space-l);
+            height: 100%;
+            background-color: $accent-color;
+        }
     }
 }
 
 .project-content {
+
+    .project-right {
+        padding-left: var(--space-l);
+    }
+
     .project_presskit {
-        margin-top: var(--space-l);
+        margin-bottom: var(--space-l);
 
         a {
             text-decoration: none;
