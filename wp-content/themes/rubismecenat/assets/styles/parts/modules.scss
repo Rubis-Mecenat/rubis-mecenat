@@ -98,19 +98,33 @@
 
 
 
-
 /*------------------------------------*\
-    MOD CAROUSEL
+    MODULES BORDER & BGs
 \*------------------------------------*/
 
 section[class*="mod"] {
     &.-bordered {
         border: 50px solid $accent-color;
         padding: var(--space-xxl) 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
-    &:last-child {
+    &.-backgrounded:last-child {
         margin-bottom: 0;
     }
+}
+
+
+
+/*------------------------------------*\
+    MOD PRESSKITS
+\*------------------------------------*/
+
+.mod_presskits {
+    margin-bottom: calc( var(--space-xxl) * 1.5);
+
 }
 
 
@@ -234,6 +248,10 @@ section[class*="mod"] {
     .-left > .mod_txt {
         order: 1;
     }
+
+    & + & {
+        margin-top: calc( var(--space-xl) * -1);
+    }
 }
 
 
@@ -242,7 +260,7 @@ section[class*="mod"] {
 \*------------------------------------*/
 
 .mod_visual-grid {
-    margin: 100px 0;
+    margin-bottom: calc( var(--space-xxl) * 1.5);
 
     .visual-grid {
         display: flex;
