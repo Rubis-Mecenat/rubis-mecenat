@@ -27,12 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     swiperContentSplit.forEach((slider) => {
         let swiperCarousel = new Swiper(slider, {
-            slidesPerView: 1.25,
+            slidesPerView: 1,
             spaceBetween: 56,
             speed: 600,
             autoplay: {
                 delay: 3000,
                 disableOnInteraction: false,
+            },
+            on: {
+                click() {
+                    swiperCarousel.slideTo(this.clickedIndex);    
+                },
             },
         });
     });

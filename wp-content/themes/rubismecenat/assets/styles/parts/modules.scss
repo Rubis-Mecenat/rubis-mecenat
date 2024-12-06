@@ -231,15 +231,21 @@ section[class*="mod"] {
 
 .mod_contentSplit {
     margin-bottom: calc( var(--space-xxl) * 1.5);
+    overflow: hidden;
 
     .swiper {
-        width: calc( 100% + 5vw);
-        max-width: none;
+        overflow: visible;
+        clip-path: inset( -100vw -100vw -100vw 0 );
 
-        @include min(wide) {
-            width: calc( 100% + 10vw);
+        .swiper-slide {
+            transition: 0.3s;
+
+            &:not(.swiper-slide-active) {
+                opacity: 0.5;
+            }
         }
     }
+
 
     img {
         width: 100%;
