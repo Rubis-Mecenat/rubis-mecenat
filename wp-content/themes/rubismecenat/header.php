@@ -38,7 +38,13 @@
 				</a>
 			</div>
 
-			<div class="flex">
+			<input type="checkbox" class="burger-input on-mobile" id="burger">
+			<label class="burger-menu on-mobile" for="burger">
+				<span class="burger-menu__stick"></span>
+				<span class="burger-menu__stick"></span>
+			</label>
+
+			<div class="navigations-container flex">
 				
 				<nav id="site-navigation" class="main-navigation-1">
 					<?php
@@ -72,12 +78,31 @@
 					</a>
 				</nav>
 
-				<nav class="lang_menu flex center-y">
+				<nav class="lang_menu flex -center-y">
 					<ul id="" class="flex gap-xs">
 						<?php pll_the_languages(array( 'display_names_as' => 'slug') );?>
 					</ul>
 				</nav>
 			</div>
 
+
+
+
+			<!-- <div class="menu-mobile on-mobile">
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-primary-3',
+							'menu_id'        => 'primary-menu',	
+							'menu_class' => 'menu primary-menu-3 flex h-full',
+							'container' => false,
+						)
+					);
+				?>
+			</div> -->
+
 		</div>
+
+
+
 	</header><!-- #masthead -->

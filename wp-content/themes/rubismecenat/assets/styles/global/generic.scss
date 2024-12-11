@@ -13,56 +13,55 @@
 
 /***** Flex *****/
 
-@each $suffix, $media in ('' : "(min-width: 0px)", '-desktop' : "(min-width: 920px)", '-mobile' : "(max-width: 920px)") {
+@each $prefix, $media in ('' : "(min-width: 0px)", 'd\\:' : "(min-width: 920px)", 'm\\:' : "(max-width: 920px)") {
     @media #{$media} {
 
         /***** Flex *****/
 
-        .flex#{$suffix} { display: flex } 
+        .#{$prefix}flex { display: flex } 
 
         .flex, .grid {
-            &.-space#{$suffix}     { justify-content: space-between }
-            &.-center#{$suffix}    { justify-content: center; align-items: center }
-            &.-center-x#{$suffix}  { justify-content: center }
-            &.-center-y#{$suffix}  { align-items: center }
-            &.-start-y#{$suffix}   { align-items: flex-start }
-            &.-end-y#{$suffix}     { align-items: flex-end }
-            &.-end-x#{$suffix}     { justify-content: flex-end }
-            &.-column#{$suffix}    { flex-direction: column }
-            &.-wrap#{$suffix}      { flex-wrap: wrap }
+            &.#{$prefix}-space     { justify-content: space-between }
+            &.#{$prefix}-center    { justify-content: center; align-items: center }
+            &.#{$prefix}-center-x  { justify-content: center }
+            &.#{$prefix}-center-y  { align-items: center }
+            &.#{$prefix}-start-y   { align-items: flex-start }
+            &.#{$prefix}-end-y     { align-items: flex-end }
+            &.#{$prefix}-end-x     { justify-content: flex-end }
+            &.#{$prefix}-column    { flex-direction: column }
+            &.#{$prefix}-wrap      { flex-wrap: wrap }
         }
     
         /***** Gap *****/
 
-        .gap-0#{$suffix}   { gap: 0 }
-        .gap-xxs#{$suffix} { gap: var(--space-xxs) }
-        .gap-xs#{$suffix}  { gap: var(--space-xs) }
-        .gap-s#{$suffix}   { gap: var(--space-s) }
-        .gap-m#{$suffix}   { gap: var(--space-m) }
-        .gap-l#{$suffix}   { gap: var(--space-l) }
-        .gap-xl#{$suffix}  { gap: var(--space-xl) }
-        .gap-xxl#{$suffix} { gap: var(--space-xxl) }
+        .#{$prefix}gap-0   { gap: 0 }
+        .#{$prefix}gap-xxs { gap: var(--space-xxs) }
+        .#{$prefix}gap-xs  { gap: var(--space-xs) }
+        .#{$prefix}gap-s   { gap: var(--space-s) }
+        .#{$prefix}gap-m   { gap: var(--space-m) }
+        .#{$prefix}gap-l   { gap: var(--space-l) }
+        .#{$prefix}gap-xl  { gap: var(--space-xl) }
+        .#{$prefix}gap-xxl { gap: var(--space-xxl) }
 
         /***** Margin *****/
 
-        .mb-0#{$suffix}   { margin-bottom: 0 }
-        .mb-xxs#{$suffix} { margin-bottom: var(--space-xxs) }
-        .mb-xs#{$suffix}  { margin-bottom: var(--space-xs) }
-        .mb-s#{$suffix}   { margin-bottom: var(--space-s) }
-        .mb-m#{$suffix}   { margin-bottom: var(--space-m) }
-        .mb-l#{$suffix}   { margin-bottom: var(--space-l) }
-        .mb-xl#{$suffix}  { margin-bottom: var(--space-xl) }
-        .mb-xxl#{$suffix} { margin-bottom: var(--space-xxl) }
+        .#{$prefix}mb-0   { margin-bottom: 0 }
+        .#{$prefix}mb-xxs { margin-bottom: var(--space-xxs) }
+        .#{$prefix}mb-xs  { margin-bottom: var(--space-xs) }
+        .#{$prefix}mb-s   { margin-bottom: var(--space-s) }
+        .#{$prefix}mb-m   { margin-bottom: var(--space-m) }
+        .#{$prefix}mb-l   { margin-bottom: var(--space-l) }
+        .#{$prefix}mb-xl  { margin-bottom: var(--space-xl) }
+        .#{$prefix}mb-xxl { margin-bottom: var(--space-xxl) }
 
-        .mt-0#{$suffix}   { margin-top: 0 }
-        .mt-xxs#{$suffix} { margin-top: var(--space-xxs) }
-        .mt-xs#{$suffix}  { margin-top: var(--space-xs) }
-        .mt-s#{$suffix}   { margin-top: var(--space-s) }
-        .mt-m#{$suffix}   { margin-top: var(--space-m) }
-        .mt-l#{$suffix}   { margin-top: var(--space-l) }
-        .mt-xl#{$suffix}  { margin-top: var(--space-xl) }
-        .mt-xxl#{$suffix} { margin-top: var(--space-xxl) }
-
+        .#{$prefix}mt-0   { margin-top: 0 }
+        .#{$prefix}mt-xxs { margin-top: var(--space-xxs) }
+        .#{$prefix}mt-xs  { margin-top: var(--space-xs) }
+        .#{$prefix}mt-s   { margin-top: var(--space-s) }
+        .#{$prefix}mt-m   { margin-top: var(--space-m) }
+        .#{$prefix}mt-l   { margin-top: var(--space-l) }
+        .#{$prefix}mt-xl  { margin-top: var(--space-xl) }
+        .#{$prefix}mt-xxl { margin-top: var(--space-xxl) }
 
     }
 

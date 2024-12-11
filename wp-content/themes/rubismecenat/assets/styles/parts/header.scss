@@ -1,4 +1,5 @@
 @use './global/colors' as *;
+@use './global/mixins' as *;
 
 
 // Adjust header position when admin bar is displayed
@@ -15,6 +16,10 @@ body.admin-bar .site-header {
     border-bottom: 1.5px solid $black;
     z-index: 50;
     transition: transform .3s;
+
+    .header-brand {
+        padding: 10px 0;
+    }
 
     .logo-small {
         display: none;
@@ -42,9 +47,61 @@ body.admin-bar .site-header {
         transform: translateY(-100%);
     }
 
+
+    .navigations-container {
+        @include max(medium) {
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            background-color: $white;
+            flex-direction: column;
+            transition: opacity 0.3s, visibility 0.3s;
+            padding-top: 90px;
+            @include wrapper-padding;
+
+            nav {
+                &:not(:last-child) {
+                    border-bottom: 1.5px solid $black;
+                }
+
+                .menu {
+                    flex-direction: column;
+                    padding: 25px 0;
+                    li {
+                        padding: 0;
+                    }
+                    a {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding-left: 0;
+                        padding-right: 0;
+                        width: 100%;
+                        font-size: 2rem;
+
+                        &:after {
+                            content: url('/wp-content/themes/rubismecenat/Components/Svgs/Svg-ArrowRightSmall.svg');
+                            display: block;
+                        }
+                    }
+                }
+
+                &.search a, &.lang_menu {
+                    padding: 24px 24px 24px 0;
+                }
+            }
+        }
+    }
+
     .main-navigation-2 {
-        border-left: 1.5px solid $black;
-        border-right: 1.5px solid $black;
+        @include min(medium) {
+            border-left: 1.5px solid $black;
+            border-right: 1.5px solid $black;
+        }
         
         li a {
             font-size: 1.6rem;
@@ -78,7 +135,10 @@ body.admin-bar .site-header {
     }
 
     .search {
-        border-right: 1.5px solid $black;
+        @include min(medium) {
+            border-right: 1.5px solid $black;
+        }
+
         a {
             display: block;
             padding: 30px 25px;
@@ -112,6 +172,67 @@ body.admin-bar .site-header {
 
         }
     }
+
+    //**** Mobile menu ****//
+
+    .burger-input {
+        display: none;
+
+        &:checked ~ label span {
+
+            &:first-child {
+                transform: rotate(45deg) translate(0px, -5px);
+            }
+
+            &:last-child {
+                transform: rotate(-45deg) translate(0px, 5px);
+            }
+        }
+
+        &:checked ~ .navigations-container {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .burger-menu {        
+        width: 30px;
+        background: transparent;
+        cursor: pointer;
+        display: flex;
+        flex-shrink: 0;
+        gap: 10px;
+        flex-direction: column;
+
+        &__stick {
+            display: block;
+            background-color: $black;
+            height: 3px;
+            left: 0;
+            transform: rotate(0deg);
+            transition: transform 0.25s ease-in-out;
+            transform-origin: left center;
+            will-change: transform;
+
+            &:first-child {
+                transform-origin: left center;
+            }
+        }
+    }
+
+
+    .menu-mobile {
+        display: none;
+        position: fixed;
+        background-color: $white;
+        top: 68px;
+        left: 0;
+        right: 0;
+    }
+
+    
+
 }
 
 .current-menu-item, 
