@@ -39,8 +39,12 @@ Grid
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-row-gap: 0;
-    grid-column-gap: 30px;
+    row-gap: 0;
+    column-gap: 30px;
+
+    @include max(medium) {
+        column-gap: 20px;
+    }
 }
 
 @mixin parse-columns($suffix: ''){ 

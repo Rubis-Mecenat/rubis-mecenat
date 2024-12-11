@@ -13,52 +13,60 @@
 
 /***** Flex *****/
 
-.flex { display: flex }
+@each $suffix, $media in ('' : "(min-width: 0px)", '-desktop' : "(min-width: 920px)", '-mobile' : "(max-width: 920px)") {
+    @media #{$media} {
 
-.flex, .grid {
+        /***** Flex *****/
 
-    &.-space     { justify-content: space-between }
-    &.-center    { justify-content: center; align-items: center }
-    &.-center-x  { justify-content: center }
-    &.-center-y  { align-items: center }
-    &.-start-y   { align-items: flex-start }
-    &.-end-y     { align-items: flex-end }
-    &.-end-x     { justify-content: flex-end }
-    &.-column    { flex-direction: column }
-    &.-wrap      { flex-wrap: wrap }
+        .flex#{$suffix} { display: flex } 
+
+        .flex, .grid {
+            &.-space#{$suffix}     { justify-content: space-between }
+            &.-center#{$suffix}    { justify-content: center; align-items: center }
+            &.-center-x#{$suffix}  { justify-content: center }
+            &.-center-y#{$suffix}  { align-items: center }
+            &.-start-y#{$suffix}   { align-items: flex-start }
+            &.-end-y#{$suffix}     { align-items: flex-end }
+            &.-end-x#{$suffix}     { justify-content: flex-end }
+            &.-column#{$suffix}    { flex-direction: column }
+            &.-wrap#{$suffix}      { flex-wrap: wrap }
+        }
+    
+        /***** Gap *****/
+
+        .gap-0#{$suffix}   { gap: 0 }
+        .gap-xxs#{$suffix} { gap: var(--space-xxs) }
+        .gap-xs#{$suffix}  { gap: var(--space-xs) }
+        .gap-s#{$suffix}   { gap: var(--space-s) }
+        .gap-m#{$suffix}   { gap: var(--space-m) }
+        .gap-l#{$suffix}   { gap: var(--space-l) }
+        .gap-xl#{$suffix}  { gap: var(--space-xl) }
+        .gap-xxl#{$suffix} { gap: var(--space-xxl) }
+
+        /***** Margin *****/
+
+        .mb-0#{$suffix}   { margin-bottom: 0 }
+        .mb-xxs#{$suffix} { margin-bottom: var(--space-xxs) }
+        .mb-xs#{$suffix}  { margin-bottom: var(--space-xs) }
+        .mb-s#{$suffix}   { margin-bottom: var(--space-s) }
+        .mb-m#{$suffix}   { margin-bottom: var(--space-m) }
+        .mb-l#{$suffix}   { margin-bottom: var(--space-l) }
+        .mb-xl#{$suffix}  { margin-bottom: var(--space-xl) }
+        .mb-xxl#{$suffix} { margin-bottom: var(--space-xxl) }
+
+        .mt-0#{$suffix}   { margin-top: 0 }
+        .mt-xxs#{$suffix} { margin-top: var(--space-xxs) }
+        .mt-xs#{$suffix}  { margin-top: var(--space-xs) }
+        .mt-s#{$suffix}   { margin-top: var(--space-s) }
+        .mt-m#{$suffix}   { margin-top: var(--space-m) }
+        .mt-l#{$suffix}   { margin-top: var(--space-l) }
+        .mt-xl#{$suffix}  { margin-top: var(--space-xl) }
+        .mt-xxl#{$suffix} { margin-top: var(--space-xxl) }
+
+
+    }
 
 }
-
-/***** Gap *****/
-
-.gap-0   { gap: 0 }
-.gap-xxs { gap: var(--space-xxs) }
-.gap-xs  { gap: var(--space-xs) }
-.gap-s   { gap: var(--space-s) }
-.gap-m   { gap: var(--space-m) }
-.gap-l   { gap: var(--space-l) }
-.gap-xl  { gap: var(--space-xl) }
-.gap-xxl { gap: var(--space-xxl) }
-
-/***** Margin *****/
-
-.mb-0   { margin-bottom: 0 }
-.mb-xxs { margin-bottom: var(--space-xxs) }
-.mb-xs  { margin-bottom: var(--space-xs) }
-.mb-s   { margin-bottom: var(--space-s) }
-.mb-m   { margin-bottom: var(--space-m) }
-.mb-l   { margin-bottom: var(--space-l) }
-.mb-xl  { margin-bottom: var(--space-xl) }
-.mb-xxl { margin-bottom: var(--space-xxl) }
-
-.mt-0   { margin-top: 0 }
-.mt-xxs { margin-top: var(--space-xxs) }
-.mt-xs  { margin-top: var(--space-xs) }
-.mt-s   { margin-top: var(--space-s) }
-.mt-m   { margin-top: var(--space-m) }
-.mt-l   { margin-top: var(--space-l) }
-.mt-xl  { margin-top: var(--space-xl) }
-.mt-xxl { margin-top: var(--space-xxl) }
 
 /***** Position *****/
 
