@@ -11,10 +11,25 @@
     padding: 0;
 }
 
-/***** Flex *****/
+/***** Dynamic class *****/
 
 @each $prefix, $media in ('' : "(min-width: 0px)", 'd\\:' : "(min-width: 920px)", 'm\\:' : "(max-width: 920px)") {
     @media #{$media} {
+
+        /***** Wrapper *****/
+
+        .#{$prefix}wrapper {
+            &:not(.small) {
+                @include wrapper;
+            }
+            &.small {
+                @include wrapper(small);
+            }
+        }
+        
+        .#{$prefix}wrapper-padding {
+            @include wrapper-padding;
+        }
 
         /***** Flex *****/
 
@@ -68,31 +83,38 @@
         .#{$prefix}mt-xl  { margin-top: var(--space-xl) }
         .#{$prefix}mt-xxl { margin-top: var(--space-xxl) }
 
+        /***** Text align *****/
+
+        .#{$prefix}txt-left   { text-align: left }
+        .#{$prefix}txt-center { text-align: center }
+        .#{$prefix}txt-right  { text-align: right }
+
+        /***** Position *****/
+
+        .#{$prefix}is-relative { position: relative }
+        .#{$prefix}is-absolute { position: absolute }
+
+        /***** Visibility *****/
+
+        .#{$prefix}is-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .#{$prefix}is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /***** Sizes *****/
+
+        .#{$prefix}w-full { width: 100% }
+        .#{$prefix}h-full { height: 100% }
+
     }
 
 }
 
-/***** Position *****/
-
-.is-relative { position: relative }
-.is-absolute { position: absolute }
-
-/***** Sizes *****/
-
-.w-full { width: 100% }
-.h-full { height: 100% }
-
-/***** Visibility *****/
-
-.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.is-visible {
-    display: 1;
-    visibility: visible;
-}
 
 .on-mobile {
     @include min(medium) {
@@ -105,9 +127,3 @@
         display: none !important;
     }
 }
-
-/***** Text align *****/
-
-.txt-left   { text-align: left }
-.txt-center { text-align: center }
-.txt-right  { text-align: right }

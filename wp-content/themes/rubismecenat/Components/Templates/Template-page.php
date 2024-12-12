@@ -41,7 +41,7 @@
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 						<?php the_excerpt(); ?>	
 					</div>
-					<a href="#" class="btn -circled-arrow">
+					<a href="#" class="btn -circled-arrow on-desktop">
 						<?php get_template_part('Components/Svgs/Svg', "ArrowDown"); ?>
 					</a>
 				</div>

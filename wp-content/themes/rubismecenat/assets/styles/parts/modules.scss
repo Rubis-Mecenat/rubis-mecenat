@@ -145,8 +145,9 @@
             margin: var(--space-xl) 0 var(--space-xl) calc(var(--space-xl) * -1);
             padding: var(--space-xl);
         }
+
         @include max(medium) {
-            margin: calc(var(--space-l) * -1) 0 var(--space-l) 0 ;
+            margin: calc(var(--space-l) * -1) 0 0 0 ;
             padding: var(--space-m);
             @include wrapper;
         }
@@ -481,7 +482,17 @@ section[class*="mod"] {
 
 .mod_contacts {
     background-color: $gray-light;
-    padding: var(--space-xxl) 0 ;
+    padding: var(--space-xxl) 0;
+
+    @include max(medium) {
+        padding: var(--space-l) 0;
+    }
+
+    .content-container {
+        @include max(medium) {
+            row-gap: var(--space-xl);
+        }
+    }
 }
 
 
