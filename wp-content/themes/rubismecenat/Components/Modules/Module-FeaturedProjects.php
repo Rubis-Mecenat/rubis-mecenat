@@ -9,7 +9,7 @@
     <div class="wrapper">
 
         <header class="mod_title grid mb-xl">
-            <div class="m-6col">
+            <div class="s-12col m-6col">
                 <h2 class="">
                     <?php echo $title; ?>
                 </h2>
@@ -20,7 +20,7 @@
             <div class="grid gap-m">
                 <?php foreach ($posts as $post) : setup_postdata($post); ?>
                         
-                    <div class="m-4col">
+                    <div class="s-12col m-4col m:mb-l">
                         <?php get_template_part('Components/Blocks/Block', 'Project'); ?>
                     </div>
 
