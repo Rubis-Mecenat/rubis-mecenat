@@ -22,7 +22,12 @@
 
     img {
         width: 100%;
-        min-height: 75vh;
+        @include max(medium) {
+            height: 50vh;
+        }
+        @include min(medium) {
+            min-height: 75vh;
+        }
     }
 
     &.-simple {
@@ -87,8 +92,9 @@
         padding: var(--space-xl);
 
         @include max(medium) {
-            margin: calc(var(--space-l) * -1) 0 var(--space-l) 0 ;
+            margin: calc(var(--space-l) * -1) 0 var(--space-xxl) 0 ;
             padding: var(--space-l);
+            @include wrapper;
         }
         h1 {
             margin-bottom: var(--space-l);
@@ -103,7 +109,9 @@
         }
 
         .btn.-circled-arrow {
-            transform: translateY(90%);
+            @include min(medium) {
+                transform: translateY(90%);
+            }
         }
     }
     .header-titles {
