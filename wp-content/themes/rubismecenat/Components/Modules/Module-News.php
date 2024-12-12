@@ -16,7 +16,7 @@
                 <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">
                 
                     <div class="grid">
-                        <div class="s-12col m-5col m:mb-xl">
+                        <div class="content-container t-12col m-5col">
 
                             <header class="mb-l">
                                 <h2 class="h2 mb-xxs"><?php  echo $publication->post_title; ?></h2>    
@@ -37,14 +37,13 @@
                                 <?php echo $publication->post_content; ?>
                             </div>
 
-                            <footer>
+                            <footer class="on-desktop">
                                 <span class="action btn" href="<?php echo get_permalink($publication->ID); ?>">
                                     <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
                                 </span>
                             </footer>
                         </div>
-                        <div class="s-1col"></div>
-                        <div class="s-12col m-6col">
+                        <div class="img-container t-12col m-6col -end">
                             <?php rubismecenat_post_thumbnail( $publication->ID, 'full' ); ?>
                         </div>
                     </div>
