@@ -62,13 +62,15 @@ article[class*="block"] {
 
 article.slide_project {
 
-    .slide_cover {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+    @include min(medium) {
+        .slide_cover {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
     }
     img {
         width: 100%;
@@ -76,6 +78,11 @@ article.slide_project {
     }
     .mod_content {
         margin-left: 0;
+
+        @include max(medium) {
+            margin-top: 0;
+            padding-left: 0;
+        }
     }
     a:hover .btn {
         border-color: $black;

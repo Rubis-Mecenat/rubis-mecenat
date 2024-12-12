@@ -47,12 +47,12 @@ Wrapper
     width: 90%;
 
     @if $size == small {
-        max-width: 1000px;
+        width: calc(100% - 100px);
     }
 }
 
 @mixin wrapper-padding {
     // max-width: var(--max-width);
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
 }

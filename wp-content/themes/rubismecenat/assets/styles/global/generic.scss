@@ -19,10 +19,10 @@
         /***** Wrapper *****/
 
         .#{$prefix}wrapper {
-            &:not(.small) {
+            &:not(.-small) {
                 @include wrapper;
             }
-            &.small {
+            &.-small {
                 @include wrapper(small);
             }
         }

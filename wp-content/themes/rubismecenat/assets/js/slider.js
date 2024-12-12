@@ -69,30 +69,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     const swiperCarouselHorizontal = document.querySelectorAll('.swiper.carousel-horizontal');
+    const breakpoint = window.matchMedia('(min-width:920px)');
 
     swiperCarouselHorizontal.forEach((slider) => {
+        const isDesktop = breakpoint.matches;
+
 
         let swiperCarousel = new Swiper(slider, {
-            slidesPerView: 1,
-            spaceBetween: 200,
+            slidesPerView: isDesktop ? 1 : 1.5,
+            spaceBetween: isDesktop ? 200 : 20,
             speed: 800,
-            mousewheel: {
+            mousewheel: isDesktop ? {
                 invert: false,
                 releaseOnEdges: true,
                 thresholdDelta: 5,
                 thresholdTime: 500,
-            },
+            } : false,
             navigation: {
                 nextEl: slider.querySelector('.swiper-button.next'),
                 prevEl: slider.querySelector('.swiper-button.prev'),
                 enabled: true,
             },
-            scrollbar: {
+            pagination: {
+                el: slider.querySelector('.swiper-pagination'),
+                type: 'bullets',
+                clickable: true,
+            },
+            scrollbar: isDesktop ? {
                 el: slider.querySelector('.swiper-scrollbar'),
                 draggable: true,
                 hide: false,
                 snapOnRelease: true,
-            }
+            } : false
         });
 
         qsa('.js-slide-trigger').forEach( el => {
@@ -100,8 +108,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('js-slide-trigger', el)
                 const index = el.getAttribute('data-slide');
                 swiperCarousel.slideTo(index, 600)
-            })
-        })
+            });
+        });
+
+        // Update mousewheel behavior on breakpoint change
+        const breakpointChecker = function() {
+            if (breakpoint.matches) {
+                swiperCarousel.params.mousewheel = {
+                    invert: false,
+                    releaseOnEdges: true,
+                    thresholdDelta: 5,
+                    thresholdTime: 500,
+                };
+            } else {
+                swiperCarousel.params.mousewheel = false;
+            }
+            swiperCarousel.update();
+        };
+
+        breakpoint.addEventListener('change', breakpointChecker);
 
     });
 
