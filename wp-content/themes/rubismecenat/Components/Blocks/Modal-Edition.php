@@ -37,10 +37,37 @@
                 <p class="body"><?php the_excerpt(); ?></p>
             </div>
 
-            <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class=" -block flex gap-s -center-y btn -circled-picto">
-                <span class="picto"><?php get_template_part( 'Components/Svgs/Svg', 'Plus' ); ?></span>
-                <span class="body"><?php pll_e('Tous les détails'); ?></span>
-            </a>
+            <?php if( get_field('edition_file') ) : ?>
+                <a href="<?php echo get_field('edition_file')["url"]; ?>" target="_blank" class="flex gap-s -center-y mb-m btn -filled-picto">
+                    <p class="picto">
+                        <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
+                    </p>
+                            
+                    <p class="label flex -column">
+                        <span class="body -bold"><?php pll_e('Récupérer le fichier'); ?></span>
+                        <span class="body -light"><?php echo human_filesize($presskit['presskit_file']['filesize'], 0); ?></span>
+                    </p>
+                </a>
+
+            <?php elseif( get_field('edition_link') ) : ?>
+                <a href="<?php echo get_field('edition_link')["url"]; ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
+                    <p class="picto">
+                        <?php get_template_part('Components/Svgs/Svg',  'Link'); ?>
+                    </p>
+
+                    <p class="label flex -column">
+                        <span class="body -bold"><?php pll_e('Voir le site de l\'éditeur'); ?></span>
+                    </p>
+                </a>
+
+            <?php else : ?>
+                <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class=" -block flex gap-s -center-y btn -circled-picto">
+                    <span class="picto"><?php get_template_part( 'Components/Svgs/Svg', 'Plus' ); ?></span>
+                    <span class="body"><?php pll_e('Tous les détails'); ?></span>
+                </a>
+
+            <?php endif; ?>
+
         </div>
 
     </div>

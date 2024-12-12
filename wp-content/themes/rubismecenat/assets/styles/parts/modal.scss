@@ -15,12 +15,13 @@
     color: white;
     box-shadow: 0 0 10px #00000070;
     max-width: 100vw;
-    
+
     &.open {
         transform: none;
     }
 
-    * {
+    *, 
+    .btn {
         color: inherit;
     }
 

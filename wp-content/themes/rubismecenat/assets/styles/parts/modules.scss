@@ -105,6 +105,9 @@
     .header-titles {
         max-width: 900px;
     }
+    iframe {
+        background-color: $black;
+    }
 }
 .content-absolute {
     position: absolute;

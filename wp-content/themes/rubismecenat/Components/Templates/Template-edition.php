@@ -41,30 +41,30 @@
                 <?php the_content(); ?>
 
                 <div class="mt-xl">
-                <?php if( get_field('edition_file') ) : ?>
-                    <a href="<?php echo get_field('edition_file')["url"]; ?>" target="_blank" class="flex gap-s -center-y mb-m btn -filled-picto">
-                        <p class="picto">
-                            <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
-                        </p>
-                        
-                        <p class="label flex -column">
-                            <span class="body -bold"><?php pll_e('Récupérér le fichier'); ?></span>
-                            <span class="body -light"><?php echo get_field('edition_file')["filesize"]; ?></span>
-                        </p>
-                    </a>
-                <?php endif; ?>
+                    <?php if( get_field('edition_file') ) : ?>
+                        <a href="<?php echo get_field('edition_file')["url"]; ?>" target="_blank" class="flex gap-s -center-y mb-m btn -filled-picto">
+                            <p class="picto">
+                                <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
+                            </p>
+                            
+                            <p class="label flex -column">
+                                <span class="body -bold"><?php pll_e('Récupérer le fichier'); ?></span>
+                                <span class="body -light"><?php echo get_field('edition_file')["filesize"]; ?></span>
+                            </p>
+                        </a>
+                    <?php endif; ?>
 
-                <?php if( get_field('edition_link') ) : ?>
-                    <a href="<?php echo get_field('edition_link')["url"]; ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
-                        <p class="picto">
-                            <?php get_template_part('Components/Svgs/Svg',  'Link'); ?>
-                        </p>
+                    <?php if( get_field('edition_link') ) : ?>
+                        <a href="<?php echo get_field('edition_link')["url"]; ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
+                            <p class="picto">
+                                <?php get_template_part('Components/Svgs/Svg',  'Link'); ?>
+                            </p>
 
-                        <p class="label flex -column">
-                            <span class="body -bold"><?php pll_e('Voir le site de l\'éditeur'); ?></span>
-                        </p>
-                    </a>
-                <?php endif; ?>
+                            <p class="label flex -column">
+                                <span class="body -bold"><?php pll_e('Voir le site de l\'éditeur'); ?></span>
+                            </p>
+                        </a>
+                    <?php endif; ?>
                 </div>
             </div>
 
