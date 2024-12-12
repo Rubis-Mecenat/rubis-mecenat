@@ -15,13 +15,13 @@
                 <header class="swiper-slide ">
                     <div class="entry-header -fullwrapped -red grid gap-0">
                         
-                        <div class="m-6col mod_cover is-relative">
+                        <div class="s-12col m-6col mod_cover is-relative">
                             <div class="content-absolute">
                                 <h1 class="h1"><?php echo $title; ?></h1>
                             </div>
                         </div>
                         
-                        <div class="m-6col mod_content flex -center-y">
+                        <div class="s-12col m-6col mod_content flex -center-y">
                             <div class="body-title">
                                 <div class="mb-m">
                                     <?php echo $firstContent; ?>

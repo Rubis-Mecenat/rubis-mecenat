@@ -20,7 +20,6 @@
             <div class="body"><?php echo $content; ?></div>
         </div>
 
-
         <div class="s-12col m-5col <?php echo $design === 'right' ? '-end' : ''; ?> mod_media <?php echo count($medias) >= 2 ? 'swiper content-split' : ''; ?>">
             <?php if( $medias ): ?>
                 <div class="swiper-wrapper">

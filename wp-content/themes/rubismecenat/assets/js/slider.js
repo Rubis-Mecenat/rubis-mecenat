@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 1400: {
                     slidesPerView: 3.5,
                     spaceBetween: 30
-                  }
-              }
+                }
+            }
         });
     });
 
@@ -41,8 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     swiperContentSplit.forEach((slider) => {
         let swiperCarousel = new Swiper(slider, {
-            slidesPerView: 1,
-            spaceBetween: 56,
             speed: 600,
             autoplay: {
                 delay: 3000,
@@ -53,6 +51,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     swiperCarousel.slideTo(this.clickedIndex);    
                 },
             },
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 20
+                },
+                // when window width is >= 640px
+                800: {
+                    slidesPerView: 1,
+                    spaceBetween: 56,
+                }
+            }
         });
     });
 

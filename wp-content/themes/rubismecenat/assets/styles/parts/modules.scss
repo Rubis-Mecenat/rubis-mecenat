@@ -15,6 +15,9 @@
     @include min(medium) {
         margin-bottom: calc( var(--space-xxl) * 1.5);
     }
+    @include max(medium) {
+        margin-bottom: calc( var(--space-xl));
+    }
 
     .post-thumbnail, .post-thumbnail div:first-child, img {
         height: 100%;
@@ -48,11 +51,31 @@
     &.-fullwrapped {
         @include wrapper;
 
-        .mod_cover {
-            height: 60vh;
+        @include min(medium) {
+            .mod_cover {
+                height: 60vh;
+            }
+            .mod_content {
+                margin-left: 0;
+                margin-right: unset;
+                width: 100%;
+            }
         }
-        .mod_content {
-            margin-left: 0;
+        @include max(medium) {
+            .mod_cover {
+                height: 250px;
+                width: 100vw;
+                max-width: none;
+                margin-left: -5vw;
+                background-color: $accent-color;
+            }
+            .mod_content {
+                margin-left: 0;
+                margin-right: unset;
+                margin-bottom: 0;
+                margin-top: 0;
+                width: 100%;
+            }
         }
     }
     &.-linked {
@@ -463,6 +486,11 @@ section[class*="mod"] {
     position: relative;
 }
 .mod_breadcrumbs {
+    
+    @include max(medium) {
+        display: none;
+    }
+
     padding: var(--space-s) 0;
     background-color: $white;
 
@@ -485,13 +513,26 @@ section[class*="mod"] {
 }
 .mod_parent_nav {
     position: absolute;
-    left: -45px;
-    top: 45px;
+    z-index: 2;
     writing-mode: sideways-lr;
     text-orientation: sideways;
-    min-height: 300px;
     justify-content: flex-end;
     display: flex;
+
+    @include min(medium) {
+        left: -45px;
+        top: 45px;
+        min-height: 300px;
+    }
+    @include max(medium) {
+        background-color: $black;
+        color: white;
+        left: -5vw;
+        top: 0;
+        height: 250px;
+        min-height: auto;
+        width: 5vw;
+    }
 
     .-editions & {
         top: 130px;

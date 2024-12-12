@@ -62,13 +62,13 @@
 
 				<div class="grid gap-0">
 					
-					<div class="m-6col mod_cover is-relative">
+					<div class="s-12col m-6col mod_cover is-relative">
 						<div class="content-absolute">
 							<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 						</div>
 					</div>
 					
-					<div class="m-6col mod_content flex -center-y">
+					<div class="s-12col m-6col mod_content flex -center-y">
 						<div class="body-title">
 							<?php the_excerpt(); ?>	
 						</div>
