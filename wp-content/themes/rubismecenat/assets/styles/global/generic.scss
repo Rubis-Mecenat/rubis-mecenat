@@ -32,6 +32,11 @@
             &.#{$prefix}-wrap      { flex-wrap: wrap }
         }
     
+        /***** Display *****/
+
+        .#{$prefix}hide   { visibility: hidden; height: 1px; }
+        .#{$prefix}show   { visibility: visible; height: auto;}
+
         /***** Gap *****/
 
         .#{$prefix}gap-0   { gap: 0 }

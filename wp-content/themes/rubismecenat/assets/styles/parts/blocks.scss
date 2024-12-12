@@ -1,4 +1,5 @@
 @use './global/colors' as *;
+@use "./global/mixins" as *;
 
 
 
@@ -87,7 +88,13 @@ article.slide_project {
 
 .block-presskit {
     background-color: $gray-light;
-    padding: 30px 80px;
+
+    @include max(medium) {
+        padding: var(--space-m) var(--space-l) ;
+    }
+    @include min(medium) {
+        padding: var(--space-m) var(--space-xl) ;
+    }
 
     img {
         aspect-ratio: 4/5;

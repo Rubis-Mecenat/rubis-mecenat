@@ -56,12 +56,11 @@
         }
     }
     &.-linked {
+        
         .mod_button {
             position: absolute;
             z-index: 2;
             right: 0;
-            top: var(--space-xl);
-            bottom: var(--space-xl);
             width: 0;
             background-color: $accent-color;
             transition: width .3s;
@@ -70,11 +69,34 @@
                 fill: white;
             }
         }
-        &:hover {
+
+        @include min(medium) {
             .mod_button {
-                width: var(--space-xl);
+                top: var(--space-xl);
+                bottom: var(--space-xl);
+            }
+            &:hover {
+                .mod_button {
+                    width: var(--space-xl);
+                }
             }
         }
+        @include max(medium) {
+            .mod_button {
+                top: 51px;
+                height: 250px;
+                width: var(--space-xl);
+            }
+            .mod_content {
+                margin-top: var(--space-xl);
+                width: 100%;
+                padding: 0;
+            }
+            img {
+                height: 250px;
+            }
+        }
+
     }
 
     &:hover {
@@ -87,15 +109,19 @@
     .mod_content {
         position: relative;
         z-index: 1;
-        margin: var(--space-xl) 0 var(--space-xl) calc(var(--space-xl) * -1);
         background-color: white;
-        padding: var(--space-xl);
 
-        @include max(medium) {
-            margin: calc(var(--space-l) * -1) 0 var(--space-xxl) 0 ;
-            padding: var(--space-l);
+        @include min(medium) {
+            margin: var(--space-xl) 0 var(--space-xl) calc(var(--space-xl) * -1);
+            padding: var(--space-xl);
             @include wrapper;
         }
+        @include max(medium) {
+            margin: calc(var(--space-l) * -1) 0 var(--space-xxl) 0 ;
+            padding: var(--space-m);
+            @include wrapper;
+        }
+
         h1 {
             margin-bottom: var(--space-l);
         }
@@ -138,9 +164,14 @@
 
 section[class*="mod"] {
     &.-bordered {
-        border: 50px solid $accent-color;
-        padding: var(--space-xxl) 0;
-
+        @include max(medium) {
+            border: 20px solid $accent-color;
+            padding: var(--space-xl) 0;
+        }
+        @include min(medium) {
+            border: 50px solid $accent-color;
+            padding: var(--space-xxl) 0;
+        }
         &:last-child {
             margin-bottom: 0;
         }
@@ -328,8 +359,13 @@ section[class*="mod"] {
 \*------------------------------------*/
 
 .mod_quote {
-    margin: calc(var(--space-xxl) * 2) 0;
     text-align: center;
+    @include max(medium) {
+        margin: var(--space-xxl) 0;
+    }
+    @include min(medium) {
+        margin: calc(var(--space-xxl) * 2) 0;
+    }
 }
 
 

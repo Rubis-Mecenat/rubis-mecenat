@@ -19,7 +19,7 @@
 	<?php if( $head_design === 'simple' ) : ?>
 		<header class="entry-header -simple txt-center mb-xxl">
 			<div class="wrapper grid">
-				<div class="header-titles m-8col -centered">
+				<div class="header-titles s-12col m-8col -centered">
 					<h1 class="entry-title mb-m"><?php the_title(); ?></h1>
 					<div class="body-title"><?php the_excerpt(); ?></div>
 				</div>
