@@ -8,13 +8,13 @@
 <article class="modal-video">
     <div class="grid">
 
-        <div class="s-12col m-6col">
+        <div class="s-12col m-6col modal-media">
             <iframe src="<?php the_field('video_player'); ?>?autoplay=0&amp;loop=0&amp;controls=1&amp;muted=0" width="1500" height="844" frameborder="0" title="ART(ist) Geert Goiris" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
         </div>
         
         <div class="s-hide m-1col"></div>
 
-        <div class="s-12col m-5col">
+        <div class="s-12col m-5col modal-content">
 
             <div class="mb-m">
                 <h3 class="h4"><?php the_title(); ?></h3>

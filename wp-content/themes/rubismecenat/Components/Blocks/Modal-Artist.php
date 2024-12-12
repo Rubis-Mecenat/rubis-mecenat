@@ -7,13 +7,13 @@
 <article class="modal-artist">
     <div class="grid">
 
-        <div class="m-6col flex -center">
+        <div class="s-12col m-6col flex -center modal-media m:mb-l">
             <?php the_post_thumbnail('medium'); ?>
         </div>
 
         <div class="m-1col"></div>
 
-        <div class="m-5col">
+        <div class="s-12col m-5col modal-content">
             
             <div class="mb-m">
                 <h3 class="h4"><?php the_title(); ?></h3>
