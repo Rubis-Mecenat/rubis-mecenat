@@ -69,7 +69,12 @@ ul {
 iframe {
     max-width: 100%;
     width: 100%;
-    height: 600px;
+    @include min(medium) {
+        height: 600px;
+    }
+    @include max(medium) {
+        height: 300px;
+    }
 }
 
 /*------------------------------------*\

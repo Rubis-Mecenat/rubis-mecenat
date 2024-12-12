@@ -49,7 +49,7 @@
 
         @include max(medium) {
             background-color: $gray-light;
-            padding: var(--space-s) var(--space-l) var(--space-l);
+            padding: var(--space-m) var(--space-l) var(--space-l);
         }
         @include min(medium) {
             background-color: $white;
@@ -129,5 +129,10 @@ article.edition {
     .wp-post-image {
         object-fit: contain;
         object-position: top;
+    }
+    .entry-cover {
+        @include max(medium) {
+            padding: var(--space-xl);
+        }
     }
 }

@@ -56,6 +56,13 @@
         width: 100%;
         aspect-ratio: 1/1;
         object-fit: contain;
+
+        @include max(medium) {
+            max-height: 300px;
+        }
+        @include min(medium) {
+
+        }
     }
     iframe {
         width: 100%;

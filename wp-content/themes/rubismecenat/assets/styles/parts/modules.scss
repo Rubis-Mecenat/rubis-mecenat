@@ -122,6 +122,12 @@
         }
 
     }
+    &.-video {
+        @include min(medium) {
+            @include wrapper();
+        }
+
+    }
 
     &:hover {
         color: inherit;
@@ -484,6 +490,12 @@ section[class*="mod"] {
 
 .breadcrumb_container {
     position: relative;
+
+    &.-editions {
+        @include min(medium) {
+            @include wrapper();
+        }
+    }
 }
 .mod_breadcrumbs {
     
@@ -510,6 +522,8 @@ section[class*="mod"] {
         color: $gray-mid2;
         font-weight: $font-light;
     }
+
+
 }
 .mod_parent_nav {
     position: absolute;
@@ -545,7 +559,9 @@ section[class*="mod"] {
     }
 
     .-editions & {
-        top: 130px;
+        @include min(medium) {
+            top: 130px;
+        }
     }
     a:hover {
         color: $accent-color
