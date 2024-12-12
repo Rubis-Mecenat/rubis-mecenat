@@ -16,7 +16,7 @@
                 <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">
                 
                     <div class="grid">
-                        <div class="s-5col">
+                        <div class="s-12col m-5col m:mb-xl">
 
                             <header class="mb-l">
                                 <h2 class="h2 mb-xxs"><?php  echo $publication->post_title; ?></h2>    
@@ -44,7 +44,7 @@
                             </footer>
                         </div>
                         <div class="s-1col"></div>
-                        <div class="s-6col">
+                        <div class="s-12col m-6col">
                             <?php rubismecenat_post_thumbnail( $publication->ID, 'full' ); ?>
                         </div>
                     </div>

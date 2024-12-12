@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     swiperCarousel.forEach((slider) => {
         let swiperCarousel = new Swiper(slider, {
-            slidesPerView: 2.5,
-            spaceBetween: 30,
             // pagination: {
             //     el: slider.querySelector('.swiper-pagination'),
             //     type: 'custom',
@@ -19,6 +17,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 prevEl: slider.querySelector('.swiper-button.prev'),
                 enabled: true,
             },
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                  slidesPerView: 1.2,
+                  spaceBetween: 20
+                },
+                // when window width is >= 640px
+                800: {
+                  slidesPerView: 2.5,
+                  spaceBetween: 30
+                },
+                1400: {
+                    slidesPerView: 3.5,
+                    spaceBetween: 30
+                  }
+              }
         });
     });
 
