@@ -8,18 +8,20 @@
 
 <section class="mod_contentSplit">
 
-    <div class="wrapper">
-        <h2 class="txt-center mb-xl"><?php echo $title; ?></h2>
-    </div>
+    <?php if( $title !=='' ) : ?>
+        <div class="wrapper">
+            <h2 class="txt-center mb-xl"><?php echo $title; ?></h2>
+        </div>
+    <?php endif; ?>
 
     <div class="grid gap-l wrapper <?php echo '-'.$design; ?>">
 
-        <div class="s-12col m-6col mod_txt">
+        <div class="s-12col m-6col <?php echo $design === 'left' ? '-end' : ''; ?> mod_txt">
             <div class="body"><?php echo $content; ?></div>
         </div>
 
 
-        <div class="s-12col m-5col -end mod_media <?php echo count($medias) >= 2 ? 'swiper content-split' : ''; ?>">
+        <div class="s-12col m-5col <?php echo $design === 'right' ? '-end' : ''; ?> mod_media <?php echo count($medias) >= 2 ? 'swiper content-split' : ''; ?>">
             <?php if( $medias ): ?>
                 <div class="swiper-wrapper">
                     <?php foreach( $medias as $media ): ?>
@@ -37,7 +39,5 @@
         </div>
 
     </div>
-
-
 
 </section>
