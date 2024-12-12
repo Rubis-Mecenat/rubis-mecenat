@@ -7,7 +7,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header -red grid gap-0">
+	<header class="entry-header grid gap-0">
 
         <div class="m-6col mod_cover is-relative">
 

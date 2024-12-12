@@ -29,7 +29,7 @@
 
 	<?php elseif( $head_design === 'full' ) : ?>
 
-		<header class="entry-header -red">
+		<header class="entry-header">
 			<div class="grid gap-0">
 				
 				<div class="m-6col mod_cover is-relative">
