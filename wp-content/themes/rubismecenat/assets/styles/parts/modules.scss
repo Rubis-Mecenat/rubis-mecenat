@@ -407,6 +407,7 @@ section[class*="mod"] {
         .img-container {
             @include max(medium) {
                 order: -1;
+                margin-bottom: var(--space-m);
             }
         }
     }
