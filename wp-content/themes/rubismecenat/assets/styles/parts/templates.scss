@@ -6,7 +6,14 @@
 
 
 .project-header {
-    margin-bottom: var(--space-xxl);
+    
+    @include max(medium) {
+        margin-bottom: var(--space-xl);
+    }
+    @include min(medium) {
+        @include wrapper();
+        margin-bottom: var(--space-xxl);
+    }
 
     .project-header-container {
         .project_content {
@@ -14,43 +21,66 @@
         }
     }
 
+    .project_content {
+        @include max(medium) {
+            background-color: $gray-light;
+        }
+        @include min(medium) {
+            position: absolute;
+        }
+    }
     .project_cover {
         aspect-ratio: 16/7;
         background-color: $gray-light;
         img {
-            aspect-ratio: 16/7;
             object-fit: cover;
             height: 100%;
             width: 100%;
+            @include max(medium) {
+                height: 300px;
+            }
+            @include min(medium) {
+                aspect-ratio: 16/7;
+            }
         }
     }
     .project_titles {
-        // position: absolute;
-        // right: 0;
-        // bottom: 0;
-        background-color: $white;
-        padding: var(--space-l);
         position: relative;
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: calc(var(--space-l) * -1);
-            width: 0;
-            bottom: 0;
-            height: 100%;
-            width: var(--space-l);
-            height: 100%;
-            background-color: $accent-color;
+        @include max(medium) {
+            background-color: $gray-light;
+            padding: var(--space-s) var(--space-l) var(--space-l);
         }
+        @include min(medium) {
+            background-color: $white;
+            padding: var(--space-l);
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: calc(var(--space-l) * -1);
+                width: 0;
+                bottom: 0;
+                height: 100%;
+                width: var(--space-l);
+                height: 100%;
+                background-color: $accent-color;
+            }
+        }
+        
     }
 }
 
 .project-content {
 
     .project-right {
-        padding-left: var(--space-l);
+        @include min(medium) {
+            padding-left: var(--space-l);
+        }
+        @include max(medium) {
+            padding-top: var(--space-l);
+       }
     }
 
     .project_presskit {

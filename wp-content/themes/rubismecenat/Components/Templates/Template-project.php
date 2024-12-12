@@ -9,12 +9,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="wrapper project-header is-relative">
+	<header class="project-header is-relative">
 
         <div class="breadcrumb_container s-12col">
             <?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
         </div>
-
 
         <div class="project-header-container is-relative">
 
@@ -22,9 +21,9 @@
                 <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
             </div>
 
-            <div class="project_content grid -end-y h-full is-absolute">
+            <div class="project_content grid -end-y h-full">
 
-                <div class="project_titles m-5col -end flex -column -end-x">
+                <div class="project_titles s-12col m-5col -end flex -column -end-x">
                     <h1 class="entry-title"><?php the_title(); ?></h1>
                     <h2 class="h3 -other mb-s"><?php the_field('project_subtitle'); ?></h2>
                     <p class="body -big -light"><?php the_field('project_place'); ?></p>
@@ -39,12 +38,12 @@
 
 	<div class="wrapper project-content grid mb-xxl">
 
-        <div class="m-6col body">
+        <div class="s-12col m-6col body">
             <?php the_content(); ?>
         </div>
         
-        <div class="project-right m-5col -end">
-            <div>
+        <div class="project-right s-12col m-5col -end">
+            <div class="mb-l">
                 <?php the_field('project_practical'); ?>
             </div>
 
