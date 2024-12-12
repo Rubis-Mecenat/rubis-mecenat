@@ -146,7 +146,7 @@
             padding: var(--space-xl);
         }
         @include max(medium) {
-            margin: calc(var(--space-l) * -1) 0 var(--space-xxl) 0 ;
+            margin: calc(var(--space-l) * -1) 0 var(--space-l) 0 ;
             padding: var(--space-m);
             @include wrapper;
         }

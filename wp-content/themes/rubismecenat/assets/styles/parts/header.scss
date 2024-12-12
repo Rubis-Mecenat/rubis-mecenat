@@ -39,6 +39,14 @@ body:has(.burger-input[checked="checked"]) {
     .logo-small {
         display: none;
     }
+    .logo-big {
+        @include max(medium) {
+            svg {
+                height: 40px;
+                width: 100px;
+            }
+        }
+    }
     &.-reduced {
         .logo-big {
             display: none;
@@ -46,7 +54,12 @@ body:has(.burger-input[checked="checked"]) {
         .logo-small {
             display: block;
             svg {
-                height: 45px;
+                @include max(medium) {
+                    height: 40px;
+                }
+                @include min(medium) {
+                    height: 45px;
+                }
             }
         }
         .search a {
