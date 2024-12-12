@@ -26,6 +26,7 @@
     img {
         width: 100%;
         @include max(medium) {
+            max-height: 450px;
             height: 50vh;
         }
         @include min(medium) {
