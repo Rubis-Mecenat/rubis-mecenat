@@ -5,6 +5,22 @@
 	console.log('navigation');
 
   /*------------------------------------*\
+    NO SCROLL
+  \*------------------------------------*/
+
+    const burgerInput = qs('.burger-input');
+
+    burgerInput.addEventListener('change', function() {
+        if (burgerInput.checked) {
+            document.body.style.overflow = 'hidden';
+            cl(header).remove('-out');
+            cl(header).remove('-reduced');
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+
+  /*------------------------------------*\
       STICKY MENU
   \*------------------------------------*/
 

@@ -27,7 +27,7 @@
 
 	<header id="masthead" class="site-header">
 
-		<div class="wrapper flex gap-l -space -center-y">
+		<div class="header-container flex gap-l -space -center-y">
 
 			<div class="header-brand flex -center-y -center-x">
 				<a href="/" class="logo-big" rel="home">
@@ -39,67 +39,76 @@
 			</div>
 
 			<input type="checkbox" class="burger-input on-mobile" id="burger">
-			<label class="burger-menu on-mobile" for="burger">
+			<label class="burger-menu -black on-mobile" for="burger">
 				<span class="burger-menu__stick"></span>
 				<span class="burger-menu__stick"></span>
 			</label>
 
-			<div class="navigations-container flex">
-				
-				<nav id="site-navigation" class="main-navigation-1">
-					<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-primary-1',
-								'menu_id'        => 'primary-menu',	
-								'menu_class' => 'menu primary-menu-1 flex h-full',
-								'container' => false,
-							)
-						);
-					?>
-				</nav><!-- #site-navigation -->
+			<div class="navigations-container">
+				<div class="header-nav flex m:-column">	
+					<nav id="site-navigation" class="main-navigation-1">
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-primary-1',
+									'menu_id'        => 'primary-menu',	
+									'menu_class' => 'menu primary-menu-1 flex h-full',
+									'container' => false,
+								)
+							);
+						?>
+					</nav><!-- #site-navigation -->
 
-				<nav id="site-navigation" class="main-navigation-2">
-					<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-primary-2',
-								'menu_id'        => 'primary-menu',	
-								'menu_class' => 'menu primary-menu-2 flex h-full',
-								'container' => false,
-							)
-						);
-					?>
-				</nav><!-- #site-navigation -->
+					<nav id="site-navigation" class="main-navigation-2">
+						<?php
+							wp_nav_menu(
+								array(
+									'theme_location' => 'menu-primary-2',
+									'menu_id'        => 'primary-menu',	
+									'menu_class' => 'menu primary-menu-2 flex h-full',
+									'container' => false,
+								)
+							);
+						?>
+					</nav><!-- #site-navigation -->
 
-				<nav class="search <?php echo is_search() ? 'current-menu-item' : ''; ?>">
-					<a href="/?s=">
-						<?php get_template_part('Components/Svgs/Svg', 'Search'); ?>
-					</a>
-				</nav>
+					<nav class="search <?php echo is_search() ? 'current-menu-item' : ''; ?>">
+						<a href="/?s=">
+							<?php get_template_part('Components/Svgs/Svg', 'Search'); ?>
+						</a>
+					</nav>
 
-				<nav class="lang_menu flex -center-y">
-					<ul id="" class="flex gap-xs">
-						<?php pll_the_languages(array( 'display_names_as' => 'slug') );?>
-					</ul>
-				</nav>
+					<nav class="lang_menu flex -center-y">
+						<ul id="" class="flex gap-xs">
+							<?php pll_the_languages(array( 'display_names_as' => 'slug') );?>
+						</ul>
+					</nav>
+				</div>
+
+				<div class="footer-nav on-mobile">
+					
+					<div class="mt-l mb-l">
+						<?php wp_nav_menu( array(
+							'theme_location' => 'menu-footer-2',
+							'menu_id'        => 'footer-menu',
+							'menu_class'	 => 'menu-footer-2 menu flex -column gap-s',
+						)); ?>
+					</div>
+					<div class="mb-m">
+						<h3 class="h1">Newsletter</h3>
+						
+						<?php get_template_part('Components/Modules/Module', 'NewsletterForm'); ?>
+					</div>
+					<div>
+						<?php wp_nav_menu( array(
+							'theme_location' => 'menu-footer-last',
+							'menu_id'        => 'footer-menu',
+							'menu_class' => 'menu-footer-last menu flex -center-y gap-m',
+						)); ?>
+					</div>
+				</div>
+
 			</div>
-
-
-
-
-			<!-- <div class="menu-mobile on-mobile">
-				<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-primary-3',
-							'menu_id'        => 'primary-menu',	
-							'menu_class' => 'menu primary-menu-3 flex h-full',
-							'container' => false,
-						)
-					);
-				?>
-			</div> -->
 
 		</div>
 

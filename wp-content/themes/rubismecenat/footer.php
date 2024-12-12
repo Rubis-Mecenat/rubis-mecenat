@@ -14,15 +14,15 @@
 	<footer id="colophon" class="site-footer">
 		<div class="grid wrapper">
 
-			<div class="m-6col">
+			<div class="t-12col m-6col">
 
-				<div class="mb-l">
+				<div class="mb-l on-desktop">
 					<h3 class="h1">Newsletter</h3>
 					
 					<?php get_template_part('Components/Modules/Module', 'NewsletterForm'); ?>
 				</div>
 
-				<div class="mb-xxl">
+				<div class="mb-xxl on-desktop">
 					<a href="mailto:<?php the_field('rubis_contact_mail', 'option'); ?>" class="flex -center-y gap-s btn -footer-picto">
 						<span class="picto">
 							<?php get_template_part('Components/Svgs/Svg', 'Mail'); ?>
@@ -31,7 +31,7 @@
 					</a>
 				</div>
 
-				<div class="">
+				<div class="flex -space">
 					<?php
 						wp_nav_menu(
 							array(
@@ -39,11 +39,16 @@
 								'menu_id'        => 'footer-menu',
 								'menu_class' => 'menu-footer-last menu flex -center-y gap-m',
 							)); ?>
+
+					<label class="burger-menu -white on-mobile" for="burger">
+						<span class="burger-menu__stick"></span>
+						<span class="burger-menu__stick"></span>
+					</label>
 				</div>
 
 			</div>
 
-			<div class="m-3col">
+			<div class="m-3col on-desktop">
 				<?php
 					wp_nav_menu(
 						array(
@@ -53,7 +58,7 @@
 						)); ?>
 			</div>
 
-			<div class="m-3col">
+			<div class="m-3col on-desktop">
 				<?php
 					wp_nav_menu(
 						array(

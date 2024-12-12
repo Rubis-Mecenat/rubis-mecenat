@@ -5,171 +5,6 @@
     BUTTONS
 \*------------------------------------*/
 
-// .btn {
-//     padding: 1em 2em .9em 2em;
-//     // border: 1px solid $black;
-//     font-size: 2rem;
-//     transition: 0.3s;
-
-//     svg, svg path, svg circle, svg line {
-//         transition: 0.3s;
-//     }
-
-//     &.-rounded {
-//         border-radius: 50px;
-//     }
-//     &.-white {
-//         background-color: $white;
-
-//         line {
-//             stroke: $white;
-//         }
-//         &:hover {
-//             background-color: $black;
-//             color: $white;
-//         }
-//     }
-//     &.-big {
-//         width: 70px;
-//         aspect-ratio: 1/1;
-//         padding: 0;
-//     }
-//     &.-medium {
-//         width: 60px;
-//         aspect-ratio: 1/1;
-//         padding: 0;
-//     }
-//     &.-small {
-//         width: 45px;
-//         aspect-ratio: 1/1;
-//         padding: 0;
-
-//         svg {
-//             width: 20px;
-//         }
-//     }
-//     &.-black {
-//         background-color: $black;
-//         border-color: $black;
-//         path {
-//             fill: $white;
-//         }
-//         &:hover {
-//             border-color: $black;
-//             path {
-//                 fill: $black;
-//             }
-//         }
-//     }
-//     &.-red {
-//         border-color: $accent-color;
-//         path {
-//             fill: $accent-color;
-//         }
-//     }
-//     &.-gray {
-//         background-color: $gray-mid;
-//         border-color: $gray-mid;
-        
-//         path {
-//             stroke: #fff;
-//         }
-//         // &:hover {
-//         //     border-color: $gray-mid;
-//         //     path {
-//         //         stroke: $black;
-//         //     }
-//         // }
-//     }
-//     &.-clean {
-//         background: none;
-//         border-color: inherit;
-//         border: 1px solid;
-        
-//         path {
-//             stroke: #fff;
-//         }
-//         &:hover {
-//             border-color: $gray-mid;
-//             path {
-//                 stroke: $black;
-//             }
-//         }
-//     }
-
-//     &.-media {
-//         text-decoration: none;
-//         border: none;
-//         padding: 0;
-//         color: $black;
-
-//         &:hover .picto {
-//             background-color: $gray-mid;
-//         }
-
-//         .picto {
-//             background-color: $black;
-//             display: flex;
-//             align-items: center;
-//             justify-content: center;
-//             width: 60px;
-//             aspect-ratio: 1/1;
-//             border-radius: 50px;
-//             transition: 0.3s;
-//             flex-shrink: 0;
-            
-//             &.-small {
-//                 width: 45px;
-//             }
-//         }
-//     }
-//     &.-round {
-//         display: flex;
-//         align-items: center;
-//         justify-content: center;
-//         aspect-ratio: 1/1;
-//         border-radius: 50px;
-//         border-width: 2px;
-//     }
-
-//     &.-hover-black {
-//         &:hover {
-//             border-color: $black;
-//             svg path {
-//                 fill: $black;
-//             }
-//             circle {
-//                 stroke: $black;
-//             }
-//         }
-//     }
-//     &.-hover-gray {
-//         &:hover {
-//             border-color: $gray-mid;
-//             color: $gray-mid;
-            
-//             line {
-//                 stroke: $gray-mid;
-//             }
-//         }
-//     }
-
-//     &.-active {
-//         background-color: $black;
-//         color: $white;
-//     }
-//     &.-active {
-//         pointer-events: none;
-//     }
-//     &.-simple {
-//         padding: 0;
-//         border: none;
-//         background: none;
-//     } 
-// }
-
-
-
 .btn {
     font-size: 2rem;
     transition: 0.3s;
@@ -322,3 +157,39 @@
     }
 }
 
+
+/*------------------------------------*\
+    BURGER MENU
+\*------------------------------------*/
+
+.burger-menu {        
+    width: 30px;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-shrink: 0;
+    gap: 10px;
+    flex-direction: column;
+
+    &.-white .burger-menu__stick {
+        background-color: $gray-mid;
+    }
+    &.-black .burger-menu__stick {
+        background-color: $black;
+    }
+
+    &__stick {
+        display: block;
+        height: 3px;
+        left: 0;
+        transform: rotate(0deg);
+        transition: transform 0.25s ease-in-out;
+        transform-origin: left center;
+        will-change: transform;
+
+        &:first-child {
+            transform-origin: left center;
+        }
+
+    }
+}

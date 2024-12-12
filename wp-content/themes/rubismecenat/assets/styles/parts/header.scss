@@ -7,6 +7,10 @@ body.admin-bar .site-header {
     top: 32px;
 }
 
+body:has(.burger-input[checked="checked"]) {
+    overflow: hidden;
+}
+
 .site-header {
     position: fixed;
     top: 0;
@@ -16,6 +20,17 @@ body.admin-bar .site-header {
     border-bottom: 1.5px solid $black;
     z-index: 50;
     transition: transform .3s;
+    
+    .header-container {
+        @include min(medium) {
+            @include wrapper;
+        }
+        @include max(medium) {
+            @include wrapper-padding;
+            background-color: $white;
+            border-bottom: 1.5px solid $black;
+        }
+    }
 
     .header-brand {
         padding: 10px 0;
@@ -56,12 +71,42 @@ body.admin-bar .site-header {
             top: 0;
             left: 0;
             right: 0;
+            bottom: 0;
             z-index: -1;
             background-color: $white;
-            flex-direction: column;
             transition: opacity 0.3s, visibility 0.3s;
             padding-top: 90px;
-            @include wrapper-padding;
+            overflow-x: scroll;
+            
+            .header-nav {
+                @include wrapper-padding;
+            }
+
+            .footer-nav {
+                @include wrapper-padding;
+
+                padding-bottom: var(--space-s);
+                background-color: $black;
+                color: $white;
+                padding-top: 0.1px; // take child padding into consideration
+
+
+                li, a, .body {
+                    color: $white;
+                    padding: 0;
+                }
+
+                .menu-footer-last {
+                    li a {
+                        color: $gray-mid;
+                        font-size: 1.2rem;
+                    }
+                }
+
+                .menu-footer-2, .menu-footer-last {
+                    padding: 0;
+                }
+            }
 
             nav {
                 &:not(:last-child) {
@@ -93,6 +138,10 @@ body.admin-bar .site-header {
                 &.search a, &.lang_menu {
                     padding: 24px 24px 24px 0;
                 }
+
+                &.lang_menu a {
+                    font-size: 2rem;
+                }
             }
         }
     }
@@ -110,7 +159,10 @@ body.admin-bar .site-header {
 
     .menu {
         padding: 0 20px;
-        gap: 10px;
+
+        @include min(medium) {
+            gap: 10px;
+        }
 
         li {
             padding: 10px;
@@ -196,31 +248,6 @@ body.admin-bar .site-header {
         }
     }
 
-    .burger-menu {        
-        width: 30px;
-        background: transparent;
-        cursor: pointer;
-        display: flex;
-        flex-shrink: 0;
-        gap: 10px;
-        flex-direction: column;
-
-        &__stick {
-            display: block;
-            background-color: $black;
-            height: 3px;
-            left: 0;
-            transform: rotate(0deg);
-            transition: transform 0.25s ease-in-out;
-            transform-origin: left center;
-            will-change: transform;
-
-            &:first-child {
-                transform-origin: left center;
-            }
-        }
-    }
-
 
     .menu-mobile {
         display: none;
@@ -235,16 +262,18 @@ body.admin-bar .site-header {
 
 }
 
-.current-menu-item, 
-.current-page-ancestor {
-    a {
-        background-color: $black;
-        color: white;
-        pointer-events: none;
+@include min(medium) {
+    .current-menu-item, 
+    .current-page-ancestor {
+        a {
+            background-color: $black;
+            color: white;
+            pointer-events: none;
+        }
+    
+        line, circle {
+            stroke: $white;
+        }
+    
     }
-
-    line, circle {
-        stroke: $white;
-    }
-
 }
