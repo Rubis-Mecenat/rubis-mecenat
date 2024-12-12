@@ -23,10 +23,27 @@
                 <p class="body"><?php the_excerpt(); ?></p>
             </div>
 
+            <div class="body mb-s">
+
+                <?php if( get_field('artist_instagram', $artist->ID) ) : ?>
+                    <a class="flex gap-s -center-y mb-s btn -circled-picto" target="_blank" href="<?php the_field('artist_instagram', $artist->ID); ?>">
+                        <span class="picto"><?php get_template_part('Components/Svgs/Svg', "Instagram"); ?></span>
+                    <span class="body">#<?php echo the_title(); ?></span>
+                    </a>
+                <?php endif; ?>
+
+                <?php if( get_field('artist_website', $artist->ID) ) : ?>
+                    <a class="flex gap-s -center-y btn -circled-picto" target="_blank" href="<?php the_field('artist_website', $artist->ID); ?>">
+                        <span class="picto"><?php get_template_part('Components/Svgs/Svg', "Link"); ?></span>
+                        <span class="body"><?php pll_e("Site Internet de l'artiste"); ?></span>
+                    </a>
+                <?php endif; ?>
+            </div>
+<!-- 
             <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class=" -block js-load-modal flex gap-s -center-y btn -circled-picto">
                 <span class="picto"><?php get_template_part( 'Components/Svgs/Svg', 'Plus' ); ?></span>
                 <span class="body"><?php pll_e('Tous les détails'); ?></span>
-            </a>
+            </a> -->
         </div>
 
     </div>
