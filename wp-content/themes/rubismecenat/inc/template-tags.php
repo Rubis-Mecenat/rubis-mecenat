@@ -192,7 +192,7 @@ if ( ! function_exists( 'list_terms_custom_taxonomy' ) ) :
 		) );
 
 		if ( !empty($terms) ) :
-			$output = '<nav class="filter flex -column gap-s -start-y">';
+			$output = '<nav class="filters flex gap-s -start-y">';
 				
 				$output.= '<button class="btn -filter -active js-filter-content" data-posttype="' . $atts['posttype'] . '" data-tax="' . $atts['tax'] . '" data-term="">' . pll__('Tous les contenus') . '</button>';
 
@@ -218,7 +218,7 @@ if ( ! function_exists( 'list_post_type' ) ) :
 
 		$posttypes = getPostTypesArray();
 
-			$output = '<nav class="filter flex -column gap-s -start-y">';
+			$output = '<nav class="filters flex gap-s -start-y">';
 			
 				$output.= '<button class="btn -filter -active js-filter-content" data-posttype="all">' . pll__('Tous les contenus') . '</button>';
 

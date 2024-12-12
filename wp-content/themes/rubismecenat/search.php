@@ -20,18 +20,18 @@ get_header();
 
 
 		<div class="grid wrapper">
-				<div class="m-4col">
+				<div class="s-12col m-4col m:mb-xl">
 					<?php list_post_type(); ?>
 				</div>
 
-				<div class="m-8col">
+				<div class="s-12col m-8col">
 
 						<?php if ( have_posts() ) : ?>
 							<div id="mainGrid" class="grid mb-l">
 								
 								<?php while ( have_posts()) : the_post(); ?>
 
-									<div class="m-6col mb-xxl">
+									<div class="s-12col m-6col mb-xxl">
 										<?php get_template_part( 'Components/Blocks/Block', ucfirst(get_post_type()) ); ?>
 									</div>
 									

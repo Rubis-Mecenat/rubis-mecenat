@@ -102,12 +102,12 @@ function getPostTypesArray() {
 
             <?php if ( $query->have_posts() ) : ?>
                 <?php while ( $query->have_posts() ) : $query->the_post(); ?>       
-                    <div class="m-6col mb-xxl">
+                    <div class="s-12col m-6col mb-xxl">
                         <?php get_template_part( 'Components/Blocks/Block', ucfirst(get_post_type()) ); ?>
 					</div>
                 <?php endwhile; ?>
             <?php else : ?>
-                <p class="m-6col"><?php pll_e('Aucun résultat'); ?></p>
+                <p class="s-12col m-6col"><?php pll_e('Aucun résultat'); ?></p>
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>
             

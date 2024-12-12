@@ -1,4 +1,5 @@
 @use "./global/colors" as *;
+@use "./global/mixins" as *;
 
 
 .modal {
@@ -13,6 +14,7 @@
     padding: var(--space-xxl) 0;
     color: white;
     box-shadow: 0 0 10px #00000070;
+    max-width: 100vw;
     
     &.open {
         transform: none;
@@ -33,6 +35,13 @@
         line {
             stroke: white;
         }
+    }
+
+    @include max(medium) {
+        max-height: 100vh;
+        overflow-y: scroll;
+        top: 0;
+        z-index: 99;
     }
 }
 

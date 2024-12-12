@@ -7,7 +7,7 @@
 <article class="modal-edition">
     <div class="grid">
 
-        <div class="m-6col flex -center">
+        <div class="s-12col m-6col flex -center m:mb-xl">
 
             <?php if( get_field('edition_file') ) : ?>
                 <iframe class="" src="<?php echo get_field('edition_file')["url"]; ?>"></iframe>
@@ -19,9 +19,9 @@
 
         </div>
 
-        <div class="m-1col"></div>
+        <div class="s-12col m-1col"></div>
 
-        <div class="m-5col">
+        <div class="s-12col m-5col">
             
             <div class="mb-m">
                 <h3 class="h4"><?php the_title(); ?></h3>

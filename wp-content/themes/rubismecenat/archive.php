@@ -23,7 +23,7 @@ $query = new WP_Query($args);
 			
 			<header class="entry-header -simple txt-center mb-xxl">
 				<div class="wrapper grid">
-					<div class="header-titles m-8col -centered">
+					<div class="header-titles s-12col m-8col -centered">
 						<h1 class="entry-title mb-m"><?php the_title(); ?></h1>
 						<div class="body-title"><?php the_excerpt(); ?></div>
 					</div>
@@ -31,16 +31,16 @@ $query = new WP_Query($args);
 			</header><!-- .entry-header -->
 
 			<div class="grid wrapper">
-				<div class="m-4col">
+				<div class="s-12col m-4col m:mb-xl">
 					<?php list_terms_custom_taxonomy(array( 'tax' => 'category', 'posttype' => 'video' )); ?>
 				</div>
 
-				<div class="m-8col">
+				<div class="s-12col m-8col">
 					<div id="mainGrid" class="grid">
 
 						<?php while ($query->have_posts()) : $query->the_post(); ?>
 
-							<div class="m-6col mb-xxl">
+							<div class="s-12col m-6col mb-xxl">
 								<?php get_template_part( 'Components/Blocks/Block', 'Video' ); ?>
 							</div>
 

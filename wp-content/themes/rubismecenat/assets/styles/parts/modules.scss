@@ -10,8 +10,11 @@
 
 .entry-header {
     position: relative;
-    margin-bottom: calc( var(--space-xxl) * 1.5);
     text-decoration: none;
+
+    @include min(medium) {
+        margin-bottom: calc( var(--space-xxl) * 1.5);
+    }
 
     .post-thumbnail, .post-thumbnail div:first-child, img {
         height: 100%;
@@ -426,6 +429,7 @@ section[class*="mod"] {
     left: -45px;
     top: 45px;
     writing-mode: sideways-lr;
+    text-orientation: sideways;
     min-height: 300px;
     justify-content: flex-end;
     display: flex;
@@ -439,9 +443,29 @@ section[class*="mod"] {
 }
 
 
+
+/*------------------------------------*\
+    MOD INSTA FEED
+\*------------------------------------*/
+
 .mod_instafeed {
     &.-backgrounded {
         padding: var(--space-xxl) 0;
         background-color: $gray-light;
+    }
+}
+
+
+
+/*------------------------------------*\
+    Archives Filters
+\*------------------------------------*/
+
+.filters {
+    @include max(medium) {
+        flex-wrap: wrap;
+    }
+    @include min(medium) {
+        flex-direction: column;
     }
 }
