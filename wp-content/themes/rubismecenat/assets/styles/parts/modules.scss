@@ -89,6 +89,14 @@
 
         .body-title {
             font-weight: var(--font-regular);
+            .entry-title {
+                color: $accent-color;
+                margin-bottom: 20px;
+            }
+        }
+
+        .btn.-circled-arrow {
+            transform: translateY(90%);
         }
     }
     .header-titles {

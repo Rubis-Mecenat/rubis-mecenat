@@ -34,14 +34,12 @@
 				
 				<div class="m-6col mod_cover is-relative">
 					<?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
-
-					<div class="content-absolute">
-						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-					</div>
 				</div>
 				
-				<div class="m-6col mod_content flex -center-x -center-y -column gap-xl">
+				<div class="m-6col mod_content flex -center-y -column -space gap-xl">
+					<div></div>
 					<div class="body-title">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 						<?php the_excerpt(); ?>	
 					</div>
 					<a href="#" class="btn -circled-arrow">
