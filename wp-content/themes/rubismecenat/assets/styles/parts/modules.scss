@@ -49,9 +49,10 @@
         @include wrapper;
     }
     &.-fullwrapped {
-        @include wrapper;
 
         @include min(medium) {
+            @include wrapper;
+
             .mod_cover {
                 height: 60vh;
             }
@@ -63,10 +64,8 @@
         }
         @include max(medium) {
             .mod_cover {
-                height: 250px;
-                width: 100vw;
+                height: 300px;
                 max-width: none;
-                margin-left: -5vw;
                 background-color: $accent-color;
             }
             .mod_content {
@@ -75,6 +74,8 @@
                 margin-bottom: 0;
                 margin-top: 0;
                 width: 100%;
+                padding-left: 5vw;
+                padding-right: 5vw;
             }
         }
     }
@@ -107,7 +108,7 @@
         @include max(medium) {
             .mod_button {
                 top: 51px;
-                height: 250px;
+                height: 300px;
                 width: var(--space-xl);
             }
             .mod_content {
@@ -116,7 +117,7 @@
                 padding: 0;
             }
             img {
-                height: 250px;
+                height: 300px;
             }
         }
 
@@ -137,7 +138,6 @@
         @include min(medium) {
             margin: var(--space-xl) 0 var(--space-xl) calc(var(--space-xl) * -1);
             padding: var(--space-xl);
-            @include wrapper;
         }
         @include max(medium) {
             margin: calc(var(--space-l) * -1) 0 var(--space-xxl) 0 ;
@@ -528,11 +528,21 @@ section[class*="mod"] {
     @include max(medium) {
         background-color: $black;
         color: white;
-        left: -5vw;
+        left: 0;
         top: 0;
-        height: 250px;
+        height: 300px;
         min-height: auto;
-        width: 5vw;
+        width: 50px;
+        display: flex;
+        justify-content: center;
+
+        path {
+            fill: white;
+        }
+
+        .project-header & {
+            background-color: $accent-color;
+        }
     }
 
     .-editions & {

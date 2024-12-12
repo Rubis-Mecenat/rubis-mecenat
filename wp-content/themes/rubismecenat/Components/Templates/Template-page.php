@@ -36,7 +36,7 @@
 					<?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
 				</div>
 				
-				<div class="s-12col m-6col mod_content flex -center-y -column -space gap-xl">
+				<div class="s-12col m-6col mod_content flex -center-y -column -center-x gap-xl">
 					<div class="body-title">
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 						<?php the_excerpt(); ?>	
