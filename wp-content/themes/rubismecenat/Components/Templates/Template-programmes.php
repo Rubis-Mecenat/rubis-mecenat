@@ -12,14 +12,13 @@
         <div class="m-6col mod_cover is-relative">
 
             <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
-            
-            <div class="content-absolute">
-                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-            </div>
+
         </div>
 
         <div class="m-6col mod_content flex -column -center-y -center-x gap-xl">
+            
             <div class="body-title">
+                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
                 <?php the_content(); ?>
             </div>
 
