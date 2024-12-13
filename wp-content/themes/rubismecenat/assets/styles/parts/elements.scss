@@ -27,7 +27,8 @@
         background-color: $white;
         border-radius: 50px;
 
-        &.-active {
+        &.-active,
+        &:hover {
             background-color: $black;
             color: $white;
         }
