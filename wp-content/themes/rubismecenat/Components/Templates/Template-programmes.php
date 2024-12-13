@@ -22,7 +22,7 @@
                 <?php the_content(); ?>
             </div>
 
-            <a href="#programmes" class="btn -circled-arrow">
+            <a href="#programmes" class="btn -circled-arrow on-desktop">
 				<?php get_template_part('Components/Svgs/Svg', "ArrowDown"); ?>
             </a>
         </div><!-- .entry-content -->

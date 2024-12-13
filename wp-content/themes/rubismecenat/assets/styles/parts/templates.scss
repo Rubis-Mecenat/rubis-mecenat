@@ -136,3 +136,12 @@ article.edition {
         }
     }
 }
+
+
+article#programmes {
+    .entry-header h2 {
+        @include max(medium) {
+            color: $accent-color;
+        }
+    }
+}

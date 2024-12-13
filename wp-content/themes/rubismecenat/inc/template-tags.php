@@ -129,7 +129,7 @@ if ( ! function_exists( 'rubismecenat_post_thumbnail' ) ) :
 				<div class="">
 					<?php echo get_the_post_thumbnail($id, $size); ?>
 				</div>
-				<div class="thumbnail_captions flex -space">
+				<div class="thumbnail_captions flex -space on-desktop">
 					<p class="credit"><?php echo $caption; ?></p>
 					<p class="caption"><?php echo $alt; ?></p>
 				</div>
