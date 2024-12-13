@@ -27,9 +27,9 @@
                             <?php the_field('project_artiste'); ?></p>
                     </div>
 
-                    <a href="#" class="btn -circled-arrow on-desktop">
+                    <span class="btn -circled-arrow on-desktop">
                         <?php get_template_part('Components/Svgs/Svg', "ArrowRight"); ?>
-                    </a>
+                    </span>
                 </a>
             </div>
         </div>
