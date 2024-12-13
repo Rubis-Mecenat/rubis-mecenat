@@ -35,7 +35,9 @@
 
                 <?php endforeach; ?>
 
+                
             </div>
+            <div class="swiper-pagination on-mobile"></div>
 
             <?php wp_reset_postdata(); ?>
         <?php endif; ?>
