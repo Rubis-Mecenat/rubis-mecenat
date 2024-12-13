@@ -19,7 +19,7 @@
 	<?php if( $head_design === 'simple' ) : ?>
 		<header class="entry-header -simple txt-center mb-xxl">
 			<div class="wrapper grid">
-				<div class="header-titles s-12col m-8col -centered">
+				<div class="header-titles t-12col m-8col -centered">
 					<h1 class="entry-title mb-m"><?php the_title(); ?></h1>
 					<div class="body-title"><?php the_excerpt(); ?></div>
 				</div>
@@ -32,11 +32,11 @@
 		<header class="entry-header">
 			<div class="grid gap-0">
 				
-				<div class="s-12col m-6col mod_cover is-relative">
+				<div class="t-12col m-6col mod_cover is-relative">
 					<?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
 				</div>
 				
-				<div class="s-12col m-6col mod_content flex -center-y -column -center-x gap-xl">
+				<div class="t-12col m-6col mod_content flex -center-y -column -center-x gap-xl">
 					<div class="body-title">
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 						<?php the_excerpt(); ?>	
@@ -54,7 +54,7 @@
 			<header class="entry-header -fullwrapped -red">
 
 				<?php if( $args['breadcrumbs']) : ?>
-					<div class="breadcrumb_container s-12col">
+					<div class="breadcrumb_container t-12col">
 						<?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
 					</div>
 				<?php endif; ?>
@@ -62,13 +62,13 @@
 
 				<div class="grid gap-0">
 					
-					<div class="s-12col m-6col mod_cover is-relative">
+					<div class="t-12col m-6col mod_cover is-relative">
 						<div class="content-absolute">
 							<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 						</div>
 					</div>
 					
-					<div class="s-12col m-6col mod_content flex -center-y">
+					<div class="t-12col m-6col mod_content flex -center-y">
 						<div class="body-title">
 							<?php the_excerpt(); ?>	
 						</div>
@@ -87,13 +87,13 @@
 		<div class="entry-content wrapper mb-xxl">
 
 			<div class="grid">
-				<div class="s-12col m-6col body">
+				<div class="t-12col m-6col body">
 					<?php the_content(); ?>
 				</div>
 
-				<div class="s-12col m-1col"></div>
+				<div class="t-12col m-1col"></div>
 
-				<div class="s-12col m-5col">
+				<div class="t-12col m-5col">
 					<?php 
 						$doc = get_field('page_document');
 						if( $doc ): ?>

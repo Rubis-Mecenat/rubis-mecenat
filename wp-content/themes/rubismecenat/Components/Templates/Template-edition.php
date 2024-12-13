@@ -18,7 +18,7 @@
 
     <div class="grid wrapper d:mt-xxl mb-xxl">
 
-        <div class="entry-cover s-12col m-5col">
+        <div class="entry-cover t-12col m-5col">
             <?php if( get_field('edition_file') ) : ?>
                 <iframe class="" src="<?php echo get_field('edition_file')["url"]; ?>"></iframe>
 
@@ -29,9 +29,7 @@
         </div><!-- .entry-header -->
 
     
-        <div class="s-1col"></div>
-
-        <div class="s-12col m-6col entry-content">
+        <div class="t-12col m-6col -end entry-content">
             <div class="m-6col">
                 <h1 class="entry-title h2 -other mb-s"><?php the_title(); ?></h1>
                 <h2 class="h2 mb-s"><?php echo $artist ? $artist->post_title : '' ?></h2>

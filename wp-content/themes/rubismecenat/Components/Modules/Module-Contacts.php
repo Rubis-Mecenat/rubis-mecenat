@@ -17,10 +17,10 @@ $contacts = $args['contacts'];
                 <?php foreach( $contacts as $key => $contact ) : ?>
 
                     <?php if($key % 2 === 1) : ?>
-                        <div class="s-12col m-2col on-desktop"></div>
+                        <div class="t-12col m-2col on-desktop"></div>
                     <?php endif; ?>
 
-                    <div class="s-12col m-5col">
+                    <div class="t-12col m-5col">
 
                         <h3 class="flex -column mb-m">
                             <span class="h4"><?php echo $contact['contact_name']; ?></span>

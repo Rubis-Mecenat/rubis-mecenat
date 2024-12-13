@@ -11,19 +11,19 @@
 
 	<header class="project-header is-relative">
 
-        <div class="breadcrumb_container s-12col">
+        <div class="breadcrumb_container t-12col">
             <?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
         </div>
 
         <div class="project-header-container is-relative">
 
-            <div class="project_cover s-12col">
+            <div class="project_cover t-12col">
                 <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
             </div>
 
             <div class="project_content grid -end-y h-full">
 
-                <div class="project_titles s-12col m-5col -end flex -column -end-x">
+                <div class="project_titles t-12col m-5col -end flex -column -end-x">
                     <h1 class="entry-title"><?php the_title(); ?></h1>
                     <h2 class="h3 -other mb-s"><?php the_field('project_subtitle'); ?></h2>
                     <p class="body -big -light"><?php the_field('project_place'); ?></p>
@@ -38,33 +38,31 @@
 
 	<div class="wrapper project-content grid mb-xxl">
 
-        <div class="s-12col m-6col body">
+        <div class="t-12col m-6col body">
             <?php the_content(); ?>
         </div>
         
-        <div class="project-right s-12col m-5col -end">
+        <div class="project-right t-12col m-5col -end">
             <div class="mb-l">
                 <?php the_field('project_practical'); ?>
             </div>
 
             <?php $presskit = get_field('project_presskit');
-                    if( $presskit ): ?>
-                            <div class="project_presskit flex -column gap-m">
-                                <a href="<?php echo $presskit['url']; ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
+                if( $presskit ): ?>
+                    <div class="project_presskit flex -column gap-m">
+                        <a href="<?php echo $presskit['url']; ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
 
-                                    <p class="picto">
-                                        <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
-                                    </p>
+                            <p class="picto">
+                                <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
+                            </p>
 
-                                    <p class="label flex -column">
-                                        <span class="body -bold"><?php echo $presskit['title']; ?></span>
-                                        <span class="body -light"><?php echo human_filesize($presskit['filesize'], 0); ?></span>
-                                    </p>
+                            <p class="label flex -column">
+                                <span class="body -bold"><?php echo $presskit['title']; ?></span>
+                                <span class="body -light"><?php echo human_filesize($presskit['filesize'], 0); ?></span>
+                            </p>
 
-                                </a>
-                            </div>
-
-                            
+                        </a>
+                    </div>       
             <?php endif; ?>
             
         </div>       

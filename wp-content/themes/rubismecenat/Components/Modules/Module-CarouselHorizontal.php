@@ -10,13 +10,13 @@
     <header class="on-mobile">
         <div class="entry-header -fullwrapped -red grid gap-0">
             
-            <div class="s-12col mod_cover is-relative">
+            <div class="t-12col mod_cover is-relative">
                 <div class="content-absolute">
                     <h1 class="h1"><?php echo $title; ?></h1>
                 </div>
             </div>
             
-            <div class="s-12col mod_content -header flex -center-y">
+            <div class="t-12col mod_content -header flex -center-y">
                 <div class="content-container body-title mb-l">
                     <div class="mb-m">
                         <?php echo $firstContent; ?>
@@ -46,13 +46,13 @@
                 <header class="swiper-slide on-desktop">
                     <div class="entry-header -fullwrapped -red grid gap-0">
                         
-                        <div class="s-12col m-6col mod_cover is-relative">
+                        <div class="t-12col m-6col mod_cover is-relative">
                             <div class="content-absolute">
                                 <h1 class="h1"><?php echo $title; ?></h1>
                             </div>
                         </div>
                         
-                        <div class="s-12col m-6col mod_content flex -center-y">
+                        <div class="t-12col m-6col mod_content flex -center-y">
                             <div class="body-title">
                                 <div class="mb-m">
                                     <?php echo $firstContent; ?>

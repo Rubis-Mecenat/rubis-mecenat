@@ -8,13 +8,11 @@
 <article class="modal-edition">
     <div class="grid">
 
-        <div class="s-12col m-6col modal-media m:mb-l">
+        <div class="t-12col m-6col modal-media m:mb-l">
             <?php the_post_thumbnail('medium'); ?>
         </div>
         
-        <div class="s-12col m-1col"></div>
-
-        <div class="s-12col m-5col modal-content">
+        <div class="t-12col m-5col -end modal-content">
 
             <div class="mb-l">
                 <h3 class="h4"><?php the_title(); ?></h3>

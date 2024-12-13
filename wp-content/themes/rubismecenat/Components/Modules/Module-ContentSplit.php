@@ -16,11 +16,11 @@
 
     <div class="grid gap-l wrapper <?php echo '-'.$design; ?>">
 
-        <div class="s-12col m-6col <?php echo $design === 'left' ? '-end' : ''; ?> mod_txt">
+        <div class="t-12col m-6col <?php echo $design === 'left' ? '-end' : ''; ?> mod_txt">
             <div class="body"><?php echo $content; ?></div>
         </div>
 
-        <div class="s-12col m-5col <?php echo $design === 'right' ? '-end' : ''; ?> mod_media <?php echo count($medias) >= 2 ? 'swiper content-split' : ''; ?>">
+        <div class="t-12col m-5col <?php echo $design === 'right' ? '-end' : ''; ?> mod_media <?php echo count($medias) >= 2 ? 'swiper content-split' : ''; ?>">
             <?php if( $medias ): ?>
                 <div class="swiper-wrapper">
                     <?php foreach( $medias as $media ): ?>

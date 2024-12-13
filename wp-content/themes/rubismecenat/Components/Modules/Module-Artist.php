@@ -18,7 +18,7 @@
                 <article>
                     
                         <div class="grid d:gap-xl">
-                            <div class="s-12col m-6col">
+                            <div class="t-12col m-6col">
                                 <div class="body -styled mb-xl">
                                     <?php echo wpautop($artist->post_content); ?>
                                 </div>
@@ -42,7 +42,7 @@
                                 
                             </div>
 
-                            <div class="s-12col m-6col">
+                            <div class="t-12col m-6col">
                                 <?php rubismecenat_post_thumbnail( $artist->ID, 'full' ); ?>
                             </div>
                         </div>

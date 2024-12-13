@@ -9,13 +9,13 @@
 
 	<header class="entry-header grid gap-0">
 
-        <div class="s-12col m-6col mod_cover is-relative">
+        <div class="t-12col m-6col mod_cover is-relative">
 
             <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
 
         </div>
 
-        <div class="s-12col m-6col mod_content flex -column -center-y -center-x gap-xl">
+        <div class="t-12col m-6col mod_content flex -column -center-y -center-x gap-xl">
             
             <div class="body-title">
                 <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -45,15 +45,15 @@
             <article id="programmes">
                 <a href="<?php the_permalink($child->ID); ?>" class="entry-header -linked -wrapped grid gap-0">
 
-                    <div class="s-12col d:hide">
+                    <div class="t-12col d:hide">
                         <h2 class="h2 mb-m"><?php echo $child->post_title; ?></h2>
                     </div>
 
-                    <div class="s-12col m-6col">
+                    <div class="t-12col m-6col">
                         <?php echo rubismecenat_post_thumbnail( $child->ID, 'full' ); ?>
                     </div>
 
-                    <div class="s-12col m-6col mod_content flex -center-y">
+                    <div class="t-12col m-6col mod_content flex -center-y">
                         <div class="">
                             <div class="m:hide mod_title">
                                 <h2 class="h2 mb-m"><?php echo $child->post_title; ?></h2>

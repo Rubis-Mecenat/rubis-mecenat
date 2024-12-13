@@ -13,7 +13,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<header class="entry-header -video">
-        <div class="breadcrumb_container s-12col">
+        <div class="breadcrumb_container t-12col">
             <?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
         </div>
 
@@ -26,12 +26,12 @@
 
 
 	<div class="entry-content wrapper grid">
-        <div class="s-12col m-6col">
+        <div class="t-12col m-6col">
             <h1 class="entry-title h2 -other mb-s"><?php the_title(); ?></h1>
             <h2 class="h2"><?php echo $artist ? $artist->post_title : '' ?></h2>
         </div>
 
-        <div class="s-12col m-6col body -styled">
+        <div class="t-12col m-6col body -styled">
             <?php the_content(); ?>
         </div>
 	</div><!-- .entry-content -->

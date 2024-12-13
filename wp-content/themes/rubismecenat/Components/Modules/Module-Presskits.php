@@ -11,7 +11,7 @@ $presskits = $args['presskits'];
             <div class="grid">
                 <?php foreach( $presskits as $presskit ) : ?>
 
-                    <div class="s-12col m-6col m:mb-l">
+                    <div class="t-12col m-6col m:mb-l">
                         <div class="block-presskit flex gap-l -center-y">
 
                             <div class="block_media">
