@@ -261,16 +261,35 @@ section[class*="mod"] {
         margin-bottom: var(--space-xl);
     } 
     .entry-header {
-        height: 75vh;
-        width: 100%;
         margin-bottom: 0;
-
-        .mod_cover {
-            height: 100%;
+        width: 100%;
+        
+        @include min(medium) {
+            height: 75vh;
+ 
+            .mod_cover {
+                height: 100%;
+            }
         }
+
     }
     .mod_content {
-        height: calc(100% - var(--space-xl) * 2);
+        @include min(medium) {
+            height: calc(100% - var(--space-xl) * 2);
+        }
+
+        
+        &.-header {
+            @include max(medium) {
+                padding: 0 !important;
+            }
+            .content-container {
+                @include max(medium) {
+                    padding-top: var(--space-l); 
+                    @include wrapper(small);
+                }
+            }
+        }
 
         .link {
             text-decoration: none;
@@ -283,7 +302,7 @@ section[class*="mod"] {
             line-clamp: 5;
             -webkit-line-clamp: 5;
         }
-    } 
+    }
     .swiper-wrapper {
         // margin-top: var(--space-m);
         margin-bottom: var(--space-xl);
@@ -511,13 +530,14 @@ section[class*="mod"] {
     }
 }
 .mod_breadcrumbs {
-    
+    padding: var(--space-s) 0;
+    background-color: $white;
+
     @include max(medium) {
         display: none;
     }
 
-    padding: var(--space-s) 0;
-    background-color: $white;
+
 
     .separator {
         display: inline-block;
@@ -541,10 +561,12 @@ section[class*="mod"] {
 .mod_parent_nav {
     position: absolute;
     z-index: 2;
-    writing-mode: sideways-lr;
-    text-orientation: sideways;
+    // writing-mode: sideways-lr;
+    // text-orientation: sideways;
     justify-content: flex-end;
     display: flex;
+    writing-mode: vertical-rl;
+    transform: translateX(-100%) scale(-1);
 
     @include min(medium) {
         left: -45px;
