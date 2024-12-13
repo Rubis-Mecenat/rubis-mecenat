@@ -57,7 +57,7 @@ const initSearchScript = () => {
     const initModalTriggers = () => {
         setTimeout( () => {
             queryModalTriggers( addListenerToModalTriggers )
-        }, 1000)
+        }, 300)
     }
 
     const checkResults = () => {

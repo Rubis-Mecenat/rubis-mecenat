@@ -237,7 +237,9 @@ section[class*="mod"] {
         padding: var(--space-xl) 0;
     }
     &.swiper {
-        @include wrapper-padding;
+        @include max(wide) {
+            @include wrapper-padding;
+        }
 
         @include min(wide) {
             padding-left: calc( calc( 100vw - var(--max-width) ) / 2);
@@ -569,14 +571,14 @@ section[class*="mod"] {
     transform: translateX(-100%) scale(-1);
 
     @include min(medium) {
-        left: -45px;
+        left: -10px;
         top: 45px;
         min-height: 300px;
     }
     @include max(medium) {
         background-color: $black;
         color: white;
-        left: 0;
+        left: 50px;
         top: 0;
         height: 300px;
         min-height: auto;

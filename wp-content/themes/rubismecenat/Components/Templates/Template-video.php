@@ -17,7 +17,11 @@
             <?php get_template_part('Components/Modules/Module', "Breadcrumbs"); ?>
         </div>
 
-        <iframe src="<?php the_field('video_player'); ?>?autoplay=0&amp;loop=0&amp;controls=1&amp;muted=0" frameborder="0" title="<?php the_title(); ?>" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+        <?php if(get_field('video_player')) : ?>
+            <iframe src="<?php the_field('video_player'); ?>?autoplay=0&amp;loop=0&amp;controls=1&amp;muted=0" frameborder="0" title="<?php the_title(); ?>" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+        <?php else : ?>
+            <?php rubismecenat_post_thumbnail( get_the_ID(), 'theme_large' ); ?>
+        <?php endif; ?>
 	</header><!-- .entry-header -->
 
 
