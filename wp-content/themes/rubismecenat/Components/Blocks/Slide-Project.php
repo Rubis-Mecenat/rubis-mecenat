@@ -5,11 +5,10 @@
         <?php the_post_thumbnail(); ?>
     </figure>
 
-    <div class="h-full grid gap-0 flex m:-column">
+    <div class="h-full grid gap-0">
                         
-        <div class="m-6col mod_cover is-relative on-desktop"></div>
                             
-        <div class="t-12col m-6col mod_content flex -center-y">
+        <div class="t-12col m-6col mod_content flex -center-y -end">
             <div class="body-title">
                 <a href="<?php the_permalink(); ?>" class="-block">
 
