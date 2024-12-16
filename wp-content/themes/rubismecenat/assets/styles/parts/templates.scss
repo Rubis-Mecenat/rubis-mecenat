@@ -115,6 +115,10 @@ article.video {
     .mod_breadcrumbs {
         background-color: transparent;
     }
+
+    & + section {
+        margin-top: var(--space-xxl);
+    }
 }
 
 
