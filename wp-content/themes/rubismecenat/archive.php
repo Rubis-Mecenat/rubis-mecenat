@@ -32,7 +32,7 @@ $query = new WP_Query($args);
 
 			<div class="grid wrapper">
 				<div class="t-12col m-4col m:mb-xl">
-					<?php list_terms_custom_taxonomy(array( 'tax' => 'category', 'posttype' => 'video' )); ?>
+					<?php list_terms_custom_taxonomy(array( 'tax' => 'category', 'posttype' => 'post' )); ?>
 				</div>
 
 				<div class="t-12col m-8col">

@@ -211,7 +211,7 @@ endif;
 
 if ( ! function_exists( 'list_post_type' ) ) :
 	/**
-	 * Displays FIlters for an archive page.
+	 * Displays Filters for an archive page.
 	 *
 	 */
 	function list_post_type( ) {
