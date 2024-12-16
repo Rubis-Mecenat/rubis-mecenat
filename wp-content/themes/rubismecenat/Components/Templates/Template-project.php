@@ -18,7 +18,7 @@
         <div class="project-header-container is-relative">
 
             <div class="project_cover t-12col">
-                <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
+                <?php rubismecenat_post_thumbnail( get_the_ID(), 'theme_large' ); ?>
             </div>
 
             <div class="project_content grid -end-y h-full">

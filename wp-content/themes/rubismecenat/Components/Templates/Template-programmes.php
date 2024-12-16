@@ -11,7 +11,7 @@
 
         <div class="t-12col m-6col mod_cover is-relative">
 
-            <?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
+            <?php rubismecenat_post_thumbnail( get_the_ID(), 'theme_medium' ); ?>
 
         </div>
 
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="t-12col m-6col">
-                        <?php echo rubismecenat_post_thumbnail( $child->ID, 'full' ); ?>
+                        <?php echo rubismecenat_post_thumbnail( $child->ID, 'theme_medium' ); ?>
                     </div>
 
                     <div class="t-12col m-6col mod_content flex -center-y">

@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="t-12col m-6col">
-                                <?php rubismecenat_post_thumbnail( $artist->ID, 'full' ); ?>
+                                <?php rubismecenat_post_thumbnail( $artist->ID, 'theme_medium' ); ?>
                             </div>
                         </div>
 

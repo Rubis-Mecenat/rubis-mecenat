@@ -119,7 +119,7 @@ if ( ! function_exists( 'rubismecenat_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function rubismecenat_post_thumbnail( $id, $size = '' ) {
+	function rubismecenat_post_thumbnail( $id, $size = 'theme_large' ) {
 		$thumbnail_id = get_post_thumbnail_id($id);
 		$caption = get_the_post_thumbnail_caption( $id );
 		$title = get_the_title( $thumbnail_id ); 

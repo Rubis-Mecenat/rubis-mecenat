@@ -23,7 +23,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
+	<?php rubismecenat_post_thumbnail( get_the_ID(), 'theme_medium' ); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>

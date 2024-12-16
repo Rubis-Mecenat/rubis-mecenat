@@ -44,7 +44,7 @@
                             </footer>
                         </div>
                         <div class="img-container t-12col m-6col -end">
-                            <?php rubismecenat_post_thumbnail( $publication->ID, 'full' ); ?>
+                            <?php rubismecenat_post_thumbnail( $publication->ID, 'theme_medium' ); ?>
                         </div>
                     </div>
                 </a>

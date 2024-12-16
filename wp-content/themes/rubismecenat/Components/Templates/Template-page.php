@@ -33,7 +33,7 @@
 			<div class="grid gap-0">
 				
 				<div class="t-12col m-6col mod_cover is-relative">
-					<?php rubismecenat_post_thumbnail( get_the_ID() ); ?>
+					<?php rubismecenat_post_thumbnail( get_the_ID(), 'theme_medium' ); ?>
 				</div>
 				
 				<div class="t-12col m-6col mod_content flex -center-y -column -center-x gap-xl">
