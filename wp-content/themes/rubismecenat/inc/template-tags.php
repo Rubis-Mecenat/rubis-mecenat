@@ -155,7 +155,7 @@ if ( ! function_exists( 'rubismecenat_attachment' ) ) :
 			return;
 		} ?>
                 <figure class="is-relative <?php echo isset($classes['figure_class']) ? $classes['figure_class'] : ''; ?>">
-                    <img src="<?php echo $attachment['sizes']['large']; ?>" class=" <?php echo isset($classes['img_class']) ? $classes['img_class'] : ''; ?>">
+                    <img src="<?php echo $attachment['sizes']['theme_medium']; ?>" class=" <?php echo isset($classes['img_class']) ? $classes['img_class'] : ''; ?>">
                     <div class="thumbnail_captions flex -space">
                         <p class="credit"><?php echo $caption; ?></p>
                         <p class="caption"><?php echo $alt; ?></p>

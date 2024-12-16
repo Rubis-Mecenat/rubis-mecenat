@@ -11,7 +11,7 @@
 
         <div class="t-12col m-6col mod_cover is-relative">
 
-            <?php rubismecenat_post_thumbnail( get_the_ID(), 'theme_medium' ); ?>
+            <?php rubismecenat_post_thumbnail( get_the_ID(), 'theme_large' ); ?>
 
         </div>
 
