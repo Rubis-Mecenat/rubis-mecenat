@@ -26,15 +26,15 @@
                                 <div class="body mb-s">
 
                                     <?php if( get_field('artist_instagram', $artist->ID) ) : ?>
-                                        <a class="flex gap-s -center-y mb-s" target="_blank" href="<?php the_field('artist_instagram', $artist->ID); ?>">
-                                            <span class="btn -round -small -black"><?php get_template_part('Components/Svgs/Svg', "Instagram"); ?></span>
+                                        <a class="btn -round -filled-picto -small flex gap-s -center-y mb-s" target="_blank" href="<?php the_field('artist_instagram', $artist->ID); ?>">
+                                            <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', "Instagram"); ?></span>
                                         <span>#<?php echo $artist->post_title; ?></span>
                                         </a>
                                     <?php endif; ?>
 
                                     <?php if( get_field('artist_website', $artist->ID) ) : ?>
-                                        <a class="flex gap-s -center-y" target="_blank" href="<?php the_field('artist_website', $artist->ID); ?>">
-                                            <span class="btn -round -small -black"><?php get_template_part('Components/Svgs/Svg', "Link"); ?></span>
+                                        <a class="btn -round -filled-picto -small flex gap-s -center-y" target="_blank" href="<?php the_field('artist_website', $artist->ID); ?>">
+                                            <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', "Link"); ?></span>
                                         <span><?php pll_e("Site Internet de l'artiste"); ?></span>
                                         </a>
                                     <?php endif; ?>

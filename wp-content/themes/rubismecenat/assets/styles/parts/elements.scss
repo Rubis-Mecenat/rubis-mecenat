@@ -95,8 +95,15 @@
             transition: 0.3s;
 
             &.-small {
-                width: 45px;
+                width: 50px;
+                svg {
+                    max-width: 25px;
+                }
             }
+        }
+
+        circle, rect, path {
+            stroke: white;
         }
 
         &:hover {
