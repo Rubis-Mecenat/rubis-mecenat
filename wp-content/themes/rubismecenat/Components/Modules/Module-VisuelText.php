@@ -1,7 +1,6 @@
 <?php
 $visuel = $args['visuel'];
 $txt = $args['txt'];
-var_dump($visuel['sizes']); 
 ?>
 
 
