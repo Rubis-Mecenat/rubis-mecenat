@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="t-12col m-6col">
-                        <?php echo rubismecenat_post_thumbnail( $child->ID, 'theme_medium' ); ?>
+                        <?php echo rubismecenat_post_thumbnail( $child->ID, 'theme_large' ); ?>
                     </div>
 
                     <div class="t-12col m-6col mod_content flex -center-y">
