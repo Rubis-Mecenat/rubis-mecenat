@@ -158,6 +158,13 @@ function wpdocs_theme_setup() {
 }
 
 
+function wpsnippets_add_favicon() {
+    echo '<link rel="icon" href="' . esc_url( get_stylesheet_directory_uri() ) . '/assets/favicon.ico" type="image/x-icon">';
+}
+add_action( 'wp_head', 'wpsnippets_add_favicon' );
+
+
+
 /*
  * Make theme available for translation.
  * Translations can be filed in the /languages/ directory.
