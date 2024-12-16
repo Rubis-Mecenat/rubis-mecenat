@@ -14,7 +14,7 @@
 
         <?php if (has_post_thumbnail()) : ?>
             <div class="block-edition__image mb-m">
-                <?php the_post_thumbnail('full'); ?>
+                <?php the_post_thumbnail('theme_small'); ?>
                 <span class="overlay flex -center">
                     <?php get_template_part('Components/Svgs/Svg', 'Plus'); ?>
                 </span>

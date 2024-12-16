@@ -13,7 +13,7 @@
                 <iframe class="" src="<?php echo get_field('edition_file')["url"]; ?>"></iframe>
 
             <?php else : ?>
-                <?php the_post_thumbnail('medium'); ?>
+                <?php the_post_thumbnail('theme_medium'); ?>
                 
             <?php endif; ?>
 

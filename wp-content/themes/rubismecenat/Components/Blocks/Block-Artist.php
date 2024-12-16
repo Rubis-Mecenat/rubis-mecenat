@@ -11,7 +11,7 @@
 
         <div class="block-edition__image mb-m">
             <?php if (has_post_thumbnail()) : ?>
-                <?php the_post_thumbnail('full'); ?>
+                <?php the_post_thumbnail('theme_small'); ?>
             <?php else: ?>
                 <div class="block_placeholder"></div>
             <?php endif; ?>

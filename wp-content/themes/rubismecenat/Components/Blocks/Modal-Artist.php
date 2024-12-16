@@ -8,7 +8,7 @@
     <div class="grid">
 
         <div class="t-12col m-6col flex -center modal-media m:mb-l">
-            <?php the_post_thumbnail('medium'); ?>
+            <?php the_post_thumbnail('theme_medium'); ?>
         </div>
 
         <div class="m-1col"></div>
