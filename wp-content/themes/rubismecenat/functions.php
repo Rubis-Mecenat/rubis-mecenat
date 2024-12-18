@@ -95,6 +95,17 @@ add_action( 'after_setup_theme', 'rubismecenat_setup' );
 
 
 
+/* 
+ * CSS ADMIN
+ *************************/
+
+function admin_style() {
+	wp_enqueue_style('admin-styles', get_template_directory_uri().'/admin.css');
+}
+add_action('admin_enqueue_scripts', 'admin_style');
+  
+
+
 /**
  * Enqueue scripts and styles.
  */
