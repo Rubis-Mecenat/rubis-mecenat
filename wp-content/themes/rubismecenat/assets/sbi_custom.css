@@ -55,6 +55,7 @@
   
   #sb_instagram .sbi_photo_wrap {
     position: relative;
+    max-width: 300px;
   }
   #sb_instagram .sbi_photo {
     display: block;
@@ -63,7 +64,7 @@
   }
   #sb_instagram .sbi_photo img {
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 5/4;
     object-fit: cover;
     scale: 1;
     transition: -webkit-transform .5s ease-in-out;
@@ -1198,6 +1199,10 @@
   .crop {
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 10px;
-    height: 14rem;
+    margin: 20px;
+    height: 26rem;
+  }
+
+  .swiper-wrapper {
+    padding-bottom: 3px;
   }
