@@ -57,7 +57,9 @@ $img_screenreader = apply_filters( 'sbi_img_screenreader', $img_screenreader, $p
     </div>
 
     <div class="sbi_text_wrap">
-        <p class="crop"><?php echo esc_attr( $img_alt ); ?></p>
+        <a class="" href="<?php echo esc_url( $permalink ); ?>" target="_blank" rel="noopener nofollow" data-full-res="<?php echo esc_url( $media_full_res ); ?>" data-img-src-set="<?php echo esc_attr( sbi_json_encode( $media_all_sizes_json ) ); ?>">
+            <p class="crop body -small"><?php echo esc_attr( $img_alt ); ?></p>
+        </a>
     </div>
 
 </div>

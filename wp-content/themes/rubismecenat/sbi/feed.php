@@ -33,7 +33,7 @@ sbi_header_html( $settings, $header_data, 'outside' );
 <div id="sb_instagram" <?php echo $feed_classes . $feed_styles; ?> data-feedid="<?php echo esc_attr( $feed_id ); ?>" <?php echo $feed_atts; ?> data-shortcode-atts="<?php echo esc_attr( $shortcode_atts ); ?>" <?php echo $other_atts; ?>>
 	<?php sbi_header_html( $settings, $header_data ); ?>
 
-    <div id="sbi_images" class="swiper mb-xxl" <?php echo $sb_images_style; ?>>
+    <div id="sbi_images" class="swiper" <?php echo $sb_images_style; ?>>
 		<div class="swiper-wrapper">
 			<?php
 			if ( ! in_array( 'ajaxPostLoad', $flags, true ) ) {

@@ -43,9 +43,9 @@ $header_link_title          = SB_Instagram_Display_Elements::get_header_link_tit
 ?>
 <div class="mod_header mb-xl">
 	<div<?php echo $header_classes; ?> <?php echo $header_atts; ?>>
-		<a class="sbi_header_link" target="_blank" rel="nofollow noopener"<?php echo $header_link ?><?php echo $header_link_title ?>>
+		<div class="sbi_header_link">
 			<div<?php echo $header_text_class; ?>>
-				<div class="sbi_header_img"<?php echo $header_image_atts; ?>>
+				<a  target="_blank" rel="nofollow noopener"<?php echo $header_link ?><?php echo $header_link_title ?> class="sbi_header_img"<?php echo $header_image_atts; ?>>
 					<?php if ( $avatar !== '' || $doing_cutomizer):  ?>
 						<div class="sbi_header_img_hover" <?php echo $avatar_hover_data_attributes ?>><?php echo SB_Instagram_Display_Elements::get_icon( 'newlogo', 'svg' ); ?></div>
 						<img<?php echo $avatar_el_atts; ?> width="50" height="50">
@@ -53,15 +53,17 @@ $header_link_title          = SB_Instagram_Display_Elements::get_header_link_tit
 					<?php if( empty($avatar) || $doing_cutomizer): ?>
 						<div class="sbi_header_hashtag_icon" <?php echo $avatar_svg_data_attributes ?>><?php echo SB_Instagram_Display_Elements::get_icon( 'newlogo', 'svg' ); ?></div>
 					<?php endif; ?>
-				</div>
+					</a>
 
-				<div class="sbi_feedtheme_header_text">
-					<h3<?php echo $header_text_color_style . $header_heading_attribute; ?>>#<?php echo esc_html( $username ); ?></h3>
+				<div class="sbi_feedtheme_header_text flex -center-y gap-xxl">
+					<a  target="_blank" rel="nofollow noopener"<?php echo $header_link ?><?php echo $header_link_title ?>>
+						<h3 class="h3" <?php echo $header_text_color_style . $header_heading_attribute; ?>>#<?php echo esc_html( $username ); ?></h3>
+					</a>
 					<?php if ( $should_show_bio ) : ?>
 						<p class="sbi_bio"<?php echo $header_text_color_style . $bio_attribute; ?>><?php echo str_replace( '&lt;br /&gt;', '<br>', esc_html( nl2br( $bio ) ) ); ?></p>
 					<?php endif; ?>
 				</div>
 			</div>
-		</a>
+		</div>
 	</div>
 </div>
