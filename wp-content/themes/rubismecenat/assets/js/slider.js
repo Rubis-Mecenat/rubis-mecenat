@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+
 
 
     const swiperContentSplit = document.querySelectorAll('.swiper.content-split');
@@ -63,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-
+    
 
     const swiperCarouselHorizontal = document.querySelectorAll('.swiper.carousel-horizontal');
     const breakpoint = window.matchMedia('(min-width:920px)');
@@ -129,6 +131,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     
+
+
+    /*------------------------------------*\
+        SLIDER FOR INSTA FEED
+    \*------------------------------------*/
+
+        const sbi_images = document.querySelector('#sbi_images');
+
+        console.log(sbi_images);
+
+            let sbi_carousel = new Swiper(sbi_images, {
+                spaceBetween: 30,
+
+                breakpoints: {
+                    320: {
+                      slidesPerView: 1.2,
+                      spaceBetween: 30
+                    },
+                    800: {
+                      slidesPerView: 3.5,
+                      spaceBetween: 30
+                    },
+                    1400: {
+                        slidesPerView: 4.5,
+                        spaceBetween: 30
+                    }
+                }
+            });
+
+            console.log(sbi_carousel);
+
+
+
 
 
 });

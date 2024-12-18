@@ -124,6 +124,11 @@ function rubismecenat_scripts() {
 
 	wp_enqueue_script( 'loaders', get_template_directory_uri() . '/assets/js/loaders.js', array("main"), _S_VERSION, true );
 
+	// DEQUEUE
+	wp_dequeue_style('sbi_styles');
+	wp_register_style('sbi_styles_custom', get_template_directory_uri() . '/assets/sbi_custom.css', array(), _S_VERSION );
+
+
 }
 add_action( 'wp_enqueue_scripts', 'rubismecenat_scripts' );
 
