@@ -634,7 +634,9 @@ section[class*="mod"] {
 
 .mod_instafeed {
     margin-bottom: calc( var(--space-xxl) * 1.5);
-
+    width: 100%;
+    overflow: hidden;
+  
     &.-backgrounded {
         padding: var(--space-xxl) 0;
         background-color: $gray-light;
