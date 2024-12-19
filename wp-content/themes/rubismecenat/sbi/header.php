@@ -66,4 +66,14 @@ $header_link_title          = SB_Instagram_Display_Elements::get_header_link_tit
 			</div>
 		</div>
 	</div>
+
+	<div class="navigation flex gap-m -center-y -end-x">
+            <div class="swiper-button prev btn -simple">
+                <?php get_template_part('Components/Svgs/Svg', 'ArrowLeft'); ?>
+            </div>
+            <div class="swiper-button next btn -simple">
+                <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
+            </div>
+        </div>
+
 </div>

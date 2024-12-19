@@ -2,9 +2,9 @@
     width: 100%;
     margin: 0 auto;
     padding-bottom: 0 !important;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  }
+  #sb_instagram .swiper {
+    overflow: visible;
   }
   #sb_instagram:after {
     content: "";
@@ -14,14 +14,13 @@
   #sb_instagram.sbi_fixed_height {
     overflow: hidden;
     overflow-y: auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
   }
   #sb_instagram #sbi_images {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    overflow: visible;
+    opacity: 0;
+  }
+  #sb_instagram #sbi_images.swiper-initialized {
+    opacity: 1;
   }
   #sb_instagram .sbi_header_link {
     -webkit-box-shadow: none;
@@ -38,9 +37,6 @@
     text-decoration: none;
     opacity: 1;
     overflow: hidden;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -200,10 +196,6 @@
   .sb_instagram_header {
     overflow: hidden;
     position: relative;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 12px 0;
   }
   #sb_instagram .sb_instagram_header a,
   .sb_instagram_header a {
@@ -441,9 +433,7 @@
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+
   }
   #sb_instagram #sbi_load .sbi_load_btn {
     position: relative;
@@ -901,9 +891,7 @@
     font-size: 12px;
     padding: 3px 20px 3px 0;
     margin: 0 0 1px 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+
   }
   .sbi_lightbox.sbi_lb-comments-enabled .sbi_lb-commenter {
     font-weight: 700;

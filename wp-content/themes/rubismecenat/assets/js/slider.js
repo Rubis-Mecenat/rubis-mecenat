@@ -137,13 +137,17 @@ document.addEventListener('DOMContentLoaded', function() {
         SLIDER FOR INSTA FEED
     \*------------------------------------*/
 
+        const sb_instagram = document.querySelector('#sb_instagram');
         const sbi_images = document.querySelector('#sbi_images');
 
         console.log(sbi_images);
 
             let sbi_carousel = new Swiper(sbi_images, {
                 spaceBetween: 30,
-
+                navigation: {
+                    nextEl: sb_instagram.querySelector('.swiper-button.next'),
+                    prevEl: sb_instagram.querySelector('.swiper-button.prev'),
+                },
                 breakpoints: {
                     320: {
                       slidesPerView: 1.2,
