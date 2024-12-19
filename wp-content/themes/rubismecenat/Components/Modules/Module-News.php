@@ -33,7 +33,7 @@
                                 </div>
                             </header>
 
-                            <div class="body mb-s">
+                            <div class="body mb-m">
                                 <?php echo $publication->post_content; ?>
                             </div>
 

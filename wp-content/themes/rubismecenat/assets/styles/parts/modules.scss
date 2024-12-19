@@ -195,6 +195,7 @@
 
 section[class*="mod"] {
     &.-bordered {
+        margin-bottom: 0;
         @include max(medium) {
             border: 20px solid $accent-color;
             padding: var(--space-xl) 0;
@@ -202,9 +203,6 @@ section[class*="mod"] {
         @include min(medium) {
             border: 50px solid $accent-color;
             padding: var(--space-xxl) 0;
-        }
-        &:last-child {
-            margin-bottom: 0;
         }
     }
     &.-backgrounded:last-child {
@@ -459,7 +457,7 @@ section[class*="mod"] {
         transition: 0.3s;
     }
 
-    &:hover {
+    a.-block:hover {
         .grid h2 {
             color: $gray-mid;
         }
@@ -553,15 +551,13 @@ section[class*="mod"] {
         display: none;
     }
 
-
-
     .separator {
         display: inline-block;
     }
     a, .separator {
         text-decoration: none;
         color: $gray-mid;
-        font-weight: $font-light;
+        font-weight: $font-regular;
 
     }
     a:hover {
@@ -569,7 +565,7 @@ section[class*="mod"] {
     }
     .current {
         color: $gray-mid2;
-        font-weight: $font-light;
+        font-weight: $font-regular;
     }
 
 

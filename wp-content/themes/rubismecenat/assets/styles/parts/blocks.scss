@@ -36,12 +36,21 @@ article[class*="block"] {
 .block-project {
 
     &__image {
+        position: relative;
         img,
         .block_placeholder {
-            border: 0px solid $accent-color;
-            transition: border 0.3s;
             aspect-ratio: 5/4;
             width: 100%;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border: 0px solid $accent-color;
+            transition: border 0.3s;
         }
     }
 
@@ -52,9 +61,8 @@ article[class*="block"] {
     a:hover {
         color: $gray-mid;
 
-        img,
-        .block_placeholder {
-            border: 30px solid $accent-color;
+        .block-project__image:after {
+            border-width: 30px;
         }
     }
 }

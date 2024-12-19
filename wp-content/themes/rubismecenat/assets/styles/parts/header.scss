@@ -17,7 +17,7 @@ body:has(.burger-input[checked="checked"]) {
     left: 0;
     right: 0;
     background-color: $white;
-    border-bottom: 1.5px solid $black;
+    border-bottom: 2px solid $black;
     z-index: 50;
     transition: transform .3s;
     
@@ -28,7 +28,7 @@ body:has(.burger-input[checked="checked"]) {
         @include max(medium) {
             @include wrapper-padding;
             background-color: $white;
-            border-bottom: 1.5px solid $black;
+            border-bottom: 2px solid $black;
         }
     }
 
@@ -123,7 +123,7 @@ body:has(.burger-input[checked="checked"]) {
 
             nav {
                 &:not(:last-child) {
-                    border-bottom: 1.5px solid $black;
+                    border-bottom: 2px solid $black;
                 }
 
                 .menu {
@@ -161,8 +161,8 @@ body:has(.burger-input[checked="checked"]) {
 
     .main-navigation-2 {
         @include min(medium) {
-            border-left: 1.5px solid $black;
-            border-right: 1.5px solid $black;
+            border-left: 2px solid $black;
+            border-right: 2px solid $black;
         }
         
         li a {
@@ -201,7 +201,7 @@ body:has(.burger-input[checked="checked"]) {
 
     .search {
         @include min(medium) {
-            border-right: 1.5px solid $black;
+            border-right: 2px solid $black;
         }
 
         a {
