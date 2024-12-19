@@ -275,12 +275,17 @@ section[class*="mod"] {
         width: 100%;
         
         @include min(medium) {
-            height: 75vh;
+            height: 70vh;
  
             .mod_cover {
                 height: 100%;
             }
+            img {
+                min-height: 70vh;
+            }
         }
+
+    
 
     }
     .mod_content {
@@ -503,8 +508,14 @@ section[class*="mod"] {
 
 .mod_visuel-text {
     .mod_content {
+        max-width: 800px;
+
         @include max(medium) {
             @include wrapper;
+        }
+
+        a {
+            color: $accent-color;
         }
     }
 }

@@ -22,7 +22,7 @@
                         <?php echo $firstContent; ?>
                     </div>
 
-                    <div class="links flex -column m:gap-s">
+                    <div class="links flex -column m:gap-s on-desktop">
                         <?php foreach ($posts as $key => $post) : setup_postdata($post); ?>
                             <p class="">
                                 <button class="js-slide-trigger h3 -bold" data-slide="<?php echo $key+1; ?>">

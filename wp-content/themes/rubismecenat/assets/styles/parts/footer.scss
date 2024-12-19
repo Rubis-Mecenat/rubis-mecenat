@@ -4,7 +4,6 @@
 
 .site-footer {
     background-color: black;
-    // margin-top: 100px;
     padding: var(--space-xl) 0;
 
     @include max(medium) {
@@ -15,7 +14,10 @@
         color: white;
     }
 
-
+    &.-small {
+        padding: var(--space-m) 0;
+        max-height: 5vh;
+    }
     .entry__field {
         transition: 0.3s;
 

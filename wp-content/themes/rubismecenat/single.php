@@ -55,4 +55,10 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_footer();
+if( get_field('page_model') === 'transmettre' ) : 
+	get_footer('small');
+
+else : 
+	get_footer();
+
+endif; 
