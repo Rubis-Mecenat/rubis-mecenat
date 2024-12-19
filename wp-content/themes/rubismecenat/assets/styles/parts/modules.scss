@@ -614,6 +614,10 @@ section[class*="mod"] {
 
         .project-header & {
             background-color: $accent-color;
+
+            &:hover {
+                background-color: $black;
+            }
         }
     }
 
