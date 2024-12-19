@@ -44,7 +44,7 @@
 
 <?php if( isset($parent)) : ?>
     <nav class="mod_parent_nav">
-        <a href="<?php echo $parent_permalink_for_nav; ?>" class="-block h3 -bold flex gap-xs -center">
+        <a href="<?php echo $parent_permalink_for_nav; ?>" class="-block h3 -bold flex gap-s -center">
             <?php echo $parent_title_for_nav; ?>
             <?php get_template_part('Components/Svgs/Svg', "ArrowRightSmall"); ?>
         </a>

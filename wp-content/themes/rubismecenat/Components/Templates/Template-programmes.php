@@ -49,8 +49,13 @@
                         <h2 class="h2 mb-m"><?php echo $child->post_title; ?></h2>
                     </div>
 
-                    <div class="t-12col m-6col">
+                    <div class="t-12col m-6col is-relative">
                         <?php echo rubismecenat_post_thumbnail( $child->ID, 'theme_large' ); ?>
+
+                        <span class="mod_button flex -center-y -center-x on-mobile">
+                            <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
+                        </span>
+                        
                     </div>
 
                     <div class="t-12col m-6col mod_content flex -center-y">
@@ -64,7 +69,7 @@
                         </div>
                     </div><!-- .entry-content -->
                     
-                    <span class="mod_button flex -center-y -center-x">
+                    <span class="mod_button flex -center-y -center-x on-desktop">
                         <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
                     </span>
                 </a>

@@ -108,8 +108,9 @@
         }
         @include max(medium) {
             .mod_button {
-                top: 51px;
-                height: 300px;
+                top: 0;
+                bottom: 0;
+                height: 100%;
                 width: var(--space-xl);
             }
             .mod_content {
