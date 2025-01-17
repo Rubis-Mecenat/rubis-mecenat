@@ -31,21 +31,6 @@
 					</a>
 				</div>
 
-				<div class="flex -space">
-					<?php
-						wp_nav_menu(
-							array(
-								'theme_location' => 'menu-footer-last',
-								'menu_id'        => 'footer-menu',
-								'menu_class' => 'menu-footer-last menu flex -center-y gap-m',
-							)); ?>
-
-					<label class="burger-menu -white on-mobile" for="burger">
-						<span class="burger-menu__stick"></span>
-						<span class="burger-menu__stick"></span>
-					</label>
-				</div>
-
 			</div>
 
 			<div class="m-3col on-desktop">
@@ -69,6 +54,39 @@
 			</div>
 
 		</div><!-- .site-info -->
+
+		<div class="wrapper mb-l">
+
+			<div class="flex -space">
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-footer-last',
+								'menu_id'        => 'footer-menu',
+								'menu_class' => 'menu-footer-last menu flex -center-y gap-m',
+							)); ?>
+
+					<label class="burger-menu -white on-mobile" for="burger">
+						<span class="burger-menu__stick"></span>
+						<span class="burger-menu__stick"></span>
+					</label>
+
+					<div class="on-desktop">
+						<?php get_template_part('Components/Svgs/Svg', 'LogoSmall', array(
+							'color'   => 'white',
+						) ); ?>
+					</div>
+			</div>
+		</div>
+
+		<div class="wrapper ">
+			<div class="on-mobile">
+				<?php get_template_part('Components/Svgs/Svg', 'LogoSmall', array(
+					'color'   => 'white',
+				) ); ?>
+			</div>
+		</div>
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
