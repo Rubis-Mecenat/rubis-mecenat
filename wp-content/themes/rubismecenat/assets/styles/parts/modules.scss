@@ -292,6 +292,7 @@ section[class*="mod"] {
     .mod_content {
         @include min(medium) {
             height: calc(100% - var(--space-xl) * 2);
+            opacity: 0.9;
         }
 
         
