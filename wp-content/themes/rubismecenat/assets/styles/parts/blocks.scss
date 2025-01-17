@@ -180,7 +180,8 @@ article.slide_project {
         img,
         .block_placeholder {
             width: 100%;
-            aspect-ratio: 1/1;
+            aspect-ratio: unset;
+            object-fit: contain;
         }
     } 
 }
