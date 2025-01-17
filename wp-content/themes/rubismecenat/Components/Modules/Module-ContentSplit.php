@@ -10,7 +10,7 @@
 
     <?php if( $title !=='' ) : ?>
         <div class="wrapper">
-            <h2 class="txt-center mb-xl"><?php echo $title; ?></h2>
+            <h2 class="mb-xl"><?php echo $title; ?></h2>
         </div>
     <?php endif; ?>
 
