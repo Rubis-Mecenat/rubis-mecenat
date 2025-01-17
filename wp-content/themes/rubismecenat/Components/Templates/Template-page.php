@@ -16,7 +16,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if( $head_design === 'simple' ) : ?>
+	<?php if( $head_design === 'simple' ) : //  titre et chapo centrés (modèle du Design "Espace Press") ?>
 		<header class="entry-header -simple txt-center mb-xxl">
 			<div class="wrapper grid">
 				<div class="header-titles t-12col m-8col -centered">
@@ -27,7 +27,7 @@
 		</header><!-- .entry-header -->
 
 
-	<?php elseif( $head_design === 'full' ) : ?>
+	<?php elseif( $head_design === 'full' ) : // Sur le modèle du Design "Le Fonds" ?>
 
 		<header class="entry-header">
 			<div class="grid gap-0">
@@ -49,7 +49,7 @@
 			</div>
 		</header><!-- .entry-header -->
 
-		<?php elseif( $head_design === 'fullwrapped' ) : ?>
+		<?php elseif( $head_design === 'fullwrapped' ) : // Sur le modèle du Design "Créez & Accompagnez" ?>
 
 			<header class="entry-header -fullwrapped -red">
 
@@ -77,7 +77,7 @@
 				</div>
 			</header><!-- .entry-header -->
 
-	<?php elseif( $head_design === 'notitle' ) : ?>
+	<?php elseif( $head_design === 'notitle' ) : // Pas de titre (modèle du design de l'accueil) ?>
 
 	<?php endif; ?>
 

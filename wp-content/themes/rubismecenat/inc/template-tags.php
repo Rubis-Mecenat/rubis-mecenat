@@ -122,6 +122,8 @@ if ( ! function_exists( 'rubismecenat_post_thumbnail' ) ) :
 	function rubismecenat_post_thumbnail( $id, $size = 'theme_large' ) {
 		$thumbnail_id = get_post_thumbnail_id($id);
 		$caption = get_the_post_thumbnail_caption( $id );
+		$caption = substr($caption, 0, 30) . '...';
+
 		$title = get_the_title( $thumbnail_id ); 
 		$alt = get_post_meta ( $thumbnail_id, '_wp_attachment_image_alt', true ); ?>
 
@@ -150,10 +152,9 @@ if ( ! function_exists( 'rubismecenat_attachment' ) ) :
 		$alt = get_post_meta ( $attachment['ID'], '_wp_attachment_image_alt', true );
 		$title = get_the_title ( $attachment['ID'] );
 		$caption = wp_get_attachment_caption ( $attachment['ID']);
+		$caption = $caption !== '' && strlen($caption) > 70 ? substr($caption, 0, 70) . '...' : $caption;
 
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
-			return;
-		} ?>
+		?>
                 <figure class="is-relative <?php echo isset($classes['figure_class']) ? $classes['figure_class'] : ''; ?>">
                     <img src="<?php echo $attachment['sizes']['theme_medium']; ?>" class=" <?php echo isset($classes['img_class']) ? $classes['img_class'] : ''; ?>">
                     <div class="thumbnail_captions flex -space">
