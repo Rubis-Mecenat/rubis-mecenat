@@ -73,7 +73,7 @@
             max-height: 300px;
         }
         @include min(medium) {
-
+            max-height: calc(60vh - 200px);
         }
     }
     iframe {
