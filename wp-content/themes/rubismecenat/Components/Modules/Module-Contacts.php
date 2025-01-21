@@ -31,20 +31,27 @@ $contacts = $args['contacts'];
                             <?php echo $contact['contact_details']; ?></div>
 
                         <div class="contact-methods flex d:-column m:gap-m">
-                            <p class="flex -center-y gap-s mb-m btn -filled-picto">
-                                <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Phone'); ?></span>
-                                <span class="on-desktop"><?php echo $contact['contact_tel']; ?></span>
-                            </p>
 
-                            <a href="mailto:<?php echo $contact['contact_email']; ?>" class="body flex -center-y gap-s mb-m btn -filled-picto">
-                                <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Email'); ?></span>
-                                <span class="on-desktop"><?php echo $contact['contact_email']; ?></span>
-                            </a>
+                            <?php if( $contact['contact_tel'] !== '' ) : ?>
+                                <p class="flex -center-y gap-s mb-m btn -filled-picto">
+                                    <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Phone'); ?></span>
+                                    <span class="on-desktop"><?php echo $contact['contact_tel']; ?></span>
+                                </p>
+                            <?php endif; ?>
 
-                            <a href="https://<?php echo $contact['contact_linkedIn']; ?>" class="body flex -center-y gap-s mb-m btn -filled-picto">
-                                <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Linkedin'); ?></span>
-                                <span class="on-desktop"><?php echo $contact['contact_linkedIn']; ?></span>
-                            </a>
+                            <?php if( $contact['contact_email'] !== '' ) : ?>
+                                <a href="mailto:<?php echo $contact['contact_email']; ?>" class="body flex -center-y gap-s mb-m btn -filled-picto">
+                                    <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Email'); ?></span>
+                                    <span class="on-desktop"><?php echo $contact['contact_email']; ?></span>
+                                </a>
+                            <?php endif; ?>
+
+                            <?php if( $contact['contact_linkedIn'] !== '' ) : ?>
+                                <a href="https://<?php echo $contact['contact_linkedIn']; ?>" class="body flex -center-y gap-s mb-m btn -filled-picto">
+                                    <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Linkedin'); ?></span>
+                                    <span class="on-desktop"><?php echo $contact['contact_linkedIn']; ?></span>
+                                </a>
+                            <?php endif; ?>
 
                         </div>
                     </div>
