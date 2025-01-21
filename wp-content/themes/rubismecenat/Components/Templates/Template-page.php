@@ -41,7 +41,7 @@
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 						<?php the_excerpt(); ?>	
 					</div>
-					<a href="#" class="btn -circled-arrow on-desktop">
+					<a href="#content" class="btn -circled-arrow on-desktop">
 						<?php get_template_part('Components/Svgs/Svg', "ArrowDown"); ?>
 					</a>
 				</div>
@@ -84,7 +84,7 @@
 
 	
 	<?php if( get_the_content() !== '' ) : ?>
-		<div class="entry-content wrapper mb-xxl">
+		<div id="content" class="entry-content wrapper mb-xxl">
 
 			<div class="grid">
 				<div class="t-12col m-6col body">
@@ -118,3 +118,6 @@
 	<?php endif; ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
+
+
+<div id="step"></div>

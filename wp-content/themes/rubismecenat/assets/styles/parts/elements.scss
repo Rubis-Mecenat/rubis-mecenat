@@ -43,6 +43,13 @@
         border: 2px solid $accent-color;
         border-radius: 50px;
 
+        @include max(large) {
+            width: 55px;
+        }
+        @include min(large) {
+            width: 70px;
+        }
+
         svg path {
             fill: $accent-color;
         }

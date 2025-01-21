@@ -269,20 +269,20 @@ section[class*="mod"] {
 
     .carousel-horizontal {
         height: 100%;
-        margin-bottom: var(--space-xl);
+        margin-bottom: var(--space-m);
     } 
     .entry-header {
         margin-bottom: 0;
         width: 100%;
         
         @include min(medium) {
-            height: 70vh;
+            height: 65vh;
  
             .mod_cover {
                 height: 100%;
             }
             img {
-                min-height: 70vh;
+                min-height: 65vh;
             }
         }
 
@@ -292,9 +292,17 @@ section[class*="mod"] {
     .mod_content {
         @include min(medium) {
             height: calc(100% - var(--space-xl) * 2);
-            opacity: 0.9;
+        }
+        @include max(large) {
+            height: calc(100% - 40px);
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
+
+        &:not(.-opaque) {
+            opacity: 0.9;
+        }
         
         &.-header {
             @include max(medium) {
@@ -341,6 +349,9 @@ section[class*="mod"] {
         background-color: $black;
         border-radius: 0;
         z-index: 3;
+        left: var(--swiper-scrollbar-sides-offset, 0%) !important;
+        bottom: var(--swiper-scrollbar-bottom, 20px) !important;
+        width: 100% !important;
 
         .swiper-scrollbar-drag {
             cursor: grab;

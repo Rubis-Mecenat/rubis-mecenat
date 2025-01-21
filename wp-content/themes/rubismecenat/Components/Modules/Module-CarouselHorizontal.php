@@ -16,7 +16,7 @@
                 </div>
             </div>
             
-            <div class="t-12col mod_content -header flex -center-y">
+            <div class="t-12col mod_content -opaque -header flex -center-y">
                 <div class="content-container body-title mb-l">
                     <div class="mb-m">
                         <?php echo $firstContent; ?>
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         
-                        <div class="t-12col m-6col mod_content flex -center-y">
+                        <div class="t-12col m-6col mod_content -opaque flex -center-y ">
                             <div class="body-title">
                                 <div class="mb-m">
                                     <?php echo $firstContent; ?>
