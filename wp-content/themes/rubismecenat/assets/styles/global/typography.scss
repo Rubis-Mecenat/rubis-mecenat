@@ -78,10 +78,10 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 h1, .h1 {
     line-height: 1.3;
-    @include min(medium) {
+    @include min(large) {
         font-size: 3.6rem;
     }
-    @include max(medium) {
+    @include max(large) {
         font-size: 3.2rem;
     }
 }
@@ -90,10 +90,10 @@ h2, .h2 {
     font-size: 3.6rem;
     line-height: 1.2;
 
-    @include min(medium) {
+    @include min(large) {
         font-size: 3.6rem;
     }
-    @include max(medium) {
+    @include max(large) {
         font-size: 2.6rem;
     }
 
@@ -101,10 +101,10 @@ h2, .h2 {
         font-family: 'HarrietText';
         font-style: italic;
         font-weight: $font-regular;
-        @include min(medium) {
+        @include min(large) {
             font-size: 3rem;
         }
-        @include max(medium) {
+        @include max(large) {
             font-size: 2.6rem;
         }
     }
@@ -113,10 +113,10 @@ h2, .h2 {
 h3, .h3 {
     line-height: 1.3;
 
-    @include min(medium) {
+    @include min(large) {
         font-size: 2.4rem;
     }
-    @include max(medium) {
+    @include max(large) {
         font-size: 2rem;
     }
 
@@ -169,8 +169,10 @@ p, .body {
         color: $gray-mid;
     }
     &.-big {
-        font-size: 2.4rem;
-        @include max(medium) {
+        @include min(large) {
+            font-size: 2.4rem;
+        }
+        @include max(large) {
             font-size: 2rem;
         }
         p {
@@ -202,10 +204,10 @@ p, .body {
     line-height: 1.4;
     font-weight: $font-light;
 
-    @include min(medium) {
+    @include min(large) {
         font-size: 2.8rem;
     }
-    @include max(medium) {
+    @include max(large) {
         font-size: 2.2rem;
     }
 

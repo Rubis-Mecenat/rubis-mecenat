@@ -139,7 +139,12 @@ body:has(.burger-input[checked="checked"]) {
                         padding-left: 0;
                         padding-right: 0;
                         width: 100%;
-                        font-size: 2rem;
+                        @include min(large) {
+                            font-size: 2rem;
+                        }
+                        @include max(large) {
+                            font-size: 1.8rem;
+                        }
 
                         &:after {
                             content: url('/wp-content/themes/rubismecenat/Components/Svgs/Svg-ArrowRightSmall.svg');
@@ -195,7 +200,12 @@ body:has(.burger-input[checked="checked"]) {
         align-items: center;
 
         a {
-            font-size: 2rem;
+            @include min(large) {
+                font-size: 2rem;
+            }
+            @include max(large) {
+                font-size: 1.8rem;
+            }
         }
     }
 
