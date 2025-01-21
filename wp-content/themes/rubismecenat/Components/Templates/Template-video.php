@@ -44,5 +44,6 @@
 
 <?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist') )); ?>
 
+<?php get_template_part('Components/Modules/Module', 'News', array( 'title' => 'Projet lié',  'publication' =>  get_field('edition_projects') )); ?>
 
 
