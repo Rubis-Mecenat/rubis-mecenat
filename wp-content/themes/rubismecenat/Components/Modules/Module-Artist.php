@@ -6,7 +6,7 @@
 
 
 <?php if($artist ) : ?>
-    <section class="mod_artist mb-xxl <?php echo $bg ? '-bg' : ''; ?> <?php echo $border ? '-bordered' : ''; ?>">
+    <section class="mod_artist mb-xxl <?php echo $bg ? '-backgrounded' : ''; ?> <?php echo $border ? '-bordered' : ''; ?>">
 
         <div class="mod_publication wrapper">
 

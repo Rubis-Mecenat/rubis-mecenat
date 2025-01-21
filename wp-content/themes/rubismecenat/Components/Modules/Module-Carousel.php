@@ -5,7 +5,7 @@
 ?>
 
 
-<section class="mod_carousel swiper carousel  <?php echo $bg ? '-bg' : ''; ?>">
+<section class="mod_carousel swiper carousel  <?php echo $bg ? '-backgrounded' : ''; ?>">
 
     <header class="mod_title mb-m flex -space -center-y gap-m mb-l">
         <h2>
