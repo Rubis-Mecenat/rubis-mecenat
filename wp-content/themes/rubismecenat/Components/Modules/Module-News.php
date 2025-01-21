@@ -34,7 +34,7 @@
                             </header>
 
                             <div class="body mb-m">
-                                <?php echo $publication->post_content; ?>
+                                <?php echo mb_strimwidth($publication->post_content, 0, 800, '...'); ?>
                             </div>
 
                             <footer class="on-desktop">

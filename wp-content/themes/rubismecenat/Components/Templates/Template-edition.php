@@ -76,3 +76,4 @@
 
 <?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist'),  'bg' =>  false )); ?>
 
+<?php get_template_part('Components/Modules/Module', 'News', array( 'title' => 'fefe',  'publication' =>  get_field('edition_projects') )); ?>

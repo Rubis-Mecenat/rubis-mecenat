@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_673effafebdad",
-            "label": "Artiste",
+            "label": "Artiste lié",
             "name": "edition_artist",
             "aria-label": "",
             "type": "post_object",
@@ -18,6 +18,33 @@
             },
             "post_type": [
                 "artist"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_678fca7ac13ca",
+            "label": "Projet lié",
+            "name": "edition_projects",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "project"
             ],
             "post_status": "",
             "taxonomy": "",
@@ -97,5 +124,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732623452
+    "modified": 1737476871
 }
