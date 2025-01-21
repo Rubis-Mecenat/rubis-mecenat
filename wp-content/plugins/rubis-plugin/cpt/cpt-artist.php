@@ -17,7 +17,7 @@ function artist_register_post_types() {
         'public' => true,
         'show_in_rest' => true,
         'supports' => array( 'title', 'editor','thumbnail','excerpt','author' ),
-        'taxonomies' => array('category', 'post_tag'),
+        //'taxonomies' => array('category', 'post_tag'),
         'rewrite' => array('slug' => 'artist','with_front' => true),
         'menu_icon' => 'dashicons-book',
         'hierarchical' => true,

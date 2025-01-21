@@ -17,7 +17,7 @@ function edition_register_post_types() {
         'public' => true,
         'show_in_rest' => true,
         'supports' => array( 'title', 'editor','thumbnail','excerpt','author' ),
-        'taxonomies' => array('post_tag'),
+        //'taxonomies' => array('post_tag'),
         'rewrite' => array('slug' => 'edition','with_front' => true),
         'menu_icon' => 'dashicons-book',
         'hierarchical' => true,
