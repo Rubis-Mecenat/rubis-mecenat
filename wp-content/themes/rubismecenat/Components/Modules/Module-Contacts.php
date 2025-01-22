@@ -48,7 +48,7 @@ $contacts = $args['contacts'];
 
                             <?php if( $contact['contact_linkedIn'] !== '' ) : ?>
                                 <a href="https://<?php echo $contact['contact_linkedIn']; ?>" class="body flex -center-y gap-s mb-m btn -filled-picto">
-                                    <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'Linkedin'); ?></span>
+                                    <span class="picto -small"><?php get_template_part('Components/Svgs/Svg', 'LinkedIn'); ?></span>
                                     <span class="on-desktop"><?php echo $contact['contact_linkedIn']; ?></span>
                                 </a>
                             <?php endif; ?>
