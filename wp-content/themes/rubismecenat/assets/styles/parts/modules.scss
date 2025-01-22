@@ -12,12 +12,15 @@
     position: relative;
     text-decoration: none;
 
-    @include min(medium) {
-        margin-bottom: calc( var(--space-xxl) * 1.5);
+    &:not(.-simple) {
+        @include min(medium) {
+            margin-bottom: calc( var(--space-xxl) * 1.5);
+        }
+        @include max(medium) {
+            margin-bottom: calc( var(--space-xl));
+        }
     }
-    @include max(medium) {
-        margin-bottom: calc( var(--space-xl));
-    }
+
 
     .post-thumbnail, .post-thumbnail div:first-child, img {
         height: 100%;

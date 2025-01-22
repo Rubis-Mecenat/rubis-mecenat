@@ -17,7 +17,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php if( $head_design === 'simple' ) : //  titre et chapo centrés (modèle du Design "Espace Press") ?>
-		<header class="entry-header -simple txt-center mb-xxl">
+		<header class="entry-header -simple txt-center mb-xl">
 			<div class="wrapper grid">
 				<div class="header-titles t-12col m-8col -centered">
 					<h1 class="entry-title mb-m"><?php the_title(); ?></h1>

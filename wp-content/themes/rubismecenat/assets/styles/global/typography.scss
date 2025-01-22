@@ -195,8 +195,24 @@ p, .body {
         margin-bottom: 2rem;
     }
     h2 {
+        @include min(large) {
+            font-size: 2.8rem;
+        }
+        @include max(large) {
+            font-size: 2.6rem;
+        }
         margin-top: var(--space-l);
         margin-bottom: var(--space-l);
+    }
+    h3 {
+        font-size: 2.4rem;
+        margin-top: var(--space-l);
+        margin-bottom: var(--space-m);
+    }
+    h4 {
+        font-size: 2rem;
+        margin-top: var(--space-m);
+        margin-bottom: var(--space-m);
     }
     &.-styled p:first-of-type  {
         font-weight: $font-bold;
