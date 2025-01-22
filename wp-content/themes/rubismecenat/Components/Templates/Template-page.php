@@ -21,7 +21,9 @@
 			<div class="wrapper grid">
 				<div class="header-titles t-12col m-8col -centered">
 					<h1 class="entry-title mb-m"><?php the_title(); ?></h1>
-					<div class="body-title"><?php the_excerpt(); ?></div>
+					<?php if( has_excerpt() ) : ?>
+						<div class="body-title"><?php the_excerpt(); ?></div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</header><!-- .entry-header -->
@@ -87,13 +89,13 @@
 		<div id="content" class="entry-content wrapper mb-xxl">
 
 			<div class="grid">
-				<div class="t-12col m-6col body">
+				<div class="t-12col m-7col body">
 					<?php the_content(); ?>
 				</div>
 
 				<div class="t-12col m-1col"></div>
 
-				<div class="t-12col m-5col">
+				<div class="t-12col m-4col">
 					<?php 
 						$doc = get_field('page_document');
 						if( $doc ): ?>

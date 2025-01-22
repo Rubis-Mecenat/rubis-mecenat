@@ -194,6 +194,10 @@ p, .body {
     p {
         margin-bottom: 2rem;
     }
+    h2 {
+        margin-top: var(--space-l);
+        margin-bottom: var(--space-l);
+    }
     &.-styled p:first-of-type  {
         font-weight: $font-bold;
     }
