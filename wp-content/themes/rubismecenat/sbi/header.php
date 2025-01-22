@@ -41,19 +41,15 @@ $header_link                = SB_Instagram_Display_Elements::get_header_link( $s
 $header_link_title          = SB_Instagram_Display_Elements::get_header_link_title( $settings, $username );
 
 ?>
-<div class="mod_header mb-xl">
+<div class="mod_header mb-l">
 	<div<?php echo $header_classes; ?> <?php echo $header_atts; ?>>
 		<div class="sbi_header_link">
 			<div<?php echo $header_text_class; ?>>
-				<a  target="_blank" rel="nofollow noopener"<?php echo $header_link ?><?php echo $header_link_title ?> class="sbi_header_img"<?php echo $header_image_atts; ?>>
-					<?php if ( $avatar !== '' || $doing_cutomizer):  ?>
-						<div class="sbi_header_img_hover" <?php echo $avatar_hover_data_attributes ?>><?php echo SB_Instagram_Display_Elements::get_icon( 'newlogo', 'svg' ); ?></div>
-						<img<?php echo $avatar_el_atts; ?> width="50" height="50">
-					<?php endif; ?>
-					<?php if( empty($avatar) || $doing_cutomizer): ?>
-						<div class="sbi_header_hashtag_icon" <?php echo $avatar_svg_data_attributes ?>><?php echo SB_Instagram_Display_Elements::get_icon( 'newlogo', 'svg' ); ?></div>
-					<?php endif; ?>
-					</a>
+				<a  target="_blank" rel="nofollow noopener"<?php echo $header_link ?><?php echo $header_link_title ?> class="btn -filled-picto"<?php echo $header_image_atts; ?>>
+					<span class="picto">
+						<?php echo SB_Instagram_Display_Elements::get_icon( 'newlogo', 'svg' ); ?>
+					</span>
+				</a>
 
 				<div class="sbi_feedtheme_header_text flex -center-y gap-xxl">
 					<a  target="_blank" rel="nofollow noopener"<?php echo $header_link ?><?php echo $header_link_title ?>>
