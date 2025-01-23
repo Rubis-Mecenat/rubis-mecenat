@@ -145,6 +145,7 @@
         position: relative;
         z-index: 1;
         background-color: white;
+        max-width: 900px;
 
         @include min(medium) {
             margin: var(--space-xl) 0 var(--space-xl) calc(var(--space-xl) * -1);
