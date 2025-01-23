@@ -35,3 +35,4 @@ _.php
 /img
 /node_modules
 package-lock.json
+/wp-content/plugins/duplicate-page
