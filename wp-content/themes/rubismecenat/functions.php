@@ -180,6 +180,16 @@ function wpsnippets_add_favicon() {
 add_action( 'wp_head', 'wpsnippets_add_favicon' );
 
 
+function search_filter($query) {
+	if ( ! is_admin() && $query->is_main_query() ) {
+		if ( $query->is_search ) {
+			$query->set( 'posts_per_page', 24 );
+		}
+	}
+}
+add_action( 'pre_get_posts', 'search_filter' );
+
+
 
 /*
  * Make theme available for translation.

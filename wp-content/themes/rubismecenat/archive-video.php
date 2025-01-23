@@ -10,7 +10,7 @@ get_header();
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $args = array(
 	'post_type' => 'video',
-	'posts_per_page' => 10,
+	'posts_per_page' => 24,
 	'paged' => $paged
 );
 

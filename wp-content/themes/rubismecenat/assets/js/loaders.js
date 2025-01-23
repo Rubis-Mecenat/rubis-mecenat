@@ -23,7 +23,7 @@ const initSearchScript = () => {
 
     // UTILS
     let offset = 0;
-    let step = 10;
+    let step = 24;
 
     // DATAS
     const data = new FormData();
@@ -91,7 +91,7 @@ const initSearchScript = () => {
                     }
                 }
 
-            }, 1000)
+            }, 2000)
     }
 
 
