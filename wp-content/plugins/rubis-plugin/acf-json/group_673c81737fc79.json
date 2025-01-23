@@ -229,7 +229,8 @@
                                 "id": ""
                             },
                             "post_type": [
-                                "post"
+                                "post",
+                                "project"
                             ],
                             "post_status": "",
                             "taxonomy": "",
@@ -975,5 +976,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734530747
+    "modified": 1737643067
 }
