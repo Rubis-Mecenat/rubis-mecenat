@@ -195,14 +195,15 @@ p, .body {
         margin-bottom: 2rem;
     }
     h2 {
+        margin-top: var(--space-l);
+        margin-bottom: var(--space-l);
+
         @include min(large) {
             font-size: 2.8rem;
         }
         @include max(large) {
             font-size: 2.6rem;
         }
-        margin-top: var(--space-l);
-        margin-bottom: var(--space-l);
     }
     h3 {
         font-size: 2.4rem;
