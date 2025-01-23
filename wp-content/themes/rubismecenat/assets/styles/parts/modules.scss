@@ -657,6 +657,10 @@ section[class*="mod"] {
     width: 100%;
     overflow: hidden;
   
+    .mod_header {
+        display: flex;
+        justify-content: space-between;
+    }
     &.-backgrounded {
         padding: var(--space-xxl) 0;
         background-color: $gray-light;

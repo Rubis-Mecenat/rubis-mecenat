@@ -87,6 +87,10 @@
 			</div>
 		</div>
 
+		<div class="wrapper ">
+			<p class=""><span class="credit">© <?php echo date("Y"); ?> Rubis Mécénat</span></p>
+		</div>
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
