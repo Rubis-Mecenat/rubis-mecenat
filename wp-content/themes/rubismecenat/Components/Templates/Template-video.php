@@ -30,7 +30,7 @@
             <p class="mb-s">
                 <?php 
                 	foreach ( $categories as $term ) {
-                        echo '<span class="h5">' . $term->name . '</span>';
+                        echo '<span class="h5">' . $term->name . ' • </span>';
                     }
                 ?>
             </p>
