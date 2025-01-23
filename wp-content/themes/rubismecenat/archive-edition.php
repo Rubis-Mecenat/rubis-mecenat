@@ -46,12 +46,17 @@ $query = new WP_Query($args);
 								<?php get_template_part( 'Components/Blocks/Block', 'Edition' ); ?>
 							</div>
 
-						<?php endwhile;  wp_reset_postdata(); ?>
+						<?php endwhile;  ?>
+					</div>
+
+					<div id="search-pagination" class="pagination flex -center gap-s mb-xxl">
+						<?php pagination_bar($query); wp_reset_postdata(); ?>
 					</div>
 				</div>
+
+
 			</div>
 		<?php else : ?>
-			// Display no posts found message
 
 		<?php endif; ?>
 

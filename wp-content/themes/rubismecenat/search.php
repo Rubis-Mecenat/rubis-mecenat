@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main -archive">
 
 		<header class="entry-header -simple txt-center mb-xxl">
 			<div class="wrapper flex -center-x">
@@ -31,7 +31,7 @@ get_header();
 								
 								<?php while ( have_posts()) : the_post(); ?>
 
-									<div class="t-12col m-6col mb-xxl">
+									<div class="t-12col m-6col l-4col mb-xxl">
 										<?php get_template_part( 'Components/Blocks/Block', ucfirst(get_post_type()) ); ?>
 									</div>
 									

@@ -9,7 +9,7 @@
         data-type="<?php echo get_post_type(); ?>"
         class="-block">
 
-        <div class="block-edition__image mb-m">
+        <div class="block-page__image mb-m">
             <?php if (has_post_thumbnail()) : ?>
                 <?php the_post_thumbnail('theme_small'); ?>
             <?php else: ?>
