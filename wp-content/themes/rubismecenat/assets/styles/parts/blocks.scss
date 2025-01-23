@@ -29,19 +29,50 @@
 \*------------------------------------*/
 
 article[class*="block"] {
-    .block_placeholder {
-        background-color: $gray-light;
-        aspect-ratio: 1/1;
+
+    div[class*="__image"] {
+        position: relative;
+
+        img,
+        .block_placeholder {
+            width: 100%;
+            background-color: $gray-light;
+        }
+    }
+
+}
+
+.block-post,
+.block-edition,
+.block-video,
+.block-artist,
+.block-page {
+
+    &__image {
+        .overlay {
+            position: absolute;
+            transition: all .3s;
+            top: 50%; left: 50%; right: 50%; bottom: 50%;
+            background-color: $white;
+        }
+    }
+
+    a:hover {
+        color: $gray-mid;
+
+        .overlay {
+            top: 30px; left: 30px; right: 30px; bottom: 30px;
+        }
     }
 }
+
 .block-project {
 
     &__image {
-        position: relative;
+
         img,
         .block_placeholder {
             aspect-ratio: 5/4;
-            width: 100%;
         }
         &:after {
             content: '';
@@ -119,19 +150,17 @@ article.slide_project {
     }
 }
 
-.block-edition {
-    .swiper-slide & {
-        a {
-            display: block;
-        }
-        img {
-            width: 100%;
-            aspect-ratio: 5/4;
-        }
-    }
-}
+
 
 .block-video {
+
+    &__image {
+        img,
+        .block_placeholder {
+            aspect-ratio: 5/4;
+        }
+    }
+
     .swiper-slide & {
         a {
             display: block;
@@ -143,55 +172,36 @@ article.slide_project {
     }
 }
 
-.block-post,
-.block-edition,
-.block-video,
-.block-artist,
-.block-page {
 
-    &__image {
-        position: relative;
-
-        img,
-        .block_placeholder {
-            width: 100%;
-            aspect-ratio: 5/4;
-            background-color: $gray-light;
-        }
-
-        .overlay {
-            position: absolute;
-            transition: all .3s;
-            top: 50%; left: 50%; right: 50%; bottom: 50%;
-            background-color: $white;
-        }
-    }
-
-    a:hover {
-        color: $gray-mid;
-
-        .overlay {
-            top: 30px; left: 30px; right: 30px; bottom: 30px;
-        }
-    }
-}
 
 .block-edition {
     &__image {
-        img,
-        .block_placeholder {
-            width: 100%;
+        img {
             aspect-ratio: unset;
             object-fit: contain;
         }
+        .block_placeholder {
+            aspect-ratio: 1/1;
+        }
     } 
+    .swiper-slide & {
+        a {
+            display: block;
+        }
+        img {
+            width: 100%;
+            aspect-ratio: 5/4;
+        }
+    }
 }
 
-.block-page {
+
+.block-page,
+.block-artist,
+.block-post {
     &__image {
         img,
         .block_placeholder {
-            width: 100%;
             aspect-ratio: 1/1;
         }
     } 
