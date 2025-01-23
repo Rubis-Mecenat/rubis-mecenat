@@ -45,7 +45,7 @@ get_header();
 								</div>
 
 								<div id="search-loadmore" class="pagination flex -center hidden">
-									<button class="btn"><?php pll_e('Charger plus de résultats'); ?></button>
+									<button class="btn -filter"><?php pll_e('Charger plus de résultats'); ?></button>
 								</div>
 							</div>
 

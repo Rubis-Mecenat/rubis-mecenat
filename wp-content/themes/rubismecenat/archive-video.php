@@ -48,10 +48,16 @@ $query = new WP_Query($args);
 						<?php endwhile;  ?>
 					</div>
 
+					<div class="mb-xxl">
+						<div id="search-pagination" class="pagination flex -center gap-s">
+							<?php pagination_bar($query); wp_reset_postdata(); ?>
+						</div>
 
-					<div id="search-pagination" class="pagination flex -center gap-s mb-xxl">
-						<?php pagination_bar($query); wp_reset_postdata(); ?>
+						<div id="search-loadmore" class="pagination flex -center hidden">
+							<button class="btn -filter"><?php pll_e('Charger plus de résultats'); ?></button>
+						</div>
 					</div>
+
 				</div>
 
 			</div>

@@ -19,11 +19,11 @@ const initSearchScript = () => {
     const searchLoadmoreTrigger = qs('#search-loadmore button');
     const searchClear = qs('#search-clear');
 
-    let loader_triggers, filter_trigger, postFounds, posttype;
+    let loader_triggers, filter_triggers, postFounds, posttype;
 
     // UTILS
     let offset = 0;
-    let step = 30;
+    let step = 10;
 
     // DATAS
     const data = new FormData();
@@ -62,7 +62,6 @@ const initSearchScript = () => {
 
     const checkResults = () => {
 
-        if(searchform) {
             cl(searchPagination).add('hidden');
 
             setTimeout( () => {
@@ -93,7 +92,6 @@ const initSearchScript = () => {
                 }
 
             }, 1000)
-        }
     }
 
 
@@ -101,11 +99,11 @@ const initSearchScript = () => {
     ///////////
 
     const queryFilterTriggers = async () => {
-        filter_trigger = qsa('.js-filter-content')
+        filter_triggers = qsa('.js-filter-content')
     }   
     const addListenerToFilterTriggers = () => {
-        if ( filter_trigger ) {
-            filter_trigger.forEach( el => {
+        if ( filter_triggers ) {
+            filter_triggers.forEach( el => {
                 el.addEventListener('click', event => {
                     offset = 0; // Reset 
                     cl( qs('.-active') ).remove('-active');

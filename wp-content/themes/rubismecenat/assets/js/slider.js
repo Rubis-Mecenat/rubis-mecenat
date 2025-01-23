@@ -139,32 +139,33 @@ document.addEventListener('DOMContentLoaded', function() {
         const sb_instagram = document.querySelector('#sb_instagram');
         const sbi_images = document.querySelector('#sbi_images');
 
-        console.log(sbi_images);
+        if(sb_instagram) {
+            console.log(sbi_images);
 
-            let sbi_carousel = new Swiper(sbi_images, {
-                spaceBetween: 30,
-                navigation: {
-                    nextEl: sb_instagram.querySelector('.swiper-button.next'),
-                    prevEl: sb_instagram.querySelector('.swiper-button.prev'),
-                },
-                breakpoints: {
-                    320: {
-                      slidesPerView: 1.2,
-                      spaceBetween: 30
+                let sbi_carousel = new Swiper(sbi_images, {
+                    spaceBetween: 30,
+                    navigation: {
+                        nextEl: sb_instagram.querySelector('.swiper-button.next'),
+                        prevEl: sb_instagram.querySelector('.swiper-button.prev'),
                     },
-                    600: {
-                      slidesPerView: 2.2,
-                      spaceBetween: 30
-                    },
-                    1000: {
-                        slidesPerView: 4.5,
+                    breakpoints: {
+                        320: {
+                        slidesPerView: 1.2,
                         spaceBetween: 30
+                        },
+                        600: {
+                        slidesPerView: 2.2,
+                        spaceBetween: 30
+                        },
+                        1000: {
+                            slidesPerView: 4.5,
+                            spaceBetween: 30
+                        }
                     }
-                }
-            });
+                });
 
-            console.log(sbi_carousel);
-
+                console.log(sbi_carousel);
+        }
 
 
 

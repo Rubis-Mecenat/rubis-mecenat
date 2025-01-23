@@ -9,7 +9,7 @@ get_header();
 $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $args = array(
 	'post_type' => 'post',
-	'posts_per_page' => 20,
+	'posts_per_page' => 10,
 	'paged' => $paged
 );
 
@@ -58,7 +58,6 @@ $query = new WP_Query($args);
 			<?php wp_reset_postdata(); ?>
 
 		<?php else : ?>
-			// Display no posts found message
 
 		<?php endif; ?>
 

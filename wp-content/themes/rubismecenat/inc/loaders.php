@@ -107,7 +107,7 @@ function getPostTypesArray() {
 					</div>
                 <?php endwhile; ?>
             <?php else : ?>
-                <p class="t-12col m-6col"><?php pll_e('Aucun résultat'); ?></p>
+                <p class="t-12col m-6col"><?php pll_e('Il n\'y a pas plus de résultat'); ?></p>
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>
             

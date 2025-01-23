@@ -670,6 +670,9 @@ section[class*="mod"] {
 \*------------------------------------*/
 
 .filters {
+    position: sticky;
+    top: 125px;
+    
     @include max(medium) {
         flex-wrap: wrap;
     }
