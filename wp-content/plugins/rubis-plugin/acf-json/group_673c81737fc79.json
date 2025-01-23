@@ -230,7 +230,9 @@
                             },
                             "post_type": [
                                 "post",
-                                "project"
+                                "project",
+                                "video",
+                                "edition"
                             ],
                             "post_status": "",
                             "taxonomy": "",
@@ -976,5 +978,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737643067
+    "modified": 1737643254
 }
