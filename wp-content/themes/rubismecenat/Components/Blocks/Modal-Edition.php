@@ -48,7 +48,7 @@
                 </a>
 
             <?php elseif( get_field('edition_link') ) : ?>
-                <a href="<?php echo get_field('edition_link')["url"]; ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
+                <a href="<?php echo get_field('edition_link'); ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
                     <p class="picto">
                         <?php get_template_part('Components/Svgs/Svg',  'Link'); ?>
                     </p>
