@@ -19,13 +19,9 @@
     <div class="grid wrapper d:mt-xxl mb-xxl">
 
         <div class="entry-cover t-12col m-5col">
-            <?php if( get_field('edition_file') ) : ?>
-                <iframe class="" src="<?php echo get_field('edition_file')["url"]; ?>"></iframe>
 
-            <?php else : ?>
-                <?php the_post_thumbnail('large'); ?>
+            <?php the_post_thumbnail('large'); ?>
                 
-            <?php endif; ?>
         </div><!-- .entry-header -->
 
     
