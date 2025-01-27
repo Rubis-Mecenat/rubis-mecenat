@@ -122,7 +122,7 @@ if ( ! function_exists( 'rubismecenat_post_thumbnail' ) ) :
 	function rubismecenat_post_thumbnail( $id, $size = 'theme_large' ) {
 		$thumbnail_id = get_post_thumbnail_id($id);
 		$caption = get_the_post_thumbnail_caption( $id );
-		$caption = substr($caption, 0, 30) . '...';
+		$caption = $caption !== '' && strlen($caption) > 70 ? substr($caption, 0, 70) . '...' : $caption;
 
 		$title = get_the_title( $thumbnail_id ); 
 		$alt = get_post_meta ( $thumbnail_id, '_wp_attachment_image_alt', true ); ?>
