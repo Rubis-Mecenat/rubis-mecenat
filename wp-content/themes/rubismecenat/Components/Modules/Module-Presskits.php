@@ -7,7 +7,11 @@ $presskits = $args['presskits'];
 
     <div class="mod_content wrapper">
         <?php if( $presskits ) : ?>
-
+            
+            <?php if( get_sub_field('presskits_title') ) : ?>
+                <h2 class="mb-l txt-center"><?= get_sub_field('presskits_title') ?></h2>
+            <?php endif; ?>
+         
             <div class="grid">
                 <?php foreach( $presskits as $presskit ) : ?>
 

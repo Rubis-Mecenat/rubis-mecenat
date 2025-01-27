@@ -583,6 +583,27 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_6797a20a251d2",
+                            "label": "Titre",
+                            "name": "presskits_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_673db6db26607",
                             "label": "Dossiers de presse",
                             "name": "presskits",
@@ -978,5 +999,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737643254
+    "modified": 1737990756
 }
