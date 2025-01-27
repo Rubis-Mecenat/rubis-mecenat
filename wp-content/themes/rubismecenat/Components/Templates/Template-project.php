@@ -24,9 +24,12 @@
             <div class="project_content grid -end-y h-full">
 
                 <div class="project_titles t-12col m-5col -end flex -column -end-x">
-                    <h1 class="entry-title"><?php the_title(); ?>ee</h1>
+                    <h1 class="entry-title"><?php the_title(); ?></h1>
                     <h2 class="h3 -other mb-s"><?php the_field('project_subtitle'); ?></h2>
-                    <p class="body -big -light"><?php the_field('project_place'); ?></p>                                        
+                    <p class="body -big -light"><?php the_field('project_place'); ?></p>                                       
+                    <?php if (get_field('project_date')) : ?>
+                        <p class="body -big -light mt-xs"><?php the_field('project_date'); ?></p>
+                    <?php endif; ?>
                     <?php 
                         $artists = get_field('project_artists');
                         if ($artists) : 
