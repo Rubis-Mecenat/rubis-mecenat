@@ -5,7 +5,7 @@
  * @package rubismecenat
  */
 
- $artist = get_field('edition_artist');
+ $artists = get_field('edition_artist');
 
 
 ?>
@@ -28,7 +28,15 @@
         <div class="t-12col m-6col -end entry-content">
             <div class="m-6col">
                 <h1 class="entry-title h2 -other mb-s"><?php the_title(); ?></h1>
-                <h2 class="h2 mb-s"><?php echo $artist ? $artist->post_title : '' ?></h2>
+                <?php if ($artists) : ?>
+                    <div class="mt-s mb-s">
+                        <?php
+                            foreach ($artists as $artist) {
+                                echo '<h2 class="h2 mb-xs">' . esc_html($artist->post_title) . '</h2>';
+                            }
+                        ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div class="m-6col body">
@@ -70,6 +78,6 @@
 </article><!-- #post-<?php the_ID(); ?> -->
 
 
-<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist'),  'bg' =>  false )); ?>
+<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist')[0],  'bg' =>  false )); ?>
 
 <?php get_template_part('Components/Modules/Module', 'News', array( 'title' => 'Projet lié',  'publication' =>  get_field('edition_projects') )); ?>

@@ -5,7 +5,7 @@
  * @package rubismecenat
  */
 
- $artist = get_field('edition_artist');
+ $artists = get_field('edition_artist');
 
  $categories = get_the_terms( $post->ID, 'video_cat' );
 ?>
@@ -35,7 +35,15 @@
                 ?>
             </p>
             <h1 class="entry-title h2 -other mb-s"><?php the_title(); ?></h1>
-            <h2 class="h2"><?php echo $artist ? $artist->post_title : '' ?></h2>
+            <?php if ($artists) : ?>
+                <div class="mt-s">
+                    <?php
+                        foreach ($artists as $artist) {
+                            echo '<h2 class="h2 mb-xs">' . esc_html($artist->post_title) . '</h2>';
+                        }
+                    ?>
+                </div>
+            <?php endif; ?>
         </div>
 
         <div class="t-12col m-6col body -styled">
@@ -49,7 +57,7 @@
 
 
 
-<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist') )); ?>
+<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist')[0] )); ?>
 
 
 <?php 

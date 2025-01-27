@@ -1,5 +1,5 @@
 <?php 
-    $artist = get_field('edition_artist');
+    $artists = get_field('edition_artist');
     $date = get_field('edition_date');
     $editor = get_field('edition_editor');
 ?>
@@ -23,7 +23,15 @@
             
             <div class="mb-m">
                 <h3 class="h4"><?php the_title(); ?></h3>
-                <p class="body-title"><?php echo $artist ? $artist->post_title : ''; ?></p>
+                <?php if ($artists) : ?>
+                    <div class="mt-s">
+                        <?php
+                            foreach ($artists as $artist) {
+                                echo '<p class="body-title">' . esc_html($artist->post_title) . '</p>';
+                            }
+                        ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div class="mb-l">
