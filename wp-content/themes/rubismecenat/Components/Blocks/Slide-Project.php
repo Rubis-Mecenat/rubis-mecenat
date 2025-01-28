@@ -13,17 +13,23 @@
                 <a href="<?php the_permalink(); ?>" class="-block">
 
                     <div class="d:mb-l">
-                        <h3 class="h3">
-                            <?php the_title(); ?></h3>
 
-                        <p class="h3 -other -italic">
-                            <?php the_field('project_subtitle'); ?></p>
+                        <div class="mb-l">
+                            <h3 class="h3">
+                                <?php the_title(); ?></h3>
 
-                        <p class="h3 -other">
-                            <?php the_field('project_place'); ?></p>
+                            <p class="h3 -other -italic">
+                                <?php the_field('project_subtitle'); ?></p>
+                        </div>
 
-                        <p class="-light">
-                            <?php the_field('project_artiste'); ?></p>
+                        <div>
+                            <p class="h3 -other">
+                                <?php the_field('project_place'); ?></p>
+
+                            <p class="h3 -light">
+                                <?php the_field('project_artiste'); ?></p>
+                        </div>
+
                     </div>
 
                     <span class="btn -circled-arrow on-desktop">
