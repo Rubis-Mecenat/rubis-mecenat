@@ -47,10 +47,10 @@
 		<div class="header-container flex gap-l -space -center-y">
 
 			<div class="header-brand flex -center-y -center-x">
-				<a href="/" class="logo-big" rel="home">
+				<a href="<?php echo get_bloginfo('url'); ?>" class="logo-big" rel="home">
 					<?php get_template_part('Components/Svgs/Svg', 'Logo'); ?>
 				</a>
-				<a href="/" class="logo-small" rel="home">
+				<a href="<?php echo get_bloginfo('url'); ?>" class="logo-small" rel="home">
 					<?php get_template_part('Components/Svgs/Svg', 'LogoSmall'); ?>
 				</a>
 			</div>
