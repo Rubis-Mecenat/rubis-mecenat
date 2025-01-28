@@ -28,7 +28,7 @@
                     <h2 class="h3 -other mb-s"><?php the_field('project_subtitle'); ?></h2>
                     <p class="body -big -light"><?php the_field('project_place'); ?></p>                                       
                     <?php if (get_field('project_date')) : ?>
-                        <p class="body -big -light mt-xs"><?php the_field('project_date'); ?></p>
+                        <p class="body -big -light"><?php the_field('project_date'); ?></p>
                     <?php endif; ?>
                     <?php 
                         $artists = get_field('project_artists');
