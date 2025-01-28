@@ -14,7 +14,7 @@
 
                     <div class="d:mb-l">
 
-                        <div class="mb-l">
+                        <div class="mb-m">
                             <h3 class="h3">
                                 <?php the_title(); ?></h3>
 
@@ -23,10 +23,10 @@
                         </div>
 
                         <div>
-                            <p class="h3 -other">
+                            <p class="body -big -light">
                                 <?php the_field('project_place'); ?></p>
 
-                            <p class="h3 -light">
+                            <p class="body -big -light">
                                 <?php the_field('project_artiste'); ?></p>
                         </div>
 
