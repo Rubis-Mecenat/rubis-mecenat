@@ -21,7 +21,7 @@
                             <header class="mb-l">
                                 <h2 class="h2 mb-xxs"><?php  echo $publication->post_title; ?></h2>    
                                 <div class="h2 -other mb-xxs">
-                                    <?php the_field('project_subtitle', $publication->ID); ?>
+                                    <?php echo wp_kses_post( get_field('project_subtitle', $publication->ID ) ); ?>
                                 </div>
                                 <div class="h3 -other mb-xxs">
                                     <?php the_field('project_place', $publication->ID); ?></div>

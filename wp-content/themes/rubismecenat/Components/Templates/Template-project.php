@@ -25,7 +25,7 @@
 
                 <div class="project_titles t-12col m-5col -end flex -column -end-x">
                     <h1 class="entry-title"><?php the_title(); ?></h1>
-                    <h2 class="h3 -other mb-s"><?php the_field('project_subtitle'); ?></h2>
+                    <h2 class="h3 -other mb-s"><?php  echo wp_kses_post( get_field('project_subtitle') ); ?></h2>
                     <p class="body -big -light"><?php the_field('project_place'); ?></p>                                       
                     <?php if (get_field('project_date')) : ?>
                         <p class="body -big -light"><?php the_field('project_date'); ?></p>

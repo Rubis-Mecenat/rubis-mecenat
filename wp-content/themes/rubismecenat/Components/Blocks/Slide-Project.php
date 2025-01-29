@@ -19,7 +19,7 @@
                                 <?php the_title(); ?></h3>
 
                             <p class="h3 -other -italic">
-                                <?php the_field('project_subtitle'); ?></p>
+                                <?php echo wp_kses_post( get_field('project_subtitle') ); ?></p>
                         </div>
 
                         <div>
