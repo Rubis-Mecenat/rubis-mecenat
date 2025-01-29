@@ -57,7 +57,7 @@ const initSearchScript = () => {
     const initModalTriggers = () => {
         setTimeout( () => {
             queryModalTriggers( addListenerToModalTriggers )
-        }, 300)
+        }, 1000)
     }
 
     const checkResults = () => {
@@ -91,7 +91,7 @@ const initSearchScript = () => {
                     }
                 }
 
-            }, 2000)
+            }, 1000)
     }
 
 

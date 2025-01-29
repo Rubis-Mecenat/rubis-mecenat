@@ -27,7 +27,7 @@
         <div class="">
             <h3 class="h3 -other mb-xxs"><?php the_title(); ?></h3>
             <?php if ($artists) : ?>
-                <div class="mt-s mb-s">
+                <div class="mb-xxs">
                     <?php
                         foreach ($artists as $artist) {
                             echo '<p class="h3">' . esc_html($artist->post_title) . '</p>';
