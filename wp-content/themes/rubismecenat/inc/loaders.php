@@ -99,7 +99,8 @@ function getPostTypesArray() {
     ob_start(); ?>
                      <div class="t-12col mb-xxl">
 
- <?php var_dump($query->posts); ?>
+ <?php echo '<pre>'; print_r($query->posts); echo '</pre>';?>
+
                      </div>
             <div id="foundPosts" style="display:none" data-results="<?php echo $query->found_posts; ?>" data-posttype="<?php echo $posttype; ?>"></div>
 
