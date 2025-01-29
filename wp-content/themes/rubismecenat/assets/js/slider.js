@@ -18,14 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 // when window width is >= 320px
                 320: {
                   slidesPerView: 1.2,
+                  slidesPerGroup: 1,
                   spaceBetween: 30
                 },
                 800: {
                   slidesPerView: 3,
+                  slidesPerGroup: 2,
                   spaceBetween: 30
                 },
                 1400: {
                     slidesPerView: 4,
+                    slidesPerGroup: 3,
                     spaceBetween: 30
                 }
             }
@@ -150,15 +153,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     breakpoints: {
                         320: {
-                        slidesPerView: 1.2,
-                        spaceBetween: 30
+                            slidesPerView: 1.2,
+                            slidesPerGroup: 1,
+                            spaceBetween: 30
                         },
                         600: {
-                        slidesPerView: 2.2,
-                        spaceBetween: 30
+                            slidesPerView: 2.2,
+                            slidesPerGroup: 2,
+                            spaceBetween: 30
                         },
                         1000: {
                             slidesPerView: 4.5,
+                            slidesPerGroup: 3,
                             spaceBetween: 30
                         }
                     }
