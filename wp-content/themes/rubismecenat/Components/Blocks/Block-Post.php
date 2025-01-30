@@ -25,13 +25,25 @@
                 <p class="h3 -other mb-xs"><?php echo wp_kses_post( get_field('project_subtitle') ); ?></p>
             <?php endif; ?>
 
-            <?php if( get_field('project_place') ) : ?>
-                <p class="body -big -light mb-xs"><?php the_field('project_place'); ?></p>
-            <?php endif; ?>
+            <div class="mb-xs">
 
-            <?php if( get_field('project_artiste') ) : ?>
-                <p class="-light"><?php the_field('project_artiste'); ?></p>
-            <?php endif; ?>
+                <?php if( get_field('project_artists') ) : ?>
+                    <p class="body -light mb-0">
+                        <?php $artists = get_field('project_artists');
+                            foreach( $artists as $key => $artist) : ?>
+                                <span><?php echo $key === 1 ? " - " : '';  echo $artist->post_title; ?></span>
+                        <?php endforeach; ?>
+                    </p>
+                <?php endif; ?>
+                
+                <?php if( get_field('project_place') ) : ?>
+                    <p class="body -light mb-0"><?php the_field('project_place'); ?></p>
+                <?php endif; ?>
+
+                <?php if( get_field('project_date') ) : ?>
+                    <p class="body -light mb-0"><?php the_field('project_date'); ?></p>
+                <?php endif; ?>
+            </div>
 
 
         </div>

@@ -132,6 +132,12 @@ h3, .h3 {
     &.-other {
         font-family: 'HarrietText';
         font-weight: $font-regular;
+        @include min(large) {
+            font-size: 2.2rem;
+        }
+        @include max(large) {
+            font-size: 1.8rem;
+        }
     }
     p {
         font-size: inherit;
