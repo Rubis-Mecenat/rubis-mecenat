@@ -15,24 +15,24 @@ $presskits = $args['presskits'];
             <div class="grid">
                 <?php foreach( $presskits as $presskit ) : ?>
 
-                    <div class="t-12col m-6col m:mb-l">
-                        <div class="block-presskit flex gap-l -center-y">
+                    <div class="t-12col m-12col mb-m">
+                        <div class="block-presskit">
 
-                            <div class="block_media">
+                            <!-- <div class="block_media">
                                 <img src="<?php echo $presskit['presskit_cover']; ?>">
-                            </div>
+                            </div> -->
 
-                            <div class="block_texts flex -column gap-m">
+                            <a class="block_texts flex -space -center-y gap-m" href="<?php echo $presskit['presskit_file']['url']; ?>" >
                                 <h3 class="h3 -bold">
                                     <?php echo $presskit['presskit_title']; ?>
                                     <p class="h3 -light"><?php echo $presskit['presskit_date']; ?></p>
                                 </h3>
                                 
-                                <a href="<?php echo $presskit['presskit_file']['url']; ?>" class="flex gap-s -center-y btn -filled-picto">
-                                    <span class="picto"><?php get_template_part('Components/Svgs/Svg', 'Download'); ?></span>
+                                <div class="flex gap-s -center-y btn -filled-picto">
                                     <span class="body -light"><?php echo human_filesize($presskit['presskit_file']['filesize'], 0); ?></span>
-                                </a>
-                            </div>
+                                    <span class="picto"><?php get_template_part('Components/Svgs/Svg', 'Download'); ?></span>
+                                </div>
+                            </a>
 
                         </div>
                     </div>

@@ -20,12 +20,9 @@
                         <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">
                             <header class="mb-l">
                                 <h2 class="h2 mb-xxs"><?php  echo $publication->post_title; ?></h2>    
-                                <div class="h2 -other mb-xxs">
-                                    <?php echo wp_kses_post( get_field('project_subtitle', $publication->ID ) ); ?>
-                                </div>
 
                                 <?php if( get_field('project_artists', $publication->ID) ) : ?>
-                                    <p class="h3 -light mb-s">
+                                    <p class="h2 -other mb-s">
                                         <?php $artists = get_field('project_artists', $publication->ID);
                                             foreach( $artists as $key => $artist) : ?>
                                                 <span><?php echo $key > 0 ? " & " : '';  echo $artist->post_title; ?></span>
@@ -34,6 +31,11 @@
                                 <?php endif; ?>
                                 
                                 <div class="mb-s">
+
+                                    <div class="h3 -light mb-0">
+                                        <?php echo wp_kses_post( get_field('project_subtitle', $publication->ID ) ); ?>
+                                    </div>
+                                    
                                     <?php if( get_field('project_place', $publication->ID) ) : ?>
                                         <p class="h3 -light mb-0"><?php the_field('project_place', $publication->ID); ?></p>
                                     <?php endif; ?>

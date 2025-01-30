@@ -136,6 +136,9 @@ article.slide_project {
 .block-presskit {
     background-color: $gray-light;
 
+    * {
+        text-decoration: none;
+    }
     @include max(medium) {
         padding: var(--space-m) var(--space-l) ;
     }
@@ -148,6 +151,13 @@ article.slide_project {
         height: 225px;
         object-fit: cover;
     }
+
+    a:hover {
+        .picto {
+            background-color: #9b9b9b;
+        }
+    }
+
 }
 
 

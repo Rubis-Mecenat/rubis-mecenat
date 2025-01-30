@@ -21,19 +21,19 @@
         <div class="">
             <h3 class="h3 mb-xxs"><?php the_title(); ?></h3>
             
-            <?php if( get_field('project_subtitle') ) : ?>
-                <p class="h3 -other mb-xs"><?php echo wp_kses_post( get_field('project_subtitle') ); ?></p>
+            <?php if( get_field('project_artists') ) : ?>
+                    <p class="h3 -other mb-s">
+                        <?php $artists = get_field('project_artists');
+                            foreach( $artists as $key => $artist) : ?>
+                                <span><?php echo $key > 0 ? " & " : '';  echo $artist->post_title; ?></span>
+                            <?php endforeach; ?>
+                    </p>
             <?php endif; ?>
 
             <div class="mb-xs">
 
-                <?php if( get_field('project_artists') ) : ?>
-                    <p class="body -light mb-0">
-                        <?php $artists = get_field('project_artists');
-                            foreach( $artists as $key => $artist) : ?>
-                                <span><?php echo $key > 0 ? " & " : '';  echo $artist->post_title; ?></span>
-                        <?php endforeach; ?>
-                    </p>
+                <?php if( get_field('project_subtitle') ) : ?>
+                    <p class="body -light mb-xs"><?php echo wp_kses_post( get_field('project_subtitle') ); ?></p>
                 <?php endif; ?>
                 
                 <?php if( get_field('project_place') ) : ?>
@@ -44,7 +44,6 @@
                     <p class="body -light mb-0"><?php the_field('project_date'); ?></p>
                 <?php endif; ?>
             </div>
-
 
         </div>
     </a>
