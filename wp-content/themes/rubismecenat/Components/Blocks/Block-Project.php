@@ -27,8 +27,8 @@
                     <p class="body -light mb-0">
                         <?php $artists = get_field('project_artists');
                             foreach( $artists as $key => $artist) : ?>
-                                <span><?php echo $key === 1 ? " - " : '';  echo $artist->post_title; ?></span>
-                        <?php endforeach; ?>
+                                <span><?php echo $key > 0 ? " & " : '';  echo $artist->post_title; ?></span>
+                            <?php endforeach; ?>
                     </p>
                 <?php endif; ?>
                 
