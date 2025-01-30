@@ -23,11 +23,26 @@
                                 <div class="h2 -other mb-xxs">
                                     <?php echo wp_kses_post( get_field('project_subtitle', $publication->ID ) ); ?>
                                 </div>
-                                <div class="h3 -other mb-xxs">
-                                    <?php the_field('project_place', $publication->ID); ?></div>
-                                <div class="h3 -other mb-s">
-                                    <?php the_field('project_artiste', $publication->ID); ?>
+
+                                <?php if( get_field('project_artists', $publication->ID) ) : ?>
+                                    <p class="h3 -light mb-s">
+                                        <?php $artists = get_field('project_artists', $publication->ID);
+                                            foreach( $artists as $key => $artist) : ?>
+                                                <span><?php echo $key > 0 ? " & " : '';  echo $artist->post_title; ?></span>
+                                        <?php endforeach; ?>
+                                    </p>
+                                <?php endif; ?>
+                                
+                                <div class="mb-s">
+                                    <?php if( get_field('project_place', $publication->ID) ) : ?>
+                                        <p class="h3 -light mb-0"><?php the_field('project_place', $publication->ID); ?></p>
+                                    <?php endif; ?>
+
+                                    <?php if( get_field('project_date', $publication->ID) ) : ?>
+                                        <p class="h3 -light mb-0"><?php the_field('project_date', $publication->ID); ?></p>
+                                    <?php endif; ?>
                                 </div>
+
                                 <div class="h3 -light">
                                     <?php the_field('project_practical', $publication->ID); ?>
                                 </div>
