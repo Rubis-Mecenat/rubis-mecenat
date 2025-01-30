@@ -22,11 +22,11 @@
             <?php endif; ?>
 
             <?php if( get_field('project_place') ) : ?>
-                <p class="body -big -light mb-xs"><?php the_field('project_place'); ?></p>
+                <p class="body -big -light mb-xxs"><?php the_field('project_place'); ?></p>
             <?php endif; ?>
 
             <?php if( get_field('project_date') ) : ?>
-                <p class="body -big -light mb-xs"><?php the_field('project_date'); ?></p>
+                <p class="body -big -light mb-xxs"><?php the_field('project_date'); ?></p>
             <?php endif; ?>
 
             <?php if( get_field('project_artiste') ) : ?>
