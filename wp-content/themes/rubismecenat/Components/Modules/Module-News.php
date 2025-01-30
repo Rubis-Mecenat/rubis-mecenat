@@ -18,7 +18,6 @@
                     <div class="content-container t-12col m-5col">
 
                         <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">
-
                             <header class="mb-l">
                                 <h2 class="h2 mb-xxs"><?php  echo $publication->post_title; ?></h2>    
                                 <div class="h2 -other mb-xxs">
@@ -33,11 +32,13 @@
                                     <?php the_field('project_practical', $publication->ID); ?>
                                 </div>
                             </header>
+                        </a>
 
                             <div class="body mb-m">
                                 <?php echo mb_strimwidth($publication->post_content, 0, 800, '...'); ?>
                             </div>
 
+                        <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">
                             <footer class="on-desktop">
                                 <span class="action btn" href="<?php echo get_permalink($publication->ID); ?>">
                                     <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
