@@ -70,7 +70,7 @@ function getPostTypesArray() {
 
     $args = array(
         'post_status'       => 'publish',
-        'post_per_pages'    => $step,
+        'posts_per_page'    => $step,
         'offset'            => $offset
     );
 
@@ -97,13 +97,7 @@ function getPostTypesArray() {
     $query = new WP_Query( $args );
  
     ob_start(); ?>
-                     <div class="t-12col mb-xxl">
-
-                     <?php var_dump($step); ?>
-                     <?php var_dump($query->posts); ?>
-                <?php // echo '<pre>'; print_r($query->posts); echo '</pre>';?>
-
-                     </div>
+    
             <div id="foundPosts" style="display:none" data-results="<?php echo $query->found_posts; ?>" data-posttype="<?php echo $posttype; ?>"></div>
 
             <?php if ( $query->have_posts() ) : ?>
