@@ -13,10 +13,11 @@
     <div class="mod_publication wrapper">
         <?php if( $publication ): ?>
             <article class="">
-                <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">
                 
-                    <div class="grid">
-                        <div class="content-container t-12col m-5col">
+                <div class="grid">
+                    <div class="content-container t-12col m-5col">
+
+                        <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">
 
                             <header class="mb-l">
                                 <h2 class="h2 mb-xxs"><?php  echo $publication->post_title; ?></h2>    
@@ -42,11 +43,16 @@
                                     <?php get_template_part('Components/Svgs/Svg', 'ArrowRight'); ?>
                                 </span>
                             </footer>
-                        </div>
-                        <div class="img-container t-12col m-6col -end">
-                            <?php rubismecenat_post_thumbnail( $publication->ID, 'theme_medium' ); ?>
-                        </div>
+                        </a>
+
                     </div>
+                    <div class="img-container t-12col m-6col -end">
+                        <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">
+                            <?php rubismecenat_post_thumbnail( $publication->ID, 'theme_medium' ); ?>
+                        </a>
+                    </div>
+
+                </div>
                 </a>
 
             </article>
