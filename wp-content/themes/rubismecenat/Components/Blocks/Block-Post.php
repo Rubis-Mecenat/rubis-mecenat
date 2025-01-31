@@ -33,7 +33,7 @@
             <div class="mb-xs">
 
                 <?php if( get_field('project_subtitle') ) : ?>
-                    <p class="body -light mb-xs"><?php echo wp_kses_post( get_field('project_subtitle') ); ?></p>
+                    <p class="body -other mb-xs"><?php echo wp_kses_post( get_field('project_subtitle') ); ?></p>
                 <?php endif; ?>
                 
                 <?php if( get_field('project_place') ) : ?>
