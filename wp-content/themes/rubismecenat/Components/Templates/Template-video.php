@@ -29,8 +29,10 @@
         <div class="t-12col m-6col">
             <p class="mb-s">
                 <?php 
-                	foreach ( $categories as $term ) {
-                        echo '<span class="h5">' . $term->name . ' • </span>';
+                	foreach ( $categories as $key => $term ) {
+                        echo $key > 0 ? '<span class="h5">  • ' : '<span class="h5">';
+                        echo $term->name;
+                        echo '</span>';
                     }
                 ?>
             </p>
