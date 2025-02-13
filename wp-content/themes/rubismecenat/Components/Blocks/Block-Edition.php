@@ -26,19 +26,25 @@
 
         <div class="">
 
-            <h3 class="h3 -other mb-xxs"><?php the_title(); ?></h3>
-            
+            <h3 class="h3 mb-xxs"><?php the_title(); ?></h3>
+
             <?php if ($artists) : ?>
-                <div class="mb-xxs">
+                <p class="h3 -other mb-s">
                     <?php
-                        foreach ($artists as $artist) {
-                            echo '<p class="h3">' . esc_html($artist->post_title) . '</p>';
-                        }
-                    ?>
-                </div>
+                        foreach( $artists as $key => $artist) : ?>
+                                <span><?php echo $key > 0 ? " & " : '';  echo $artist->post_title; ?></span>
+                        <?php endforeach; ?>
+                </p>
             <?php endif; ?>
-            <p class="body -light"><?php echo $editor; ?></p>
-            <p class="body -light"><?php echo $date; ?></p>
+
+            <?php if( $editor !== '' ) : ?>
+                <p class="body -light"><?php echo $editor; ?></p>
+            <?php endif; ?>
+
+            <?php if( $date !== '' ) : ?>
+                <p class="body -light"><?php echo $date; ?></p>
+            <?php endif; ?>
+
         </div>
     </a>
 </article>

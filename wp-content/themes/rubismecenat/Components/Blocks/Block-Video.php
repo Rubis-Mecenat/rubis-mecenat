@@ -25,16 +25,18 @@
         </div>
 
         <div class="">
-            <h3 class="h3 -other mb-xxs"><?php the_title(); ?></h3>
+
+            <h3 class="h3 mb-xxs"><?php the_title(); ?></h3>
+
             <?php if ($artists) : ?>
-                <div class="mb-xxs">
+                <h3 class="h3 -other mb-s">
                     <?php
-                        foreach ($artists as $artist) {
-                            echo '<p class="h3">' . esc_html($artist->post_title) . '</p>';
-                        }
-                    ?>
-                </div>
+                        foreach( $artists as $key => $artist) : ?>
+                                <span><?php echo $key > 0 ? " & " : '';  echo $artist->post_title; ?></span>
+                        <?php endforeach; ?>
+                </h3>
             <?php endif; ?>
+
             <p class="body -big -light"><?php echo $date; ?></p>
         </div>
 
