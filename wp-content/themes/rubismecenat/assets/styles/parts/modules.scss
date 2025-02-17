@@ -515,7 +515,9 @@ section[class*="mod"] {
 \*------------------------------------*/
 
 .mod_artist {
-
+    img {
+        aspect-ratio: 1/1;
+    }
 }
 
 
