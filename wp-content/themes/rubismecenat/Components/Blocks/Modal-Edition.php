@@ -44,7 +44,7 @@
             </div>
 
             <?php if( get_field('edition_file') ) : ?>
-                <a href="<?php echo get_field('edition_file')["url"]; ?>" target="_blank" class="flex gap-s -center-y mb-m btn -filled-picto">
+                <a href="<?php echo get_field('edition_file')["url"]; ?>" target="_blank" class="flex gap-s -center-y mb-m btn -filled-picto -circled-picto">
                     <p class="picto">
                         <?php get_template_part('Components/Svgs/Svg',  'Download'); ?>
                     </p>
@@ -56,7 +56,7 @@
                 </a>
 
             <?php elseif( get_field('edition_link') ) : ?>
-                <a href="<?php echo get_field('edition_link'); ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto">
+                <a href="<?php echo get_field('edition_link'); ?>" target="_blank" class="flex gap-s -center-y btn -filled-picto -circled-picto">
                     <p class="picto">
                         <?php get_template_part('Components/Svgs/Svg',  'Link'); ?>
                     </p>
@@ -67,10 +67,10 @@
                 </a>
 
             <?php else : ?>
-                <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class=" -block flex gap-s -center-y btn -circled-picto">
+                <!-- <a href="<?php the_permalink(); ?>" data-slug="<?php echo get_post_field( 'post_name', get_post() );?>" class=" -block flex gap-s -center-y btn -circled-picto">
                     <span class="picto"><?php get_template_part( 'Components/Svgs/Svg', 'Plus' ); ?></span>
                     <span class="body"><?php pll_e('Tous les détails'); ?></span>
-                </a>
+                </a> -->
 
             <?php endif; ?>
 
