@@ -187,7 +187,6 @@ article.slide_project {
 .block-edition {
     &__image {
         img {
-            aspect-ratio: unset;
             object-fit: contain;
         }
         .block_placeholder {
