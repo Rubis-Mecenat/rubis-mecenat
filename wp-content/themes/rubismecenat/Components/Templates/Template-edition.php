@@ -78,6 +78,6 @@
 </article><!-- #post-<?php the_ID(); ?> -->
 
 
-<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist')[0],  'bg' =>  false )); ?>
+<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist'),  'bg' =>  false )); ?>
 
 <?php get_template_part('Components/Modules/Module', 'News', array( 'title' => 'Projet lié',  'publication' =>  get_field('edition_projects') )); ?>

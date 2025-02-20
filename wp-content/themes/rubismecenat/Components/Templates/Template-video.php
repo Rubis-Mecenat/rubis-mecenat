@@ -59,7 +59,7 @@
 
 
 
-<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist')[0] )); ?>
+<?php get_template_part('Components/Modules/Module', 'Artist', array( 'artist' => get_field('edition_artist') )); ?>
 
 
 <?php 
