@@ -2,20 +2,30 @@
     $artist = $args['artist'];
     $bg = isset( $args['bg'] ) ? $args['bg'] : '' ;
     $border = isset( $args['border'] ) ? $args['border'] : '' ;
+
+    if( ! is_array($artist) ) {
+        $artists = array(
+            $artist 
+        );
+    }
+    else {
+        $artists = $artist;
+    }
 ?>
 
 
-<?php if($artist ) : ?>
+<?php if( $artists ) : ?>
     <section class="mod_artist mb-xxl <?php echo $bg ? '-backgrounded' : ''; ?> <?php echo $border ? '-bordered' : ''; ?>">
 
-        <div class="mod_publication wrapper">
+        <?php $i = 0; foreach( $artists as $artist ) : ?>
 
-            <header class="mod_header txt-center mb-xl">
-                <h2><?php echo $artist->post_title; ?></h2>
-            </header>
-            
-            <?php if( $artist ): ?>
-                <article>
+            <div class="mod_publication wrapper <?php echo $i > 0 ? 'mt-xxl' : ''; ?>">
+
+                <header class="mod_header txt-center mb-xl">
+                    <h2><?php echo $artist->post_title; ?></h2>
+                </header>
+                
+                    <article>
                     
                         <div class="grid d:gap-xl">
                             <div class="t-12col m-6col">
@@ -48,9 +58,9 @@
                         </div>
 
                 </article>
-            <?php endif; ?>
 
-        </div>
+            </div>
+        <?php $i++; endforeach; ?>
 
     </section>
     <?php endif; ?>
