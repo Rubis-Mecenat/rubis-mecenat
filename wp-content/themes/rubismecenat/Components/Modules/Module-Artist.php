@@ -3,14 +3,18 @@
     $bg = isset( $args['bg'] ) ? $args['bg'] : '' ;
     $border = isset( $args['border'] ) ? $args['border'] : '' ;
 
-    if( ! is_array($artist) ) {
+    if( $artist && ! is_array($artist) ) {
         $artists = array(
             $artist 
         );
     }
-    else {
+    elseif ( $artist ) {
         $artists = $artist;
     }
+    else {
+        $artists = false;
+    }
+
 ?>
 
 
