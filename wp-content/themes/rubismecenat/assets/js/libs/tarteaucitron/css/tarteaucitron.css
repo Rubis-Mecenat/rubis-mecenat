@@ -376,7 +376,7 @@ div#tarteaucitronServices {
 
 #tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronClosePanelCookie,
 #tarteaucitron #tarteaucitronClosePanel {
-    background: #707070;
+    background: #000;
     color: #fff;
     cursor: pointer;
     font-size: 12px;
@@ -423,7 +423,7 @@ div#tarteaucitronServices {
     padding: 5px 20px;
     text-align: left;
     width: auto;
-    background: #707070;
+    background: #000;
 }
 
 #tarteaucitron #tarteaucitronServices .tarteaucitronMainLine .tarteaucitronName a,
@@ -489,7 +489,7 @@ div#tarteaucitronServices {
 }
 
 #tarteaucitron #tarteaucitronServices .tarteaucitronMainLine {
-    background: #707070;
+    background: #000;
     border: 3px solid #707070;
     border-left: 9px solid #707070;
     border-top: 5px solid #707070;
@@ -499,7 +499,7 @@ div#tarteaucitronServices {
 }
 
 #tarteaucitron #tarteaucitronServices .tarteaucitronMainLine:hover {
-    background: #707070;
+    background: #000;
 }
 
 #tarteaucitron #tarteaucitronServices .tarteaucitronMainLine .tarteaucitronName {
@@ -555,7 +555,7 @@ div#tarteaucitronServices {
 }
 #tarteaucitron #tarteaucitronServices #tarteaucitronAllDenied.tarteaucitronIsSelected,
 #tarteaucitron #tarteaucitronServices #tarteaucitronAllDenied2.tarteaucitronIsSelected {
-    background-color: #3DFA05;
+    background-color: #ff1332;
     opacity: 1;
 }
 
@@ -564,7 +564,7 @@ div#tarteaucitronServices {
     background-color: #1F5DA5;
 }
 #tarteaucitron #tarteaucitronServices .tarteaucitronLine.tarteaucitronIsDenied .tarteaucitronDeny {
-    background-color: #3DFA05;
+    background-color: #ff1332;
 }
 
 #tarteaucitron #tarteaucitronServices #tarteaucitronServices_mandatory .tarteaucitronLine button.tarteaucitronAllow{
@@ -590,7 +590,7 @@ span#tarteaucitronDisclaimerAlert {
     display: inline-block;
 }
 #tarteaucitron .tarteaucitronBorder, #tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronCookiesListMain, #tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList, #tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesList .tarteaucitronHidden, #tarteaucitron #tarteaucitronServices .tarteaucitronMainLine {
-    border-color: #707070!important;
+    border: none;
 }
 
 /***
@@ -605,7 +605,7 @@ span#tarteaucitronDisclaimerAlert {
 }
 
 #tarteaucitronRoot #tarteaucitronAlertBig {
-    background: #707070f0;
+    background: #000;
     color: #fff;
     display: none;
     font-size: 15px !important;
@@ -623,7 +623,7 @@ span#tarteaucitronDisclaimerAlert {
 #tarteaucitronAlertBig #tarteaucitronPrivacyUrlDialog,
 #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert,
 #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert strong {
-    font: 15px verdana;
+    font: 15px inherit;
     color: #fff;
 }
 
@@ -656,7 +656,7 @@ span#tarteaucitronDisclaimerAlert {
 }
 
 #tarteaucitronRoot .tarteaucitronDeny {
-    background: #9C1A1A;
+    background: #ff1332;
 }
 
 #tarteaucitronAlertBig #tarteaucitronCloseAlert, #tarteaucitron #tarteaucitronPrivacyUrl, #tarteaucitron #tarteaucitronPrivacyUrlDialog {
@@ -762,7 +762,7 @@ span#tarteaucitronDisclaimerAlert {
 }
 
 #tarteaucitronAlertSmall {
-    background: #707070;
+    background: #000;
     display: none;
     padding: 0;
     position: fixed;
@@ -813,7 +813,7 @@ span#tarteaucitronDisclaimerAlert {
 }
 
 #tarteaucitronAlertSmall #tarteaucitronManager #tarteaucitronDot #tarteaucitronDotRed {
-    background-color: #3DFA05;
+    background-color: #ff1332;
 }
 
 #tarteaucitronAlertSmall #tarteaucitronCookiesNumber {
@@ -854,7 +854,7 @@ span#tarteaucitronDisclaimerAlert {
 }
 
 #tarteaucitronAlertSmall #tarteaucitronCookiesListContainer #tarteaucitronCookiesTitle {
-    background: #707070;
+    background: #000;
     margin-top: 21px;
     padding: 13px 0 9px 13px;
     text-align: left;

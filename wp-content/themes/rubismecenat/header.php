@@ -19,25 +19,8 @@
 
 	<?php wp_head(); ?>
 
-	<!-- Matomo -->
-	<script>
-	var _paq = window._paq = window._paq || [];
-	/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-	_paq.push(['trackPageView']);
-	_paq.push(['enableLinkTracking']);
-	(function() {
-		var u="//stats.rubismecenat.fr/";
-		_paq.push(['setTrackerUrl', u+'matomo.php']);
-		_paq.push(['setSiteId', '1']);
-		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-	})();
-	</script>
-	<!-- End Matomo Code -->
-	
-
+	<!-- TarteAuCitron Cookies -->
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/libs/tarteaucitron/tarteaucitron.js"></script>
-
 	<script type="text/javascript">
 		tarteaucitron.init({
 		"privacyUrl": "", /* Privacy policy url */
@@ -55,7 +38,7 @@
 						
 		"closePopup": false, /* Show a close X on the banner */
 
-		"showIcon": true, /* Show cookie icon to manage cookies */
+		"showIcon": false, /* Show cookie icon to manage cookies */
 		//"iconSrc": "", /* Optionnal: URL or base64 encoded image */
 		"iconPosition": "BottomRight", /* BottomRight, BottomLeft, TopRight and TopLeft */
 
@@ -71,18 +54,31 @@
 		"moreInfoLink": true, /* Show more info link */
 
 		"useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
-		"useExternalJs": false, /* If false, the tarteaucitron.js file will be loaded */
-
-		//"cookieDomain": ".my-multisite-domaine.fr", /* Shared cookie for multisite */
-						
+		"useExternalJs": false, /* If false, the tarteaucitron.js file will be loaded */						
 		"readmoreLink": "", /* Change the default readmore link */
 
 		"mandatory": true, /* Show a message about mandatory cookies */
 		"mandatoryCta": true /* Show the disabled accept button when mandatory on */
 		});
-		(tarteaucitron.job = tarteaucitron.job || []).push('youtube');
+		(tarteaucitron.job = tarteaucitron.job || []).push('vimeo');
 	</script>
 
+
+	<!-- Matomo -->
+	<script>
+	var _paq = window._paq = window._paq || [];
+	/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	_paq.push(['trackPageView']);
+	_paq.push(['enableLinkTracking']);
+	(function() {
+		var u="//stats.rubismecenat.fr/";
+		_paq.push(['setTrackerUrl', u+'matomo.php']);
+		_paq.push(['setSiteId', '1']);
+		var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+		g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	})();
+	</script>
+	<!-- End Matomo Code -->
 
 </head>
 
