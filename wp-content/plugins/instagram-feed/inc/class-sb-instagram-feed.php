@@ -490,7 +490,7 @@ class SB_Instagram_Feed
 				if ( !empty( $results ) && is_array( $results ) ) {
 
 					foreach ( $results as $result ) {
-						$sizes = maybe_unserialize( $result['sizes'] );
+						$sizes = Util::safe_unserialize( $result['sizes'] );
 						if ( ! is_array( $sizes ) ) {
 							$sizes = array( 'full' => 640 );
 						}
@@ -522,7 +522,7 @@ class SB_Instagram_Feed
 				if ( !empty( $results ) && is_array( $results ) ) {
 
 					foreach ( $results as $result ) {
-						$sizes = maybe_unserialize( $result['sizes'] );
+						$sizes = Util::safe_unserialize( $result['sizes'] );
 						if ( ! is_array( $sizes ) ) {
 							$sizes = array( 'full' => 640 );
 						}
