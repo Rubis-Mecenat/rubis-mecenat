@@ -140,6 +140,8 @@ function rubismecenat_scripts() {
 	wp_register_style('sbi_styles_custom', get_template_directory_uri() . '/assets/sbi_custom.css', array(), _S_VERSION );
     wp_dequeue_script( 'jquery');
     wp_deregister_script( 'jquery');
+	wp_deregister_style('wc-block-vendors-style');
+    wp_dequeue_style('wc-block-vendors-style');
 
 }
 add_action( 'wp_enqueue_scripts', 'rubismecenat_scripts' );
