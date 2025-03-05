@@ -9,6 +9,7 @@
     
     @include max(medium) {
         margin-bottom: var(--space-xl);
+        top: 0;
     }
     @include min(medium) {
         @include wrapper();
