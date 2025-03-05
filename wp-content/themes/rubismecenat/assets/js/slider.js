@@ -167,10 +167,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             slidesPerGroup: 3,
                             spaceBetween: 30
                         }
-                    }
+                    },
+                    on: {
+                        init: function () {
+                          console.log('swiper initialized');
+
+                          document.querySelectorAll('#sb_instagram #sbi_images .sbi_item').forEach( (element) => {
+                            element.classList.remove('sbi_transition');
+                          })
+                        },
+                    },
                 });
 
-                console.log(sbi_carousel);
         }
 
 
