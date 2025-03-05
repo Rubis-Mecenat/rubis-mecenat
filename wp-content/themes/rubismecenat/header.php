@@ -61,6 +61,7 @@
 		"mandatoryCta": true /* Show the disabled accept button when mandatory on */
 		});
 		(tarteaucitron.job = tarteaucitron.job || []).push('vimeo');
+		(tarteaucitron.job = tarteaucitron.job || []).push('matomo');
 	</script>
 
 
