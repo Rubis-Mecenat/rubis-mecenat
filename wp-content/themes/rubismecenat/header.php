@@ -151,6 +151,14 @@
 					
 					<div class="mt-l mb-l">
 						<?php wp_nav_menu( array(
+							'theme_location' => 'menu-footer-1',
+							'menu_id'        => 'footer-menu',
+							'menu_class'	 => 'menu-footer-1 menu flex -column gap-s',
+						)); ?>
+					</div>
+
+					<div class="mt-l mb-l">
+						<?php wp_nav_menu( array(
 							'theme_location' => 'menu-footer-2',
 							'menu_id'        => 'footer-menu',
 							'menu_class'	 => 'menu-footer-2 menu flex -column gap-s',
