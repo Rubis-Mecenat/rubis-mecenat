@@ -118,6 +118,7 @@ body:has(.burger-input[checked="checked"]) {
 
                 .menu, .menu-footer-last {
                     padding: 0;
+                    flex-wrap: wrap;
                 }
             }
 
