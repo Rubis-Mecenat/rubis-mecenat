@@ -289,20 +289,16 @@ section[class*="mod"] {
                 min-height: 65vh;
             }
         }
-
-    
-
     }
     .mod_content {
         @include min(medium) {
             height: calc(100% - var(--space-xl) * 2);
         }
-        @include max(large) {
-            height: calc(100% - 40px);
+        @include max(medium) {
+//            height: calc(100% - 40px);
             margin-top: 20px;
             margin-bottom: 20px;
         }
-
 
         &:not(.-opaque) {
             opacity: 0.9;
