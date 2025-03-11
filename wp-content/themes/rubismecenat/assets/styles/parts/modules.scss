@@ -293,6 +293,15 @@ section[class*="mod"] {
     .mod_content {
         @include min(medium) {
             height: calc(100% - var(--space-xl) * 2);
+            
+            .body-title p {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                line-clamp: 5;
+                -webkit-line-clamp: 5;
+            }
+
         }
         @include max(medium) {
 //            height: calc(100% - 40px);
@@ -320,13 +329,7 @@ section[class*="mod"] {
             text-decoration: none;
         }
 
-        .body-title p {
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            line-clamp: 5;
-            -webkit-line-clamp: 5;
-        }
+
     }
     .swiper-wrapper {
         // margin-top: var(--space-m);
