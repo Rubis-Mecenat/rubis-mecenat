@@ -14,7 +14,7 @@
         </div>
     <?php endif; ?>
 
-    <div class="grid gap-l wrapper <?php echo '-'.$design; ?>">
+    <div class="grid gap-s wrapper <?php echo '-'.$design; ?>">
 
         <div class="t-12col m-6col <?php echo $design === 'left' ? '-end' : ''; ?> mod_txt">
             <div class="body"><?php echo $content; ?></div>
