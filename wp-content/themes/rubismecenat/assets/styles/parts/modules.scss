@@ -403,7 +403,7 @@ section[class*="mod"] {
     }
 
     & + & {
-        margin-top: calc( var(--space-xl) * -1);
+        //margin-top: calc( var(--space-xl) * -1);
     }
 }
 
