@@ -403,7 +403,9 @@ section[class*="mod"] {
     }
 
     & + & {
-        //margin-top: calc( var(--space-xl) * -1);
+        @include min(large) {
+            margin-top: calc( var(--space-xl) * -1);
+        }
     }
 }
 
