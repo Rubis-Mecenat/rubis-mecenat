@@ -54,7 +54,6 @@ Font face
     src: url('fonts/harrietText/HarrietText-Regular-Italic.woff2') format('woff2'),
          url('fonts/harrietText/HarrietText-Regular-Italic.ttf') format('truetype');
     font-weight: 400;
-    font-style: italic;
     font-display: swap;
 }
 
@@ -63,7 +62,6 @@ Font face
     src: url('fonts/harrietText/HarrietText-Bold-Italic.woff2') format('woff2'),
          url('fonts/harrietText/HarrietText-Bold-Italic.ttf') format('truetype');
     font-weight: 700;
-    font-style: italic;
     font-display: swap;
 }
 
@@ -131,6 +129,7 @@ h3, .h3 {
     }
     &.-other {
         font-family: 'HarrietText';
+        font-style: italic;
         font-weight: $font-regular;
         
         @include min(large) {
@@ -171,6 +170,7 @@ p, .body {
     }
     &.-other {
         font-family: 'HarrietText';
+        font-style: italic;
     }
     &.-gray {
         color: $gray-mid;
@@ -250,6 +250,7 @@ p, .body {
     font-size: 1.6rem;
     font-weight: $font-bold;
     font-family: 'HarrietText';
+    font-style: italic;
 }
 
 .credit {
