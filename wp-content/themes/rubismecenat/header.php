@@ -67,7 +67,8 @@
 
 	<?php 
 	$host = $_SERVER['HTTP_HOST']; 
-	if($host === "www.rubismecenat.fr" ) : ?>
+	var_dump($host);
+	if($host == "www.rubismecenat.fr" ) : ?>
 
 		<!-- Matomo -->
 		<script>
