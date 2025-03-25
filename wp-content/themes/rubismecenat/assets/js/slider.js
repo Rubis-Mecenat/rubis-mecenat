@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         qsa('.js-slide-trigger').forEach( el => {
             el.addEventListener('click', (event) => {
-                console.log('js-slide-trigger', el)
+                // console.log('js-slide-trigger', el)
                 const index = el.getAttribute('data-slide');
                 swiperCarousel.slideTo(index, 600)
             });
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const sbi_images = document.querySelector('#sbi_images');
 
         if(sb_instagram) {
-            console.log(sbi_images);
+            // console.log(sbi_images);
 
                 let sbi_carousel = new Swiper(sbi_images, {
                     spaceBetween: 30,
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     on: {
                         init: function () {
-                          console.log('swiper initialized');
+                        //   console.log('swiper initialized');
 
                           document.querySelectorAll('#sb_instagram #sbi_images .sbi_item').forEach( (element) => {
                             element.classList.remove('sbi_transition');

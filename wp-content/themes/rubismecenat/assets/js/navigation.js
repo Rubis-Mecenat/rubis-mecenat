@@ -2,7 +2,6 @@
 
 	const header = qs('#masthead');
 
-	console.log('navigation');
 
   /*------------------------------------*\
     NO SCROLL

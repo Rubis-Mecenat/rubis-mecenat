@@ -3,8 +3,6 @@
 
 const initSearchScript = () => {
 
-    console.log('loaders')
-
     
     /*------------------------------------*\
         VARIABLES
@@ -68,9 +66,9 @@ const initSearchScript = () => {
                 
                 postFounds = qs('#foundPosts').getAttribute('data-results');
                 posttype = qs('#foundPosts').getAttribute('data-posttype');
-                console.log('posttype', posttype)
-                console.log('postFounds', postFounds)
-                console.log('offset', offset)
+                // console.log('posttype', posttype)
+                // console.log('postFounds', postFounds)
+                // console.log('offset', offset)
 
                 if( offset === 0 ) {
                     if( postFounds < step ) {
@@ -164,7 +162,7 @@ const initSearchScript = () => {
     //////////////////
 
     const fetchAndDisplayDatas = async ( append = false ) => {
-        console.log('fetchAndDisplayDatas', data)
+        // console.log('fetchAndDisplayDatas', data)
 
         data.set('action', 'filter_content');
 
@@ -197,7 +195,7 @@ const initSearchScript = () => {
     //////////////////
 
     const fetchAndDisplayPostContent = async ( el ) => {
-        console.log('fetchAndDisplayPostContent')
+        // console.log('fetchAndDisplayPostContent')
 
         // DATAS
         data.set('action', 'load_popin');
