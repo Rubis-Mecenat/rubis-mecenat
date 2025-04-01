@@ -76,7 +76,7 @@
 		_paq.push(['trackPageView']);
 		_paq.push(['enableLinkTracking']);
 		(function() {
-			var u="http://stats.rubismecenat.fr/";
+			var u="//stats.rubismecenat.fr/";
 			_paq.push(['setTrackerUrl', u+'matomo.php']);
 			_paq.push(['setSiteId', '1']);
 			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
@@ -84,7 +84,7 @@
 		})();
 		</script>
 		<!-- End Matomo Code -->
-		
+				
 	<?php endif; ?>
 
 
