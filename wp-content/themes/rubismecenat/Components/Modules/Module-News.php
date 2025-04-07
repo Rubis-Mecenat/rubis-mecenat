@@ -65,7 +65,7 @@
 
                     </div>
                     <div class="img-container t-12col m-6col -end">
-                        <a class="-block" href="<?php echo get_permalink($publication->ID); ?>">
+                        <a class="-block" aria-label="Afficher la publication <?php the_title(); ?>" href="<?php echo get_permalink($publication->ID); ?>" title="Afficher la publication <?php the_title(); ?>">
                             <?php rubismecenat_post_thumbnail( $publication->ID, 'theme_medium' ); ?>
                         </a>
                     </div>

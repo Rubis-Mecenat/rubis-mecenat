@@ -101,10 +101,10 @@
 		<div class="header-container flex gap-l -space -center-y">
 
 			<div class="header-brand flex -center-y -center-x">
-				<a href="<?php echo get_bloginfo('url'); ?>" class="logo-big" rel="home">
+				<a href="<?php echo get_bloginfo('url'); ?>" class="logo-big" rel="home" aria-label="Retourner à la page d'accueil">
 					<?php get_template_part('Components/Svgs/Svg', 'Logo'); ?>
 				</a>
-				<a href="<?php echo get_bloginfo('url'); ?>" class="logo-small" rel="home">
+				<a href="<?php echo get_bloginfo('url'); ?>" class="logo-small" rel="home" aria-label="Retourner à la page d'accueil">
 					<?php get_template_part('Components/Svgs/Svg', 'LogoSmall'); ?>
 				</a>
 			</div>
@@ -144,7 +144,7 @@
 					</nav><!-- #site-navigation -->
 
 					<nav class="search <?php echo is_search() ? 'current-menu-item' : ''; ?>">
-						<a href="/?s=">
+						<a href="/?s=" aria-label="Effectuer une recherche sur le site">
 							<?php get_template_part('Components/Svgs/Svg', 'Search'); ?>
 						</a>
 					</nav>

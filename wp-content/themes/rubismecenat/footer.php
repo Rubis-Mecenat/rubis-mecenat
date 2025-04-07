@@ -96,7 +96,7 @@
 
 
 <div id="modal" class="modal">
-	<button id="modal-close" class="close">
+	<button id="modal-close" class="close" aria-label="fermer la modal">
 		<?php get_template_part( 'Components/Svgs/Svg', 'Close' ); ?>
 	</button>
 	<div id="modal-inner" class="wrapper modal-inner"></div>
