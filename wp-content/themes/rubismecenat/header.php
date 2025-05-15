@@ -66,9 +66,6 @@
 	</script>
 
 
-	<?php 
-	$host = $_SERVER['HTTP_HOST']; 
-	if($host == "www.rubismecenat.fr" ) : ?>
 
 			<!-- Matomo -->
 			<script>
@@ -85,10 +82,7 @@
 			})();
 			</script>
 			<!-- End Matomo Code -->
-
-				
-	<?php endif; ?>
-
+ 
 
 
 </head>
