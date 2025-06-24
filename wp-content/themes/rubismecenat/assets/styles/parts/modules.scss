@@ -428,7 +428,7 @@ section[class*="mod"] {
             flex-grow: 1;
 
             @include min(large) {
-                height: 600px;
+                height: 650px;
                 max-height: 55vh;
             }
             
