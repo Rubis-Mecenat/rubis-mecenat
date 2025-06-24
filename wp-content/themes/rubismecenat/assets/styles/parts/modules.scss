@@ -426,8 +426,11 @@ section[class*="mod"] {
 
         figure {
             flex-grow: 1;
-            height: 500px;
-            max-height: 40vh;
+
+            @include min(large) {
+                height: 600px;
+                max-height: 55vh;
+            }
             
             img {
                 object-fit: cover;
