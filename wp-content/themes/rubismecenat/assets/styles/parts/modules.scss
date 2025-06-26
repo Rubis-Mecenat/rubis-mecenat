@@ -265,7 +265,12 @@ section[class*="mod"] {
 \*------------------------------------*/
 
 .horizontal-slide .mod_parent_nav {
-    left: unset;
+    @include min(medium) {
+        left: unset;
+    }
+    @include min(medium) {
+        left: 30px;
+    }
 }
 
 .mod_carousel-horizontal {
