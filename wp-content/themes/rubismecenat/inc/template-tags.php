@@ -148,7 +148,7 @@ if ( ! function_exists( 'rubismecenat_attachment' ) ) :
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function rubismecenat_attachment( $attachment, $classes = array() ) {
+	function rubismecenat_attachment( $attachment, $classes = array(), $size = 'theme_medium' ) {
 		$alt = get_post_meta ( $attachment['ID'], '_wp_attachment_image_alt', true );
 		$title = get_the_title ( $attachment['ID'] );
 		$caption = wp_get_attachment_caption ( $attachment['ID']);
@@ -156,7 +156,7 @@ if ( ! function_exists( 'rubismecenat_attachment' ) ) :
 
 		?>
                 <figure class="is-relative <?php echo isset($classes['figure_class']) ? $classes['figure_class'] : ''; ?>">
-                    <img src="<?php echo $attachment['sizes']['theme_medium']; ?>" class=" <?php echo isset($classes['img_class']) ? $classes['img_class'] : ''; ?>">
+                    <img src="<?php echo $attachment['sizes'][$size]; ?>" class=" <?php echo isset($classes['img_class']) ? $classes['img_class'] : ''; ?>">
                     <div class="thumbnail_captions flex -space">
                         <p class="credit"><?php echo $caption; ?></p>
                         <p class="caption"><?php echo $alt; ?></p>
