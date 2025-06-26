@@ -9,7 +9,7 @@
         <div class="visual-grid">
             <?php 
                 foreach( $visuals as $visual ): 
-                    rubismecenat_attachment($visual, null, 'theme_small');
+                    rubismecenat_attachment($visual, null, 'theme_grid');
                 endforeach; ?>
         </div>
     <?php endif; ?>

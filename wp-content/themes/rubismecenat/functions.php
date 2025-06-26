@@ -172,6 +172,7 @@ function wpdocs_theme_setup() {
     add_image_size( 'theme_tiny', 200 );
 	add_image_size( 'theme_small', 500 );
 	add_image_size( 'theme_medium', 700 );
+	add_image_size( 'theme_grid', 1400, 600 );
 	add_image_size( 'theme_large', 1300 );
 	add_image_size( 'theme_wide', 1800 );
 }
