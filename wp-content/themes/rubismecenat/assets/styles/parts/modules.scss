@@ -268,7 +268,7 @@ section[class*="mod"] {
     @include min(medium) {
         left: unset;
     }
-    @include min(medium) {
+    @include max(medium) {
         left: 30px;
     }
 }
