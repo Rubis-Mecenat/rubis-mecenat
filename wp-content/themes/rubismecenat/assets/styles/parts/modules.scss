@@ -428,8 +428,8 @@ section[class*="mod"] {
             flex-grow: 1;
 
             @include min(large) {
-                height: 650px;
-                max-height: 55vh;
+                height: 600px;
+                max-height: 50vh;
             }
             
             img {
