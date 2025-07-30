@@ -49,9 +49,12 @@ SQL;
 		if ( empty( $limit ) ) {
 			$this->core->reset_issues();
 			$this->core->reset_references();
+			$this->core->reset_cached_references();
+			$this->core->reset_progress(  );
 		}
 
 		$method = $this->core->current_method;
+
 
 		// Check content is a different option depending on the method
 		$check_content = false;
@@ -94,6 +97,8 @@ SQL;
 				do_action( 'wpmc_scan_widgets' );
 			//}
 			do_action( 'wpmc_scan_once' );
+
+			
 		}
 
 		$this->core->timeout_check_start( count( $posts ) );
@@ -116,10 +121,19 @@ SQL;
 
 		// Write the references found (and cached) by the parsers
 		$this->core->write_references();
+		$this->core->save_progress( 'extractReferencesFromContent', array(
+			'type' => 'content',
+			'limit' => $limit,
+			'limitSize' => $limitsize
+		) );
 
 		$finished = count( $posts ) < $limitsize;
 		if ( $finished )
+		{
 			$this->core->log();
+			$this->core->save_progress( 'extractReferencesFromContent_finished' );
+		}
+
 		$elapsed = $this->core->timeout_get_elapsed();
 		$message = sprintf(
 			// translators: %1$d is number of posts, %2$s is time in milliseconds
@@ -159,10 +173,18 @@ SQL;
 
 		// Write the references found (and cached) by the parsers
 		$this->core->write_references();
+		$this->core->save_progress( 'extractReferencesFromLibrary', array(
+			'type' => 'library',
+			'limit' => $limit,
+			'limitSize' => $limitsize
+		) );
 
 		$finished = count( $medias ) < $limitsize;
 		if ( $finished )
+		{
+			$this->core->save_progress( 'extractReferencesFromLibrary_finished' );
 			$this->core->log();
+		}
 		$elapsed = $this->core->timeout_get_elapsed();
 		$message = sprintf( __( "Extracted references from %d medias in %s.", 'media-cleaner' ), count( $medias ), $elapsed );
 		return $finished;
