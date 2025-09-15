@@ -1,11 +1,11 @@
 <?php
 /**
- * LiteSpeed Cache General Settings
+ * LiteSpeed Cache OptimaX
  *
- * Manages general settings interface for LiteSpeed Cache.
+ * Manages the OptimaX interface for LiteSpeed Cache.
  *
  * @package LiteSpeed
- * @since 1.0.0
+ * @since 8.0
  */
 
 namespace LiteSpeed;
@@ -13,14 +13,13 @@ namespace LiteSpeed;
 defined( 'WPINC' ) || exit;
 
 $menu_list = array(
-    'online'          => esc_html__( 'Online Services', 'litespeed-cache' ),
-    'settings'        => esc_html__( 'General Settings', 'litespeed-cache' ),
-    'settings_tuning' => esc_html__( 'Tuning', 'litespeed-cache' ),
+    'summary'  => esc_html__( 'OptimaX Summary', 'litespeed-cache' ),
+    'settings' => esc_html__( 'OptimaX Settings', 'litespeed-cache' ),
 );
 
 if ( is_network_admin() ) {
     $menu_list = array(
-        'network_settings' => esc_html__( 'General Settings', 'litespeed-cache' ),
+        'network_settings' => esc_html__( 'OptimaX Settings', 'litespeed-cache' ),
     );
 }
 
@@ -28,7 +27,7 @@ if ( is_network_admin() ) {
 
 <div class="wrap">
     <h1 class="litespeed-h1">
-        <?php esc_html_e( 'LiteSpeed Cache General Settings', 'litespeed-cache' ); ?>
+        <?php esc_html_e( 'LiteSpeed Cache OptimaX', 'litespeed-cache' ); ?>
     </h1>
     <span class="litespeed-desc">
         v<?php echo esc_html( Core::VER ); ?>
@@ -45,7 +44,7 @@ if ( is_network_admin() ) {
         <?php
         foreach ( $menu_list as $menu_key => $val ) {
             echo '<div data-litespeed-layout="' . esc_attr( $menu_key ) . '">';
-            require LSCWP_DIR . 'tpl/general/' . $menu_key . '.tpl.php';
+            require LSCWP_DIR . 'tpl/optimax/' . $menu_key . '.tpl.php';
             echo '</div>';
         }
         ?>
