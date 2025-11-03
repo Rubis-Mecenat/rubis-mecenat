@@ -209,6 +209,10 @@ section[class*="mod"] {
             border: 50px solid $accent-color;
             padding: var(--space-xxl) 0;
         }
+
+        & + section[class*="mod"] {
+            margin-top: var(--space-xxl);
+        }
     }
     &.-backgrounded:last-child {
         margin-bottom: 0;
