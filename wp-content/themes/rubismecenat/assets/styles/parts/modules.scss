@@ -210,7 +210,7 @@ section[class*="mod"] {
             padding: var(--space-xxl) 0;
         }
 
-        & + section[class*="mod"] {
+        & + .mod_visual-grid {
             margin-top: var(--space-xxl);
         }
     }
