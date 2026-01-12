@@ -5,7 +5,7 @@ Donate link: https://www.patreon.com/meowapps
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 7.0.0
+Stable tag: 7.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,21 @@ This plugin is compatible with all media types, including retina and WebP versio
 1. Media -> Media Cleaner
 
 == Changelog ==
+
+= 7.0.2 (2026/01/05) =
+* Fix: Prevent warnings and errors caused by empty HTML output and broken shortcodes.
+* Add: Support FooGallery album shortcodes for better gallery integration.
+* Add: Display icons for reference tags including SAFE, CACHE, OG_THUMB, and GEN_THUMB.
+* Update: Improve FooGallery handling by supporting non-HTML shortcode output and flagging cached media items.
+* Update: Remove the transient cache for post types and include the post ID in reference data.
+* Fix: Correct the JetEngine parser to ensure dynamic content is detected and rendered properly.
+
+= 7.0.1 (2025/12/16) =
+* Add: Introduced scan resume support for both Thumbnails and Duplicates scans.
+* Fix: Prevented an error in the Metabox parser caused by treating text values like lists.
+* Fix: Ensured the “Repair x Entries” notice only appears while repair mode is active.
+* Add: Added a new “Optimize Thumbnails” feature.
+* Add: Added support for Toolset.
 
 = 7.0.0 (2025/12/03) =
 * Fix: Prevent the plugin from loading on pages where it is not needed.

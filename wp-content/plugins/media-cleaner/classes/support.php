@@ -272,6 +272,11 @@ class Meow_WPMC_Support {
       array_push( $unsupported, 'Fluent Forms' );
     }
 
+    //Toolset
+		if ( defined( 'TYPES_VERSION' ) || defined( 'WPCF_VERSION' ) ) {
+			array_push( $unsupported, 'Toolset' );
+		}
+
     return $unsupported;
   }
 }
