@@ -36,3 +36,4 @@ _.php
 /node_modules
 package-lock.json
 /wp-content/plugins/duplicate-page
+wp-content/upgrade-temp-backup/plugins/polylang/admin/admin-base.php
