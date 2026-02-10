@@ -5,7 +5,7 @@ Donate link: https://www.patreon.com/meowapps
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 7.0.2
+Stable tag: 7.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,6 +48,13 @@ This plugin is compatible with all media types, including retina and WebP versio
 1. Media -> Media Cleaner
 
 == Changelog ==
+
+= 7.0.3 (2026/01/27) =
+* Add: Added full support for newer versions of the Oxygen builder.
+* Fix: Updated the Divi integration so URLs with direct UR patterns are no longer incorrectly marked as safe.
+* Update: Extended Divi 5 support by recognizing mp4 and webm keys for background videos and the new "linkUrl" key in Divi blocks.
+* Update: Improved Elementor compatibility by having the parser also check page settings for relevant data.
+* Update: Made excluded directories easier to customize by turning them into a configurable setting that developers can filter.
 
 = 7.0.2 (2026/01/05) =
 * Fix: Prevent warnings and errors caused by empty HTML output and broken shortcodes.

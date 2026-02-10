@@ -482,7 +482,7 @@ class Meow_WPMC_Core {
 	// SImply use regex to get URLs from a string return an array of URLs
 	function get_urls_from_string( $string ) {
 		$urls = array();
-		$pattern = '/https?:\/\/[^\s"\']+/i';
+		$pattern = '/(https?:\/\/[^\s\"\'\>\<\?\#]+\.(' . $this->types . '))/i';
 		if ( preg_match_all( $pattern, $string, $matches ) ) {
 			foreach ( $matches[0] as $match ) {
 				$clean_url = $this->clean_url( $match );
