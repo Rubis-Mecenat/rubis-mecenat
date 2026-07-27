@@ -3,9 +3,9 @@ Contributors: TigrouMeow
 Tags: clean, media, files, images, library
 Donate link: https://www.patreon.com/meowapps
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 7.0.9
+Stable tag: 7.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,10 @@ Media Cleaner is like a ninja assassin for your Media Library - it'll stealthily
 To learn more about compatibility, features, and the Pro version, check out the [tutorial](https://meowapps.com/media-cleaner/tutorial/) on the [official website](https://meowapps.com/media-cleaner/).
 
 [youtube https://www.youtube.com/watch?v=qmDSgWZWnSw]
+
+=== AI ASSISTANTS (MCP) ===
+
+Media Cleaner can be driven by an AI assistant, through the MCP server of [AI Engine](https://wordpress.org/plugins/ai-engine/). Enable MCP in the Media Cleaner settings, and your assistant (Claude, ChatGPT, and the others) is able to run a scan, read the results, explain why a media was reported, ignore the false positives, and clean up. It is not a black box: the tools tell the assistant which builders and plugins are supported on your site, which ones are not, and what the scan cannot see, so it can warn you and check the doubtful cases instead of trusting the results blindly. Deleted files still go to the trash, and a permanent deletion always requires your explicit confirmation.
 
 === COMPATIBILITY ===
 
@@ -48,6 +52,58 @@ This plugin is compatible with all media types, including retina and WebP versio
 1. Media -> Media Cleaner
 
 == Changelog ==
+
+= 7.2.5 (2026/07/25) =
+* Fix: Document size validation no longer stops scans, and the size limit is now configurable.
+* Add: Force Clean Trash option in the settings for trash items that cannot be removed normally.
+* Add: Dashboard warning when the manifest contains unsafe entries.
+* Update: Error messages for failed items are now grouped in scan results.
+* Update: Files are marked as unsafe instead of aborting the scan when fingerprinting fails.
+
+= 7.2.4 (2026/07/18) =
+* Fix: Stopped a single oversized media reference from aborting the whole scan.
+* Update: Moved the unsupported plugins warning into the free version box as a compact note next to the Pro button.
+
+= 7.2.3 (2026/07/16) =
+* Fix: Trash recovery no longer requires a scan — recovered files are always available regardless of scan state.
+* Add: Dashboard now shows a cleanup status message explaining when a fresh scan is needed.
+* Update: Trash buttons are hidden while a scan is staged, preventing actions the server would refuse.
+* Fix: Background images set in the Site Editor are now detected during scans.
+* Fix: Hotfix — Results created before the scan-runs system are now properly adopted on update and reactivation, restoring cleanup and trash previews.
+* Fix: MCP trashing no longer deletes files when the trash setting is skipped, and no longer reports unsaved progress.
+* Update: Trash previews are now restricted to raster images.
+* Update: Deleting results from an older scanner version now requires a fresh scan first.
+
+= 7.2.2 (2026/07/15) =
+* Add: MCP tools so an AI assistant can scan, review and clean up through AI Engine
+* Add: Parser for background images stored in core block attributes
+* Update: Reworked the references view into four meaningful columns with media titles, missing media markers, and fixed post titles and thumbnails
+* Fix: References search returning no results because of an ambiguous column in the query
+* Update: Replaced the browser broken image icon with a placeholder when a thumbnail cannot be loaded
+
+= 7.2.1 (2026/07/13) =
+* Fix: Hotfix — Restored shortcode analysis and lenient upload URL matching to fix false positives introduced in 7.2.0.
+* 🎵 Discuss with others about Media Cleaner on [the Discord](https://discord.gg/bHDGh38).
+* 🌴 Keep us motivated with [a little review here](https://wordpress.org/support/plugin/media-cleaner/reviews/). Thank you!
+* 🥰 If you want to help us, check our [Patreon](https://www.patreon.com/meowapps). Thank you!
+
+= 7.2.0 (2026/07/12) =
+* Add: Resumable, checkpointed scan runs with staged results that publish only after complete analysis.
+* Add: Private quarantine storage, file identity validation, and idempotent cleanup operations.
+* Fix: Graceful handling of timeouts, transient server failures, stalled cursors, and parser compatibility queries.
+* Fix: Durable keyset pagination for large compatibility-parser datasets.
+
+= 7.1.1 (2026/05/30) =
+* Update: Full Cornerstone Parser coverage with URL references and improved data parsing.
+* Update: Refactored URL detection to work with relative URLs.
+* Add: Confirmation prompt before deleting the Cleaner database.
+* Fix: Sped up file deletion by replacing directory scanning with a lazy emptiness check.
+* Update: Made it clearer when viewing settings versus the dashboard.
+
+= 7.1.0 (2026/05/17) =
+* Add: In-results banner and tooltip clarifying that files marked as "not found in content" may still be used dynamically by builders, templates, or external sites.
+* Fix: Memory overflow on large sites (1M+ media) by replacing in-memory array counting with SQL count queries.
+* Fix: Added check for existing table before deleting attachment-related data.
 
 = 7.0.9 (2026/05/09) =
 * Fix: Meow Gallery parser now correctly applies WPLR filters on galleries and parses JSON HTML format.
