@@ -147,7 +147,7 @@
 
 					<nav class="lang_menu flex -center-y">
 						<ul id="" class="flex gap-xs">
-							<?php pll_the_languages(array( 'display_names_as' => 'slug') );?>
+							<?php if( function_exists('pll_the_languages') ) { pll_the_languages(array( 'display_names_as' => 'slug') ); }?>
 						</ul>
 					</nav>
 				</div>
