@@ -104,6 +104,8 @@
             </div>
           </div>
 
+
+        </div>
         
 
         <input type="text" name="email_address_check" value="" class="input--hidden">
