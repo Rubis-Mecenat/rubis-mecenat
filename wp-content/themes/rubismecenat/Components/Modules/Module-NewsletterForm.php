@@ -142,7 +142,7 @@
     }
   };
 
-  var AUTOHIDE = Boolean(0);
+  var AUTOHIDE = Boolean(1);
 </script>
 
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
