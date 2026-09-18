@@ -103,6 +103,11 @@
               </label>
             </div>
           </div>
+
+
+          <div class="g-recaptcha-v3" data-sitekey="6Ld8msItAAAAAHtSDygvrMcQvW6s2vfxloDavp_F" style="display: none"></div>
+
+
         </div>
         
 
@@ -146,5 +151,9 @@
 </script>
 
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld8msItAAAAAHtSDygvrMcQvW6s2vfxloDavp_F&hl=fr" async defer></script>
+
+
 <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
 <!-- End Brevo Form -->
