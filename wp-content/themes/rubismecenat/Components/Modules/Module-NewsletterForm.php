@@ -104,29 +104,6 @@
             </div>
           </div>
 
-
-          <div class="sib-captcha sib-form-block">
-            <div class="form__entry entry_block">
-              <div class="form__label-row  form__label-row--horizontal ">
-
-
-                <script>
-                  function handleCaptchaResponse() {
-                    var event = new Event('captchaChange');
-                    document.getElementById('sib-captcha').dispatchEvent(event);
-                  }
-                </script>
-                <div class="g-recaptcha sib-visible-recaptcha" id="sib-captcha" data-sitekey="6LcyncItAAAAAO97xcInsMy3PVOArA_e_UBy-8xu" data-callback="handleCaptchaResponse" style="direction:ltr"></div>
-              </div>
-              <label class="entry__error entry__error--primary" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;">
-              </label>
-
-
-
-            </div>
-          </div>
-
-        </div>
         
 
         <input type="text" name="email_address_check" value="" class="input--hidden">
@@ -169,8 +146,6 @@
 </script>
 
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-
-<script src="https://www.google.com/recaptcha/api.js?hl=fr"></script>
 
 
 <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
