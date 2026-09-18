@@ -57,6 +57,10 @@
     text-decoration: underline;
     color: #2BB2FC;
   }
+
+  iframe {
+    height: auto;
+  }
 </style>
 <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
