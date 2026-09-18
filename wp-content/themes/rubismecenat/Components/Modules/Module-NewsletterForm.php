@@ -41,6 +41,7 @@
 
 <!-- START - We recommend to place the below code where you want the form in your website html  -->
 <div class="sib-form" style="background-color: transparent;">
+
   <div id="sib-form-container" class="sib-form-container">
     <div id="error-message" class="sib-form-message-panel" style=" text-align:left; background-color:#ffeded; border-color:#ff4949;max-width:540px;">
       <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
@@ -65,7 +66,7 @@
     </div>
     <div></div>
     <div id="sib-container" class="sib-container--large sib-container--horizontal" style="text-align:right; background-color:transparent; max-width:540px; border-width:0px; border-color:#C0CCD9; border-style:solid; direction:ltr">
-      <form id="sib-form" method="POST" action="https://299e5943.sibforms.com/serve/MUIFAFewKkW3-ffhLw8HGqskxzESa-LxqfYpYtFtlY0Dj6PfCTXOsGgmTjB8GAAI5T-2Oz_QIO77Jgex7Klg3fpHUtob4m304xIcF8H07Pi3MYGRRvEFkyu5STjSr-zFMjgUXftKzaeorIslWE8ikNxwS_Vob32zAKykyh7yX1RCM77pkUCFow7d-nTCyxnY5ZLyiYjOtrLtQEFd" data-type="subscription">
+      <form id="sib-form" method="POST" action="https://299e5943.sibforms.com/serve/MUIFAFNscaJILdvCZzBbSYkgR9vmlPHyfKVZvpGVVfbTPevhmkZlCUkv3l0P3bby_N9Fv3Sr_Z9_8th_TSMn3dGcJk5OEgOxJWsoCJqjeenobo3nuLqaE0X0-4CAUfXKboFj505S6NYsY-6_whx_LJhR4dRAxHfMj931oBmfK5dzOuLzRxdliUIuKIZ00qVK0EXR1PU2P7v6zpjr" data-type="subscription">
         <div>
           <div class="sib-form-block" style="padding: 0; text-align:left; color:#3C4858; background-color:transparent; text-align:left">
             <div class="sib-text-form-block">
@@ -129,17 +130,21 @@
 
 
 
+  window.INVALID_NUMBER = "Les informations que vous avez fournies ne sont pas valides. Veuillez vérifier le format du champ et réessayer.";
+  window.INVALID_DATE = "Veuillez saisir une date valide";
+  window.REQUIRED_MULTISELECT_MESSAGE = 'Veuillez choisir au moins une option';
   window.translation = {
     common: {
       selectedList: '{quantity} liste sélectionnée',
-      selectedLists: '{quantity} listes sélectionnées'
+      selectedLists: '{quantity} listes sélectionnées',
+      selectedOption: '{quantity} sélectionné',
+      selectedOptions: '{quantity} sélectionnés',
     }
   };
 
   var AUTOHIDE = Boolean(0);
 </script>
+
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-
-
 <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
 <!-- End Brevo Form -->
