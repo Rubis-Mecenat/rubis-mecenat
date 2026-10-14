@@ -53,6 +53,13 @@ class Meow_WPMC_Core {
 	private $run_config = array();
 
 	private $debug_logs = null;
+	// One line per reference found: thousands of writes a scan, stripped from every support bundle,
+	// and replaced in the console by the count on each flush. Off unless someone is chasing a
+	// specific "why was this file considered used?" and turns it back on.
+	private $trace_references = false;
+	// Said once per request: the explanation is the same for every file, and repeating it per item
+	// would bury the log it is trying to explain.
+	private $slow_hook_warned = false;
 	private $multilingual = false;
 	private $languages = array();
 	private $shortcode_analysis = false;
@@ -124,6 +131,7 @@ class Meow_WPMC_Core {
 		$this->upload_path = empty( $uploaddir['error'] ) ? untrailingslashit( wp_normalize_path( $uploaddir['basedir'] ) ) : '';
 		$this->upload_url = empty( $uploaddir['error'] ) ? untrailingslashit( $uploaddir['baseurl'] ) : '';
 		$this->debug_logs = $this->get_option( 'debuglogs' );
+		$this->trace_references = $this->debug_logs && apply_filters( 'wpmc_trace_references', false );
 		$this->is_rest = $is_wpmc_rest;
 		$this->is_cli = defined( 'WP_CLI' ) && WP_CLI;
 		$this->shortcode_analysis = !$this->get_option( 'shortcodes_disabled' );
@@ -193,7 +201,7 @@ class Meow_WPMC_Core {
 	}
 
 	public function safe_do_action( $hook_name, ...$args ) {
-		global $wp_filter, $wp_actions, $wp_current_filter;
+		global $wp_filter, $wp_actions, $wp_current_filter, $wpdb;
 		if ( empty( $wp_filter[ $hook_name ] ) || !( $wp_filter[ $hook_name ] instanceof WP_Hook ) ) {
 			return;
 		}
@@ -218,9 +226,16 @@ class Meow_WPMC_Core {
 							throw new RuntimeException( sprintf( __( 'Media Cleaner could not start parser %s safely.', 'media-cleaner' ), $callback_name ) );
 						}
 					}
+					// 🐌 below only prints once a callback returns, so the one that never returns -- the
+					// one that actually burned the request -- is the only one the log cannot name. The
+					// once-phase runs each callback a single time, so announcing it there is cheap.
+					if ( $this->debug_logs && $hook_name !== 'wpmc_scan_post' && $hook_name !== 'wpmc_scan_postmeta' ) {
+						$this->log( "▶ $callback_name ($hook_name)" );
+					}
 					$accepted_args = max( 0, (int) $callback['accepted_args'] );
 					$call_args = $accepted_args === 0 ? array() : array_slice( $args, 0, $accepted_args );
 					$started = microtime( true );
+					$started_queries = $wpdb->num_queries;
 					$guard_was_active = $this->parser_query_guard_active;
 					$previous_guard_label = $this->parser_query_guard_label;
 					$this->parser_query_guard_active = true;
@@ -253,6 +268,13 @@ class Meow_WPMC_Core {
 						if ( !$guard_was_active ) remove_filter( 'query', array( $this, 'guard_parser_query' ), PHP_INT_MAX );
 					}
 					$elapsed = microtime( true ) - $started;
+					// A single slow parser is what burns a scan batch, and the timeout report can only
+					// name the post, not the callback inside it. The query count separates a parser that
+					// is slow in PHP from one that is hammering the database.
+					if ( $this->debug_logs && $elapsed >= 0.5 ) {
+						$this->log( sprintf( '🐌 %s (%s) took %.2fs, %d queries',
+							$callback_name, $hook_name, $elapsed, $wpdb->num_queries - $started_queries ) );
+					}
 					$memory_limit = $this->parse_ini_bytes( ini_get( 'memory_limit' ) );
 					if ( $memory_limit > 0 && memory_get_usage( true ) > $memory_limit * 0.85 ) {
 						throw new Meow_WPMC_Transient_Exception( sprintf( __( '%1$s reached the safe parser memory budget in %2$s after %3$.1f seconds.', 'media-cleaner' ), $callback_name, $hook_name, $elapsed ), 5000 );
@@ -289,7 +311,7 @@ class Meow_WPMC_Core {
 		if ( !preg_match( '/^(SELECT|WITH)\b/i', $normalized ) ) return $query;
 		if ( preg_match( '/\bLIMIT\s+\d+/i', $normalized ) ) return $query;
 		if ( preg_match( '/^SELECT\s+(?:DISTINCT\s+)?(?:COUNT|SUM|MIN|MAX|AVG|EXISTS)\s*\(/i', $normalized ) ) return $query;
-		if ( preg_match( '/\b(?:ID|post_id|meta_id|term_id|term_taxonomy_id|option_id|option_name|user_id)\s*(?:=|IN\s*\()/i', $normalized ) ) return $query;
+		if ( preg_match( '/\b(?:ID|post_id|meta_id|term_id|term_taxonomy_id|option_id|option_name|user_id|\w+_hash)\s*(?:=|IN\s*\()/i', $normalized ) ) return $query;
 		// Only Media Cleaner's own SQL is a Media Cleaner bug. WordPress and other plugins
 		// (WPML translates media while our parsers run) issue their own unbounded SELECTs
 		// during a scan, and blaming the parser for those is noise nobody can act on.
@@ -477,9 +499,15 @@ class Meow_WPMC_Core {
 		}
 
 		$started = microtime( true );
+		// A page is the smallest unit this loop can interrupt: the clock is only read between pages,
+		// so one expensive page is exactly how a batch ends up 60s past a 24s budget. A parser that
+		// finishes its whole table in its first page is never budget-checked at all, so that first
+		// page has to be cheap even when a row costs seconds. Probe with a few rows, then grow.
+		$size = min( $page_size, 5 );
 		do {
 			$this->timeout_check();
-			$rows = call_user_func( $fetch_page, $offset, $page_size );
+			$page_started = microtime( true );
+			$rows = call_user_func( $fetch_page, $offset, $size );
 			global $wpdb;
 			if ( $wpdb->last_error ) throw new RuntimeException( sprintf( __( '%1$s database error: %2$s', 'media-cleaner' ), $label, $wpdb->last_error ) );
 			if ( is_wp_error( $rows ) ) throw new RuntimeException( $rows->get_error_message() );
@@ -499,10 +527,13 @@ class Meow_WPMC_Core {
 			call_user_func( $process_page, $rows );
 			$this->write_references();
 			$offset = $next_offset;
-			$finished = $count < $page_size;
+			$finished = $count < $size;
 			if ( $work && !$this->runs->update_work( $work->id, $finished ? 'complete' : 'pending', $offset ) ) {
 				throw new RuntimeException( sprintf( __( 'Media Cleaner could not checkpoint parser %s.', 'media-cleaner' ), $label ) );
 			}
+			$page_elapsed = microtime( true ) - $page_started;
+			if ( $page_elapsed > 2 ) $size = max( 5, (int) floor( $size / 2 ) );
+			else if ( $page_elapsed < 0.5 ) $size = min( $page_size, $size * 2 );
 			if ( !$finished ) $this->parser_budget_check( $started, $label );
 		} while ( !$finished );
 		return true;
@@ -527,7 +558,8 @@ class Meow_WPMC_Core {
 		if ( empty( $this->start_time ) ) $this->start_time = $now;
 		$this->time_elapsed = $now - $this->start_time;
 		$this->time_remaining = $this->get_request_time_budget() - ( $now - $this->request_start_time );
-		if ( $this->catch_timeout && $this->timeout_should_yield() ) {
+		$budget = $this->items_checked === 0 ? $this->get_item_time_ceiling() : null;
+		if ( $this->catch_timeout && $this->timeout_should_yield( $budget ) ) {
 				error_log("Media Cleaner Timeout! Check the Media Cleaner logs for more info.");
 				$this->log( "😵 Timeout! Some info for debug:" );
 				$this->log( "🍀 Elapsed time: $this->time_elapsed" );
@@ -539,9 +571,20 @@ class Meow_WPMC_Core {
 		}
 	}
 
-	public function timeout_should_yield() {
+	// The work budget decides when to hand back between items. The first item of a request has
+	// nothing to hand back to: stopping it part way only means the next request starts on it again
+	// and stops the same way, which fails the run on a page the server could have finished. So once
+	// it has started, that item may use what the server and the client actually allow.
+	public function get_item_time_ceiling() {
+		// The client gives up on a scan batch at 120s at most (request_timeout_ms in rest.php).
+		$hard = min( $this->get_max_execution_time(), 120 );
+		return max( $this->get_request_time_budget(), $hard - max( 2.5, min( 6, $hard * 0.2 ) ) );
+	}
+
+	public function timeout_should_yield( $budget = null ) {
 		$now = microtime( true );
-		$this->time_remaining = $this->get_request_time_budget() - ( $now - $this->request_start_time );
+		$budget = $budget === null ? $this->get_request_time_budget() : $budget;
+		$this->time_remaining = $budget - ( $now - $this->request_start_time );
 		$next_item_reserve = max( 1.25, $this->item_scan_avg_time * 1.75 );
 		if ( !$this->is_cli && $this->time_remaining <= $next_item_reserve ) return true;
 		$memory_limit = $this->parse_ini_bytes( ini_get( 'memory_limit' ) );
@@ -1290,28 +1333,104 @@ class Meow_WPMC_Core {
 	}
 	
 
-	function get_logs() {
-		$log_file_path = $this->get_logs_path();
+	// Lines the log writes for volume, not for diagnosis. A scan emits one per reference found, which
+	// is the overwhelming majority of the file and tells support nothing a failure needs: which media
+	// a parser matched is already in the References view. Dropping them is what makes a bundle small
+	// enough to paste into a support thread.
+	private function is_noise_log_line( $line ) {
+		$body = preg_replace( '/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}: /', '', $line );
+		return $body === '' || strpos( $body, '＋' ) === 0 || strpos( $body, 'Flushing ' ) === 0;
+	}
 
-		if ( !$log_file_path || !file_exists( $log_file_path ) ) {
-			return __( 'No logs found.', 'media-cleaner' );
+	// Everything support asks for before it can read a log at all, so it travels with it.
+	private function support_environment() {
+		global $wpdb, $wp_version;
+		$uploads = wp_get_upload_dir();
+		return array(
+			'Media Cleaner' => ( defined( 'WPMC_VERSION' ) ? WPMC_VERSION : 'unknown' ) . ( class_exists( 'MeowPro_WPMC_Core' ) ? ' Pro' : ' Free' ),
+			'WordPress' => $wp_version . ( is_multisite() ? ' (multisite)' : '' ),
+			'PHP' => PHP_VERSION,
+			'MySQL' => $wpdb->db_version(),
+			'Method' => (string) $this->current_method,
+			'Multilingual' => $this->is_multilingual() ? 'yes' : 'no',
+			'memory_limit' => ini_get( 'memory_limit' ),
+			'max_execution_time' => ini_get( 'max_execution_time' ),
+			'Work budget' => sprintf( '%.1fs', $this->get_request_time_budget() ),
+			'Peak memory' => size_format( memory_get_peak_usage( true ) ),
+			'Uploads writable' => !empty( $uploads['basedir'] ) && is_writable( $uploads['basedir'] ) ? 'yes' : 'no',
+			'Debug logs' => $this->is_debug() ? 'on' : 'off',
+		);
+	}
+
+	// Store what is needed to explain one failure, and hand back the ID the user reads out to us.
+	public function create_support_bundle( $summary, $details = array() ) {
+		global $wpdb;
+		$table = $wpdb->prefix . 'mclean_support';
+		if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $table ) ) ) !== $table ) {
+			return null;
 		}
+		$support_id = strtoupper( substr( str_replace( '-', '', wp_generate_uuid4() ), 0, 12 ) );
 
-		$size = filesize( $log_file_path );
-		$bytes = min( 512 * 1024, max( 0, (int) $size ) );
-		$handle = fopen( $log_file_path, 'rb' );
-		if ( !$handle ) return __( 'No logs found.', 'media-cleaner' );
+		$body = array( '=== Media Cleaner support bundle ===', 'Support ID: ' . $support_id, '' );
+		foreach ( $this->support_environment() as $label => $value ) {
+			$body[] = $label . ': ' . $value;
+		}
+		$body[] = '';
+		$body[] = 'Error: ' . $summary;
+		foreach ( $details as $label => $value ) {
+			if ( $value === null || $value === '' || is_array( $value ) ) continue;
+			$body[] = $label . ': ' . $value;
+		}
+		$body[] = '';
+		$body[] = '=== Log (references omitted) ===';
+
+		// Read from the end: the lines that explain a failure are the ones just before it. 512KB of
+		// raw log leaves a generous margin for the noise this is about to drop.
+		$path = $this->get_logs_path();
+		$log = ( $path && file_exists( $path ) ) ? $this->read_log_tail( $path, 512 * 1024 ) : '';
+		$kept = array();
+		foreach ( explode( "\n", $log ) as $line ) {
+			$line = rtrim( $line );
+			if ( $line === '' || $this->is_noise_log_line( $line ) ) continue;
+			$kept[] = $line;
+		}
+		// A bundle is something a human pastes into a thread, so it is bounded on its own terms,
+		// keeping the most recent lines rather than the first ones.
+		$kept = array_slice( $kept, -2000 );
+		if ( empty( $kept ) ) {
+			$kept[] = $this->is_debug()
+				? '(No log lines. The failure may have happened before anything was written.)'
+				: '(Debug Logs were off, so nothing was recorded. Turn them on and reproduce to get a useful bundle.)';
+		}
+		$logs = implode( "\n", array_merge( $body, $kept ) );
+
+		$inserted = $wpdb->insert( $table, array(
+			'support_id' => $support_id,
+			'created_at' => current_time( 'mysql', true ),
+			'summary' => substr( (string) $summary, 0, 1000 ),
+			'logs' => $logs,
+		) );
+		if ( $inserted === false ) return null;
+
+		// Bundles are a diagnostic, not a record to keep. Twenty covers the back-and-forth of a
+		// support thread; beyond that they are just rows nobody will read.
+		$wpdb->query( "DELETE FROM $table WHERE id <= ( SELECT keep_id FROM ( SELECT MIN(id) AS keep_id FROM ( SELECT id FROM $table ORDER BY id DESC LIMIT 20 ) AS recent ) AS bound ) - 1" );
+		return $support_id;
+	}
+
+	private function read_log_tail( $path, $bytes ) {
+		$size = (int) filesize( $path );
+		$bytes = min( $bytes, max( 0, $size ) );
+		$handle = @fopen( $path, 'rb' );
+		if ( !$handle ) return '';
 		if ( $bytes < $size ) fseek( $handle, -$bytes, SEEK_END );
-		$content = $bytes > 0 ? fread( $handle, $bytes ) : '';
+		$content = $bytes > 0 ? (string) fread( $handle, $bytes ) : '';
 		fclose( $handle );
+		// A partial first line is noise, and may be half a timestamp.
 		if ( $bytes < $size ) {
-			$first_newline = strpos( $content, "\n" );
-			$content = $first_newline === false ? '' : substr( $content, $first_newline + 1 );
+			$first = strpos( $content, "\n" );
+			$content = $first === false ? '' : substr( $content, $first + 1 );
 		}
-		$lines = explode( "\n", $content );
-		$lines = array_filter( $lines );
-		$lines = array_slice( array_reverse( $lines ), 0, 2000 );
-		$content = implode( "\n", $lines );
 		return $content;
 	}
 
@@ -1583,15 +1702,206 @@ class Meow_WPMC_Core {
 	// running. So the moment an item leaves the trash, every claim on it goes with it.
 	// Matched inside the database against the row itself, since the values read into
 	// PHP have been stripslashed and cannot be compared back.
+	// Runs once per item being cleaned up, so it has to be an index lookup, not a search.
+	//
+	// It used to join the table to itself on `path` — a TEXT column with no index — which made it a
+	// full scan of mclean_scan per item. On a library of a few hundred thousand that is seconds
+	// each, twenty of them to a request, and the browser hung up long before the request returned:
+	// no error, no support bundle, nothing in the log. Reading the live row first and matching on
+	// the indexed path_hash turns it into the lookup it always meant to be. `path` stays in the
+	// predicate as the tiebreaker behind the hash.
+	// Cleanup happens inside WordPress and whatever the site has hooked onto it, so when a delete
+	// takes a minute the cost is rarely in our own code. Naming each step is the only way to tell
+	// our own query from wp_update_post firing half the plugins on the site.
+	public function timed( $label, $callback, $runs_hooks = false ) {
+		if ( !$this->debug_logs ) return $callback();
+		global $wpdb;
+		// Announced before it runs, not after. A step that never returns is the only one worth
+		// naming, and a line written on completion is precisely the line it never reaches — which
+		// is how a delete that hung inside WordPress left a log saying only that it had started.
+		$this->log( '→ ' . $label );
+		$started = microtime( true );
+		$queries = $wpdb->num_queries;
+		$trace = $runs_hooks ? $this->trace_hooks() : null;
+		try {
+			$result = $callback();
+		}
+		finally {
+			// Never leave the listeners behind, even when the call throws.
+			if ( $trace ) $this->untrace_hooks( $trace );
+		}
+		$elapsed = microtime( true ) - $started;
+		$spent = $wpdb->num_queries - $queries;
+		if ( $elapsed >= 0.25 ) {
+			$this->log( sprintf( '🐌 %s (cleanup) took %.2fs, %d queries', $label, $elapsed, $spent ) );
+		}
+		if ( $runs_hooks ) $this->report_slow_hooks( $label, $trace, $elapsed );
+		return $result;
+	}
+
+	// While a hooked WordPress call runs, every hook it fires is timestamped and every outgoing
+	// HTTP request is timed. The silence after a hook is spent in its callbacks (or in the
+	// WordPress code right after it, such as the unlink that follows wp_delete_file), and the
+	// callbacks' source files say which plugin they belong to. wpdb fires "query" just before
+	// each statement, so the silence after it is that query running: measured, not inferred.
+	private function trace_hooks() {
+		$trace = (object) array( 'marks' => array(), 'http' => array(), 'http_started' => 0, 'listeners' => array() );
+		$trace->listeners['all'] = function ( $hook, $arg = null ) use ( $trace ) {
+			// ponytail: capped so a hook-heavy site cannot grow this without bound; the gaps that matter are still found.
+			if ( count( $trace->marks ) >= 50000 ) return;
+			$query = $hook === 'query' && is_string( $arg ) ? array( $arg, $this->query_source() ) : null;
+			$trace->marks[] = array( $hook, microtime( true ), $query );
+		};
+		$trace->listeners['pre_http_request'] = function ( $pre ) use ( $trace ) {
+			$trace->http_started = microtime( true );
+			return $pre;
+		};
+		$trace->listeners['http_api_debug'] = function ( $response, $context, $class, $args, $url ) use ( $trace ) {
+			$trace->http[] = array( wp_parse_url( $url, PHP_URL_HOST ), microtime( true ) - $trace->http_started );
+		};
+		add_action( 'all', $trace->listeners['all'] );
+		add_filter( 'pre_http_request', $trace->listeners['pre_http_request'], PHP_INT_MAX );
+		add_action( 'http_api_debug', $trace->listeners['http_api_debug'], 10, 5 );
+		$trace->started = microtime( true );
+		return $trace;
+	}
+
+	private function untrace_hooks( $trace ) {
+		$trace->ended = microtime( true );
+		foreach ( $trace->listeners as $hook => $listener ) {
+			remove_filter( $hook, $listener, $hook === 'pre_http_request' ? PHP_INT_MAX : 10 );
+		}
+	}
+
+	// Who sent the query: the innermost plugin or theme on the stack. Reaching Media Cleaner's own
+	// frames first means nothing hooked in between, so the query is WordPress's own work inside the
+	// call Media Cleaner made — saying "media-cleaner" there would blame us for core's queries.
+	private function query_source() {
+		$frames = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS );
+		$own = wp_normalize_path( dirname( __DIR__ ) );
+		foreach ( $frames as $index => $frame ) {
+			$file = isset( $frame['file'] ) ? wp_normalize_path( $frame['file'] ) : '';
+			if ( $file === '' || strpos( $file, '/wp-includes/' ) !== false ) continue;
+			if ( strpos( $file, $own ) === 0 ) return 'WordPress';
+			if ( !preg_match( '#/(plugins|mu-plugins|themes)/([^/]+)#', $file, $match ) ) continue;
+			$caller = isset( $frames[ $index + 1 ] ) ? $frames[ $index + 1 ] : array();
+			$function = ( isset( $caller['class'] ) ? $caller['class'] . '::' : '' ) . ( isset( $caller['function'] ) ? $caller['function'] : '' );
+			return ( $match[1] === 'themes' ? 'theme ' . $match[2] : $match[2] ) . ( $function ? " ($function)" : '' );
+		}
+		return 'WordPress';
+	}
+
+	// "plugin-folder: function" for every callback on a hook, so the log names the code.
+	private function describe_hook_callbacks( $hook ) {
+		global $wp_filter;
+		if ( empty( $wp_filter[ $hook ] ) ) return 'nothing (the time is WordPress itself, or the server: disk or network storage)';
+		$names = array();
+		foreach ( $wp_filter[ $hook ]->callbacks as $callbacks ) {
+			foreach ( $callbacks as $callback ) {
+				$function = $callback['function'];
+				try {
+					if ( is_array( $function ) ) {
+						$reflection = new ReflectionMethod( $function[0], $function[1] );
+						$name = ( is_object( $function[0] ) ? get_class( $function[0] ) : $function[0] ) . '::' . $function[1];
+					}
+					else if ( is_string( $function ) && strpos( $function, '::' ) !== false ) {
+						$reflection = new ReflectionMethod( $function );
+						$name = $function;
+					}
+					else {
+						$reflection = new ReflectionFunction( $function );
+						$name = is_string( $function ) ? $function : '{closure}';
+					}
+					$file = wp_normalize_path( (string) $reflection->getFileName() );
+				}
+				catch ( Throwable $e ) {
+					$name = is_object( $function ) ? get_class( $function ) : '?';
+					$file = '';
+				}
+				$source = 'WordPress';
+				if ( preg_match( '#/(plugins|mu-plugins|themes)/([^/]+)#', $file, $match ) ) {
+					$source = $match[1] === 'themes' ? 'theme ' . $match[2] : $match[2];
+				}
+				$names[] = $source . ': ' . $name;
+			}
+		}
+		return implode( ', ', array_unique( $names ) );
+	}
+
+	// Deleting one file should not take seconds. When it does, the time is almost never Media
+	// Cleaner's — wp_delete_attachment and wp_update_post run every callback the site has hooked to
+	// them — but the person watching sees it happen inside Media Cleaner and reasonably concludes it
+	// is Media Cleaner. Saying where it went, by name, is the difference between a support ticket
+	// and a setting they can change themselves. This used to guess the database's share from the
+	// query count, and blamed plugins for a single 27s DELETE on a huge wp_postmeta table.
+	private function report_slow_hooks( $label, $trace, $elapsed ) {
+		if ( $elapsed < 5 || $this->slow_hook_warned ) return;
+		$this->slow_hook_warned = true;
+		$by_hook = array();
+		$database = 0;
+		$sources = array();
+		$marks = array_merge( array( array( '(start)', $trace->started, null ) ), $trace->marks );
+		foreach ( $marks as $index => $mark ) {
+			$gap = ( isset( $marks[ $index + 1 ] ) ? $marks[ $index + 1 ][1] : $trace->ended ) - $mark[1];
+			$by_hook[ $mark[0] ] = ( isset( $by_hook[ $mark[0] ] ) ? $by_hook[ $mark[0] ] : 0 ) + $gap;
+			if ( $mark[0] !== 'query' ) continue;
+			$database += $gap;
+			list( $sql, $source ) = $mark[2] ? $mark[2] : array( '', 'WordPress' );
+			if ( !isset( $sources[ $source ] ) ) $sources[ $source ] = array( 0, 0, 0, '' );
+			$sources[ $source ][0] += $gap;
+			$sources[ $source ][1]++;
+			if ( $gap > $sources[ $source ][2] ) {
+				$sources[ $source ][2] = $gap;
+				$sources[ $source ][3] = $sql;
+			}
+		}
+		if ( $database >= $elapsed * 0.5 ) {
+			$this->log( sprintf(
+				/* translators: 1: WordPress function, 2: seconds, 3: seconds in the database */
+				__( '⚠ %1$s took %2$.1fs, %3$.1fs of it in the database. Queries by who sent them:', 'media-cleaner' ),
+				$label, $elapsed, $database
+			) );
+			uasort( $sources, function ( $a, $b ) { return $b[0] <=> $a[0]; } );
+			foreach ( array_slice( $sources, 0, 3, true ) as $source => $stats ) {
+				if ( $stats[0] < 1 ) break;
+				$this->log( sprintf( '🐢 %.1fs in %d queries from %s. Slowest (%.1fs): %s',
+					$stats[0], $stats[1], $source, $stats[2], preg_replace( '/\s+/', ' ', substr( $stats[3], 0, 300 ) ) ) );
+			}
+			return;
+		}
+		$this->log( sprintf(
+			/* translators: 1: WordPress function, 2: seconds, 3: seconds in the database */
+			__( '⚠ %1$s took %2$.1fs, only %3$.1fs of it in the database. The rest went to code hooked to it, or to slow storage:', 'media-cleaner' ),
+			$label, $elapsed, $database
+		) );
+		unset( $by_hook['query'] );
+		arsort( $by_hook );
+		foreach ( array_slice( $by_hook, 0, 3, true ) as $hook => $seconds ) {
+			if ( $seconds < 1 ) break;
+			$this->log( sprintf( '🔎 %.1fs after "%s" fired. Hooked to it: %s', $seconds, $hook, $this->describe_hook_callbacks( $hook ) ) );
+		}
+		$hosts = array();
+		foreach ( $trace->http as $call ) {
+			$host = $call[0] ? $call[0] : '?';
+			$hosts[ $host ] = array( ( isset( $hosts[ $host ] ) ? $hosts[ $host ][0] : 0 ) + 1, ( isset( $hosts[ $host ] ) ? $hosts[ $host ][1] : 0 ) + $call[1] );
+		}
+		foreach ( $hosts as $host => $call ) {
+			$this->log( sprintf( '🌐 %d HTTP request(s) to %s took %.1fs.', $call[0], $host, $call[1] ) );
+		}
+	}
+
 	private function forget_stale_trash_rows( $id ) {
 		global $wpdb;
 		$table_name = $wpdb->prefix . "mclean_scan";
-		$wpdb->query( $wpdb->prepare(
-			"DELETE stale FROM $table_name AS stale
-			INNER JOIN $table_name AS live ON live.id = %d
-			WHERE stale.run_id != live.run_id AND stale.deleted = 1
-			AND stale.type = live.type AND stale.postId <=> live.postId AND stale.path = live.path",
+		$live = $wpdb->get_row( $wpdb->prepare(
+			"SELECT run_id, type, postId, path, path_hash FROM $table_name WHERE id = %d LIMIT 1",
 			(int) $id
+		) );
+		if ( !$live || $live->path_hash === null ) return;
+		$wpdb->query( $wpdb->prepare(
+			"DELETE FROM $table_name
+			WHERE path_hash = %s AND deleted = 1 AND run_id != %d AND type = %d AND postId <=> %s AND path = %s",
+			$live->path_hash, (int) $live->run_id, (int) $live->type, $live->postId, $live->path
 		) );
 	}
 
@@ -1606,11 +1916,13 @@ class Meow_WPMC_Core {
 			return new WP_Error( 'wpmc_issue_missing', __( 'The selected Media Cleaner result no longer exists.', 'media-cleaner' ) );
 		}
 		if ( empty( $operation_manifest['identity_validated'] ) ) {
-			$identity = $this->validate_issue_manifest( $issue );
+			$identity = $this->timed( 'validate_issue_manifest', function () use ( $issue ) {
+				return $this->validate_issue_manifest( $issue, 'recover' );
+			} );
 			if ( is_wp_error( $identity ) ) return $identity;
 		}
 
-		$this->forget_stale_trash_rows( $id );
+		$this->timed( 'forget_stale_trash_rows', function () use ( $id ) { $this->forget_stale_trash_rows( $id ); } );
 
 		// Files
 		if ( $issue->type === 0 ) {
@@ -1954,7 +2266,9 @@ class Meow_WPMC_Core {
 			return new WP_Error( 'wpmc_issue_missing', __( 'The selected Media Cleaner result no longer exists.', 'media-cleaner' ) );
 		}
 		if ( empty( $operation_manifest['identity_validated'] ) ) {
-			$identity = $this->validate_issue_manifest( $issue );
+			$identity = $this->timed( 'validate_issue_manifest', function () use ( $issue ) {
+				return $this->validate_issue_manifest( $issue );
+			} );
 			if ( is_wp_error( $identity ) ) return $identity;
 		}
 
@@ -1977,7 +2291,7 @@ class Meow_WPMC_Core {
 				__( 'Media Cleaner needs the results of a completed scan from this version before it can delete anything. Run a scan first. Your trash is untouched and can still be recovered or emptied.', 'media-cleaner' ) );
 		}
 
-		$this->forget_stale_trash_rows( $id );
+		$this->timed( 'forget_stale_trash_rows', function () use ( $id ) { $this->forget_stale_trash_rows( $id ); } );
 
 		if ( $issue->type === 0 ) {
 			if ( $was_deleted ) {
@@ -2000,7 +2314,9 @@ class Meow_WPMC_Core {
 				return $deleted === false ? new WP_Error( 'wpmc_delete_database_failed', __( 'The file was removed, but its Media Cleaner record could not be deleted.', 'media-cleaner' ) ) : true;
 			}
 			$did_move = false;
-			$trashed = $this->trash_file( $issue->path, $did_move );
+			$trashed = $this->timed( 'trash_file', function () use ( $issue, &$did_move ) {
+				return $this->trash_file( $issue->path, $did_move );
+			} );
 			if ( is_wp_error( $trashed ) ) return $trashed;
 			$updated = $wpdb->query( $wpdb->prepare( "UPDATE $table_name SET deleted = 1, ignored = 0, time = NOW() WHERE id = %d", $id ) );
 			if ( $updated === false ) {
@@ -2018,7 +2334,9 @@ class Meow_WPMC_Core {
 						return is_wp_error( $recovered ) ? $recovered : new WP_Error( 'wpmc_media_recovery_failed', __( 'The attachment could not be restored before permanent deletion.', 'media-cleaner' ) );
 					}
 				}
-				$deleted_attachment = get_post( $issue->postId ) ? wp_delete_attachment( $issue->postId, true ) : true;
+				$deleted_attachment = $this->timed( 'wp_delete_attachment', function () use ( $issue ) {
+					return get_post( $issue->postId ) ? wp_delete_attachment( $issue->postId, true ) : true;
+				}, true );
 				if ( !$deleted_attachment ) {
 					return new WP_Error( 'wpmc_attachment_delete_failed', __( 'WordPress could not permanently delete the attachment.', 'media-cleaner' ) );
 				}
@@ -2026,24 +2344,33 @@ class Meow_WPMC_Core {
 				return $deleted === false ? new WP_Error( 'wpmc_delete_database_failed', __( 'The attachment was removed, but its Media Cleaner record could not be deleted.', 'media-cleaner' ) ) : true;
 			}
 
-			$paths = $this->get_paths_from_attachment( $issue->postId );
+			$paths = $this->timed( 'get_paths_from_attachment', function () use ( $issue ) {
+				return $this->get_paths_from_attachment( $issue->postId );
+			} );
 			$file_manifest = json_decode( (string) $issue->manifest, true );
 			$file_manifest = is_array( $file_manifest ) ? $file_manifest : array();
 			$trashed_paths = array();
-			foreach ( $paths as $path ) {
-				if ( array_key_exists( $path, $file_manifest ) && $file_manifest[ $path ] === null ) continue;
-				$did_move = false;
-				$result = $this->trash_file( $path, $did_move );
-				if ( is_wp_error( $result ) ) {
-					foreach ( array_reverse( $trashed_paths ) as $trashed_path ) {
-						$this->recover_file( $trashed_path );
+			$trash_error = $this->timed( sprintf( 'trash_files (%d)', count( $paths ) ),
+				function () use ( $paths, $file_manifest, &$trashed_paths ) {
+					foreach ( $paths as $path ) {
+						if ( array_key_exists( $path, $file_manifest ) && $file_manifest[ $path ] === null ) continue;
+						$did_move = false;
+						$result = $this->trash_file( $path, $did_move );
+						if ( $did_move ) $trashed_paths[] = $path;
+						if ( is_wp_error( $result ) ) return $result;
+					}
+					return null;
+				} );
+			if ( is_wp_error( $trash_error ) ) {
+				foreach ( array_reverse( $trashed_paths ) as $trashed_path ) {
+					$this->recover_file( $trashed_path );
 				}
-					return $result;
-				}
-				if ( $did_move ) $trashed_paths[] = $path;
+				return $trash_error;
 			}
 			$previous_post_type = get_post_type( $issue->postId );
-			$post_result = wp_update_post( array( 'ID' => $issue->postId, 'post_type' => 'wmpc-trash' ), true );
+			$post_result = $this->timed( 'wp_update_post', function () use ( $issue ) {
+				return wp_update_post( array( 'ID' => $issue->postId, 'post_type' => 'wmpc-trash' ), true );
+			}, true );
 			if ( is_wp_error( $post_result ) || !$post_result ) {
 				foreach ( array_reverse( $trashed_paths ) as $trashed_path ) {
 					$this->recover_file( $trashed_path );
@@ -2237,7 +2564,7 @@ class Meow_WPMC_Core {
 				$relatives = $this->trash_relatives( $issue );
 				// Healthy trash: its files are still in quarantine and still verify. That
 				// is the only kind that can be given back, and it is left untouched.
-				if ( $this->quarantine_holds( $relatives ) && !is_wp_error( $this->validate_issue_manifest( $issue ) ) ) continue;
+				if ( $this->quarantine_holds( $relatives ) && !is_wp_error( $this->validate_issue_manifest( $issue, 'recover' ) ) ) continue;
 				// Best effort: drop whatever is still physically in quarantine. Directories
 				// and symlinks are never removed, and a missing or unsafe path is skipped
 				// rather than fatal — the point is to unstick the record.
@@ -2399,15 +2726,34 @@ class Meow_WPMC_Core {
 
 			$this->add_reference( null, $url, $type, $origin, $extra );
 			$this->add_reference( 0, $no_res_url, $type, $origin, $extra );
+		}
+		// On a multilingual site these URLs also have to be resolved to media IDs and expanded to
+		// their translations, but that no longer happens here. It is set-based work over the whole
+		// run, and doing it per parser call made every parser pay for it on every batch, re-resolving
+		// the same media page after page because the url->id cache only lives for one request.
+		// Meow_WPMC_Engine::extractRefsFromTranslations() now does it once, afterwards.
+	}
 
-			if ( $this->multilingual ) {
-				if ( $this->current_method == 'media' ) {
-					if ( !array_key_exists( $no_res_url, $this->url_id_cache ) ) {
-						$this->url_id_cache[ $no_res_url ] = $this->get_id_from_clean_url( $no_res_url );
-					}
-					$id = $this->url_id_cache[ $no_res_url ];
-					if( $id ) $this->add_reference_id( $id, $type, $origin, $extra );
-				}
+	// Resolve a page of referenced URLs to media IDs and record their translations. A URL reference
+	// already covers every attachment sharing that file, because check_media() tests an attachment's
+	// own paths against the URL references — what it cannot cover is a translation WPML stored under
+	// a different file, which is only reachable through the ID. Resolution is per distinct URL
+	// because that is the expensive half; the references themselves are added per row so each keeps
+	// the type and origin of the reference it came from.
+	public function add_translated_references( $rows ) {
+		$by_url = array();
+		foreach ( $rows as $row ) {
+			$url = $this->clean_url_from_resolution( (string) $row->mediaUrl );
+			if ( $url === '' ) continue;
+			$by_url[ $url ][] = $row;
+		}
+		if ( empty( $by_url ) ) return;
+		$this->prime_url_id_cache( array_keys( $by_url ) );
+		foreach ( $by_url as $url => $url_rows ) {
+			$id = $this->get_id_from_clean_url( $url );
+			if ( !$id ) continue;
+			foreach ( $url_rows as $row ) {
+				$this->add_reference_id( $id, $row->originType, $row->origin );
 			}
 		}
 	}
@@ -2593,6 +2939,12 @@ class Meow_WPMC_Core {
 		$values = array();
 		$place_holders = array();
 		$entry_count = 0;
+		// What the live console shows, muted, under the post that produced it. Named on the flush
+		// line rather than one line per reference: a scan writes hundreds of thousands of these, and
+		// each one used to be its own fopen/fwrite/fclose. Nobody reads 250 paths streaming past, so
+		// a handful is the whole value — wpmc_trace_references still logs every one for the rare
+		// case of chasing a single file.
+		$sample = array();
 
 		$entries = array_unique( $entries, SORT_REGULAR );
 
@@ -2604,9 +2956,10 @@ class Meow_WPMC_Core {
 				array_push( $values, $run_id, $value['id'], $value['type'], $origin, $hash );
 				$place_holders[] = "('%d', '%d', NULL, NULL, '%s', '%s', NULL, '%s')";
 
-				if ( $this->debug_logs ) {
+				if ( $this->trace_references ) {
 					$this->log( "＋ Media #{$value['id']} (as ID)" );
 				}
+				if ( count( $sample ) < 6 ) $sample[] = '#' . $value['id'];
 				$entry_count++;
 			}
 			else if ( !is_null( $value['url'] ) ) {
@@ -2617,35 +2970,44 @@ class Meow_WPMC_Core {
 				if ( $parent_id !== null ) {
 					array_push( $values, $run_id, $value['url'], $url_hash, $value['type'], $origin, $parent_id, $hash );
 					$place_holders[] = "('%d', NULL, '%s', '%s', '%s', '%s', '%d', '%s')";
-					if ( $this->debug_logs ) {
+					if ( $this->trace_references ) {
 						$this->log( "＋ {$value['url']} (as URL) (ParentID: {$value['parentId']})" );
 					}
 				}
 				else {
 					array_push( $values, $run_id, $value['url'], $url_hash, $value['type'], $origin, $hash );
 					$place_holders[] = "('%d', NULL, '%s', '%s', '%s', '%s', NULL, '%s')";
-					if ( $this->debug_logs ) {
+					if ( $this->trace_references ) {
 						$this->log( "＋ {$value['url']} (as URL)" );
 					}
 				}
+				if ( count( $sample ) < 6 ) $sample[] = $value['url'];
 				$entry_count++;
 			}
 
 			// Flush to DB when buffer is full
 			if ( $entry_count >= $refs_buffer ) {
-				$this->log( "Flushing $entry_count references to the database..." );
+				$this->log( "Flushing $entry_count references to the database..." . $this->reference_sample( $sample, $entry_count ) );
 				$this->flush_references_to_db( $table, $values, $place_holders );
 				$values = array();
 				$place_holders = array();
 				$entry_count = 0;
+				$sample = array();
 			}
 		}
 
 		// Flush remaining entries
 		if ( !empty( $values ) ) {
-			$this->log( "Flushing remaining $entry_count references to the database..." );
+			$this->log( "Flushing remaining $entry_count references to the database..." . $this->reference_sample( $sample, $entry_count ) );
 			$this->flush_references_to_db( $table, $values, $place_holders );
 		}
+	}
+
+	private function reference_sample( $sample, $total ) {
+		if ( empty( $sample ) ) return '';
+		$shown = implode( ', ', $sample );
+		$rest = $total - count( $sample );
+		return ' ' . $shown . ( $rest > 0 ? sprintf( ' (+%d more)', $rest ) : '' );
 	}
 
 	function flush_references_to_db( $table, $values, $place_holders ) {
@@ -2722,6 +3084,11 @@ class Meow_WPMC_Core {
 		$table = $wpdb->prefix . "mclean_refs";
 		$run_id = $this->get_run_id( true );
 
+		// Parsers hand us the same reference many times over: a builder repeats the same
+		// image in its rendered HTML and again in its stored settings. Collapsing here
+		// instead of at insert time means the parent lookups below only see distinct URLs.
+		$this->refcache = array_unique( $this->refcache, SORT_REGULAR );
+
 		$potential_parents = array();
 		$potential_children = array();
 
@@ -2737,13 +3104,32 @@ class Meow_WPMC_Core {
 
 		$this->insert_references( $potential_parents );
 
-		// Resolve parentId for potential children
-		foreach ( $potential_children as &$child ) {
-			$potentialParentPath = $this->clean_url_from_resolution( $child['url'] );
-			$parentId = $wpdb->get_var( $wpdb->prepare( "SELECT id FROM $table WHERE run_id = %d AND mediaUrl_hash = %s AND mediaUrl = %s LIMIT 1", $run_id, hash( 'sha256', $potentialParentPath ), $potentialParentPath ) );
-			if ( !empty( $parentId ) ) {
-				$child['parentId'] = (int)$parentId;
+		// Resolve parentId for potential children. This was one SELECT per child, which is
+		// what made page-builder posts time out: a single page carrying a few hundred sized
+		// images spent the whole scan budget on round-trips. One query per batch instead.
+		if ( !empty( $potential_children ) ) {
+			$parent_paths = array();
+			foreach ( $potential_children as $child ) {
+				$parent_paths[ $this->clean_url_from_resolution( $child['url'] ) ] = true;
 			}
+			$hashes = array_map( function ( $path ) { return hash( 'sha256', $path ); }, array_keys( $parent_paths ) );
+			$placeholders = implode( ',', array_fill( 0, count( $hashes ), '%s' ) );
+			$rows = $wpdb->get_results( $wpdb->prepare(
+				"SELECT id, mediaUrl FROM $table WHERE run_id = %d AND mediaUrl_hash IN ($placeholders)",
+				array_merge( array( $run_id ), $hashes )
+			) );
+			$parent_ids = array();
+			foreach ( $rows as $row ) {
+				// First row wins, as the per-child LIMIT 1 did.
+				if ( !isset( $parent_ids[ $row->mediaUrl ] ) ) $parent_ids[ $row->mediaUrl ] = (int) $row->id;
+			}
+			foreach ( $potential_children as &$child ) {
+				$parent_path = $this->clean_url_from_resolution( $child['url'] );
+				if ( isset( $parent_ids[ $parent_path ] ) ) {
+					$child['parentId'] = $parent_ids[ $parent_path ];
+				}
+			}
+			unset( $child );
 		}
 
 		// Insert potential children with resolved parentIds
@@ -2923,42 +3309,125 @@ class Meow_WPMC_Core {
 		);
 	}
 
+	// A URL resolves to a media ID by comparison against a column no index covers — meta_value and
+	// guid — so every lookup costs a pass over the whole attachment set, and on a large library that
+	// is a second each. There is no index to add that WordPress would maintain, but the passes do
+	// not have to be paid per URL: ORing the comparisons into one statement answers a post's entire
+	// set in a single pass. A page of orphaned images went from four seconds each to one for all.
+	private function lookup_urls_by_column( $from_sql, $column, $urls ) {
+		global $wpdb;
+		$found = array();
+		// _wp_attached_file stores exactly the path a URL is cleaned down to, so all but a handful of
+		// lookups are an equality test. Asking every one of them with LIKE '%path' turned it into a
+		// suffix comparison of each pattern against each attachment row -- unindexable, quadratic in
+		// the batch, and on a library with hundreds of thousands of attachments the place where a
+		// scan actually spends its time. The suffix pass below still runs on whatever this misses,
+		// so a stored path carrying a prefix ours lacks (multisite's sites/2/) resolves as before and
+		// nothing that used to match stops matching.
+		// Bounded like the suffix pass below, and for the same reason the guard asks for: a parser
+		// must never hand the database an open-ended read. Cutting this one off is harmless where
+		// cutting off the suffix pass is not -- a URL missing from these rows simply falls through
+		// to that pass, which answers it properly, so no reference can be lost to the bound.
+		$exact = $wpdb->get_results( $wpdb->prepare(
+			$from_sql . " AND $column IN ( " . implode( ', ', array_fill( 0, count( $urls ), '%s' ) ) . ' ) LIMIT %d',
+			array_merge( $urls, array( count( $urls ) * 4 ) )
+		) );
+		foreach ( $exact as $row ) {
+			$candidate = (string) $row->candidate;
+			if ( !isset( $found[ $candidate ] ) ) $found[ $candidate ] = (int) $row->id;
+		}
+		$urls = array_values( array_diff( $urls, array_keys( $found ) ) );
+		if ( empty( $urls ) ) return $found;
+
+		$conditions = array();
+		$values = array();
+		foreach ( $urls as $url ) {
+			$conditions[] = "$column LIKE %s";
+			$values[] = '%' . $wpdb->esc_like( $url );
+		}
+		// A suffix comparison can match more than one attachment, so the result has to be bounded —
+		// the queries this replaced each carried LIMIT 1. Four rows per URL is far beyond what a real
+		// library produces for a path that already includes its year and month folders.
+		$limit = count( $urls ) * 4;
+		$values[] = $limit;
+		$rows = $wpdb->get_results( $wpdb->prepare(
+			$from_sql . ' AND ( ' . implode( ' OR ', $conditions ) . ' ) LIMIT %d', $values
+		) );
+		foreach ( $rows as $row ) {
+			foreach ( $urls as $url ) {
+				// The suffix is deliberately unanchored, exactly as LIKE '%url' compared, so a stored
+				// path carrying a prefix ours does not have (multisite's sites/2/) still resolves.
+				if ( !isset( $found[ $url ] ) && str_ends_with( (string) $row->candidate, $url ) ) {
+					$found[ $url ] = (int) $row->id;
+				}
+			}
+		}
+		// If that bound was actually reached, a URL absent from the result may simply have been cut
+		// off rather than genuinely unmatched — and the two are not interchangeable here: an answer
+		// we lose is a reference we lose, which is a used file we let be deleted. Ask again for each
+		// one still unanswered, one at a time, where the bound cannot hide anything.
+		if ( count( $rows ) >= $limit && count( $urls ) > 1 ) {
+			foreach ( $urls as $url ) {
+				if ( !isset( $found[ $url ] ) ) {
+					$found += $this->lookup_urls_by_column( $from_sql, $column, array( $url ) );
+				}
+			}
+		}
+		return $found;
+	}
+
+	// Resolve a set of URLs to media IDs in as few passes as possible, and remember every answer —
+	// including "nothing", which is the expensive one and was the answer being re-derived over and
+	// over on pages whose images are no longer in the library.
+	private function prime_url_id_cache( $urls ) {
+		global $wpdb;
+		$pending = array();
+		foreach ( $urls as $url ) {
+			if ( is_string( $url ) && $url !== '' && !array_key_exists( $url, $this->url_id_cache ) ) {
+				$pending[ $url ] = true;
+			}
+		}
+		if ( empty( $pending ) ) {
+			return;
+		}
+		// A long OR list stops helping at some point; a post never has enough URLs for this to bite,
+		// but a parser handing over thousands at once should not build one enormous statement.
+		foreach ( array_chunk( array_keys( $pending ), 100 ) as $chunk ) {
+			$found = $this->lookup_urls_by_column(
+				"SELECT post_id AS id, meta_value AS candidate FROM {$wpdb->postmeta} WHERE meta_key = '_wp_attached_file'",
+				'meta_value', $chunk
+			);
+			$missing = array_values( array_diff( $chunk, array_keys( $found ) ) );
+			if ( !empty( $missing ) ) {
+				$found += $this->lookup_urls_by_column(
+					"SELECT ID AS id, guid AS candidate FROM {$wpdb->posts} WHERE post_type = 'attachment'",
+					'guid', $missing
+				);
+			}
+			foreach ( $chunk as $url ) {
+				$this->url_id_cache[ $url ] = isset( $found[ $url ] ) ? $found[ $url ] : null;
+			}
+		}
+	}
+
 	function get_id_from_clean_url( $clean_url ) {
-		$found = false;
-		$id = 0;
-
-		if( !$found ) {
-			$id = $this->find_media_id_from_file( $clean_url, false );
-			if ( $id ) {
-				$is_attachment = get_post_type( $id ) === 'attachment';
-				if ( $is_attachment ) {
-					$found = true;
-				}
+		// An empty URL is not a missing match, it is a question with no meaning. Asked anyway, the
+		// guid comparison becomes LIKE '%' and confidently returns whichever attachment the database
+		// hands back first, marking an unrelated media as used.
+		if ( !is_string( $clean_url ) || $clean_url === '' ) {
+			return null;
+		}
+		$this->prime_url_id_cache( array( $clean_url ) );
+		$id = $this->url_id_cache[ $clean_url ];
+		// A URL still carrying a -WxH suffix gets one more try without it, as the loose pass did.
+		if ( $id === null ) {
+			$no_res_url = $this->clean_url_from_resolution( $clean_url );
+			if ( $no_res_url !== $clean_url ) {
+				$this->prime_url_id_cache( array( $no_res_url ) );
+				$id = $this->url_id_cache[ $no_res_url ];
 			}
 		}
-
-		if( !$found ) {
-			$id = $this->custom_attachment_url_to_postid( $clean_url );
-			if ( $id ) {
-				$is_attachment = get_post_type( $id ) === 'attachment';
-				if ( $is_attachment ) {
-					$found = true;
-				}
-			}
-		}
-
-		if ( !$found ) {
-			$id = $this->resolve_from_database( $clean_url );
-			if ( $id ) {
-				$is_attachment = get_post_type( $id ) === 'attachment';
-				if ( $is_attachment ) {
-					$found = true;
-				}
-			}
-		}
-
-
-		return $found ? $id : null;
+		return $id;
 	}
 
 	function resolve_from_database( $url ) {
@@ -2968,7 +3437,13 @@ class Meow_WPMC_Core {
 		$url = $this->get_pathinfo_from_image_src( $url );
 		// A guid LIKE '%...%' cannot use an index, so it must never bring back more than the one
 		// row this function actually uses.
-		$query = $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid LIKE '%s' LIMIT 1", '%' . $url . '%' );
+		// post_type is not a detail: the caller throws away anything that is not an attachment, and
+		// without it MySQL walks every post on the site. The value is escaped because a filename
+		// containing _ or % would otherwise be read as a wildcard and match the wrong media.
+		$query = $wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = 'attachment' AND guid LIKE %s LIMIT 1",
+			'%' . $wpdb->esc_like( $url )
+		);
 		$attachment = $wpdb->get_var( $query );
 		return empty( $attachment ) ? null : $attachment;
 	}
@@ -3095,10 +3570,17 @@ class Meow_WPMC_Core {
 		return $manifest;
 	}
 
-	// Returns null for a file that does not exist, a 64-char sha256 fingerprint for a
-	// normal file, or the FINGERPRINT_UNSAFE sentinel for a file that exists but cannot be
-	// safely fingerprinted.
-	public function file_fingerprint( $absolute_path ) {
+	// Returns null for a file that does not exist, a "v2:" + sha256 fingerprint for a normal
+	// file, or the FINGERPRINT_UNSAFE sentinel for a file that exists but cannot be safely
+	// fingerprinted.
+	//
+	// v2 hashes the size and the first/last 64 KB only. The legacy hash (no prefix) also mixed in
+	// mtime, inode and device, which are not stable on some hosts (network or overlay storage,
+	// backups restoring files, a copy fallback when moving to trash): cleanup then failed with
+	// "A file changed after the scan" even right after a new scan, and trashed files could never
+	// be restored (wp.org forum, 2026-08). Legacy hashes stored by older scans are still checked
+	// with the legacy formula, so existing results keep working until the next scan.
+	public function file_fingerprint( $absolute_path, $legacy = false ) {
 		if ( !file_exists( $absolute_path ) ) return null;
 		if ( !is_file( $absolute_path ) || !is_readable( $absolute_path ) || is_link( $absolute_path ) ) {
 			return self::FINGERPRINT_UNSAFE;
@@ -3110,12 +3592,13 @@ class Meow_WPMC_Core {
 			return self::FINGERPRINT_UNSAFE;
 		}
 		$context = hash_init( 'sha256' );
-		hash_update( $context, wp_json_encode( array(
-			'size' => isset( $stat['size'] ) ? (int) $stat['size'] : 0,
-			'mtime' => isset( $stat['mtime'] ) ? (int) $stat['mtime'] : 0,
-			'ino' => isset( $stat['ino'] ) ? (int) $stat['ino'] : 0,
-			'dev' => isset( $stat['dev'] ) ? (int) $stat['dev'] : 0,
-		) ) );
+		$identity = array( 'size' => isset( $stat['size'] ) ? (int) $stat['size'] : 0 );
+		if ( $legacy ) {
+			$identity['mtime'] = isset( $stat['mtime'] ) ? (int) $stat['mtime'] : 0;
+			$identity['ino'] = isset( $stat['ino'] ) ? (int) $stat['ino'] : 0;
+			$identity['dev'] = isset( $stat['dev'] ) ? (int) $stat['dev'] : 0;
+		}
+		hash_update( $context, wp_json_encode( $identity ) );
 		$sample_size = 64 * 1024;
 		$first = fread( $handle, $sample_size );
 		if ( $first === false ) {
@@ -3133,10 +3616,13 @@ class Meow_WPMC_Core {
 			hash_update( $context, $last );
 		}
 		fclose( $handle );
-		return hash_final( $context );
+		return ( $legacy ? '' : 'v2:' ) . hash_final( $context );
 	}
 
-	public function validate_issue_manifest( $issue ) {
+	// $mode 'cleanup' (delete, repair) compares fingerprints. 'recover' only checks that the files
+	// are where they should be: putting a file back from the trash cannot destroy anything, and
+	// recover_file() already refuses to overwrite an existing file.
+	public function validate_issue_manifest( $issue, $mode = 'cleanup' ) {
 		$manifest = json_decode( (string) $issue->manifest, true );
 		if ( !is_array( $manifest ) ) return true;
 		foreach ( $manifest as $relative => $expected ) {
@@ -3156,7 +3642,9 @@ class Meow_WPMC_Core {
 			if ( !$existing ) return new WP_Error( 'wpmc_file_changed_since_scan', __( 'A file disappeared after the scan. Run a new scan before cleanup.', 'media-cleaner' ) );
 			// A real fingerprint that no longer matches — including a file that has since
 			// become unsafe and now returns the sentinel — means the file changed.
-			$current = $this->file_fingerprint( $existing );
+			if ( $mode === 'recover' ) continue;
+			$legacy = strpos( (string) $expected, 'v2:' ) !== 0;
+			$current = $this->file_fingerprint( $existing, $legacy );
 			if ( !hash_equals( (string) $expected, (string) $current ) ) {
 				return new WP_Error( 'wpmc_file_changed_since_scan', __( 'A file changed after the scan. Run a new scan before cleanup.', 'media-cleaner' ) );
 			}
@@ -3530,7 +4018,7 @@ class Meow_WPMC_Core {
 			'filesystem_content' => true,
 			'media_library' => false,
 			'live_content' => false,
-			'debuglogs' => false,
+			'debuglogs' => true,
 			'images_only' => false,
 			'attach_is_use' => false,
 			'thumbnails_only' => false,
@@ -3735,6 +4223,9 @@ function wpmc_create_database() {
 	global $wpdb;
 	$table_name = $wpdb->prefix . "mclean_scan";
 	$charset_collate = $wpdb->get_charset_collate();
+	// path_trash_index exists for forget_stale_trash_rows(), which looks a path up across runs and
+	// so cannot use run_path_index. Keep this comment out of the SQL: dbDelta parses the statement
+	// with its own regex and does not expect comments inside it.
 	$sql = "CREATE TABLE $table_name (
 		id BIGINT(20) NOT NULL AUTO_INCREMENT,
 		run_id BIGINT(20) UNSIGNED NOT NULL DEFAULT 0,
@@ -3753,7 +4244,8 @@ function wpmc_create_database() {
 		KEY run_state_index (run_id, deleted, ignored, id),
 		KEY run_post_index (run_id, postId),
 		KEY run_path_index (run_id, path_hash),
-		KEY run_parent_index (run_id, parentId)
+		KEY run_parent_index (run_id, parentId),
+		KEY path_trash_index (path_hash, deleted)
 	) " . $charset_collate . ";" ;
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta( $sql );
@@ -3859,6 +4351,20 @@ function wpmc_create_database() {
 		KEY run_content_index (run_id, content_hash)
 	) " . $charset_collate . ";";
 	dbDelta( $sql );
+
+	// Support bundles. A support ID the user can read out but nobody can look up is worse than no
+	// support ID at all, so the snapshot that explains the failure is kept next to it.
+	$support_table = $wpdb->prefix . 'mclean_support';
+	$sql = "CREATE TABLE $support_table (
+		id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+		support_id CHAR(12) NOT NULL,
+		created_at DATETIME NOT NULL,
+		summary TEXT NULL,
+		logs LONGTEXT NULL,
+		PRIMARY KEY (id),
+		UNIQUE KEY support_id_unique (support_id)
+	) " . $charset_collate . ";";
+	dbDelta( $sql );
 }
 
 function wpmc_remove_database() {
@@ -3870,7 +4376,8 @@ function wpmc_remove_database() {
 	$table_name5 = $wpdb->prefix . "mclean_work";
 	$table_name6 = $wpdb->prefix . "mclean_operations";
 	$table_name7 = $wpdb->prefix . "mclean_duplicates";
-	$sql = "DROP TABLE IF EXISTS $table_name1, $table_name2, $table_name3, $table_name4, $table_name5, $table_name6, $table_name7;";
+	$table_name8 = $wpdb->prefix . "mclean_support";
+	$sql = "DROP TABLE IF EXISTS $table_name1, $table_name2, $table_name3, $table_name4, $table_name5, $table_name6, $table_name7, $table_name8;";
 	$wpdb->query( $sql );
 }
 
