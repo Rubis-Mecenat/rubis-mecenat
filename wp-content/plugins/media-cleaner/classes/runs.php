@@ -3,10 +3,9 @@
 class Meow_WPMC_Runs {
 
 	// 6 and 7 were used during development and never released, so no site in the wild
-	// carries them. A development site still stamped 6 or 7 is left alone, since it is
-	// only ahead of itself: the next real migration must be 8, or those sites would
-	// skip it.
-	const SCHEMA_VERSION = 5;
+	// carries them. That is why the first migration after 5 is 8: a development site
+	// still stamped 6 or 7 would otherwise skip it.
+	const SCHEMA_VERSION = 8;
 	const LOCK_OPTION = 'wpmc_scan_lock';
 	const ACTIVE_RUN_OPTION = 'wpmc_active_run_id';
 	const SCHEMA_OPTION = 'wpmc_schema_version';
@@ -48,6 +47,13 @@ class Meow_WPMC_Runs {
 					$options['shortcodes_disabled'] = false;
 					update_option( 'wpmc_options', $options, false );
 				}
+			}
+			// 6.9.1 to 6.9.7 cached references in transients that never expire, so they were
+			// autoloaded on every request (tens of KB), and 6.9.8 moved that cache to a table
+			// without removing them.
+			if ( $version < 8 ) {
+				delete_transient( 'wpmc_cached_urls' );
+				delete_transient( 'wpmc_cached_ids' );
 			}
 			update_option( self::SCHEMA_OPTION, self::SCHEMA_VERSION, false );
 			return true;
@@ -111,6 +117,13 @@ class Meow_WPMC_Runs {
 
 	public function get_active_id() {
 		return max( 0, (int) get_option( self::ACTIVE_RUN_OPTION, 0 ) );
+	}
+
+	// The method behind the results on screen, so the dashboard can tell when another one is
+	// selected: otherwise library results sit under an uploads folder label, next to Delete All.
+	public function results_method() {
+		$run = $this->get( $this->get_active_id() );
+		return $run ? $run->method : null;
 	}
 
 	public function get( $run_id ) {
@@ -240,7 +253,7 @@ class Meow_WPMC_Runs {
 				'checkpoint' => wp_json_encode( array() ),
 				// The version that produced these results. checkpoint() merges into this
 				// and complete() leaves it alone, so it is what the published run carries.
-				'counters' => wp_json_encode( array( 'version' => WPMC_VERSION ) ),
+				'counters' => wp_json_encode( array( 'version' => self::analysis_version() ) ),
 				'errors' => wp_json_encode( array() ),
 				'error_count' => 0,
 				'created_at' => $now,
@@ -606,7 +619,16 @@ class Meow_WPMC_Runs {
 		}
 		$counters = json_decode( (string) $run->counters, true );
 		$version = is_array( $counters ) && isset( $counters['version'] ) ? (string) $counters['version'] : '';
-		return $version === WPMC_VERSION;
+		return $version === self::analysis_version();
+	}
+
+	/**
+	 * Which analysis produced a run: the version, and whether the Pro parsers took
+	 * part. A free scan cannot see what a builder references, so after upgrading it
+	 * must not unlock deleting in Pro, where it would read as a verified result.
+	 */
+	public static function analysis_version() {
+		return WPMC_VERSION . ( class_exists( 'MeowPro_WPMC_Core' ) ? ' Pro' : ' Free' );
 	}
 
 	/**
@@ -633,7 +655,7 @@ class Meow_WPMC_Runs {
 			return new WP_Error( 'wpmc_no_completed_run', __( 'There are no published results to unlock. Run a scan first.', 'media-cleaner' ), array( 'status' => 409 ) );
 		}
 		$counters = $this->decode_json( $run->counters );
-		$counters['version'] = WPMC_VERSION;
+		$counters['version'] = self::analysis_version();
 		$updated = $wpdb->update(
 			$this->table( 'runs' ),
 			array( 'counters' => wp_json_encode( $counters ), 'updated_at' => current_time( 'mysql', true ) ),
@@ -964,11 +986,21 @@ class Meow_WPMC_Runs {
 		global $wpdb;
 		$active_id = $this->get_active_id();
 		$scan_table = $wpdb->prefix . 'mclean_scan';
+		// Rows from before path_hash existed get it here, in PHP, rather than through SHA2() and
+		// `<=>` in the copy: SQLite (Playground, Studio) has neither, so every scan failed there.
+		$unhashed = $wpdb->get_results( $wpdb->prepare(
+			"SELECT id, path FROM $scan_table
+			WHERE run_id = %d AND (ignored = 1 OR deleted = 1) AND path_hash IS NULL AND path IS NOT NULL",
+			(int) $active_id
+		) );
+		foreach ( $unhashed as $row ) {
+			$wpdb->update( $scan_table, array( 'path_hash' => hash( 'sha256', $row->path ) ), array( 'id' => (int) $row->id ), array( '%s' ), array( '%d' ) );
+		}
 		$result = $wpdb->query( $wpdb->prepare(
 			"INSERT INTO $scan_table
 			(run_id, time, type, postId, path, path_hash, manifest, size, ignored, deleted, issue, parentId)
 			SELECT %d, source.time, source.type, source.postId, source.path,
-				COALESCE(source.path_hash, SHA2(source.path, 256)), source.manifest, source.size,
+				source.path_hash, source.manifest, source.size,
 				source.ignored, source.deleted, source.issue, NULL
 			FROM $scan_table AS source
 			WHERE source.run_id = %d AND (source.ignored = 1 OR source.deleted = 1)
@@ -976,8 +1008,8 @@ class Meow_WPMC_Runs {
 				SELECT 1 FROM $scan_table AS target
 				WHERE target.run_id = %d
 				AND target.type = source.type
-				AND target.postId <=> source.postId
-				AND target.path_hash <=> COALESCE(source.path_hash, SHA2(source.path, 256))
+				AND ( target.postId = source.postId OR ( target.postId IS NULL AND source.postId IS NULL ) )
+				AND ( target.path_hash = source.path_hash OR ( target.path_hash IS NULL AND source.path_hash IS NULL ) )
 				AND target.issue = source.issue
 				AND target.ignored = source.ignored
 				AND target.deleted = source.deleted
