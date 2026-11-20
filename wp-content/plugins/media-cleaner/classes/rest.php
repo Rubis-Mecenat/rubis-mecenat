@@ -75,6 +75,16 @@ class Meow_WPMC_Rest
 				'permission_callback' => array( $this->core, 'can_access_features' ),
 				'callback' => array( $this, 'rest_all_ids' ),
 			) );
+			register_rest_route( $this->namespace, '/storage', array(
+				'methods' => 'GET',
+				'permission_callback' => array( $this->core, 'can_access_features' ),
+				'callback' => array( $this, 'rest_storage' ),
+			) );
+			register_rest_route( $this->namespace, '/uploads_estimate', array(
+				'methods' => 'GET',
+				'permission_callback' => array( $this->core, 'can_access_features' ),
+				'callback' => array( $this, 'rest_uploads_estimate' ),
+			) );
 			register_rest_route( $this->namespace, '/stats', array(
 				'methods' => 'GET',
 				'permission_callback' => array( $this->core, 'can_access_features' ),
@@ -507,7 +517,7 @@ class Meow_WPMC_Rest
 		}
 		$private_storage = $this->core->prepare_private_storage();
 		if ( is_wp_error( $private_storage ) ) {
-			$private_storage->add_data( array( 'status' => 412 ) );
+			$private_storage->add_data( array_merge( (array) $private_storage->get_error_data(), array( 'status' => 412 ) ) );
 			return $this->error_response( $private_storage );
 		}
 		$roundtrip = $this->core->test_quarantine_roundtrip();
@@ -651,7 +661,7 @@ class Meow_WPMC_Rest
 		$schema_ok = $this->core->runs && $this->core->runs->maybe_upgrade();
 		$add_check( 'database', $schema_ok ? 'ready' : 'blocked', $schema_ok ? __( 'Database tables are ready.', 'media-cleaner' ) : __( 'Database tables could not be created or upgraded.', 'media-cleaner' ) );
 		if ( $schema_ok ) {
-			$gc_ok = $this->core->runs->garbage_collect( 500 );
+			$gc_ok = $this->core->runs->garbage_collect();
 			$add_check( 'database_retention', $gc_ok ? 'ready' : 'constrained', $gc_ok ? __( 'Old scan data is within the bounded retention process.', 'media-cleaner' ) : __( 'Old scan data could not be pruned during this request.', 'media-cleaner' ) );
 			$resumable = $this->core->runs->get_resumable();
 			$add_check( 'scan_lock', $resumable ? 'blocked' : 'ready', $resumable ? __( 'A staged scan already exists. Resume or stop it before starting another scan.', 'media-cleaner' ) : __( 'No competing scan is running.', 'media-cleaner' ), $resumable ? array( 'run_id' => (int) $resumable->id ) : array() );
@@ -1355,7 +1365,7 @@ class Meow_WPMC_Rest
 		}
 		else if ( $method === 'duplicates' ) {
 			$data = array_values( array_filter( array_map( 'sanitize_text_field', $data ), function( $hash ) {
-				return preg_match( '/^HASH:[a-f0-9]{64}$/', $hash ) === 1;
+				return preg_match( '/^HASH:([a-f0-9]{64}|SIMILAR:[a-f0-9]{19})$/', $hash ) === 1;
 			} ) );
 		}
 		if ( empty( $data ) ) {
@@ -1827,7 +1837,7 @@ class Meow_WPMC_Rest
 		// Every column is qualified with the r alias. Searching joins the posts table,
 		// and an unqualified id exists on both sides, which makes the query ambiguous
 		// and returns no reference at all.
-		$where_sql = $wpdb->prepare( 'AND r.run_id = %d', $run_id );
+		$where_sql = $wpdb->prepare( 'AND r.run_id = %d', $run_id ) . $this->core->hidden_refs_sql( 'r.originType' );
 		if ($referenceFilter === 'mediaIds') {
 			$where_sql .= ' AND r.mediaId IS NOT NULL';
 		} else if ($referenceFilter === 'mediaUrls') {
@@ -2033,13 +2043,19 @@ class Meow_WPMC_Rest
 				array( 'status' => 404 ) ) );
 		}
 
-		// The group is keyed by the content hash the duplicate analysis stored as a reference.
-		$hash = $wpdb->get_var( $wpdb->prepare(
-			"SELECT originType FROM $table_refs
-			WHERE run_id = %d AND mediaUrl_hash = %s AND mediaUrl = %s AND originType LIKE 'HASH:%%'
-			LIMIT 1",
+		// The group is keyed by the content hash the duplicate analysis stored as a reference, and
+		// the similar images by the perceptual key stored next to it, when there is one.
+		$keys = $wpdb->get_col( $wpdb->prepare(
+			"SELECT DISTINCT originType FROM $table_refs
+			WHERE run_id = %d AND mediaUrl_hash = %s AND mediaUrl = %s AND originType LIKE 'HASH:%%'",
 			$run_id, hash( 'sha256', $entry->path ), $entry->path
 		) );
+		$hash = null;
+		$similar_key = null;
+		foreach ( $keys as $key ) {
+			if ( strpos( $key, 'HASH:SIMILAR:' ) === 0 ) $similar_key = $key;
+			else $hash = $key;
+		}
 		if ( !$hash ) {
 			return $this->error_response( new WP_Error( 'wpmc_duplicate_hash_missing',
 				__( 'This file was not hashed by the current scan, so its copies cannot be compared. Run a Duplicates scan.', 'media-cleaner' ),
@@ -2075,6 +2091,31 @@ class Meow_WPMC_Rest
 			$results[] = $this->build_duplicate_copy( (string) $copy->mediaUrl, (int) $copy->mediaId, $run_id );
 		}
 
+		// The images that look the same without being the same bytes: every image whose perceptual key
+		// is near this one (same test as the scan), minus the identical copies already above. Capped
+		// like the copies, for the same reason.
+		$similar = array();
+		$similar_total = 0;
+		if ( $similar_key ) {
+			$near = $this->engine->similar_keys_near( $similar_key );
+			$placeholders = implode( ',', array_fill( 0, count( $near ), '%s' ) );
+			$identical = array_flip( array_map( function ( $copy ) { return (string) $copy->mediaUrl; }, $copies ) );
+			$others = array_values( array_filter( $wpdb->get_results( $wpdb->prepare(
+				"SELECT mediaUrl, MAX(origin) AS mediaId FROM $table_refs
+				WHERE run_id = %d AND originType IN ($placeholders) AND mediaUrl IS NOT NULL
+				GROUP BY mediaUrl
+				ORDER BY mediaUrl ASC",
+				array_merge( array( $run_id ), $near )
+			) ), function ( $other ) use ( $identical ) { return !isset( $identical[ (string) $other->mediaUrl ] ); } ) );
+			$similar_total = count( $others );
+			// Without Pro the modal only says how many there are: seeing and comparing them is Pro.
+			$shown_others = $this->admin->is_pro_user() ? array_slice( $others, 0, 50 ) : array();
+			foreach ( $shown_others as $other ) {
+				$similar[] = $this->build_duplicate_copy( (string) $other->mediaUrl, (int) $other->mediaId, $run_id );
+			}
+		}
+
+		$run = $this->core->runs ? $this->core->runs->get( $run_id ) : null;
 		return new WP_REST_Response( array(
 			'success' => true,
 			'data' => array(
@@ -2082,6 +2123,12 @@ class Meow_WPMC_Rest
 				'currentId' => (int) $entry->id,
 				'total' => $total,
 				'copies' => $results,
+				'similarTotal' => $similar_total,
+				'similar' => $similar,
+				// Why a look-alike can be outside the results: the scan behind them ran without Pro and
+				// only counted them (see check_duplicates()). A Pro scan never counts, so above zero is proof.
+				'similarCountedWithoutPro' => $this->core->runs ? $this->core->runs->similar_found( $run_id ) : 0,
+				'scannedAt' => $run ? $run->finished_at : null,
 			),
 		), 200 );
 	}
@@ -2311,15 +2358,17 @@ class Meow_WPMC_Rest
 	}
 
 	/**
-	 * Tells each duplicate row how many copies it shares its content with, in two queries for the
-	 * whole page. A duplicate on its own line means nothing; the size of its group is the first
+	 * Tells each duplicate row how many copies it shares its content with (itself included), and each
+	 * similar row how many other images look like it (the number its modal shows), in a few queries
+	 * for the whole page. A duplicate on its own line means nothing; the size of its group is the first
 	 * thing the user needs to see.
 	 */
 	private function attach_duplicate_counts( $entries, $run_id ) {
 		global $wpdb;
+		$wanted = array( 'DUPLICATE', 'SIMILAR' );
 		$paths = array();
 		foreach ( $entries as $entry ) {
-			if ( isset( $entry->issue ) && $entry->issue === 'DUPLICATE' ) {
+			if ( isset( $entry->issue ) && in_array( $entry->issue, $wanted, true ) ) {
 				$paths[ $entry->path ] = true;
 			}
 		}
@@ -2337,11 +2386,18 @@ class Meow_WPMC_Rest
 			array_merge( array( $run_id ), $path_hashes )
 		) );
 
-		$hash_by_path = array();
-		$hashes = array();
+		// The keys whose images make up each row's group: the content hash for a duplicate, every
+		// perceptual key near its own for a similar image.
+		$keys_by_path = array();
 		foreach ( $rows as $row ) {
-			$hash_by_path[ $row->mediaUrl ] = $row->originType;
-			$hashes[ $row->originType ] = true;
+			$issue = strpos( $row->originType, 'HASH:SIMILAR:' ) === 0 ? 'SIMILAR' : 'DUPLICATE';
+			$keys_by_path[ $row->mediaUrl ][ $issue ] = $issue === 'SIMILAR'
+				? $this->engine->similar_keys_near( $row->originType )
+				: array( $row->originType );
+		}
+		$hashes = array();
+		foreach ( $keys_by_path as $by_issue ) {
+			foreach ( $by_issue as $keys ) $hashes += array_flip( $keys );
 		}
 		if ( empty( $hashes ) ) {
 			return;
@@ -2360,12 +2416,22 @@ class Meow_WPMC_Rest
 			$copies_by_hash[ $count->originType ] = (int) $count->copies;
 		}
 
+		// Each image holds a single perceptual key, so adding the counts of the near keys counts
+		// every look-alike once.
 		foreach ( $entries as $entry ) {
-			if ( !isset( $entry->issue ) || $entry->issue !== 'DUPLICATE' ) {
+			if ( !isset( $entry->issue ) || !in_array( $entry->issue, $wanted, true ) ) {
 				continue;
 			}
-			$hash = isset( $hash_by_path[ $entry->path ] ) ? $hash_by_path[ $entry->path ] : null;
-			$entry->duplicates_count = $hash && isset( $copies_by_hash[ $hash ] ) ? $copies_by_hash[ $hash ] : 0;
+			$keys = isset( $keys_by_path[ $entry->path ][ $entry->issue ] ) ? $keys_by_path[ $entry->path ][ $entry->issue ] : array();
+			$count = array_sum( array_intersect_key( $copies_by_hash, array_flip( $keys ) ) );
+			$entry->duplicates_count = $entry->issue === 'SIMILAR' ? max( 0, $count - 1 ) : $count;
+			// A duplicate can also have look-alikes: the images near its perceptual key, minus its
+			// identical copies (same bytes, so same key). The same number the comparison modal shows,
+			// given without Pro too, since it says how many there are, not which.
+			if ( $entry->issue === 'DUPLICATE' && isset( $keys_by_path[ $entry->path ]['SIMILAR'] ) ) {
+				$near = array_sum( array_intersect_key( $copies_by_hash, array_flip( $keys_by_path[ $entry->path ]['SIMILAR'] ) ) );
+				$entry->similar_count = max( 0, $near - $count );
+			}
 		}
 	}
 
@@ -2671,11 +2737,11 @@ class Meow_WPMC_Rest
 		$table_ref = $wpdb->prefix . "mclean_refs";
 		$run_id = $this->core->get_run_id();
 		$posts_table = $wpdb->posts;
-		$filter_sql = '';
+		$filter_sql = $this->core->hidden_refs_sql( 'r.originType' );
 		if ($referenceFilter === 'mediaIds') {
-			$filter_sql = ' AND r.mediaId IS NOT NULL';
+			$filter_sql .= ' AND r.mediaId IS NOT NULL';
 		} else if ($referenceFilter === 'mediaUrls') {
-			$filter_sql = ' AND r.mediaUrl IS NOT NULL';
+			$filter_sql .= ' AND r.mediaUrl IS NOT NULL';
 		}
 		// The whole statement is prepared once: feeding an already prepared clause
 		// back into prepare() would treat the escaped search value as placeholders.
@@ -2696,6 +2762,22 @@ class Meow_WPMC_Rest
 		) );
 	}
 
+	function rest_storage( $request ) {
+		if ( !class_exists( 'MeowPro_WPMC_Storage' ) ) {
+			return new WP_REST_Response( array( 'success' => false, 'message' => __( 'Storage is a Pro feature.', 'media-cleaner' ) ), 403 );
+		}
+		$storage = new MeowPro_WPMC_Storage( $this->core );
+		$refresh = rest_sanitize_boolean( $request->get_param( 'refresh' ) );
+		$stats = $request->get_param( 'part' ) === 'folders' ? $storage->folders( $refresh ) : $storage->get( $refresh );
+		return new WP_REST_Response( array( 'success' => true, 'data' => $stats ), 200 );
+	}
+
+	// Pro scans the uploads folder itself, so it never needs the estimate.
+	function rest_uploads_estimate() {
+		$estimate = class_exists( 'MeowPro_WPMC_Core' ) ? null : ( new Meow_WPMC_Uploads_Estimate( $this->core ) )->get();
+		return new WP_REST_Response( array( 'success' => true, 'data' => $estimate ), 200 );
+	}
+
 	function rest_get_stats( $request ) {
 		$search = sanitize_text_field( $request->get_param('search') );
 		$reference_filter = sanitize_text_field( $request->get_param('referenceFilter') );
@@ -2714,14 +2796,21 @@ class Meow_WPMC_Rest
 		$trash = $wpdb->get_row( $wpdb->prepare( "SELECT COUNT(*) as entries, SUM(size) as size
 			FROM $table_scan WHERE run_id = %d AND deleted = 1 $whereSql", $run_id ) );
 		$references = $this->count_references($search, $reference_filter);
+		// The entries a Clean Library scan looks at, so the dashboard can tell what share of them it
+		// lists. Only meaningful for the whole list, not a search or the repair view.
+		$library = ( $repair_mode || !empty( $search ) ) ? null
+			: (int) $this->engine->count_media_entries( $this->core->get_option( 'attach_is_use' ) );
 
 		return new WP_REST_Response( [ 'success' => true, 'data' => array(
+			'library' => $library,
 			'issues' => $issues->entries,
 			'issues_size' => $issues->size,
 			'ignored' => $ignored,
 			'trash' => $trash->entries,
 			'trash_size' => $trash->size,
 			'references' => $references,
+			// Similar images a scan without Pro counted but did not list (see check_duplicates()).
+			'similar_found' => $this->core->runs ? $this->core->runs->similar_found( $run_id ) : 0,
 		) ], 200 );
 	}
 
@@ -2780,7 +2869,7 @@ class Meow_WPMC_Rest
 
 		$rows = array();
 		if ( $section === 'references' ) {
-			$rows = $wpdb->get_results( $wpdb->prepare( "SELECT id, mediaId, mediaUrl, originType, origin FROM $table_ref WHERE run_id = %d AND id > %d ORDER BY id ASC LIMIT %d", $run_id, $cursor, $limit ) );
+			$rows = $wpdb->get_results( $wpdb->prepare( "SELECT id, mediaId, mediaUrl, originType, origin FROM $table_ref WHERE run_id = %d AND id > %d" . $this->core->hidden_refs_sql() . " ORDER BY id ASC LIMIT %d", $run_id, $cursor, $limit ) );
 		}
 		else {
 			$condition = $section === 'issues' ? 'ignored = 0 AND deleted = 0' : ( $section === 'ignored' ? 'ignored = 1' : 'deleted = 1' );

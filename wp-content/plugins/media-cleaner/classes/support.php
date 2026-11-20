@@ -238,6 +238,10 @@ class Meow_WPMC_Support {
       array_push( $unsupported, 'Bricks Builder' );
 		}
 
+		if ( defined( 'MFN_THEME_VERSION' ) ) {
+      array_push( $unsupported, 'BeBuilder' );
+		}
+
     // W3 Total Cache
     if ( defined( 'W3TC_VERSION' ) ) {
       array_push( $unsupported, 'W3 Total Cache' );
@@ -297,6 +301,11 @@ class Meow_WPMC_Support {
 		if ( defined( 'SOLILOQUY_VERSION' ) ) {
 			array_push( $unsupported, 'Soliloquy' );
 		}
+
+    // Eventin
+    if ( defined( 'ETN_VERSION' ) || defined( 'EVENTIN_VERSION' ) ) {
+      array_push( $unsupported, 'Eventin' );
+    }
 
     return $unsupported;
   }

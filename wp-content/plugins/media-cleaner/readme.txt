@@ -5,7 +5,7 @@ Donate link: https://www.patreon.com/meowapps
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 8.1
-Stable tag: 7.3.3
+Stable tag: 7.3.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,7 +21,7 @@ Media Cleaner is like a ninja assassin for your Media Library - it'll stealthily
 
 To learn more about compatibility, features, and the Pro version, check out the [tutorial](https://meowapps.com/media-cleaner/tutorial/) on the [official website](https://meowapps.com/media-cleaner/).
 
-[youtube https://www.youtube.com/watch?v=ZbGG7V2t4X0]
+[youtube https://www.youtube.com/watch?v=N3s5U7A5KtU]
 
 === AI ASSISTANTS (MCP) ===
 
@@ -36,6 +36,7 @@ This plugin is compatible with all media types, including retina and WebP versio
 [Media Cleaner Pro](https://meowapps.com/media-cleaner/) adds extra features to the free version of Media Cleaner:
 
 * Filesystem Analysis: Scans your physical /uploads directory and matches it against the Media Library.
+* Similar Images: The Duplicates scan also lets you compare and clean images that look alike without being the same file (resized, cropped or re-saved). The free version counts them.
 * Extra support for complex plugins, such as ACF, Metabox, Divi Builder, Fusion Builder (Avada), WPBakery Page Builder, Visual Composer, Elementor, Beaver Builder, Brizy Builder, Oxygen Builder, Slider Revolution, Justified Image Grid, Avia Framework, and many more!
 * Live Site Scan: Analyzes the online version of your website, potentially improving accuracy in some cases.
 * WP-CLI support: Allows you to run the plugin at a higher speed or automatically with direct server access (via SSH).
@@ -49,9 +50,47 @@ This plugin is compatible with all media types, including retina and WebP versio
 
 == Screenshots ==
 
-1. Media -> Media Cleaner
+1. After a scan, Media Cleaner lists the media your content doesn't use, with a preview, the reason it was flagged and its size.
+2. The References tab shows where each file is used, so you can see why it was kept.
+3. Deleted files go to a trash first. Recover them in one click, or empty the trash when you're sure.
+4. Parsers teach Media Cleaner how plugins like Yoast SEO, MetaSlider and Meow Gallery store their media.
+5. Files you want to keep can be ignored, so they never come back in the results.
 
 == Changelog ==
+
+= 7.3.7 (2026/11/10) =
+* Add: Duplicates Scan is now available in the free version, with similarity detection remaining a Pro feature.
+* Update: Reworked the duplicates compare modal.
+* Update: Reworked the select sizes modal and clarified its wording to avoid misunderstandings.
+* Update: Synced the Meow Apps common library.
+
+= 7.3.6 (2026/11/03) =
+* Add: Duplicate scan now finds visually similar images using perceptual hashing (dHash), with a sensitivity setting.
+* Add: Comparison tool to view duplicates side by side before deleting them.
+* Add: Support for BeBuilder.
+* Update: Error modals now include a link to the related documentation.
+
+= 7.3.5 (2026/10/30) =
+* Add: Storage page showing where the site's space goes and what can be cleaned.
+* Add: Parser for Eventin.
+* Add: The free version now shows how many files in the uploads folder are not in the Media Library.
+* Add: Warning when a scan lists a large share of the Media Library, and one extra confirmation before Delete All.
+* Add: Option to list the original files kept next to scaled images.
+* Update: Optimize Thumbnails now keeps the sizes your theme or plugins still register.
+* Update: The header shows the installed version, and how to update or renew when a newer one is available.
+* Update: Settings is now the wrench at the end of the header.
+* Update: Meow Apps → Media Cleaner now opens the Dashboard, and the Storage page has a proper title.
+* Update: Tidied the advanced tools, Reset Options now asks for confirmation, and results coming from another scan method are clearer.
+* Fix: Cleaning a media entry no longer moves or deletes files that another attachment still uses.
+* Fix: Invalid URLs and unclean text no longer block the whole scan.
+
+= 7.3.4 (2026/10/24) =
+* Add: Divi 4 parser now detects testimonial portrait images.
+* Update: The scan's Finished dialog names the page builders only Pro can read, and clicking a locked scan method explains what Pro would do.
+* Update: The Ignore button is now disabled instead of hidden when cleanup is not allowed.
+* Update: Pro badges now link to the Media Cleaner page, and a Pro install that is not activated yet is shown as Pro.
+* Update: Clearer License tab that explains Pro to free users and invites Pro buyers to activate.
+* Fix: Old scans are now fully cleaned up, so the database tables no longer grow with every scan.
 
 = 7.3.3 (2026/10/20) =
 * Fix: Images set in the Customizer are now detected in every theme's settings, so they are no longer flagged as unused.
