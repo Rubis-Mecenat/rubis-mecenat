@@ -19,6 +19,7 @@
  */
 namespace InstagramFeed\Vendor\Smashballoon\Framework\Packages\Consent;
 
+use InstagramFeed\Vendor\Smashballoon\Framework\Packages\AboutUs\ContentProvider;
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -32,6 +33,17 @@ class ConsentManager
     const AJAX_ACTION = 'sbc_save_consent_choice';
     const NONCE_ACTION = 'sbc-consent';
     const NOTICES_GROUP = 'sbc_marketing';
+    /**
+     * Plugin slugs whose legacy usage-tracking opt-in has already been checked
+     * (SMASH-2630). Stored as a list, not autoloaded.
+     */
+    const OPT_LEGACY_OPTIN_CHECKED = 'sbc_legacy_optin_checked';
+    /**
+     * Set to 'legacy_optin' when migrate_legacy_optin() turned consent on, and
+     * removed by any later update() (SMASH-2686). Lets the consent script send
+     * a Skip that was still pending in the browser instead of dropping it.
+     */
+    const OPT_CONSENT_SOURCE = 'sbc_consent_source';
     /**
      * Registered plugin instances keyed by plugin_slug.
      *
@@ -79,6 +91,10 @@ class ConsentManager
      *     @type string        $pro_init_option  Optional. When set AND is_pro, force DSC+NOTIF on once,
      *                                            guarded by this plugin-owned option name (so installs
      *                                            that already migrated never re-fire).
+     *     @type callable      $legacy_optin     Optional. Returns true when this plugin's own legacy
+     *                                            usage-tracking opt-in is on. Used once per plugin to
+     *                                            carry that opt-in over to data-sharing consent
+     *                                            (SMASH-2630). See migrate_legacy_optin().
      * }
      */
     public static function init(array $config)
@@ -154,6 +170,9 @@ class ConsentManager
             }
         }
         self::register_hooks();
+        if (isset($config['legacy_optin']) && is_callable($config['legacy_optin'])) {
+            self::migrate_legacy_optin($slug, $config['legacy_optin']);
+        }
         // Pro no longer PERSISTS a consent value on install. Data-sharing consent
         // is forced ON for Pro at READ time (see flags()/is_dsc_enabled()), and
         // the stored options are never written by Pro presence — so deactivating
@@ -179,6 +198,67 @@ class ConsentManager
         ConsentAjax::register();
         ConsentAssets::register();
         ConsentRest::register();
+        // Some plugins boot About Us only under is_admin(), so on a wp-cron
+        // request nothing would run the About Us events a consent save
+        // schedules. Consent boots on every request; hook the callbacks here
+        // too (add_action dedupes the same callback).
+        if (\true === class_exists(ContentProvider::class)) {
+            add_action(ContentProvider::CRON_HOOK, [ContentProvider::class, 'refresh']);
+            add_action(ContentProvider::REFRESH_ONCE_HOOK, [ContentProvider::class, 'refresh']);
+        }
+    }
+    /**
+     * Carry a plugin's legacy usage-tracking opt-in over to data-sharing
+     * consent, once per plugin (SMASH-2630).
+     *
+     * The WP.org compliance release made usage tracking also require
+     * data-sharing consent, which defaults off. Sites that had already opted
+     * in to usage tracking stopped reporting on update. This turns consent on
+     * for those sites only:
+     *
+     * - Never on Pro (consent is forced on at read time there).
+     * - Never when a consent value is already stored. An empty stored value
+     *   is an explicit "no" (the admin turned it off or clicked Skip).
+     * - Each plugin is checked once, so turning usage tracking on later does
+     *   not re-run it. With several plugins active, the first one whose
+     *   opt-in is on turns consent on for the site.
+     *
+     * Goes through update(), so in-plugin notifications follow the existing
+     * DSC→NOTIF coupling and sbc_consent_changed fires.
+     *
+     * @param string   $slug         Plugin slug.
+     * @param callable $legacy_optin Returns true when the plugin's legacy opt-in is on.
+     * @return bool True when consent was turned on by this call.
+     */
+    public static function migrate_legacy_optin($slug, $legacy_optin)
+    {
+        // is_pro() only caches true, so a Free copy that inits before the Pro
+        // plugin adds its filter can still migrate on a Free+Pro site. That is
+        // intended: the stored '1' reflects the Free opt-in and is what applies
+        // if Pro is later removed.
+        if (self::is_pro()) {
+            return \false;
+        }
+        $checked = get_option(self::OPT_LEGACY_OPTIN_CHECKED, array());
+        if (!is_array($checked)) {
+            $checked = array();
+        }
+        if (in_array($slug, $checked, \true)) {
+            return \false;
+        }
+        $checked[] = $slug;
+        update_option(self::OPT_LEGACY_OPTIN_CHECKED, $checked, \false);
+        // A stored value of any kind (including '') is a choice already made.
+        if (get_option(self::OPT_DSC, null) !== null) {
+            return \false;
+        }
+        if (!call_user_func($legacy_optin)) {
+            return \false;
+        }
+        self::update(\true, \true);
+        // After update(), which clears the source on every other consent write.
+        update_option(self::OPT_CONSENT_SOURCE, 'legacy_optin', \false);
+        return \true;
     }
     /**
      * @return array<string,array>  Registered plugin instances.
@@ -263,6 +343,22 @@ class ConsentManager
         return (bool) get_option(self::OPT_MODAL_DISMISS, \false);
     }
     /**
+     * Whether consent is on only because migrate_legacy_optin() set it, with
+     * no consent choice made since (SMASH-2686).
+     *
+     * @return boolean
+     */
+    public static function is_consent_migrated()
+    {
+        if (\true === self::is_pro() || \true === self::is_modal_dismissed()) {
+            return \false;
+        }
+        if ('legacy_optin' !== get_option(self::OPT_CONSENT_SOURCE, '')) {
+            return \false;
+        }
+        return (bool) get_option(self::OPT_DSC, \false);
+    }
+    /**
      * Current notification source per the consent matrix.
      *
      * @return string  'remote' | 'local' | 'none'
@@ -279,18 +375,20 @@ class ConsentManager
      * Whether the host is a Pro edition. Filter-based; defaults to false (Free).
      * Pro plugins opt in via add_filter('sbc_consent_is_pro', '__return_true').
      *
-     * The result is cached for the lifetime of the request, so the
-     * `sbc_consent_is_pro` filter MUST be attached before the first call to
-     * is_pro() / flags() / is_dsc_enabled() / is_notif_enabled(). In practice
-     * that means hooking the filter at or before `plugins_loaded` priority 10
-     * — the same place ConsentManager::init() is typically called from.
+     * A true result is cached for the lifetime of the request. A false result
+     * is not, so a Pro filter attached by another plugin later in the request
+     * is still honoured.
      *
      * @return bool
      */
     public static function is_pro()
     {
-        if (self::$is_pro_cache !== null) {
-            return self::$is_pro_cache;
+        // Only a true result is cached. Every plugin bundles its own copy of
+        // this class, so a Free copy can read is_pro() before the Pro plugin's
+        // init() adds the filter; caching false there would treat a Pro site
+        // as Free for the rest of the request.
+        if (self::$is_pro_cache === \true) {
+            return \true;
         }
         self::$is_pro_cache = (bool) apply_filters('sbc_consent_is_pro', \false);
         return self::$is_pro_cache;
@@ -432,6 +530,8 @@ class ConsentManager
         $notif = $dsc ? \true : (bool) $notif;
         update_option(self::OPT_DSC, $dsc ? '1' : '');
         update_option(self::OPT_NOTIF, $notif ? '1' : '');
+        // Any consent write is a choice made after the migration (SMASH-2686).
+        delete_option(self::OPT_CONSENT_SOURCE);
         if ($dismiss_modal !== null) {
             update_option(self::OPT_MODAL_DISMISS, (bool) $dismiss_modal ? '1' : '');
         }

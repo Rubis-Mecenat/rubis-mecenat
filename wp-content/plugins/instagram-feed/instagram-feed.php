@@ -4,7 +4,7 @@
 Plugin Name: Smash Balloon Instagram Feed
 Plugin URI: https://smashballoon.com/instagram-feed
 Description: Display beautifully clean, customizable, and responsive Instagram feeds.
-Version: 6.14.0
+Version: 6.17.0
 Requires PHP: 7.4
 Author: Smash Balloon
 Author URI: https://smashballoon.com/
@@ -24,6 +24,15 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+// Instagram Feed Pro defines the same functions, classes and constants. While Pro is
+// active, stay active but stand by, and return before anything below is defined.
+// Pro checks that inc/sbi-pro-standby.php exists, so keep this path and file name.
+require_once trailingslashit(plugin_dir_path(__FILE__)) . 'inc/sbi-pro-standby.php';
+if (sbi_free_should_stand_by()) {
+	sbi_free_standby();
+	return;
+}
 
 // Check PHP version
 if (version_compare(PHP_VERSION, '7.4', '<')) {
@@ -53,14 +62,14 @@ if (!defined('SBI_PLUGIN_NAME')) {
 	define('SBI_PLUGIN_NAME', 'Instagram Feed Free');
 }
 if (!defined('SBIVER')) {
-	define('SBIVER', '6.14.0');
+	define('SBIVER', '6.17.0');
 }
 if ( ! defined( 'SBI_SMASH_USAGE_TRACKING_API_URL' ) ) {
 	define( 'SBI_SMASH_USAGE_TRACKING_API_URL', 'https://usage.smashballoon.com/api' );
 }
 // Db version.
 if (!defined('SBI_DBVERSION')) {
-	define('SBI_DBVERSION', '2.4');
+	define('SBI_DBVERSION', '2.5');
 }
 // Bump when a release invalidates cached feed data. See sbi_cache_invalidation_registry().
 if (!defined('SBI_CACHE_VERSION')) {
@@ -176,6 +185,9 @@ if (!function_exists('sb_instagram_feed_init')) {
 					'plugin_name'         => 'Instagram Feed',
 					'utm_slug'            => 'instagram',
 					'legacy_class'        => 'SBI_Consent',
+					// SMASH-2630: sites that had opted in to usage tracking keep
+					// sharing after the consent update (run once by the package).
+					'legacy_optin'        => array( '\InstagramFeed\UsageTracking\Config', 'is_enabled' ),
 					// Brand link bases intentionally omitted: the canonical
 					// smashballoon.com/{data-sharing-permissions,terms-and-conditions,
 					// app-privacy}/ defaults in ConsentManager::link_url() are the
@@ -292,6 +304,11 @@ if (!function_exists('sb_instagram_feed_init')) {
 
 		$sbi_oembed = new InstagramFeed\Admin\SBI_oEmbeds();
 		$sbi_global_settings = new InstagramFeed\Admin\SBI_Global_Settings();
+		// WordPress core Abilities API integration (WP 6.9+; silent no-op below
+		// that). Unconditional — like SBI_Global_Settings above, this must run on
+		// REST requests too, not only in wp-admin, since the abilities register
+		// on `wp_abilities_api_init`. See inc/Abilities/SBI_Abilities.php.
+		$sbi_abilities = new InstagramFeed\Abilities\SBI_Abilities();
 		$sbi_support = new InstagramFeed\Admin\SBI_Support();
 		$sbi_upgrader = new InstagramFeed\Admin\SBI_Upgrader();
 		$sbi_upgrader->hooks();
@@ -488,6 +505,18 @@ if (!function_exists('sb_instagram_feed_init')) {
 	 */
 	function sb_instagram_deactivate()
 	{
+		// Instagram Feed Pro uses the same cron events and support user. Leave them to Pro while it is active,
+		// for example when an older Pro deactivates this plugin as Pro is activated.
+		// Return before loading this plugin's autoloader, so it can't take over classes shared with Pro.
+		if (sbi_free_pro_is_active()) {
+			// Literal hook name: this event is the free plugin's own, and the Config class name is shared with Pro.
+			wp_clear_scheduled_hook('sbi_free_smash_usage_tracking_cron');
+			return;
+		}
+
+		// The autoloader is loaded on init; deactivate_plugins() can run earlier.
+		require_once plugin_dir_path(__FILE__) . 'vendor/autoload.php';
+		require_once plugin_dir_path(__FILE__) . 'admin/SBI_Support_Tool.php';
 		wp_clear_scheduled_hook('sb_instagram_twicedaily');
 		wp_clear_scheduled_hook('sb_instagram_cron_job');
 		wp_clear_scheduled_hook('sb_instagram_feed_issue_email');
@@ -1039,6 +1068,12 @@ if (!function_exists('sb_instagram_feed_init')) {
 			update_option('sbi_statuses', $sbi_statuses);
 			update_option('sbi_db_version', SBI_DBVERSION);
 		}
+
+		// SMASH-2563: activating Pro while the free plugin was active cleared these events.
+		if (version_compare($db_ver, '2.5', '<')) {
+			sbi_schedule_missing_cron_events();
+			update_option('sbi_db_version', SBI_DBVERSION);
+		}
 	}
 
 	add_action('wp_loaded', 'sbi_check_for_db_updates');
@@ -1154,6 +1189,12 @@ if (!function_exists('sb_instagram_feed_init')) {
 		$wpdb->query("DELETE FROM $table_name WHERE `option_name` LIKE ('%\_transient\_&sbi\_%')");
 		$wpdb->query("DELETE FROM $table_name WHERE `option_name` LIKE ('%\_transient\_timeout\_&sbi\_%')");
 
+		// Abilities API state tokens + slots (SBI_State_Token::PREFIX). They no longer
+		// start with `sbi_`, so the patterns around this block do not reach them;
+		// remove the transient and its timeout row explicitly.
+		$wpdb->query("DELETE FROM $table_name WHERE `option_name` LIKE ('\_transient\_sb\_abilities\_sbi\_state\_%')");
+		$wpdb->query("DELETE FROM $table_name WHERE `option_name` LIKE ('\_transient\_timeout\_sb\_abilities\_sbi\_state\_%')");
+
 		/*
 		 Regular Caches */
 		// Delete all transients.
@@ -1192,6 +1233,7 @@ if (!function_exists('sb_instagram_feed_init')) {
 		$wpdb->query("DELETE FROM $table_name WHERE `option_name` LIKE ('%\_transient\_\$sbi\_%')");
 		$wpdb->query("DELETE FROM $table_name WHERE `option_name` LIKE ('%\_transient\_timeout\_\$sbi\_%')");
 		delete_option('sbi_db_version');
+		delete_option('sbi_cache_version');
 
 		$feed_caches_table_name = $wpdb->prefix . 'sbi_feed_caches';
 		$wpdb->query("DROP TABLE IF EXISTS $feed_caches_table_name");
@@ -1259,6 +1301,9 @@ if (!function_exists('sb_instagram_feed_init')) {
 		delete_option('sb_instagram_settings');
 		// Locator token revocation epoch (SMASH-1630); kept when settings are preserved.
 		delete_option('sbi_locator_token_epoch');
+		// Abilities write-gate epoch. Must stay AFTER delete_option('sb_instagram_settings') above:
+		// that delete fires the gate's delete_option hook, which would otherwise re-create it.
+		delete_option('sb_abilities_sbi_gate_epoch');
 		delete_option('sbi_ver');
 		delete_option('sb_expired_tokens');
 		delete_option('sbi_cron_report');
@@ -1282,6 +1327,7 @@ if (!function_exists('sb_instagram_feed_init')) {
 		delete_option('sb_instagram_feed_group_notices');
 	}
 
+	// WordPress runs uninstall.php instead of this callback when the file exists. That file calls this function.
 	register_uninstall_hook(__FILE__, 'sb_instagram_uninstall');
 
 	/**

@@ -3,7 +3,7 @@ Contributors: smashballoon, craig-at-smash-balloon, am, smub
 Tags: Instagram, Instagram feed, Instagram photos, Instagram widget, Instagram gallery
 Requires at least: 4.1
 Tested up to: 7.1
-Stable tag: 6.14.0
+Stable tag: 6.17.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -307,6 +307,34 @@ For more FAQs related to the Instagram Feed plugin please visit the [FAQ section
 6. Just copy and paste the shortcode into any page, post or widget on your site. You can also use the block editor with our handy Instagram Feed block.
 
 == Changelog ==
+
+= 6.17.0 =
+* Tweak: Activating Instagram Feed Pro no longer deactivates this plugin. It stays on standby while Pro is active and runs your feeds again if you deactivate Pro.
+* Fix: Fixed a fatal error on activation on password-protected or firewalled sites.
+* Fix: Fixed a fatal error when a post image could not be downloaded.
+* Fix: A newly connected account now shows in Settings > Manage Sources without reloading the page.
+* Fix: In the feed customizer, Add Another Source Type no longer lists Public Hashtag, Tagged Posts and Social Wall twice. Picking one now shows what the Pro version adds, instead of a setup form that does nothing in the free version.
+* Fix: Manage Sources no longer asks a working Business or Creator account without a profile picture to reconnect.
+* Fix: Load More now works on sites installed in a subfolder or on a non-standard port when visitors reach the site on another domain or port than the WordPress Address, such as www against non-www.
+* Fix: The "Get more features with Instagram Feed Pro" box on the Settings and All Feeds pages now states the 14-day money-back guarantee.
+
+= 6.16.0 =
+* New: The Embed button in the feed builder now opens a new Embed Feed window. Search for a page or post and add your feed to it, show it on every page through the Site Editor or in a widget, or copy the shortcode. On WordPress versions older than 5.8 the Embed button shows the feed shortcode instead.
+* Tweak: If you had opted in to usage tracking, that choice now carries over to the Data Sharing setting.
+* Fix: Choosing "Add to Page" now opens the page with the Instagram Feed block already added for your feed.
+* Fix: Feed errors are now shown to admins in the block editor instead of an empty box.
+* Fix: Feeds no longer stay hidden when the CookieYes cookie banner script fails to load.
+* Fix: The feed builder no longer freezes when a connected account can no longer be read, for example after your site's security keys change. The account is flagged with a Reconnect link instead.
+* Fix: Saving a feed with no changes no longer shows an "Error saving Feed" message.
+* Fix: With several Smash Balloon plugins active, admin-only notices on your site no longer cover each other.
+* Fix: Plugin security hardening.
+
+= 6.15.1 =
+* Fix: The data-sharing popup no longer locks you out of your WordPress admin when your choice can't be saved. You can always close it and keep working.
+* Fix: Deactivating the plugin before WordPress has finished loading (for example with WP-CLI) no longer causes a fatal error.
+
+= 6.15.0 =
+* New: Ask AI assistants like Claude, ChatGPT and Cursor about your Instagram feeds and settings, through the WordPress Abilities API (WordPress 6.9 and newer). They can also make changes once you turn on "MCP Write Access" under Settings > General. Connect an assistant with the free WPVibe plugin, linked from the settings page. [See what Instagram Feed Pro adds](https://smashballoon.com/instagram-feed/instagram-lite-upgrade/?utm_source=changelog&utm_medium=aiagents&utm_campaign=instagram-free-readme)
 
 = 6.14.0 =
 * New - You can now choose whether to share anonymous usage data. The setup wizard asks for your consent, and a new Data Sharing tab under Settings lets you review or change your data-sharing and in-plugin notification preferences at any time.
